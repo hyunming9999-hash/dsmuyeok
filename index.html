@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>디에스무역</title>
+<title>디에스오토</title>
 <style>
 @font-face{font-family:'검은 고딕';src:url(fonts/blackhan.ttf) format('truetype');font-weight:400;font-display:swap}
 @font-face{font-family:'마포당인리발전소';src:url(fonts/mapo.ttf) format('truetype');font-weight:400;font-display:swap}
@@ -73,10 +73,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .ask .info b{font-family:var(--thin);font-weight:400;color:#1F3D7A}
 
 /* ---------- 중고차! 폐차! ---------- */
-.cars{padding:56px 24px 60px;text-align:center}
-.cars .two{display:flex;justify-content:center;align-items:center;gap:100px;margin:0 auto;padding:30px 0}
-.cars .two img{width:165px;height:auto;object-fit:contain}
-.cars .two img.truck{width:150px}
+.cars{padding:0 24px 60px;text-align:center}
+.cars .one{margin:0 -24px;background:#F3F3F5}
+.cars .one img{width:100%;height:auto;display:block}
 .cars h2{font-family:var(--bold);font-size:52px;color:var(--navy);margin:14px 0 0;line-height:1.05}
 .cars h3{font-family:var(--bold);font-size:34px;color:var(--navy);margin:8px 0 0;line-height:1.2}
 
@@ -98,9 +97,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ---------- 약속 ---------- */
 .promises{padding:30px 24px 40px;text-align:center}
 .pill{display:inline-block;background:var(--navy);color:#fff;font-family:var(--bold);font-size:26px;padding:6px 30px;border-radius:14px}
-.qitem{padding:18px 0 30px}
+.qitem{padding:18px 0 30px;display:flex;flex-direction:column;align-items:center}
 .qitem+.qitem{border-top:1px solid #C9CDD6}
-.qitem img{height:240px;width:auto;margin:16px auto 0}
+.qitem img{height:240px;width:auto;margin:16px 0 0}
 .qitem h3{font-family:var(--bold);font-size:28px;line-height:1.35;color:var(--navy);margin:10px 0 0}
 .qitem p{font-family:var(--thin);font-size:18px;line-height:1.55;color:var(--ink);margin-top:14px}
 
@@ -157,6 +156,13 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 .slot svg{width:22px;height:22px;color:#9AA3B2}
 .slot input{position:absolute;inset:0;opacity:0;cursor:pointer}
 .slot .lb{font-family:var(--bold);color:var(--ink)}
+/* 사진 없이 견적만 (견적만 알아보기 탭 전용) */
+.slot.nophoto{border:0;background:var(--sun);color:var(--navy);font-family:var(--bold);font-size:14px;line-height:1.3;box-shadow:0 4px 0 rgba(0,0,0,.15);border-radius:0}
+.slot.nophoto small{display:block;font-family:var(--thin);font-size:11px;line-height:1.3;margin-top:4px;color:var(--navy)}
+.slot.nophoto.on{background:var(--navy);color:#fff}
+.slot.nophoto.on small{color:#D5EBFA}
+.slot.nophoto[hidden]{display:none}
+.photos.off .slot:not(.nophoto){opacity:.3;pointer-events:none}
 .docs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .docs .slot{aspect-ratio:16/9}
 .checks{display:flex;flex-direction:column;gap:10px}
@@ -248,7 +254,6 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   .ask .btns{gap:12px}.ask .btn{width:46%;font-size:17px}
   .ask .info{font-size:15px}
   .cars h2{font-size:40px}.cars h3{font-size:26px}
-  .cars .two{gap:28px;padding:10px 0}.cars .two img{width:140px}.cars .two img.truck{width:125px}
   .pcard img{height:180px}.pcard h3{font-size:22px}
   .solve h2{font-size:36px}.solve .cargo{height:300px}
   .qitem h3{font-size:24px}.qitem img{height:200px}
@@ -259,6 +264,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   .step h3{font-size:19px}.step .box{font-size:15px;padding:16px 12px}
   .apply h2{font-size:34px}.apply .lead{font-size:16px}
   .grid2,.docs{grid-template-columns:1fr}.photos{grid-template-columns:repeat(3,1fr)}
+  .slot.nophoto{font-size:13px;padding:4px}.slot.nophoto small{font-size:10px}
   .apply .cta{font-size:24px;height:64px}
   .apply .flow{padding:26px 22px 34px}.apply .flow h4{font-size:20px}.apply .flow p{font-size:16px}
   .options .heads div{font-size:12px}
@@ -279,7 +285,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
  <div class="hero-scale">
-  <img class="top" src="assets/hero_full.jpg" alt="디에스무역 — 아직도 중고차 그냥 파십니까? NO, 이제는 수출·폐차 대항해시대 ON. 중고차 해외 수출·폐차 전문상사. 60만km, 파손 심한 문제차량도 모두 가능합니다. 견적상담 > 방문견적 or 탁송(무료) > 판매결정. 비전문가의 감가폭탄 OUT · 중간수수료 OUT · 약속한 금액 그대로">
+  <img class="top" src="assets/hero_full.jpg" alt="디에스오토 — 아직도 중고차 그냥 파십니까? NO, 이제는 수출·폐차 대항해시대 ON. 중고차 해외 수출·폐차 전문상사. 60만km, 파손 심한 문제차량도 모두 가능합니다. 견적상담 > 방문견적 or 탁송(무료) > 판매결정. 비전문가의 감가폭탄 OUT · 중간수수료 OUT · 약속한 금액 그대로">
   <div class="zone">
   <div class="wave">
      <svg class="w1" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,45 C170,5 170,85 340,45 C510,5 510,85 680,45 C850,5 850,85 1020,45 C1190,5 1190,85 1360,45 L1360,230 L0,230 Z" fill="#0B2647" opacity=".55"/></svg>
@@ -299,16 +305,13 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   </div>
   <div class="info">
     상담 : <b><a href="tel:1588-4525" style="color:inherit;text-decoration:none;cursor:pointer">1588-4525</a></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 운영 : <b>10:00 - 22:00</b><br>
-    <span class="hl-b" style="padding:2px 8px">오시는 길 : <b>대전광역시 유성구 노은동 90길 , B1층</b></span>
+    <span class="hl-b" style="padding:2px 8px">오시는 길 : <b>대전광역시 유성구 유성대로 510, 238호</b></span>
   </div>
 </section>
 
 <!-- ================= 중고차! 폐차! ================= -->
 <section class="cars">
-  <div class="two">
-    <img src="assets/car_white_trim.jpg" alt="">
-    <img class="truck" src="assets/truck_loaded_trim.png" alt="">
-  </div>
+  <div class="one"><img src="assets/cars_export.png" alt="일반 승용차와 폐차 3대를 실은 트럭"></div>
   <h2>중고차! 폐차!</h2>
   <h3><span class="hl-y">아직도</span> 그냥 파십니까?</h3>
 </section>
@@ -325,7 +328,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 해결 ================= -->
 <section class="solve" id="promise">
-  <h2>이제는 디에스 무역이<br>해결하겠습니다!</h2>
+  <h2>이제는 디에스오토가<br>해결하겠습니다!</h2>
   <p class="dest">주요수출국: 러시아 / 몽골 / 중동 / 아프리카</p>
   <div class="cargo"><p class="q">"국내 시장의 감가기준이 통하지 않는<br>곳으로 차를 보냅니다!"</p></div>
 </section>
@@ -346,7 +349,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   </div>
   <div class="qitem" style="padding-bottom:10px">
     <span class="pill">3.약속</span>
-    <img src="assets/q_handshake.png" alt="">
+    <img src="assets/handshake_promise.png" alt="">
     <h3>투명한 과정공개!<br><span class="hl-y">약속과 동일한 금액</span></h3>
     <p>판매과정을 실시간으로 공개!<br><span class="hl-b">약속과 동일한 금액</span>이 아닐시 전액환불!</p>
   </div>
@@ -373,7 +376,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     <span class="no">1</span>
     <div class="fig"><img class="qr" src="assets/qr.png" alt="예약사이트 QR"><span class="qrlbl">예약사이트QR</span></div>
     <div>
-      <h3>디에스무역 사이트에서 차량정보 입력</h3>
+      <h3>디에스오토 사이트에서 차량정보 입력</h3>
       <div class="box"><span class="y">1.차종 / 2.연식<br>/ 3.차량 사진 / 4.연락처</span><br>정보만 기입해도<br>[견적가 안내] 가능!<div class="gap"></div>판매 결정 경우<br><span class="y">6.차량등록증 사진</span><br><span class="y">7.신원확인 진행</span></div>
     </div>
   </div>
@@ -422,7 +425,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
       </fieldset>
 
       <fieldset>
-        <legend><span class="st">02</span>차량 사진 7면 <span class="req">* 7장 모두 필수</span></legend>
+        <legend><span class="st">02</span>차량 사진 7면 <span class="req" id="photoReq">* 7장 모두 필수</span></legend>
         <div class="photos" id="photos">
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">정면</span><input type="file" accept="image/*" name="ph_front" required></label>
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">후면</span><input type="file" accept="image/*" name="ph_rear" required></label>
@@ -431,8 +434,9 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">지붕(윗면)</span><input type="file" accept="image/*" name="ph_roof" required></label>
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 운전석/조수석</span><input type="file" accept="image/*" name="ph_in_front" required></label>
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 승객석</span><input type="file" accept="image/*" name="ph_in_rear" required></label>
+          <button type="button" class="slot nophoto" id="noPhotoBtn">사진이 없어요<small>대략적인 차종<br>견적만 알아볼래요</small></button>
         </div>
-        <p class="hint-p"><b style="font-family:var(--bold);font-weight:400;color:var(--ink)">7장을 모두 올려야 접수가 완료됩니다.</b> 휴대폰으로 찍은 사진 그대로 올려주시면 됩니다. 파손 부위가 있다면 가까이서 찍은 사진을 메모와 함께 추가로 보내주셔도 좋습니다.</p>
+        <p class="hint-p" id="photoHint"><b style="font-family:var(--bold);font-weight:400;color:var(--ink)">7장을 모두 올려야 접수가 완료됩니다.</b> 휴대폰으로 찍은 사진 그대로 올려주시면 됩니다. 파손 부위가 있다면 가까이서 찍은 사진을 메모와 함께 추가로 보내주셔도 좋습니다. 사진이 없으면 노란 버튼을 눌러 차종 기준 대략 견적만 받아보실 수 있습니다.</p>
       </fieldset>
 
       <fieldset>
@@ -459,7 +463,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
         <div class="callout" style="margin-top:12px"><b>신분증 확인 안내</b> — 차량등록증의 소유자와 판매 신청인의 <b>명의가 일치하는지 확인</b>하고, 수출·폐차 시 차량 이전·말소 등록에 사용하기 위해 <b>주민등록번호 전체</b>가 필요합니다. 신분증은 <b>사이트에 업로드하지 않으며</b>, 아래 두 방법 중 하나로만 확인합니다. 확인과 등록 절차가 끝나면 <b>즉시 파기</b>하고 다른 목적으로 보관하거나 사용하지 않습니다.</div>
         <div class="idsel" style="margin-top:12px">
           <span style="font-size:13px;font-family:var(--bold);color:var(--ink)">신분 확인 방법 선택 <i style="font-style:normal;color:#C62828">*</i></span>
-          <label class="ck"><input type="radio" name="idmode" value="visit" checked><span><b>1. 방문 제출</b> — 계약 당일 매장(대전 유성구 노은동로 90, B1)에서 신분증 원본을 직접 제시합니다.</span></label>
+          <label class="ck"><input type="radio" name="idmode" value="visit" checked><span><b>1. 방문 제출</b> — 계약 당일 매장(대전 유성구 유성대로 510, 238호)에서 신분증 원본을 직접 제시합니다.</span></label>
           <label class="ck"><input type="radio" name="idmode" value="contact"><span><b>2. 별도 연락으로 확인</b> — 담당자가 전화·문자로 연락드려 확인 방법을 따로 안내합니다.</span></label>
         </div>
         <div class="callout" style="margin-top:12px"><b>차기스PRO 제휴 옵션</b> — 일부 차종에 한해 외장수리 후 추가금을 받고 판매하는 옵션이 있습니다. 대상 차량에만 개별 알림으로 별도 안내드리며, 여기서 선택하실 필요는 없습니다.</div>
@@ -495,15 +499,15 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     <span class="pill">추가 판매옵션</span>
     <p class="note"><span class="hl-y">[제휴 옵션]을 선택 할 수 있는 차량은<br>제한되어 있습니다.</span><br><span class="hl-y">개별 알림 발송으로 안내드립니다,</span></p>
   </div>
-  <div class="heads"><div class="l">기본 옵션 (최종견적가 그대로 판매)</div><div class="r">제휴 옵션 (디에스무역 X 차기스PRO)</div></div>
+  <div class="heads"><div class="l">기본 옵션 (최종견적가 그대로 판매)</div><div class="r">제휴 옵션 (디에스오토 X 차기스PRO)</div></div>
   <div class="cards">
     <div class="ocard">
-      <div class="lg"><div class="logo sm"><div class="tag">아직도 중고차 그냥 파십니까?<span class="no">NO</span><br>이제는 수출•폐차 대항해시대<span class="on">ON</span></div><div class="name"><span class="ds">디에스</span><span class="my">무역</span></div><div class="pill">중고차 해외 수출 • 폐차 전문상사</div></div></div>
+      <div class="lg"><div class="logo sm"><div class="tag">아직도 중고차 그냥 파십니까?<span class="no">NO</span><br>이제는 수출•폐차 대항해시대<span class="on">ON</span></div><div class="name"><span class="ds">디에스</span><span class="my">오토</span></div><div class="pill">중고차 해외 수출 • 폐차 전문상사</div></div></div>
       <div class="box dark">최종견적가 그대로<br>그대로 판매진행 옵션</div>
       <p class="ex">예시: 추가선택 없이<br>최종견적가<br><span class="hl-y">550만원에 판매</span> 결정</p>
     </div>
     <div class="ocard">
-      <div class="lg"><div class="logo sm" style="transform:scale(.8);margin:-8px 0"><div class="tag">아직도 중고차 그냥 파십니까?<span class="no">NO</span><br>이제는 수출•폐차 대항해시대<span class="on">ON</span></div><div class="name"><span class="ds">디에스</span><span class="my">무역</span></div><div class="pill">중고차 해외 수출 • 폐차 전문상사</div></div></div>
+      <div class="lg"><div class="logo sm" style="transform:scale(.8);margin:-8px 0"><div class="tag">아직도 중고차 그냥 파십니까?<span class="no">NO</span><br>이제는 수출•폐차 대항해시대<span class="on">ON</span></div><div class="name"><span class="ds">디에스</span><span class="my">오토</span></div><div class="pill">중고차 해외 수출 • 폐차 전문상사</div></div></div>
       <div class="x">X</div>
       <div class="chagis"><img src="assets/chagis.webp" alt="차기스PRO"></div>
       <div class="box light">외장수리 전문매장<br>(제휴매장)<br><span class="hl-y">차기스 프로(PRO)</span>에서 수리 후<br>추가금 받고 판매</div>
@@ -517,19 +521,19 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <section class="outro" id="visit">
   <div class="logo">
     <div class="tag">아직도 중고차 그냥 파십니까?<span class="no">NO</span><br>이제는 수출•폐차 대항해시대<span class="on">ON</span></div>
-    <div class="name"><span class="ds">디에스</span><span class="my">무역</span></div>
+    <div class="name"><span class="ds">디에스</span><span class="my">오토</span></div>
     <div class="pill">중고차 해외 수출 • 폐차 전문상사</div>
   </div>
   <div class="sea">
     <p class="msg">이제는 제 값에, 안심하고 팔 수 있는<br>시대가 열렸습니다!</p>
-    <div class="card"><b>상담전화 :</b> <a href="tel:1588-4525">1588-4525</a><br><b>운영시간 :</b> <span style="white-space:nowrap">10:00 AM ~ 22:00 PM</span><br><b>오시는길 :</b> <span style="white-space:nowrap">대전광역시 유성구 노은동로 90, B1</span></div>
+    <div class="card"><b>상담전화 :</b> <a href="tel:1588-4525">1588-4525</a><br><b>운영시간 :</b> <span style="white-space:nowrap">10:00 AM ~ 22:00 PM</span><br><b>오시는길 :</b> <span style="white-space:nowrap">대전광역시 유성구 유성대로 510, 238호</span></div>
   </div>
 </section>
 <nav class="foot-nav"><a href="#privacy">개인정보 처리 방침</a><a href="#legal">허위접수 안내</a><a href="#apply">견적,판매 신청으로 가기</a></nav>
 
 <!-- ================= 기존 푸터 그대로 ================= -->
 <footer>
-  <div class="biz">상호 디에스무역 · 대표 최희찬<br>사업자등록번호 <span style="white-space:nowrap">468-68-00735</span><br>대전광역시 유성구 노은동로 90, B1<br>개인정보보호책임자 최희찬 · 상담전화 <span style="white-space:nowrap"><a href="tel:1588-4525" style="color:inherit">1588-4525</a></span></div>
+  <div class="biz">상호 디에스오토 · 대표 최희찬<br>사업자등록번호 <span style="white-space:nowrap">468-68-00735</span><br>대전광역시 유성구 유성대로 510, 238호<br>개인정보보호책임자 최희찬 · 상담전화 <span style="white-space:nowrap"><a href="tel:1588-4525" style="color:inherit">1588-4525</a></span></div>
   <details id="privacy">
     <summary>개인정보처리방침 (요약)</summary>
     <div class="body">
@@ -556,7 +560,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     </ul>
     접수 시 IP 주소와 접수 일시가 기록되며, 반복적인 허위 접수는 수사기관에 증거 자료와 함께 제출됩니다.
   </div>
-  <p class="copy">© 2026 디에스무역. All rights reserved.</p>
+  <p class="copy">© 2026 디에스오토. All rights reserved.</p>
 </footer>
 
 </div>
@@ -566,8 +570,19 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 (function(){var h=document.querySelector('.hero'),c=document.querySelector('.hero-scale');function fit(){var w=h.clientWidth;if(w<680){var k=w/680;c.style.transform='scale('+k+')';h.style.height=(710*k)+'px';}else{c.style.transform='';h.style.height='';}}fit();addEventListener('resize',fit);})();
 // 연식 옵션
 (function(){var y=document.getElementById('year');var now=new Date().getFullYear();for(var i=now;i>=1990;i--){var o=document.createElement('option');o.textContent=i+'년';o.value=i;y.appendChild(o);}})();
+// 사진 없이 견적만 (견적만 알아보기 탭 전용)
+var noPhoto=false;
+var npBtn=document.getElementById('noPhotoBtn'),photosBox=document.getElementById('photos'),photoHint=document.getElementById('photoHint'),photoReq=document.getElementById('photoReq');
+var hintOrig=photoHint.innerHTML,btnOrig=npBtn.innerHTML;
+function setNoPhoto(v){
+  noPhoto=v;npBtn.classList.toggle('on',v);photosBox.classList.toggle('off',v);
+  npBtn.innerHTML=v?'✓ 사진 없이<br>견적만<small>다시 누르면<br>사진 첨부로</small>':btnOrig;
+  photoReq.textContent=v?'사진 없이 진행':'* 7장 모두 필수';
+  photoHint.innerHTML=v?'<b style="font-family:var(--bold);font-weight:400;color:var(--ink)">사진 없이 차종 기준 대략 견적만 안내드립니다.</b> 차종·연식·주행거리·상태 메모를 자세히 적어주실수록 정확해집니다. 정확한 견적은 이후 사진 확인 또는 방문·탁송 확인 후 확정됩니다.':hintOrig;
+}
+npBtn.addEventListener('click',function(){setNoPhoto(!noPhoto);});
 // 탭 전환
-document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});t.classList.add('active');document.getElementById('sellOnly').hidden=t.dataset.mode!=='sell';});});
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});t.classList.add('active');var sell=t.dataset.mode==='sell';document.getElementById('sellOnly').hidden=!sell;if(sell){setNoPhoto(false);npBtn.hidden=true;}else{npBtn.hidden=false;}});});
 // 사진 미리보기
 document.querySelectorAll('.slot input[type=file]').forEach(function(inp){inp.addEventListener('change',function(){var f=inp.files[0];if(!f)return;var img=document.createElement('img');img.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';img.src=URL.createObjectURL(f);inp.parentNode.appendChild(img);inp.parentNode.querySelector('.lb').style.cssText='position:relative;z-index:1;background:rgba(255,255,255,.9);padding:2px 6px';});});
 // 사진 압축(긴 변 1400px, JPEG 82%) → base64. 압축 불가 형식(HEIC 등)은 원본 그대로
@@ -585,10 +600,11 @@ var fmsg=document.getElementById('fmsg');
 function showMsg(type,html){fmsg.className='fmsg '+type;fmsg.innerHTML=html;fmsg.scrollIntoView({behavior:'smooth',block:'center'});}
 document.getElementById('applyForm').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
   if(!f.maker.value||!f.model.value||!f.year.value){showMsg('err','차량 정보(제조사·차종·연식)를 입력해 주세요.');return;}
-  var ph=Array.prototype.slice.call(f.querySelectorAll('#photos input[type=file]')),miss=[];ph.forEach(function(i){if(!i.files.length)miss.push(i.parentNode.querySelector('.lb').textContent);});
-  if(miss.length){showMsg('err','차량 사진 7장을 모두 올려주셔야 접수됩니다.\n빠진 사진: '+miss.join(', '));return;}
-  if(!f.name.value||!f.phone.value){showMsg('err','성함과 휴대폰 번호를 입력해 주세요.');return;}
   var sell=document.getElementById('tabSell').classList.contains('active');
+  var skipPhoto=noPhoto&&!sell;
+  var ph=Array.prototype.slice.call(f.querySelectorAll('#photos input[type=file]')),miss=[];ph.forEach(function(i){if(!i.files.length)miss.push(i.parentNode.querySelector('.lb').textContent);});
+  if(!skipPhoto&&miss.length){showMsg('err','차량 사진 7장을 모두 올려주셔야 접수됩니다.\n빠진 사진: '+miss.join(', ')+'\n\n사진이 없으시면 노란 [사진이 없어요] 버튼을 눌러 주세요.');return;}
+  if(!f.name.value||!f.phone.value){showMsg('err','성함과 휴대폰 번호를 입력해 주세요.');return;}
   if(sell&&!f.doc_reg.files.length){showMsg('err','판매 진행 시 차량등록증 사진을 올려주세요.');return;}
   if(!f.agree_privacy.checked||!f.agree_truth.checked){showMsg('err','필수 동의 항목 2개를 모두 체크해 주세요.');return;}
 
@@ -600,7 +616,7 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
   var formData={
     timestamp:new Date().toLocaleString('ko-KR'),
     refNo:refNo,
-    formType:sell?'판매진행':'견적조회',
+    formType:sell?'판매진행':(skipPhoto?'견적조회(사진없음·대략견적)':'견적조회'),
     maker:f.maker.value, model:f.model.value, year:f.year.value,
     km:f.km.value||'', memo:f.memo.value||'',
     photoCount:ph.filter(function(i){return i.files.length}).length,
@@ -621,6 +637,7 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
       f.reset();
       f.querySelectorAll('.slot img').forEach(function(im){im.remove();});
       f.querySelectorAll('.slot .lb').forEach(function(l){l.style.cssText='';});
+      setNoPhoto(false);
     }catch(e2){console.warn(e2);}
     btn.disabled=false;btn.textContent='견적 요청 보내기';
   }
@@ -632,14 +649,14 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
   }
 
   // 사진 목록 (7장 + 판매진행 시 차량등록증)
-  var jobs=ph.map(function(i,idx){var lb=i.parentNode.querySelector('.lb').textContent.trim();return shrinkPhoto(i.files[0]).then(function(r){return r?{name:(idx+1)+'_'+lb+'.'+r.ext,mime:r.mime,data:r.data}:null;});});
+  var jobs=[];ph.forEach(function(i,idx){if(!i.files.length)return;var lb=i.parentNode.querySelector('.lb').textContent.trim();jobs.push(shrinkPhoto(i.files[0]).then(function(r){return r?{name:(idx+1)+'_'+lb+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});
   if(sell&&f.doc_reg.files.length){jobs.push(shrinkPhoto(f.doc_reg.files[0]).then(function(r){return r?{name:'0_차량등록증.'+r.ext,mime:r.mime,data:r.data}:null;}));}
-  showMsg('wait','사진을 정리하고 있습니다. 잠시만 기다려 주세요.');
+  if(jobs.length)showMsg('wait','사진을 정리하고 있습니다. 잠시만 기다려 주세요.');
 
   Promise.all(jobs).then(function(photos){
     formData.photos=photos.filter(Boolean);
     var payload=JSON.stringify(formData);
-    showMsg('wait','접수 정보를 전송하고 있습니다. 사진이 포함되어 10~20초 걸릴 수 있습니다.');
+    showMsg('wait',formData.photos.length?'접수 정보를 전송하고 있습니다. 사진이 포함되어 10~20초 걸릴 수 있습니다.':'접수 정보를 전송하고 있습니다. 잠시만 기다려 주세요.');
     var opt1={method:'POST',mode:'cors',redirect:'manual',headers:{'Content-Type':'text/plain;charset=utf-8'},body:payload};
     var opt2={method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:payload};
     return fetch(URL_,opt1).then(function(r){
