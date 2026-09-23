@@ -109,9 +109,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ---------- 설마 ---------- */
 .doubt{padding:calc(40*var(--u)) 24px 0;text-align:center}
 .doubt .big{font-family:var(--bold);font-size:calc(45*var(--u));color:var(--navy);line-height:1;margin-bottom:calc(12*var(--u))}
-.doubt h3{font-family:var(--bold);font-size:calc(26*var(--u));color:var(--navy);line-height:1.5;margin:0}
-.doubt h3 .hl-yb{padding:calc(3*var(--u)) calc(8*var(--u))}
-.doubt img{width:calc(400*var(--u));margin:calc(44*var(--u)) auto 0}
+.doubt h3{font-family:var(--bold);font-size:calc(33*var(--u));color:var(--navy);line-height:1.1;margin:0;white-space:nowrap}
+.doubt h3 .hl-yb{font-size:calc(30*var(--u));padding:calc(3*var(--u)) calc(8*var(--u));display:inline-block;margin-top:calc(6*var(--u))}
+.doubt img{width:calc(400*var(--u));margin:calc(32*var(--u)) auto 0}
 .doubt .ok{display:inline-block;background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(14*var(--u));line-height:1;padding:calc(13*var(--u)) calc(26*var(--u));border-radius:999px;margin-top:calc(44*var(--u));box-shadow:0 4px 0 rgba(0,0,0,.15)}
 .doubt-band{background:var(--navy);color:#fff;text-align:center;padding:40px 24px 44px;margin-top:22px;font-family:var(--thin);font-size:20px;line-height:1.45}
 .doubt-band .gap{height:22px}
@@ -359,8 +359,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 설마 ================= -->
 <section class="doubt">
-  <div class="big">설마,</div>
-  <h3>내 차가 오래되고,<br>연식도 60만km라서?<br>너무 기스가 많고,<br>파손이 심한 문제차량이라서?<br><span class="hl-yb">판매가 될까 걱정되십니까?</span></h3>
+  <h3>설마, 내 차가 오래되고,<br>연식도 60만km라서?<br>너무 기스가 많고, 파손이 심한 문제차량이라서?<br><span class="hl-yb">판매가 될까 걱정되십니까?</span></h3>
   <img src="assets/car_wrecked_hd.jpg" alt="">
   <span class="ok">파손이 심한 차량도 OK</span>
 </section>
@@ -436,7 +435,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">지붕(윗면)</span><input type="file" accept="image/*" name="ph_roof" required></label>
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 운전석/조수석</span><input type="file" accept="image/*" name="ph_in_front" required></label>
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 승객석</span><input type="file" accept="image/*" name="ph_in_rear" required></label>
-          <button type="button" class="slot nophoto" id="noPhotoBtn">사진이 없어요<small>대략적인 차종견적만<br>알아볼래요 [클릭]</small></button>
+          <button type="button" class="slot nophoto" id="noPhotoBtn">사진이 없어요<small>대략적인<br>차종견적만<br>알아볼래요[클릭]</small></button>
         </div>
         <p class="hint-p" id="photoHint"><b style="font-family:var(--bold);font-weight:400;color:var(--ink)">사진 7장을 모두 올려주시면 차량 상태를 반영한 정확한 견적을 받아보실 수 있습니다.</b> 휴대폰으로 찍은 사진 그대로 올려주시면 됩니다. 파손 부위는 가까이서 찍은 사진을 메모와 함께 추가해 주셔도 좋습니다.<br>지금 사진이 없으시면 노란 <b style="font-family:var(--bold);font-weight:400;color:var(--ink)">[사진이 없어요]</b> 버튼을 눌러 주세요. 사진 업로드 없이 차종·연식 기준의 대략적인 금액만 먼저 안내드립니다.</p>
       </fieldset>
