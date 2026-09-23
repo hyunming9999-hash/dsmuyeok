@@ -100,6 +100,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .qitem{padding:18px 0 30px;display:flex;flex-direction:column;align-items:center}
 .qitem+.qitem{border-top:1px solid #C9CDD6}
 .qitem img{height:240px;width:auto;margin:16px 0 0}
+.qitem.qcard{padding:0 0 10px}.qitem img.card{width:100%;height:auto;margin:0}
+.doubt-card{padding:20px 0 0}.doubt-card img.card{width:100%;height:auto;margin:0}
 .qitem h3{font-family:var(--bold);font-size:28px;line-height:1.35;color:var(--navy);margin:10px 0 0}
 .qitem p{font-family:var(--thin);font-size:18px;line-height:1.55;color:var(--ink);margin-top:14px}
 
@@ -256,7 +258,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   .cars h2{font-size:40px}.cars h3{font-size:26px}
   .pcard img{height:180px}.pcard h3{font-size:22px}
   .solve h2{font-size:36px}.solve .cargo{height:300px}
-  .qitem h3{font-size:24px}.qitem img{height:200px}
+  .qitem h3{font-size:24px}.qitem img{height:200px}.qitem img.card{height:auto}
   .doubt .big{font-size:44px}.doubt h3{font-size:22px}
   .steps .pill{font-size:24px;padding:8px 30px}
   .step{grid-template-columns:120px 1fr;gap:10px}.step .no{left:38px}
@@ -347,20 +349,14 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     <h3><span class="hl-y">중간 수수료</span>를 타파!<br>고객에게 더 많이</h3>
     <p>바이어와의 직거래를 통해<br><span class="hl-b">수수료를 없애고</span> 고객에게 드립니다</p>
   </div>
-  <div class="qitem" style="padding-bottom:10px">
-    <span class="pill">3.약속</span>
-    <img src="assets/handshake_promise.png" alt="">
-    <h3>투명한 과정공개!<br><span class="hl-y">약속과 동일한 금액</span></h3>
-    <p>판매과정을 실시간으로 공개!<br><span class="hl-b">약속과 동일한 금액</span>이 아닐시 전액환불!</p>
+  <div class="qitem qcard" style="padding-bottom:10px">
+    <img class="card" src="assets/card_promise3.jpg" alt="3.약속 — 투명한 과정공개! 약속과 동일한 금액. 판매과정을 실시간으로 공개! 약속과 동일한 금액이 아닐시 전액환불!">
   </div>
 </section>
 
 <!-- ================= 설마 ================= -->
-<section class="doubt">
-  <div class="big">설마,</div>
-  <h3>내 차가 오래되고,<br>연식도 60만km라서?<br>너무 기스가 많고,<br>파손이 심한 문제차량이라서?<br><span class="hl-yb">판매가 될까 걱정되십니까?</span></h3>
-  <img src="assets/car_wrecked_pdf.jpg" alt="">
-  <span class="ok">파손이 심한 차량도 OK</span>
+<section class="doubt doubt-card">
+  <img class="card" src="assets/card_doubt.jpg" alt="설마, 내 차가 오래되고, 연식도 60만km라서? 너무 기스가 많고, 파손이 심한 문제차량이라서? 판매가 될까 걱정되십니까? 파손이 심한 차량도 OK">
 </section>
 <div class="doubt-band">
   걱정은 이제 그만!<br><span class="y">이렇게 파손된 차량도,<br>그 어떤 차도 가능합니다!</span>
