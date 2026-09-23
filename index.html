@@ -95,22 +95,24 @@ button,input,select,textarea{font:inherit;color:inherit}
 .solve .cargo .q{position:absolute;left:0;right:0;top:20px;text-align:center;color:#fff;font-family:var(--thin);font-size:20px;line-height:1.4;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 
 /* ---------- 약속 ---------- */
-.promises{padding:30px 24px 40px;text-align:center}
+/* 카드(794px) 실측값을 680px 기준으로 환산, 화면이 좁아지면 카드처럼 통째로 비례 축소 */
+.promises,.doubt{--u:min(1px,calc(100vw / 680))}
+.promises{padding:calc(30*var(--u)) 24px calc(40*var(--u));text-align:center}
 .pill{display:inline-block;background:var(--navy);color:#fff;font-family:var(--bold);font-size:26px;padding:6px 30px;border-radius:14px}
-.qitem{padding:18px 0 30px;display:flex;flex-direction:column;align-items:center}
+.promises .pill{font-size:calc(38*var(--u));line-height:1.15;padding:calc(12*var(--u)) calc(38*var(--u));border-radius:calc(18*var(--u))}
+.qitem{padding:calc(24*var(--u)) 0 calc(36*var(--u));display:flex;flex-direction:column;align-items:center}
 .qitem+.qitem{border-top:1px solid #C9CDD6}
-.qitem img{height:240px;width:auto;margin:16px 0 0}
-.qitem.qcard{padding:0 0 10px}.qitem img.card{width:100%;height:auto;margin:0}
-.doubt-card{padding:20px 0 0}.doubt-card img.card{width:100%;height:auto;margin:0}
-.qitem h3{font-family:var(--bold);font-size:28px;line-height:1.35;color:var(--navy);margin:10px 0 0}
-.qitem p{font-family:var(--thin);font-size:18px;line-height:1.55;color:var(--ink);margin-top:14px}
+.qitem img{height:calc(193*var(--u));width:auto;margin:calc(60*var(--u)) 0 0}
+.qitem h3{font-family:var(--bold);font-size:calc(32*var(--u));line-height:1.45;color:var(--navy);margin:calc(24*var(--u)) 0 0}
+.qitem p{font-family:var(--thin);font-size:calc(24*var(--u));line-height:1.5;color:var(--ink);margin-top:calc(20*var(--u))}
 
 /* ---------- 설마 ---------- */
-.doubt{padding:34px 24px 0;text-align:center}
-.doubt .big{font-family:var(--bold);font-size:54px;color:var(--navy);line-height:1}
-.doubt h3{font-family:var(--bold);font-size:30px;color:var(--navy);line-height:1.3;margin:2px 0 0}
-.doubt img{width:440px;margin:18px auto 0}
-.doubt .ok{display:inline-block;background:var(--navy);color:#fff;font-family:var(--thin);font-size:17px;padding:8px 26px;border-radius:999px;margin-top:6px;box-shadow:0 4px 0 rgba(0,0,0,.15)}
+.doubt{padding:calc(40*var(--u)) 24px 0;text-align:center}
+.doubt .big{font-family:var(--bold);font-size:calc(45*var(--u));color:var(--navy);line-height:1;margin-bottom:calc(12*var(--u))}
+.doubt h3{font-family:var(--bold);font-size:calc(26*var(--u));color:var(--navy);line-height:1.5;margin:0}
+.doubt h3 .hl-yb{padding:calc(3*var(--u)) calc(8*var(--u))}
+.doubt img{width:calc(400*var(--u));margin:calc(44*var(--u)) auto 0}
+.doubt .ok{display:inline-block;background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(14*var(--u));line-height:1;padding:calc(13*var(--u)) calc(26*var(--u));border-radius:999px;margin-top:calc(44*var(--u));box-shadow:0 4px 0 rgba(0,0,0,.15)}
 .doubt-band{background:var(--navy);color:#fff;text-align:center;padding:40px 24px 44px;margin-top:22px;font-family:var(--thin);font-size:20px;line-height:1.45}
 .doubt-band .gap{height:22px}
 
@@ -258,8 +260,6 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   .cars h2{font-size:40px}.cars h3{font-size:26px}
   .pcard img{height:180px}.pcard h3{font-size:22px}
   .solve h2{font-size:36px}.solve .cargo{height:300px}
-  .qitem h3{font-size:24px}.qitem img{height:200px}.qitem img.card{height:auto}
-  .doubt .big{font-size:44px}.doubt h3{font-size:22px}
   .steps .pill{font-size:24px;padding:8px 30px}
   .step{grid-template-columns:120px 1fr;gap:10px}.step .no{left:38px}
   .step .fig img{max-width:110px}.step .fig .qr{width:100px;height:100px}
@@ -349,14 +349,20 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     <h3><span class="hl-y">중간 수수료</span>를 타파!<br>고객에게 더 많이</h3>
     <p>바이어와의 직거래를 통해<br><span class="hl-b">수수료를 없애고</span> 고객에게 드립니다</p>
   </div>
-  <div class="qitem qcard" style="padding-bottom:10px">
-    <img class="card" src="assets/card_promise3.jpg" alt="3.약속 — 투명한 과정공개! 약속과 동일한 금액. 판매과정을 실시간으로 공개! 약속과 동일한 금액이 아닐시 전액환불!">
+  <div class="qitem" style="padding-bottom:10px">
+    <span class="pill">3.약속</span>
+    <img src="assets/handshake_promise.png" alt="">
+    <h3>투명한 과정공개!<br><span class="hl-y">약속과 동일한 금액</span></h3>
+    <p>판매과정을 실시간으로 공개!<br><span class="hl-b">약속과 동일한 금액</span>이 아닐시 전액환불!</p>
   </div>
 </section>
 
 <!-- ================= 설마 ================= -->
-<section class="doubt doubt-card">
-  <img class="card" src="assets/card_doubt.jpg" alt="설마, 내 차가 오래되고, 연식도 60만km라서? 너무 기스가 많고, 파손이 심한 문제차량이라서? 판매가 될까 걱정되십니까? 파손이 심한 차량도 OK">
+<section class="doubt">
+  <div class="big">설마,</div>
+  <h3>내 차가 오래되고,<br>연식도 60만km라서?<br>너무 기스가 많고,<br>파손이 심한 문제차량이라서?<br><span class="hl-yb">판매가 될까 걱정되십니까?</span></h3>
+  <img src="assets/car_wrecked_hd.jpg" alt="">
+  <span class="ok">파손이 심한 차량도 OK</span>
 </section>
 <div class="doubt-band">
   걱정은 이제 그만!<br><span class="y">이렇게 파손된 차량도,<br>그 어떤 차도 가능합니다!</span>
@@ -430,9 +436,9 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">지붕(윗면)</span><input type="file" accept="image/*" name="ph_roof" required></label>
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 운전석/조수석</span><input type="file" accept="image/*" name="ph_in_front" required></label>
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 승객석</span><input type="file" accept="image/*" name="ph_in_rear" required></label>
-          <button type="button" class="slot nophoto" id="noPhotoBtn">사진이 없어요<small>대략적인 차종<br>견적만 알아볼래요</small></button>
+          <button type="button" class="slot nophoto" id="noPhotoBtn">사진이 없어요<small>대략적인 차종견적만<br>알아볼래요 [클릭]</small></button>
         </div>
-        <p class="hint-p" id="photoHint"><b style="font-family:var(--bold);font-weight:400;color:var(--ink)">7장을 모두 올려야 접수가 완료됩니다.</b> 휴대폰으로 찍은 사진 그대로 올려주시면 됩니다. 파손 부위가 있다면 가까이서 찍은 사진을 메모와 함께 추가로 보내주셔도 좋습니다. 사진이 없으면 노란 버튼을 눌러 차종 기준 대략 견적만 받아보실 수 있습니다.</p>
+        <p class="hint-p" id="photoHint"><b style="font-family:var(--bold);font-weight:400;color:var(--ink)">사진 7장을 모두 올려주시면 차량 상태를 반영한 정확한 견적을 받아보실 수 있습니다.</b> 휴대폰으로 찍은 사진 그대로 올려주시면 됩니다. 파손 부위는 가까이서 찍은 사진을 메모와 함께 추가해 주셔도 좋습니다.<br>지금 사진이 없으시면 노란 <b style="font-family:var(--bold);font-weight:400;color:var(--ink)">[사진이 없어요]</b> 버튼을 눌러 주세요. 사진 업로드 없이 차종·연식 기준의 대략적인 금액만 먼저 안내드립니다.</p>
       </fieldset>
 
       <fieldset>
@@ -572,9 +578,9 @@ var npBtn=document.getElementById('noPhotoBtn'),photosBox=document.getElementByI
 var hintOrig=photoHint.innerHTML,btnOrig=npBtn.innerHTML;
 function setNoPhoto(v){
   noPhoto=v;npBtn.classList.toggle('on',v);photosBox.classList.toggle('off',v);
-  npBtn.innerHTML=v?'✓ 사진 없이<br>견적만<small>다시 누르면<br>사진 첨부로</small>':btnOrig;
+  npBtn.innerHTML=v?'✓ 사진 없이<br>대략 견적만<small>다시 누르면<br>사진 첨부로 [클릭]</small>':btnOrig;
   photoReq.textContent=v?'사진 없이 진행':'* 7장 모두 필수';
-  photoHint.innerHTML=v?'<b style="font-family:var(--bold);font-weight:400;color:var(--ink)">사진 없이 차종 기준 대략 견적만 안내드립니다.</b> 차종·연식·주행거리·상태 메모를 자세히 적어주실수록 정확해집니다. 정확한 견적은 이후 사진 확인 또는 방문·탁송 확인 후 확정됩니다.':hintOrig;
+  photoHint.innerHTML=v?'<b style="font-family:var(--bold);font-weight:400;color:var(--ink)">사진 없이 접수됩니다. 차종·연식 기준의 대략적인 금액만 먼저 안내드립니다.</b> 주행거리와 상태 메모를 자세히 적어주실수록 안내가 정확해지며, 최종 견적은 이후 사진 확인 또는 방문·탁송 확인 후 확정됩니다. 사진을 올리시려면 버튼을 다시 눌러 주세요.':hintOrig;
 }
 npBtn.addEventListener('click',function(){setNoPhoto(!noPhoto);});
 // 탭 전환
