@@ -222,7 +222,8 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 
 /* ---------- 마무리 배너 ---------- */
 .outro{background:#fff;text-align:center;padding-top:30px}
-.outro .logo{margin-bottom:22px}
+.outro .logo-img{width:282px;max-width:80%;height:auto;margin:0 auto 22px}
+.ocard .logo-img{width:183px;height:auto}.ocard .logo-img.s{width:146px}
 .outro .logo .tag{color:#141414}
 .outro .logo .tag .no{color:#16246B}
 .outro .logo .tag .on{color:#FFCE4B}
@@ -255,6 +256,7 @@ footer .warn b{color:#fff;font-family:var(--bold);font-weight:400}
 footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 @media (max-width:700px){
+  .ocard .logo-img{width:141px}.ocard .logo-img.s{width:113px}
   :root{--col:100%}
   .page{box-shadow:none}
   /* 히어로: 680px 캔버스를 화면 폭에 맞춰 통째로 축소 (PDF 비율 유지) */
@@ -511,12 +513,12 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   <div class="heads"><div class="l">기본 옵션 (최종견적가 그대로 판매)</div><div class="r">제휴 옵션 (디에스오토 X 차기스PRO)</div></div>
   <div class="cards">
     <div class="ocard">
-      <div class="lg"><div class="logo sm"><div class="tag">아직도 중고차 그냥 파십니까?<span class="no">NO</span><br>이제는 수출•폐차 대항해시대<span class="on">ON</span></div><div class="name"><span class="ds">디에스</span><span class="my">오토</span></div><div class="pill">중고차 수출 • 폐차 수출 전문기업</div></div></div>
+      <div class="lg"><img class="logo-img" src="assets/logo.png" alt="디에스오토 — 중고차 수출 • 폐차 수출 전문기업"></div>
       <div class="box dark">최종견적가 그대로<br>그대로 판매진행 옵션</div>
       <p class="ex">예시: 추가선택 없이<br>최종견적가<br><span class="hl-y">550만원에 판매</span> 결정</p>
     </div>
     <div class="ocard">
-      <div class="lg"><div class="logo sm" style="transform:scale(.8);margin:-8px 0"><div class="tag">아직도 중고차 그냥 파십니까?<span class="no">NO</span><br>이제는 수출•폐차 대항해시대<span class="on">ON</span></div><div class="name"><span class="ds">디에스</span><span class="my">오토</span></div><div class="pill">중고차 수출 • 폐차 수출 전문기업</div></div></div>
+      <div class="lg"><img class="logo-img s" src="assets/logo.png" alt="디에스오토 — 중고차 수출 • 폐차 수출 전문기업"></div>
       <div class="x">X</div>
       <div class="chagis"><img src="assets/chagis.webp" alt="차기스PRO"></div>
       <div class="box light">외장수리 전문매장<br>(제휴매장)<br><span class="hl-y">차기스 프로(PRO)</span>에서 수리 후<br>추가금 받고 판매</div>
@@ -528,11 +530,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 마무리 배너 ================= -->
 <section class="outro" id="visit">
-  <div class="logo">
-    <div class="tag">아직도 중고차 그냥 파십니까?<span class="no">NO</span><br>이제는 수출•폐차 대항해시대<span class="on">ON</span></div>
-    <div class="name"><span class="ds">디에스</span><span class="my">오토</span></div>
-    <div class="pill">중고차 수출 • 폐차 수출 전문기업</div>
-  </div>
+  <img class="logo-img" src="assets/logo.png" alt="디에스오토 — 중고차 수출 • 폐차 수출 전문기업">
   <div class="sea">
     <p class="msg">이제는 제 값에, 안심하고 팔 수 있는<br>시대가 열렸습니다!</p>
     <div class="card"><b>상담전화 :</b> <a href="tel:1588-4525">1588-4525</a><br><b>운영시간 :</b> <span style="white-space:nowrap">10:00 AM ~ 22:00 PM</span><br><b>오시는길 :</b> <span style="white-space:nowrap">대전광역시 유성구 유성대로 510, 238호</span></div>
