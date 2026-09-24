@@ -166,6 +166,11 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 .slot.nophoto.on{background:var(--navy);color:#fff}
 .slot.nophoto.on small{color:#D5EBFA}
 .slot.nophoto[hidden]{display:none}
+.slot.extra{border:0;background:var(--sky-btn);box-shadow:0 4px 0 rgba(0,0,0,.15)}
+.slot.extra .lb{font-family:var(--bold);font-size:14px;line-height:1.3;color:var(--navy)}
+.slot.extra .lb small{display:block;font-family:var(--thin);font-size:11px;line-height:1.3;margin-top:4px;color:var(--navy)}
+.slot.extra.has{background:var(--navy)}.slot.extra.has .lb,.slot.extra.has .lb small{color:#fff}
+.slot.extra[hidden]{display:none}
 .photos.off .slot:not(.nophoto){opacity:.3;pointer-events:none}
 .docs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .docs .slot{aspect-ratio:16/9}
@@ -267,6 +272,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   .apply h2{font-size:34px}.apply .lead{font-size:16px}
   .grid2,.docs{grid-template-columns:1fr}.photos{grid-template-columns:repeat(3,1fr)}
   .slot.nophoto{font-size:13px;padding:4px}.slot.nophoto small{font-size:10px}
+  .slot.extra{padding:4px}.slot.extra .lb{font-size:13px}.slot.extra .lb small{font-size:10px}
   .apply .cta{font-size:24px;height:64px}
   .apply .flow{padding:26px 22px 34px}.apply .flow h4{font-size:20px}.apply .flow p{font-size:16px}
   .options .heads div{font-size:12px}
@@ -302,8 +308,8 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <section class="ask">
   <h2>언제든 가볍게 문의하세요</h2>
   <div class="btns">
-    <button class="btn dark" onclick="location.href='#apply'">견적만 알아보기</button>
-    <button class="btn light" onclick="location.href='#apply'">판매 진행하기</button>
+    <button class="btn dark" onclick="document.getElementById('tabQuote').click();location.href='#apply'">견적만 알아보기</button>
+    <button class="btn light" onclick="document.getElementById('tabSell').click();location.href='#apply'">판매 진행하기</button>
   </div>
   <div class="info">
     상담 : <b><a href="tel:1588-4525" style="color:inherit;text-decoration:none;cursor:pointer">1588-4525</a></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 운영 : <b>10:00 - 22:00</b><br>
@@ -437,6 +443,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 운전석/조수석</span><input type="file" accept="image/*" name="ph_in_front" required></label>
           <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 승객석</span><input type="file" accept="image/*" name="ph_in_rear" required></label>
           <button type="button" class="slot nophoto" id="noPhotoBtn">사진이 없어요<small>대략적인<br>차종견적만<br>알아볼래요[클릭]</small></button>
+          <label class="slot extra" id="extraSlot" hidden><span class="lb" id="extraLb">추가 파손사진<br>올리기<small>여러장 가능[클릭]</small></span><input type="file" accept="image/*" multiple name="ph_extra" id="extraInput"></label>
         </div>
         <p class="hint-p" id="photoHint"><b style="font-family:var(--bold);font-weight:400;color:var(--ink)">사진 7장을 모두 올려주시면 차량 상태를 반영한 정확한 견적을 받아보실 수 있습니다.</b> 휴대폰으로 찍은 사진 그대로 올려주시면 됩니다. 파손 부위는 가까이서 찍은 사진을 메모와 함께 추가해 주셔도 좋습니다.<br>지금 사진이 없으시면 노란 <b style="font-family:var(--bold);font-weight:400;color:var(--ink)">[사진이 없어요]</b> 버튼을 눌러 주세요. 사진 업로드 없이 차종·연식 기준의 대략적인 금액만 먼저 안내드립니다.</p>
       </fieldset>
@@ -576,6 +583,9 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 var noPhoto=false;
 var npBtn=document.getElementById('noPhotoBtn'),photosBox=document.getElementById('photos'),photoHint=document.getElementById('photoHint'),photoReq=document.getElementById('photoReq');
 var hintOrig=photoHint.innerHTML,btnOrig=npBtn.innerHTML;
+var hintSell='<b style="font-family:var(--bold);font-weight:400;color:var(--ink)">판매 진행은 사진 7장을 모두 올려주셔야 접수됩니다.</b> 휴대폰으로 찍은 사진 그대로 올려주시면 됩니다. 파손 부위가 있다면 하늘색 <b style="font-family:var(--bold);font-weight:400;color:var(--ink)">[추가 파손사진 올리기]</b> 버튼으로 가까이서 찍은 사진을 여러 장 함께 올려주세요.';
+var extraSlot=document.getElementById('extraSlot'),extraInput=document.getElementById('extraInput'),extraLb=document.getElementById('extraLb'),extraLbOrig=extraLb.innerHTML;
+extraInput.addEventListener('change',function(){var n=extraInput.files.length;extraSlot.classList.toggle('has',n>0);extraLb.innerHTML=n?'✓ 추가 사진<br>'+n+'장 선택됨<small>다시 누르면<br>다시 고르기</small>':extraLbOrig;});
 function setNoPhoto(v){
   noPhoto=v;npBtn.classList.toggle('on',v);photosBox.classList.toggle('off',v);
   npBtn.innerHTML=v?'✓ 사진 없이<br>대략 견적만<small>다시 누르면<br>사진 첨부로 [클릭]</small>':btnOrig;
@@ -584,9 +594,9 @@ function setNoPhoto(v){
 }
 npBtn.addEventListener('click',function(){setNoPhoto(!noPhoto);});
 // 탭 전환
-document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});t.classList.add('active');var sell=t.dataset.mode==='sell';document.getElementById('sellOnly').hidden=!sell;if(sell){setNoPhoto(false);npBtn.hidden=true;}else{npBtn.hidden=false;}});});
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});t.classList.add('active');var sell=t.dataset.mode==='sell';document.getElementById('sellOnly').hidden=!sell;if(sell){setNoPhoto(false);npBtn.hidden=true;extraSlot.hidden=false;photoHint.innerHTML=hintSell;}else{npBtn.hidden=false;extraSlot.hidden=true;photoHint.innerHTML=hintOrig;}});});
 // 사진 미리보기
-document.querySelectorAll('.slot input[type=file]').forEach(function(inp){inp.addEventListener('change',function(){var f=inp.files[0];if(!f)return;var img=document.createElement('img');img.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';img.src=URL.createObjectURL(f);inp.parentNode.appendChild(img);inp.parentNode.querySelector('.lb').style.cssText='position:relative;z-index:1;background:rgba(255,255,255,.9);padding:2px 6px';});});
+document.querySelectorAll('.slot:not(.extra) input[type=file]').forEach(function(inp){inp.addEventListener('change',function(){var f=inp.files[0];if(!f)return;var img=document.createElement('img');img.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';img.src=URL.createObjectURL(f);inp.parentNode.appendChild(img);inp.parentNode.querySelector('.lb').style.cssText='position:relative;z-index:1;background:rgba(255,255,255,.9);padding:2px 6px';});});
 // 사진 압축(긴 변 1400px, JPEG 82%) → base64. 압축 불가 형식(HEIC 등)은 원본 그대로
 function shrinkPhoto(file){return new Promise(function(res){
   var raw=function(){var r=new FileReader();r.onload=function(){res({data:String(r.result).split(',')[1],mime:file.type||'image/jpeg',ext:(file.name.split('.').pop()||'jpg')});};r.onerror=function(){res(null);};r.readAsDataURL(file);};
@@ -604,8 +614,8 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
   if(!f.maker.value||!f.model.value||!f.year.value){showMsg('err','차량 정보(제조사·차종·연식)를 입력해 주세요.');return;}
   var sell=document.getElementById('tabSell').classList.contains('active');
   var skipPhoto=noPhoto&&!sell;
-  var ph=Array.prototype.slice.call(f.querySelectorAll('#photos input[type=file]')),miss=[];ph.forEach(function(i){if(!i.files.length)miss.push(i.parentNode.querySelector('.lb').textContent);});
-  if(!skipPhoto&&miss.length){showMsg('err','차량 사진 7장을 모두 올려주셔야 접수됩니다.\n빠진 사진: '+miss.join(', ')+'\n\n사진이 없으시면 노란 [사진이 없어요] 버튼을 눌러 주세요.');return;}
+  var ph=Array.prototype.slice.call(f.querySelectorAll('#photos .slot:not(.extra) input[type=file]')),miss=[];ph.forEach(function(i){if(!i.files.length)miss.push(i.parentNode.querySelector('.lb').textContent);});
+  if(!skipPhoto&&miss.length){showMsg('err','차량 사진 7장을 모두 올려주셔야 접수됩니다.\n빠진 사진: '+miss.join(', ')+(sell?'':'\n\n사진이 없으시면 노란 [사진이 없어요] 버튼을 눌러 주세요.'));return;}
   if(!f.name.value||!f.phone.value){showMsg('err','성함과 휴대폰 번호를 입력해 주세요.');return;}
   if(sell&&!f.doc_reg.files.length){showMsg('err','판매 진행 시 차량등록증 사진을 올려주세요.');return;}
   if(!f.agree_privacy.checked||!f.agree_truth.checked){showMsg('err','필수 동의 항목 2개를 모두 체크해 주세요.');return;}
@@ -621,7 +631,7 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
     formType:sell?'판매진행':(skipPhoto?'견적조회(사진없음·대략견적)':'견적조회'),
     maker:f.maker.value, model:f.model.value, year:f.year.value,
     km:f.km.value||'', memo:f.memo.value||'',
-    photoCount:ph.filter(function(i){return i.files.length}).length,
+    photoCount:ph.filter(function(i){return i.files.length}).length+(sell?extraInput.files.length:0),
     name:f.name.value, phone:f.phone.value,
     reply:replyMethods.join(', '), calltime:f.calltime.value||'',
     idmode:f.idmode?f.idmode.value:'',
@@ -639,7 +649,7 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
       f.reset();
       f.querySelectorAll('.slot img').forEach(function(im){im.remove();});
       f.querySelectorAll('.slot .lb').forEach(function(l){l.style.cssText='';});
-      setNoPhoto(false);
+      setNoPhoto(false);extraSlot.classList.remove('has');extraLb.innerHTML=extraLbOrig;
     }catch(e2){console.warn(e2);}
     btn.disabled=false;btn.textContent='견적 요청 보내기';
   }
@@ -653,6 +663,7 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
   // 사진 목록 (7장 + 판매진행 시 차량등록증)
   var jobs=[];ph.forEach(function(i,idx){if(!i.files.length)return;var lb=i.parentNode.querySelector('.lb').textContent.trim();jobs.push(shrinkPhoto(i.files[0]).then(function(r){return r?{name:(idx+1)+'_'+lb+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});
   if(sell&&f.doc_reg.files.length){jobs.push(shrinkPhoto(f.doc_reg.files[0]).then(function(r){return r?{name:'0_차량등록증.'+r.ext,mime:r.mime,data:r.data}:null;}));}
+  if(sell&&extraInput.files.length){Array.prototype.forEach.call(extraInput.files,function(file,k){jobs.push(shrinkPhoto(file).then(function(r){return r?{name:'8_추가파손'+(k+1)+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});}
   if(jobs.length)showMsg('wait','사진을 정리하고 있습니다. 잠시만 기다려 주세요.');
 
   Promise.all(jobs).then(function(photos){
