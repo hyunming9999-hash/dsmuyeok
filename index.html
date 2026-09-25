@@ -50,9 +50,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .logo.sm .tag{font-size:12px}.logo.sm .name{font-size:44px}.logo.sm .pill{font-size:11px;padding:4px 16px}
 
 /* ---------- HERO (원본 이미지 그대로 + 움직이는 물결) ---------- */
-.hero{position:relative;height:680px;background:#fff;overflow:hidden}
+.hero{position:relative;height:617px;background:#fff;overflow:hidden}
 .hero-scale{position:absolute;inset:0}
-.hero .top{position:absolute;left:0;top:0;width:680px;height:680px;display:block;object-fit:cover}
+.hero .top{position:absolute;left:0;top:0;width:680px;height:617px;display:block;object-fit:cover}
 .hero .zone{position:absolute;left:0;top:500px;width:681px;height:210px}
 .hero .wave{position:absolute;left:0;right:0;bottom:-2px;height:210px}
 .hero .wave svg{position:absolute;left:0;bottom:0;width:200%;height:100%;display:block;will-change:transform}
@@ -62,8 +62,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 @keyframes drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.hero .wave svg{animation:none}}
 /* 히어로 아래 물결 띠 (예전 3겹 물결 그대로, 바다 텍스처 위에) */
-.waveband{--u:min(1px,calc(100vw / 680));position:relative;height:calc(150*var(--u));background:url(assets/hero_seafill.jpg) center/cover;overflow:hidden}
-.waveband svg{position:absolute;left:0;bottom:0;width:200%;height:100%;display:block;will-change:transform}
+.waveband{--u:min(1px,calc(100vw / 680));position:relative;z-index:1;height:calc(202*var(--u));margin-top:calc(-12*var(--u));background:url(assets/wave_bg.jpg) center/cover;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0,#000 calc(16*var(--u)));mask-image:linear-gradient(to bottom,rgba(0,0,0,0) 0,#000 calc(16*var(--u)))}
+.waveband .badges{position:absolute;left:0;top:calc(12*var(--u));width:100%;height:auto;display:block;filter:drop-shadow(0 4px 3px rgba(0,0,0,.35));z-index:2}
+.waveband svg{position:absolute;left:0;bottom:0;width:200%;height:calc(150*var(--u));display:block;will-change:transform}
 .waveband .w1{animation:drift 16s linear infinite}
 .waveband .w2{animation:drift 11s linear infinite reverse}
 .waveband .w3{animation:drift 8s linear infinite}
@@ -96,58 +97,59 @@ button,input,select,textarea{font:inherit;color:inherit}
 .pcard h3 .or-y{color:#E0A800}
 .pdesc{text-align:center;font-family:var(--thin);font-size:18px;line-height:1.55;padding:22px 0 26px;color:#fff}
 
-/* ---------- 해결 ---------- */
-.solve{padding:56px 24px 8px;text-align:center}
-.solve h2{font-family:var(--bold);font-size:48px;line-height:1.1;color:var(--navy);margin:0}
-/* 수출 / 국내 중고차 매매 소개 블록 */
-.svc{padding:34px 24px 44px;text-align:center}
-.svc .tagpill{display:inline-block;background:var(--sky-hl);color:var(--navy);font-family:var(--bold);font-size:28px;line-height:1;padding:10px 26px}
-.svc .photo{margin:22px -24px 0}
-.svc .photo img{width:100%;height:380px;object-fit:cover;display:block}
-.svc .q{font-family:var(--thin);font-size:24px;line-height:1.45;color:var(--navy);margin-top:24px}
-.svc .q b{font-family:var(--bold);font-weight:400;font-size:28px;display:inline-block;margin-top:6px}
-.svc .dest{font-family:var(--thin);font-size:20px;color:var(--navy);margin-top:16px}
-.svc .dest b{font-family:var(--bold);font-weight:400;background:var(--sun);padding:2px 10px}
-.svc+.doubt{padding-top:calc(20*var(--u))}
-
-/* ---------- 약속 ---------- */
-/* 카드(794px) 실측값을 680px 기준으로 환산, 화면이 좁아지면 카드처럼 통째로 비례 축소 */
-.promises,.doubt{--u:min(1px,calc(100vw / 680))}
-.promises{padding:calc(40*var(--u)) 24px calc(40*var(--u));text-align:center;border-top:1px solid #E3E7EE}
+/* ---------- 해결 ~ 운영 철칙: 사용자 PDF(645pt=680px) 실측값, --u로 휴대폰 비례 축소 ---------- */
+.pdfblk{--u:min(1px,calc(100vw / 680));text-align:center;color:var(--navy)}
+.pdfblk .solve{height:calc(221*var(--u));border-bottom:1px solid #E7E7E7;padding-top:calc(66*var(--u))}
+.pdfblk .solve h2{font-family:var(--bold);font-size:calc(48*var(--u));line-height:calc(50*var(--u));color:#102B56;margin:0}
+.pdfblk .svc .band{background:var(--navy);height:calc(104*var(--u));padding-top:calc(3*var(--u));color:#fff}
+.pdfblk .svc .band.tall{height:calc(166*var(--u));padding-top:calc(21*var(--u))}
+.pdfblk .svc .tag{display:inline-block;background:var(--sky-hl);color:var(--navy);font-family:var(--bold);font-size:calc(19*var(--u));line-height:calc(23*var(--u));padding:calc(4*var(--u)) calc(21*var(--u))}
+.pdfblk .svc .band p{font-family:var(--thin);font-style:italic;font-size:calc(20*var(--u));line-height:calc(28*var(--u));margin:calc(10*var(--u)) 0 0}
+.pdfblk .svc .photo{position:relative;line-height:0}
+.pdfblk .svc .photo img{width:100%;object-fit:cover;display:block}
+.pdfblk .svc .photo.ship img{height:calc(411*var(--u))}
+.pdfblk .svc .photo.lot img{height:calc(424*var(--u))}
+.pdfblk .svc .dest{position:absolute;right:calc(24*var(--u));bottom:calc(16*var(--u));color:#fff;font-family:var(--thin);font-size:calc(16*var(--u));line-height:1.2;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.pdfblk .rpill{display:inline-block;min-width:calc(269*var(--u));height:calc(44*var(--u));line-height:calc(44*var(--u));border-radius:calc(22*var(--u));background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(20*var(--u));box-shadow:0 calc(4*var(--u)) 0 rgba(0,0,0,.18)}
+.pdfblk .big{font-family:var(--bold);font-size:calc(41*var(--u));line-height:1;color:#102B56}
+.pdfblk .doubt{padding:calc(80*var(--u)) 0 calc(35*var(--u))}
+.pdfblk .doubt .big{margin-top:calc(27*var(--u))}
+.pdfblk .doubt h3{font-family:var(--bold);font-size:calc(25*var(--u));line-height:calc(28*var(--u));color:#102B56;margin:calc(8*var(--u)) 0 0;white-space:nowrap}
+.pdfblk .doubt h3 .hl-yb{font-size:calc(21.3*var(--u));line-height:calc(23*var(--u));padding:0 calc(8*var(--u));display:inline-block;margin-top:calc(4*var(--u))}
+.pdfblk .doubt .car{width:calc(270*var(--u));height:auto;margin:calc(23*var(--u)) auto 0;display:block}
+.pdfblk .doubt-band{background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(21*var(--u));line-height:calc(26*var(--u));padding:calc(35*var(--u)) 0 calc(43*var(--u));margin:0}
+.pdfblk .doubt-band .gap{height:calc(28*var(--u))}
+.pdfblk .doubt-band .y{color:var(--sun)}
+.pdfblk .domestic{padding:calc(65*var(--u)) 0 0;border-bottom:1px solid #31485F}
+.pdfblk .domestic .big{margin-top:calc(23*var(--u))}
+.pdfblk .domestic h3{font-family:var(--bold);font-size:calc(24*var(--u));line-height:calc(26*var(--u));color:#102B56;margin:calc(9*var(--u)) 0 0;white-space:nowrap}
+.pdfblk .domestic h3 .hl-yb{padding:calc(2*var(--u)) calc(8*var(--u))}
+.pdfblk .domestic .band{background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(18*var(--u));line-height:calc(33*var(--u));height:calc(33*var(--u));margin-top:calc(26*var(--u))}
+.pdfblk .domestic .pair{display:flex;align-items:center;justify-content:space-between;padding:calc(28*var(--u)) calc(23*var(--u)) 0}
+.pdfblk .domestic .pair .suv{width:calc(283*var(--u));height:calc(158*var(--u));object-fit:cover;display:block}
+.pdfblk .domestic .arrow{width:calc(50*var(--u));height:calc(40*var(--u));background:var(--navy);clip-path:polygon(0 30%,55% 30%,55% 0,100% 50%,55% 100%,55% 70%,0 70%)}
+.pdfblk .domestic .caps{display:flex;justify-content:space-between;padding:calc(8*var(--u)) calc(23*var(--u)) 0}
+.pdfblk .domestic .caps p{width:calc(283*var(--u));text-align:left;padding-left:calc(12*var(--u));margin:0;font-family:var(--thin);font-size:calc(18*var(--u));line-height:calc(24*var(--u));color:#132169;white-space:nowrap}
+.pdfblk .domestic .caps p .hl-b{padding:0 calc(4*var(--u))}
+.pdfblk .domestic .pair.icons{padding:calc(36*var(--u)) calc(23*var(--u)) 0;align-items:center}
+.pdfblk .domestic .ic1{width:calc(152*var(--u));height:auto;margin-left:calc(53*var(--u))}
+.pdfblk .domestic .ic2{width:calc(104*var(--u));height:auto;margin-right:calc(97*var(--u))}
+.pdfblk .domestic .caps.last{padding-top:calc(37*var(--u));padding-bottom:calc(85*var(--u))}
+.pdfblk .rules{background:var(--navy);height:calc(292*var(--u));padding-top:calc(97*var(--u))}
+.pdfblk .rules h2{font-family:var(--bold);font-size:calc(41*var(--u));line-height:calc(43*var(--u));color:#fff;margin:0}
 .pill{display:inline-block;background:var(--navy);color:#fff;font-family:var(--bold);font-size:26px;padding:6px 30px;border-radius:14px}
-.promises .pill{font-size:calc(38*var(--u));line-height:1.15;padding:calc(12*var(--u)) calc(38*var(--u));border-radius:calc(18*var(--u))}
-.qitem{padding:calc(24*var(--u)) 0 calc(36*var(--u));display:flex;flex-direction:column;align-items:center}
-.qitem+.qitem{border-top:1px solid #C9CDD6}
-.qitem img{height:calc(193*var(--u));width:auto;margin:calc(60*var(--u)) 0 0}
-.qitem h3{font-family:var(--bold);font-size:calc(32*var(--u));line-height:1.45;color:var(--navy);margin:calc(24*var(--u)) 0 0}
-.qitem p{font-family:var(--thin);font-size:calc(24*var(--u));line-height:1.5;color:var(--ink);margin-top:calc(20*var(--u))}
-
-/* ---------- 설마 (파손차) ---------- */
-.doubt{padding:calc(70*var(--u)) 24px 0;text-align:center}
-.doubt .big{font-family:var(--bold);font-size:calc(50*var(--u));color:var(--navy);line-height:1;margin-bottom:calc(10*var(--u))}
-.doubt h3{font-family:var(--bold);font-size:calc(31*var(--u));color:var(--navy);line-height:1.07;margin:0;white-space:nowrap}
-.doubt h3 .hl-yb{font-size:calc(27*var(--u));padding:calc(3*var(--u)) calc(8*var(--u));display:inline-block;margin-top:calc(5*var(--u))}
-.doubt img{width:calc(400*var(--u));margin:calc(33*var(--u)) auto 0}
-.doubt .ok{display:inline-block;background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(21*var(--u));line-height:1;padding:calc(6*var(--u)) calc(20*var(--u));border-radius:999px;margin-top:calc(19*var(--u));box-shadow:0 4px 0 rgba(0,0,0,.15)}
-.doubt-band{background:var(--navy);color:#fff;text-align:center;padding:40px 24px 44px;margin-top:22px;font-family:var(--thin);font-size:20px;line-height:1.45}
-.doubt-band .gap{height:22px}
-/* ---------- 국내 중고차 매매 (카드 3번, 사이트 크기에 맞춰 키움, --u 비례 축소) ---------- */
-.domestic{--u:min(1px,calc(100vw / 680));padding:calc(40*var(--u)) 0 calc(50*var(--u));text-align:center;background:#fff;border-top:1px solid #E3E7EE}
-.domestic .dpill{display:inline-block;background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(26*var(--u));line-height:1;padding:calc(12*var(--u)) calc(50*var(--u));border-radius:999px;box-shadow:0 4px 0 rgba(0,0,0,.15)}
-.domestic .big{font-family:var(--bold);font-size:calc(46*var(--u));color:var(--navy);line-height:1;margin-top:0}
-.domestic h3{font-family:var(--bold);font-size:calc(26*var(--u));color:var(--navy);line-height:1.5;margin:calc(8*var(--u)) 0 0;white-space:nowrap}
-.domestic h3 .hl-yb{padding:calc(2*var(--u)) calc(8*var(--u))}
-.domestic .band{background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(24*var(--u));line-height:1;padding:calc(13*var(--u)) 0;margin-top:calc(28*var(--u))}
-.domestic .pair{display:flex;align-items:center;justify-content:center;gap:calc(12*var(--u));padding:calc(18*var(--u)) calc(14*var(--u)) 0}
-.domestic .gbox{flex:0 0 calc(290*var(--u));background:#EEEEEE;padding-bottom:calc(10*var(--u))}
-.domestic .gbox img{width:100%;height:calc(176*var(--u));object-fit:cover;display:block}
-.domestic .gbox p,.domestic .ibox p{font-family:var(--bold);font-size:calc(19*var(--u));color:var(--navy);margin:calc(12*var(--u)) 0 0;white-space:nowrap}
-.domestic .gbox p .hl-b,.domestic .ibox p .hl-b{padding:0 calc(5*var(--u))}
-.domestic .arrow{flex:0 0 calc(50*var(--u));height:calc(50*var(--u));background:var(--navy);clip-path:polygon(0 30%,55% 30%,55% 0,100% 50%,55% 100%,55% 70%,0 70%)}
-.domestic .pair.icons{padding-top:calc(30*var(--u));align-items:flex-start}
-.domestic .ibox{flex:0 0 calc(290*var(--u))}
-.domestic .ibox img{height:calc(130*var(--u));width:auto;margin:0 auto calc(26*var(--u))}
-.domestic .ibox p{margin-top:0}
+.pdfblk .promises{padding:0 0 calc(40*var(--u))}
+.pdfblk .promises .pill{font-size:calc(24*var(--u));line-height:calc(44*var(--u));height:calc(44*var(--u));padding:0 calc(33*var(--u));border-radius:calc(12*var(--u));min-width:calc(130*var(--u));box-shadow:none}
+.pdfblk .qitem{display:flex;flex-direction:column;align-items:center;padding:calc(28*var(--u)) 0 calc(38*var(--u))}
+.pdfblk .qitem+.qitem{border-top:1px solid #D7D7D7;margin:0 calc(45*var(--u));padding-top:calc(21*var(--u))}
+.pdfblk .qitem img{display:block;margin:calc(38*var(--u)) 0 0}
+.pdfblk .qitem .i1{width:calc(156*var(--u));margin-top:calc(38*var(--u))}
+.pdfblk .qitem .i2{width:calc(149*var(--u));margin-top:calc(42*var(--u))}
+.pdfblk .qitem .i3{width:calc(110*var(--u));margin-top:calc(44*var(--u))}
+.pdfblk .qitem h3{font-family:var(--bold);font-size:calc(24*var(--u));line-height:calc(27*var(--u));color:#102B56;margin:calc(24*var(--u)) 0 0}
+.pdfblk .qitem h3 .hl-y{padding:0 calc(8*var(--u))}
+.pdfblk .qitem p{font-family:var(--thin);font-size:calc(17*var(--u));line-height:calc(22*var(--u));color:#111;margin-top:calc(17*var(--u))}
+.pdfblk .qitem p .hl-b{padding:0 calc(4*var(--u))}
 
 /* ---------- 3단계 ---------- */
 .steps{padding:64px 24px 40px}
@@ -270,7 +272,7 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 .apply .flow .num{background:var(--sun);color:var(--navy);padding:0 6px;font-family:var(--bold)}
 
 /* ---------- 추가 판매옵션 ---------- */
-.options{background:var(--sky);padding:0 0 60px}
+.options{background:var(--sky);padding:0}
 .options .top{padding:60px 24px 0;text-align:center}
 .options .pill{font-family:var(--thin);font-size:28px;padding:8px 46px;border-radius:22px;background:var(--navy)}
 .options .note{margin-top:12px;font-family:var(--thin);font-size:18px;line-height:1.5}
@@ -288,7 +290,6 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 .ocard .box.dark{background:var(--navy);color:#fff}
 .ocard .box.light{background:var(--sky-hl);color:var(--navy)}
 .ocard .ex{margin-top:18px;font-family:var(--thin);font-size:17px;line-height:1.5;color:var(--navy)}
-.options .spacer{background:var(--sky);height:48px}
 
 /* ---------- 폼 메시지 박스 ---------- */
 .fmsg{display:none;margin:14px auto 0;max-width:520px;padding:16px 18px;border-radius:14px;font-family:var(--thin);font-size:16px;line-height:1.6;text-align:center;white-space:pre-line}
@@ -298,8 +299,8 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 .fmsg b{font-family:var(--bold);font-weight:400}
 
 /* ---------- 마무리 배너 ---------- */
-.outro{background:#fff;text-align:center;padding-top:30px}
-.outro .logo-img{width:282px;max-width:80%;height:auto;margin:0 auto 22px}
+.outro{background:#fff;text-align:center;padding-top:44px}
+.outro .logo-img{width:420px;max-width:88%;height:auto;margin:0 auto 30px}
 .ocard .logo-img{width:183px;height:auto}.ocard .logo-img.s{width:146px}
 .outro .logo .tag{color:#141414}
 .outro .logo .tag .no{color:#16246B}
@@ -350,13 +351,11 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   :root{--col:100%}
   .page{box-shadow:none}
   /* 히어로: 680px 캔버스를 화면 폭에 맞춰 통째로 축소 (PDF 비율 유지) */
-  .hero-scale{position:absolute;left:0;top:0;width:680px;height:680px;transform-origin:top left}
+  .hero-scale{position:absolute;left:0;top:0;width:680px;height:617px;transform-origin:top left}
   .ask h2{font-size:28px}
   .ask .btns{gap:10px}.ask .btn{width:46%;font-size:17px;height:50px}
   .ask .info{font-size:15px}
   .cars h2{font-size:40px}.cars h3{font-size:19px}
-  .solve{padding-top:40px}.solve h2{font-size:34px}
-  .svc .tagpill{font-size:21px;padding:8px 18px}.svc .photo img{height:230px}.svc .q{font-size:18px}.svc .q b{font-size:21px}.svc .dest{font-size:15px}
   .pcard img{height:180px}.pcard h3{font-size:22px}
   .steps .pill{font-size:24px;padding:8px 30px}
   .step{grid-template-columns:120px 1fr;gap:10px}.step .no{left:38px}
@@ -372,7 +371,6 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   .apply .flow{padding:26px 22px 34px}.apply .flow h4{font-size:20px}.apply .flow p{font-size:16px}
   .options .heads div{font-size:12px}
   .options .cards{gap:8px;padding:12px 10px 0;background:var(--sky);position:relative;z-index:1}
-  .options .spacer{z-index:1}
   .ocard{padding:18px 8px 18px}.logo.sm .name{font-size:32px}.logo.sm .tag{font-size:9px}.logo.sm .pill{font-size:9px;padding:3px 10px}
   .ocard .box{font-size:14px}.ocard .ex{font-size:14px}
   .outro .sea{height:380px;background-position:center center;background-size:cover}.outro .sea .msg{font-size:18px;left:16px;top:16px;right:16px;width:auto}
@@ -392,6 +390,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
  </div>
 </section>
 <div class="waveband" aria-hidden="true">
+  <img class="badges" src="assets/badges.png" alt="비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
   <svg class="w1" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,45 C170,5 170,85 340,45 C510,5 510,85 680,45 C850,5 850,85 1020,45 C1190,5 1190,85 1360,45 L1360,230 L0,230 Z" fill="#0B2647" opacity=".55"/></svg>
   <svg class="w2" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,95 C170,50 170,140 340,95 C510,50 510,140 680,95 C850,50 850,140 1020,95 C1190,50 1190,140 1360,95 L1360,230 L0,230 Z" fill="#0B2647"/></svg>
   <svg class="w3" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,165 C170,125 170,205 340,165 C510,125 510,205 680,165 C850,125 850,205 1020,165 C1190,125 1190,205 1360,165 L1360,230 L0,230 Z" fill="#ffffff"/></svg>
@@ -428,78 +427,67 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   <p class="pdesc" style="padding-bottom:6px">불투명한 거래 과정과<br><span class="hl-b">약속과는 다른 금액</span></p>
 </section>
 
-<!-- ================= 해결 ================= -->
-<section class="solve" id="promise">
-  <h2>이제는 블루존오토가<br>해결하겠습니다!</h2>
-</section>
+<!-- ================= 해결 ~ 운영 철칙 (사용자 PDF 5-17 실측 그대로) ================= -->
+<div class="pdfblk">
+<section class="solve" id="promise"><h2>“이제는 블루존오토가<br>해결하겠습니다!”</h2></section>
 
-<!-- ================= 수출 or 수출폐차 ================= -->
 <section class="svc">
-  <span class="tagpill">수출 or 수출폐차</span>
-  <div class="photo"><img src="assets/ship_export.jpg" alt="컨테이너를 실은 수출 화물선"></div>
-  <p class="q">60만km? 파손이 심한 차량?<br><b>모두 제값을 받을 수 있습니다.</b></p>
-  <p class="dest">주요수출국 : <b>러시아 / 몽골 / 중동 / 아프리카</b></p>
+  <div class="band"><span class="tag">수출 or 수출폐차</span><p>60만km? 파손이 심한차량?<br>모두 제값을 받을 수 있습니다.</p></div>
+  <div class="photo ship"><img src="assets/ship_pdf.jpg" alt="컨테이너를 실은 수출 화물선"><span class="dest">주요수출국: 러시아 / 몽골 / 중동 / 아프리카</span></div>
 </section>
 
-<!-- ================= 설마 (파손차) ================= -->
+<section class="svc">
+  <div class="band tall"><span class="tag">국내 중고차 매매</span><p>자동차 진단평가사가<br>검증한 차량과 매매가격으로<br>이제는 안심할 수 있습니다.</p></div>
+  <div class="photo lot"><img src="assets/cars_pdf.jpg" alt="전시된 국내 중고차들"></div>
+</section>
+
 <section class="doubt">
+  <span class="rpill">수출 / 폐차수출</span>
   <div class="big">설마,</div>
   <h3>내 차가 오래되고,<br>연식도 60만km라서?<br>너무 기스가 많고, 파손이 심한 문제차량이라서?<br><span class="hl-yb">판매가 될까 걱정되십니까?</span></h3>
-  <img src="assets/car_wrecked_hd.jpg" alt="">
-  <span class="ok">파손이 심한 차량도 OK</span>
+  <img class="car" src="assets/car_wrecked_hd.jpg" alt="파손이 심한 차량">
 </section>
 <div class="doubt-band">
-  걱정은 이제 그만!<br><span class="y">이렇게 파손된 차량도,<br>그 어떤 차도 가능합니다!</span>
+  걱정은 이제 그만!<br><span class="y">파손된 차량도, 그 어떤 차도 가능합니다!</span>
   <div class="gap"></div>
-  <span class="y">수출 바이어는</span> 부품과 차대의 가치를,<br><span class="y">폐차는</span> 중량과 재활용의 가치를 봅니다.
+  <span class="y">수출바이어는</span> 부품과 차대의가치, 그리고<br>중량과 재활용의 가치를 보기 때문입니다.
 </div>
 
-<!-- ================= 국내 중고차 매매 ================= -->
-<section class="svc">
-  <span class="tagpill">국내 중고차 매매</span>
-  <div class="photo"><img src="assets/cars_lot.jpg" alt="전시된 국내 중고차들"></div>
-  <p class="q">자동차 진단평가사가 검증한<br>차량과 매매가격으로<br><b>이제는 안심할 수 있습니다.</b></p>
-</section>
-
-<!-- ================= 국내 중고차 매매 (카드 3번 그대로) ================= -->
 <section class="domestic">
+  <span class="rpill">국내 중고차 매매</span>
   <div class="big">설마,</div>
   <h3>상태가 좋은 차량임에도<br>제값 받지 못하고 판매할까봐?<br>또는 이런저런 이유로 <span class="hl-yb">구매를 망설이고 있다면?</span></h3>
   <div class="band">1) 차대차 교환(운행중인차 매입교환)</div>
-  <div class="pair">
-    <div class="gbox"><img src="assets/suv_old.jpg" alt="2018년식 모하비"><p><span class="hl-b">예시)</span> 2018년식 모하비 교환+추가금</p></div>
-    <span class="arrow"></span>
-    <div class="gbox"><img src="assets/suv_new.jpg" alt="2022년식 모하비"><p><span class="hl-b">예시)</span> 2022년식 모하비로 교환</p></div>
-  </div>
+  <div class="pair"><img class="suv" src="assets/suv_old.jpg" alt="2018년식 모하비"><span class="arrow"></span><img class="suv" src="assets/suv_new.jpg" alt="2022년식 모하비"></div>
+  <div class="caps"><p><span class="hl-b">예시)</span> 2018년식 모하비 교환+추가금</p><p><span class="hl-b">예시)</span> 2022년식 모하비로 교환</p></div>
   <div class="band">2) 저신용 무조건 할부</div>
-  <div class="pair icons">
-    <div class="ibox"><img src="assets/icon_fraud.png" alt=""><p><span class="hl-b">예시)</span> 저신용자 대상 (파산은 불가능)</p></div>
-    <span class="arrow"></span>
-    <div class="ibox"><img src="assets/icon_receipt.png" alt=""><p><span class="hl-b">예시)</span> 상담 후 할부상담 가능</p></div>
-  </div>
+  <div class="pair icons"><img class="ic1" src="assets/icon_fraud.png" alt=""><span class="arrow"></span><img class="ic2" src="assets/icon_receipt.png" alt=""></div>
+  <div class="caps last"><p><span class="hl-b">예시)</span> 저신용자 대상 (파산은 불가능)</p><p><span class="hl-b">예시)</span> 상담 후 할부상담 가능</p></div>
 </section>
 
-<!-- ================= 약속 ================= -->
+<section class="rules"><h2>“블루존오토의<br>운영 철칙 세가지”</h2></section>
+
 <section class="promises">
   <div class="qitem">
     <span class="pill">1.약속</span>
-    <img src="assets/q_appraiser.png" alt="">
+    <img class="i1" src="assets/p_appraiser.png" alt="">
     <h3>전문가의 매매견적가로<br><span class="hl-y">제값 +@</span></h3>
-    <p>국토교통부공인 <span class="hl-b">[자동차진단평가사]</span>의<br>매매견적가로 안전하게!</p>
+    <p>국토교통부공인<br><span class="hl-b">[자동차진단평가사]</span>의 매매견적가로 안전하게!</p>
   </div>
   <div class="qitem">
     <span class="pill">2.약속</span>
-    <img src="assets/q_bankbook.png" alt="">
-    <h3><span class="hl-y">중간 수수료</span>를 타파!<br>고객에게 더 많이</h3>
-    <p>쓸데없는 중계료를 타파!<br><span class="hl-b">수수료를 없애고</span><br>고객에게 드립니다.</p>
+    <img class="i2" src="assets/p_bankbook.png" alt="">
+    <h3><span class="hl-y">중간 수수료를 타파!</span><br>고객에게 더 많이</h3>
+    <p>쓸데없는 중계료를 타파!<br><span class="hl-b">수수료를 없애고</span> 고객에게 드립니다</p>
   </div>
-  <div class="qitem" style="padding-bottom:10px">
+  <div class="qitem">
     <span class="pill">3.약속</span>
-    <img src="assets/handshake_promise.png" alt="">
+    <img class="i3" src="assets/p_handshake.png" alt="">
     <h3>투명한 과정공개!<br><span class="hl-y">약속과 동일한 금액</span></h3>
     <p>거래과정을 실시간으로 공개!<br><span class="hl-b">약속과 동일한 금액</span>이 아닐시 전액환불!</p>
   </div>
 </section>
+</div>
 
 <!-- ================= 3단계 ================= -->
 <section class="steps" id="process">
@@ -706,7 +694,6 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
       <p class="ex">예시: 15만원 외장 수리 후<br><span class="hl-y">600만원에 판매</span><br>(탁송으로 진행 및<br>전과정 알림 발송)</p>
     </div>
   </div>
-  <div class="spacer"></div>
 </section>
 
 <!-- ================= 마무리 배너 ================= -->
@@ -755,7 +742,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 <script>
 // 모바일: 히어로(680px 캔버스)를 화면 폭에 맞춰 통째로 축소
-(function(){var h=document.querySelector('.hero'),c=document.querySelector('.hero-scale');function fit(){var w=h.clientWidth;if(w<680){var k=w/680;c.style.transform='scale('+k+')';h.style.height=(680*k)+'px';}else{c.style.transform='';h.style.height='';}}fit();addEventListener('resize',fit);})();
+(function(){var h=document.querySelector('.hero'),c=document.querySelector('.hero-scale');function fit(){var w=h.clientWidth;if(w<680){var k=w/680;c.style.transform='scale('+k+')';h.style.height=(617*k)+'px';}else{c.style.transform='';h.style.height='';}}fit();addEventListener('resize',fit);})();
 // 연식 옵션
 (function(){var y=document.getElementById('year');var now=new Date().getFullYear();for(var i=now;i>=1990;i--){var o=document.createElement('option');o.textContent=i+'년';o.value=i;y.appendChild(o);}})();
 // 사진 올리는 방법 택1: bulk(한 번에) / guided(한 장씩) / none(사진 없음, 견적 탭 전용)
