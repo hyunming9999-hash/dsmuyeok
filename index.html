@@ -12,6 +12,7 @@
   --navy:#0B2647; --navy-deep:#0A123C; --navy-mid:#0F2B57;
   --blue:#1C69D4; --sky:#D5EBFA; --sky-hl:#B8E9FF; --sky-btn:#BFE6FF;
   --sun:#FECC4A; --ink:#0B2647; --white:#fff;
+  --A:16px; /* A크기: '언제든 가볍게 문의하세요' 아래 '상담' 글자 크기. 휴대폰 15px */
   --bold:'검은 고딕','Noto Sans KR',sans-serif;
   --thin:'마포당인리발전소','Noto Sans KR',sans-serif;
   --col:680px;
@@ -72,13 +73,13 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* ---------- 문의 ---------- */
 .ask{padding:30px 24px 20px;text-align:center}
-.ask h2{font-family:var(--bold);font-size:36px;color:var(--navy);margin:0}
+.ask h2{font-family:var(--bold);font-size:36px;line-height:1.2;color:var(--navy);margin:0}
 .ask .btns{display:flex;gap:16px;justify-content:center;margin-top:20px;flex-wrap:wrap}
 .ask .btn{width:196px;height:56px;border:0;border-radius:14px;font-family:var(--thin);font-size:20px;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.18)}
 .ask .btn.dark{background:var(--navy);color:#fff}
 .ask .btn.light{background:var(--sky-btn);color:var(--navy)}
 .ask .btn.sun{background:var(--sun);color:var(--navy)}
-.ask .info{margin-top:22px;font-family:var(--thin);font-size:16px;color:var(--navy);line-height:1.7}
+.ask .info{margin-top:22px;font-family:var(--thin);font-size:var(--A);color:var(--navy);line-height:1.7}
 .ask .info b{font-family:var(--thin);font-weight:400;color:#1F3D7A}
 
 /* ---------- 중고차! 폐차! ---------- */
@@ -98,7 +99,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .pdesc{text-align:center;font-family:var(--thin);font-size:18px;line-height:1.55;padding:22px 0 26px;color:#fff}
 
 /* ---------- 해결 ~ 운영 철칙: 앞부분(해결·수출·국내)은 사용자 시안 5-28 이미지(860px→680px) 실측, 뒷부분은 PDF 5-28 실측. --u로 휴대폰 비례 축소 ---------- */
-.pdfblk{--u:min(1px,calc(100vw / 680));text-align:center;color:#012A64}
+.pdfblk{--u:min(1px,calc(100vw / 680));text-align:center;color:#012A64;word-break:keep-all}
 .pdfblk .skybar{height:calc(40*var(--u));background:#D5EBF9}
 .pdfblk .solve{background:#fff;height:calc(281*var(--u));padding-top:calc(86*var(--u));box-sizing:border-box}
 .pdfblk .solve h2{font-family:var(--bold);font-size:calc(48*var(--u));line-height:calc(51*var(--u));color:#0D133C;margin:0}
@@ -107,34 +108,32 @@ button,input,select,textarea{font:inherit;color:inherit}
 .pdfblk .svc .photo.ship img{height:calc(345*var(--u))}
 .pdfblk .svc .photo.lot img{height:calc(348*var(--u))}
 .pdfblk .svc .dest{position:absolute;right:calc(19*var(--u));top:calc(7*var(--u));color:#000F1B;font-family:var(--bold);font-size:calc(16.5*var(--u));line-height:1.2;text-shadow:0 0 calc(3*var(--u)) #fff,0 0 calc(3*var(--u)) #fff,0 0 calc(6*var(--u)) rgba(255,255,255,.9)}
-.pdfblk .svc .band{background:var(--navy);height:calc(123*var(--u));padding-top:calc(1*var(--u));box-sizing:border-box;color:#fff}
-.pdfblk .svc .tag{display:inline-block;background:var(--sky-hl);color:#0A123C;font-family:var(--bold);font-size:calc(19*var(--u));line-height:calc(23*var(--u));padding:calc(4*var(--u)) calc(21*var(--u))}
-.pdfblk .svc .band p{font-family:var(--thin);font-style:italic;font-size:calc(20*var(--u));line-height:calc(28.5*var(--u));margin:calc(21*var(--u)) 0 0;color:#fff}
-.pdfblk .svc .band.b2{padding-top:0}
-.pdfblk .svc .band.b2 p{line-height:calc(27*var(--u));margin-top:calc(23*var(--u))}
-.pdfblk .rpill{display:inline-block;min-width:calc(269*var(--u));height:calc(44*var(--u));line-height:calc(44*var(--u));border-radius:calc(22*var(--u));background:#0A123C;color:#fff;font-family:var(--thin);font-size:calc(20*var(--u));box-shadow:0 calc(4*var(--u)) 0 rgba(0,0,0,.18);box-sizing:border-box}
-.pdfblk .big{font-family:var(--bold);font-size:calc(41*var(--u));line-height:1;color:#012A64}
-.pdfblk .doubt{padding:calc(76*var(--u)) 0 calc(28*var(--u))}
-.pdfblk .doubt .big{margin-top:calc(27*var(--u))}
-.pdfblk .doubt h3{font-family:var(--bold);font-size:calc(25*var(--u));line-height:calc(27.7*var(--u));color:#012A64;margin:calc(3*var(--u)) 0 0;white-space:nowrap}
-.pdfblk .doubt h3 .hl-yb{font-size:calc(21.3*var(--u));line-height:calc(23*var(--u));padding:0 calc(8*var(--u));display:inline-block;margin-top:0;position:relative;top:calc(-6*var(--u))}
-.pdfblk .doubt .car{width:calc(284*var(--u));height:auto;margin:calc(8*var(--u)) auto 0;display:block}
-.pdfblk .doubt-band{background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(21*var(--u));line-height:calc(26*var(--u));height:calc(207*var(--u));padding-top:calc(32*var(--u));box-sizing:border-box;margin:0}
-.pdfblk .doubt-band .gap{height:calc(28*var(--u))}
+.pdfblk .svc .band{background:var(--navy);padding:1.4em 16px 2.2em;color:#fff;font-size:var(--A)}
+.pdfblk .svc .tag{display:inline-block;background:var(--sky-hl);color:#0A123C;font-family:var(--bold);font-size:var(--A);line-height:1.25;padding:.25em 1.1em}
+.pdfblk .svc .band p{font-family:var(--thin);font-style:italic;font-size:var(--A);line-height:1.5;margin:.9em 0 0;color:#fff}
+.pdfblk .rpill{display:inline-block;min-width:15em;height:2.5em;line-height:2.5em;border-radius:1.25em;padding:0 1.5em;background:#0A123C;color:#fff;font-family:var(--thin);font-size:var(--A);box-shadow:0 .2em 0 rgba(0,0,0,.18);box-sizing:border-box}
+.pdfblk .big{font-family:var(--bold);font-size:calc(var(--A)*1.3);line-height:1.1;color:#012A64}
+.pdfblk .doubt{padding:calc(60*var(--u)) 16px calc(28*var(--u))}
+.pdfblk .doubt .big{margin-top:1.1em}
+.pdfblk .doubt h3{font-family:var(--bold);font-size:var(--A);line-height:1.6;color:#012A64;margin:.3em 0 0}
+.pdfblk .doubt h3 .hl-yb{font-size:1em;line-height:1.35;padding:.1em .5em;display:inline-block;margin-top:.15em}
+.pdfblk .doubt .car{width:calc(284*var(--u));height:auto;margin:calc(14*var(--u)) auto 0;display:block}
+.pdfblk .doubt-band{background:var(--navy);color:#fff;font-family:var(--thin);font-size:var(--A);line-height:1.5;padding:2em 16px 2.4em;margin:0}
+.pdfblk .doubt-band .gap{height:1.3em}
 .pdfblk .doubt-band .y{color:var(--sun)}
-.pdfblk .domestic{padding:calc(59*var(--u)) 0 calc(30*var(--u))}
-.pdfblk .domestic .big{margin-top:calc(21*var(--u))}
-.pdfblk .domestic h3{font-family:var(--bold);font-size:calc(24*var(--u));line-height:calc(26*var(--u));color:#012A64;margin:calc(3*var(--u)) 0 0;white-space:nowrap}
-.pdfblk .domestic h3 .hl-yb{padding:calc(2*var(--u)) calc(8*var(--u))}
-.pdfblk .domestic .band{background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(20.5*var(--u));line-height:calc(67*var(--u));height:calc(71*var(--u));margin-top:calc(33*var(--u))}
+.pdfblk .domestic{padding:calc(50*var(--u)) 0 calc(30*var(--u))}
+.pdfblk .domestic .big{margin-top:1.1em}
+.pdfblk .domestic h3{font-family:var(--bold);font-size:var(--A);line-height:1.6;color:#012A64;margin:.3em 16px 0}
+.pdfblk .domestic h3 .hl-yb{padding:.1em .5em;display:inline-block;line-height:1.35;margin-top:.15em}
+.pdfblk .domestic .band{background:var(--navy);color:#fff;font-family:var(--thin);font-size:var(--A);line-height:1.4;padding:1em 16px;margin-top:calc(30*var(--u))}
 .pdfblk .domestic .pair{display:flex;align-items:center;justify-content:flex-start;padding:calc(38*var(--u)) 0 0 calc(25*var(--u))}
 .pdfblk .domestic .col{width:calc(290*var(--u));display:flex;justify-content:center;align-items:center}
 .pdfblk .domestic .col .suv{width:calc(290*var(--u));height:calc(162*var(--u));object-fit:cover;display:block}
 .pdfblk .domestic .arrow{flex:0 0 calc(54*var(--u));height:calc(53*var(--u));margin:0 calc(2*var(--u));background:#012A64;clip-path:polygon(0 29%,52% 29%,52% 0,100% 50%,52% 100%,52% 66%,0 66%)}
-.pdfblk .domestic .caps{display:flex;padding:calc(6*var(--u)) 0 0 calc(25*var(--u))}
-.pdfblk .domestic .caps p{width:calc(290*var(--u));margin:0;font-family:var(--thin);font-size:calc(17.5*var(--u));line-height:calc(24*var(--u));color:#132169;white-space:nowrap;text-align:center}
+.pdfblk .domestic .caps{display:flex;align-items:flex-start;padding:calc(8*var(--u)) 0 0 calc(25*var(--u))}
+.pdfblk .domestic .caps p{width:calc(290*var(--u));margin:0;font-family:var(--thin);font-size:var(--A);line-height:1.45;color:#132169;text-align:center}
 .pdfblk .domestic .caps p:first-child{margin-right:calc(58*var(--u))}
-.pdfblk .domestic .caps p .hl-b{padding:calc(1*var(--u)) calc(4*var(--u))}
+.pdfblk .domestic .caps p .hl-b{padding:.05em .3em}
 .pdfblk .domestic .band+.pair.icons,.pdfblk .domestic .pair.icons{padding-top:calc(36*var(--u))}
 .pdfblk .domestic .col .ic1{width:calc(149*var(--u));height:auto;display:block;position:relative;left:calc(-7*var(--u))}
 .pdfblk .domestic .col .ic2{width:calc(115*var(--u));height:auto;display:block;position:relative;left:calc(-3*var(--u))}
@@ -143,22 +142,22 @@ button,input,select,textarea{font:inherit;color:inherit}
 .pdfblk .rules{background:var(--navy);height:calc(292*var(--u));padding-top:calc(102*var(--u));box-sizing:border-box}
 .pdfblk .rules h2{font-family:var(--bold);font-size:calc(41*var(--u));line-height:calc(43*var(--u));color:#fff;margin:0}
 .pill{display:inline-block;background:var(--navy);color:#fff;font-family:var(--bold);font-size:26px;padding:6px 30px;border-radius:14px}
-.pdfblk .promises{padding:0 0 calc(40*var(--u))}
-.pdfblk .promises .pill{font-size:calc(24*var(--u));line-height:calc(44*var(--u));height:calc(44*var(--u));padding:0 calc(33*var(--u));border-radius:calc(12*var(--u));min-width:calc(130*var(--u));box-shadow:none;background:#0A123C;box-sizing:border-box}
+.pdfblk .promises{padding:0 16px calc(40*var(--u))}
+.pdfblk .promises .pill{font-size:calc(var(--A)*1.3);line-height:1.85;height:auto;padding:0 1.5em;border-radius:.55em;min-width:6.2em;box-shadow:none;background:#0A123C;box-sizing:border-box;display:inline-block}
 .pdfblk .qitem{display:flex;flex-direction:column;align-items:center;padding:calc(28*var(--u)) 0 calc(37*var(--u))}
-.pdfblk .qitem+.qitem{border-top:1px solid #D7D7D7;margin:0 calc(45*var(--u));padding-top:calc(21*var(--u))}
+.pdfblk .qitem+.qitem{border-top:1px solid #D7D7D7;margin:0 calc(29*var(--u));padding-top:calc(21*var(--u))}
 .pdfblk .qitem:nth-child(3){padding-top:calc(24*var(--u))}
 .pdfblk .qitem img{display:block}
 .pdfblk .qitem .i1{width:calc(156*var(--u));margin-top:calc(39*var(--u));position:relative;left:calc(-9*var(--u))}
 .pdfblk .qitem .i2{width:calc(148*var(--u));margin-top:calc(41*var(--u));position:relative;left:calc(1*var(--u))}
 .pdfblk .qitem .i3{width:calc(110*var(--u));margin-top:calc(44*var(--u));position:relative;left:calc(4*var(--u))}
-.pdfblk .qitem h3{font-family:var(--bold);font-size:calc(24*var(--u));line-height:calc(27*var(--u));color:#012A64;margin:calc(20*var(--u)) 0 0}
+.pdfblk .qitem h3{font-family:var(--bold);font-size:calc(var(--A)*1.2);line-height:1.35;color:#012A64;margin:calc(20*var(--u)) 0 0}
 .pdfblk .qitem .i2+h3{margin-top:calc(32*var(--u))}
 .pdfblk .qitem .i3+h3{margin-top:calc(18*var(--u))}
-.pdfblk .qitem h3 .hl-y{padding:calc(2.5*var(--u)) calc(8*var(--u));display:inline-block;line-height:calc(23*var(--u));position:relative;top:calc(-3*var(--u))}
-.pdfblk .qitem .i2+h3 .hl-y{padding:calc(4*var(--u)) calc(8*var(--u));top:0}
-.pdfblk .qitem p{font-family:var(--thin);font-size:calc(17*var(--u));line-height:calc(26.5*var(--u));color:#111;margin-top:calc(9*var(--u))}
-.pdfblk .qitem p .hl-b{padding:calc(1.5*var(--u)) calc(4*var(--u))}
+.pdfblk .qitem h3 .hl-y{padding:.1em .4em;display:inline-block;line-height:1.2}
+.pdfblk .qitem .i2+h3 .hl-y{padding:.15em .4em}
+.pdfblk .qitem p{font-family:var(--thin);font-size:var(--A);line-height:1.6;color:#111;margin-top:.6em}
+.pdfblk .qitem p .hl-b{padding:.1em .3em}
 
 /* ---------- 3단계 ---------- */
 .steps{padding:64px 24px 40px}
@@ -307,23 +306,20 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 .fmsg.wait{display:block;background:var(--sky);color:var(--navy)}
 .fmsg b{font-family:var(--bold);font-weight:400}
 
-/* ---------- 마무리 배너 ---------- */
-.outro{background:#fff;text-align:center;padding-top:44px}
-.outro .logo-img{width:392px;max-width:86%;height:auto;margin:0 auto 28px}
+/* ---------- 마무리 배너 (사용자 카드 이미지 3440×4212 실측, 680px 기준 비례) ---------- */
+.outro{--u:min(1px,calc(100vw / 680));background:#fff;text-align:center;padding:0;word-break:keep-all}
+.outro .skytop{height:calc(68*var(--u));background:var(--sky)} /* 카드 원본은 #B9E9FF, 위 옵션 구간 하늘색과 단차가 생겨 같은 색으로 */
+.outro .logo-wrap{padding:calc(35*var(--u)) 0 calc(31*var(--u));background:#fff;line-height:0}
+.outro .logo-img{width:calc(298*var(--u));height:auto;margin:0 auto;display:block}
 .ocard .logo-img{width:183px;height:auto}.ocard .logo-img.s{width:146px}
-.outro .logo .tag{color:#141414}
-.outro .logo .tag .no{color:#16246B}
-.outro .logo .tag .on{color:#FFCE4B}
-.outro .logo .name .ds{color:#16246B}
-.outro .logo .name .my{color:#111}
-.outro .logo .pill{background:#0D143E;color:#fff}
-
-.outro .sea{position:relative;height:520px;background:url(assets/ship_sea_footer.jpg?v=0925c) center/cover}
-.outro .sea .msg{position:absolute;left:26px;top:26px;text-align:left;color:#fff;font-family:var(--bold);font-size:24px;line-height:1.4;text-shadow:0 1px 6px rgba(0,0,0,.5)}
-.outro .sea .card{position:absolute;right:0;bottom:0;background:var(--navy-mid);color:#fff;text-align:left;padding:14px 22px;font-family:var(--thin);font-size:16px;line-height:1.6;min-width:430px}
-.outro .sea .card b{font-family:var(--bold);font-weight:400;color:var(--sky-hl)}
-.outro .sea .card a{color:var(--sky-hl);text-decoration:none;cursor:pointer}
-.outro .sea .card a:hover{text-decoration:underline}
+.outro .sea{position:relative;height:calc(476*var(--u));background:url(assets/ship_sea_footer.jpg?v=0926a) center top/cover}
+.outro .sea .band{position:absolute;left:0;top:0;width:100%;box-sizing:border-box;min-height:calc(59*var(--u));padding:calc(4*var(--u)) 12px calc(2*var(--u));background:rgba(11,38,71,.86);color:#fff;font-family:var(--bold);font-size:max(13px,calc(20.6*var(--u)));line-height:1.29;margin:0;text-align:center}
+.outro .sea .qr{position:absolute;right:calc(7.5*var(--u));bottom:calc(5*var(--u));width:max(80px,calc(121*var(--u)));height:auto;display:block;border-radius:calc(3*var(--u));background:#fff}
+.outro .sea .qrlbl{position:absolute;right:calc(max(80px,calc(121*var(--u))) + calc(13*var(--u)));bottom:calc(3*var(--u));background:#FCCC49;color:#25344F;font-family:var(--bold);font-size:max(11px,calc(18.5*var(--u)));line-height:1.48;padding:0 .75em;border-radius:.22em;white-space:nowrap}
+.outro .infobar{background:#0A113B;color:#fff;text-align:left;padding:calc(7*var(--u)) 16px calc(7*var(--u)) calc(18*var(--u));font-family:var(--thin);font-size:max(11.5px,calc(14.4*var(--u)));line-height:1.32;min-height:calc(72*var(--u));box-sizing:border-box}
+.outro .infobar b{font-family:var(--bold);font-weight:400;color:#B2D3EF}
+.outro .infobar a{color:inherit;text-decoration:none;cursor:pointer}
+.outro .infobar a:hover{text-decoration:underline}
 .foot-nav{background:var(--navy-deep);color:#fff;text-align:center;padding:26px 16px;font-family:var(--thin);font-size:19px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
 
 /* ---------- 기존 푸터(법적 고지) ---------- */
@@ -357,13 +353,12 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 @media (max-width:700px){
   .ocard .logo-img{width:141px}.ocard .logo-img.s{width:113px}
-  :root{--col:100%}
+  :root{--col:100%;--A:15px}
   .page{box-shadow:none}
   /* 히어로: 680px 캔버스를 화면 폭에 맞춰 통째로 축소 (PDF 비율 유지) */
   .hero-scale{position:absolute;left:0;top:0;width:680px;height:748px;transform-origin:top left}
   .ask h2{font-size:28px}
   .ask .btns{gap:10px}.ask .btn{width:46%;font-size:17px;height:50px}
-  .ask .info{font-size:15px}
   .cars h2{font-size:40px}.cars h3{font-size:19px}
   .pcard img{height:180px}.pcard h3{font-size:22px}
   .steps .pill{font-size:24px;padding:8px 30px}
@@ -382,8 +377,6 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   .options .cards{gap:8px;padding:12px 10px 0;background:var(--sky);position:relative;z-index:1}
   .ocard{padding:18px 8px 18px}.logo.sm .name{font-size:32px}.logo.sm .tag{font-size:9px}.logo.sm .pill{font-size:9px;padding:3px 10px}
   .ocard .box{font-size:14px}.ocard .ex{font-size:14px}
-  .outro .sea{height:380px;background-position:center center;background-size:cover}.outro .sea .msg{font-size:18px;left:16px;top:16px;right:16px;width:auto}
-  .outro .sea .card{min-width:0;left:0;right:0;bottom:0;font-size:12px;padding:10px 14px;line-height:1.5;background:var(--navy-mid);text-align:center;width:100%}
   .foot-nav{font-size:14px;gap:12px}
   footer .biz{font-size:11px;line-height:1.6}
 }
@@ -395,11 +388,11 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
  <div class="hero-scale">
-  <img class="top" src="assets/hero_v5.jpg?v=0925c" alt="블루존오토 — 아직도 중고차 그냥 파십니까? NO, 이제는 '제값' 지키며 사고파는 시대 ON. 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문. 60만km, 파손 심한 문제차량은 수출 or 폐차수출! 자동차 진단평가사가 검증한 국내중고차 매매! 상담전화 1588-4525, 운영시간 10:00 AM ~ 22:00 PM. 비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
+  <img class="top" src="assets/hero_v5.jpg?v=0926a" alt="블루존오토 — 아직도 중고차 그냥 파십니까? NO, 이제는 '제값' 지키며 사고파는 시대 ON. 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문. 60만km, 파손 심한 문제차량은 수출 or 폐차수출! 자동차 진단평가사가 검증한 국내중고차 매매! 상담전화 1588-4525, 운영시간 10:00 AM ~ 22:00 PM. 비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
  </div>
 </section>
 <div class="waveband" aria-hidden="true">
-  <img class="badges" src="assets/badges.png?v=0925c" alt="비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
+  <img class="badges" src="assets/badges.png?v=0926a" alt="비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
   <svg class="w1" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,45 C170,5 170,85 340,45 C510,5 510,85 680,45 C850,5 850,85 1020,45 C1190,5 1190,85 1360,45 L1360,230 L0,230 Z" fill="#0B2647" opacity=".55"/></svg>
   <svg class="w2" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,95 C170,50 170,140 340,95 C510,50 510,140 680,95 C850,50 850,140 1020,95 C1190,50 1190,140 1360,95 L1360,230 L0,230 Z" fill="#0B2647"/></svg>
   <svg class="w3" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,165 C170,125 170,205 340,165 C510,125 510,205 680,165 C850,125 850,205 1020,165 C1190,125 1190,205 1360,165 L1360,230 L0,230 Z" fill="#ffffff"/></svg>
@@ -407,7 +400,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 문의 ================= -->
 <section class="ask">
-  <h2>언제든 가볍게 문의하세요</h2>
+  <h2>언제든 가볍게 문의하세요<br>[버튼클릭]</h2>
   <div class="btns">
     <button class="btn dark" onclick="document.getElementById('tabQuote').click();location.href='#apply'">견적만 알아보기</button>
     <button class="btn light" onclick="document.getElementById('tabSell').click();location.href='#apply'">판매 진행하기</button>
@@ -421,18 +414,18 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 중고차! 폐차! ================= -->
 <section class="cars">
-  <div class="one"><img src="assets/cars_export.png?v=0925c" alt="일반 승용차와 폐차 3대를 실은 트럭"></div>
+  <div class="one"><img src="assets/cars_export.png?v=0926a" alt="일반 승용차와 폐차 3대를 실은 트럭"></div>
   <h2>중고차! 폐차!</h2>
   <h3><span class="hl-y">아직도</span> 그냥 사고팔거나 처리하고 계십니까?</h3>
 </section>
 
 <!-- ================= 문제점 ================= -->
 <section class="problems" id="problem">
-  <div class="pcard"><span class="lbl">1.문제점</span><img src="assets/p_dealer.png?v=0925c" alt=""><h3>비전문가의<br>감가폭탄 <span class="or-y">or</span> 폭리</h3></div>
+  <div class="pcard"><span class="lbl">1.문제점</span><img src="assets/p_dealer.png?v=0926a" alt=""><h3>비전문가의<br>감가폭탄 <span class="or-y">or</span> 폭리</h3></div>
   <p class="pdesc">비전문가인 딜러들의 이런저런 이유로<br><span class="hl-b">감가폭탄</span>과 <span class="hl-b">폭리</span>를 취하는 경우!</p>
-  <div class="pcard"><span class="lbl">2.문제점</span><img src="assets/p_app.png?v=0925c" alt=""><h3>어플,경매를 통한 중간수수료 부담</h3></div>
+  <div class="pcard"><span class="lbl">2.문제점</span><img src="assets/p_app.png?v=0926a" alt=""><h3>어플,경매를 통한 중간수수료 부담</h3></div>
   <p class="pdesc">어플을 통한 경매나 거래의 중간 수수료는<br>결국 <span class="hl-b">소비자의 몫</span>입니다.</p>
-  <div class="pcard"><span class="lbl">3.문제점</span><img src="assets/p_dispute.png?v=0925c" alt=""><h3>불투명한 과정과<br>약속과는 다른 금액</h3></div>
+  <div class="pcard"><span class="lbl">3.문제점</span><img src="assets/p_dispute.png?v=0926a" alt=""><h3>불투명한 과정과<br>약속과는 다른 금액</h3></div>
   <p class="pdesc" style="padding-bottom:6px">불투명한 거래 과정과<br><span class="hl-b">약속과는 다른 금액</span></p>
 </section>
 
@@ -442,12 +435,12 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <section class="solve" id="promise"><h2>“이제는 블루존오토가<br>해결하겠습니다!”</h2></section>
 
 <section class="svc">
-  <div class="photo ship"><img src="assets/ship_pdf.jpg?v=0925c" alt="컨테이너를 실은 수출 화물선"><span class="dest">주요수출국: 러시아 / 몽골 / 중동 / 아프리카</span></div>
+  <div class="photo ship"><img src="assets/ship_pdf.jpg?v=0926a" alt="컨테이너를 실은 수출 화물선"><span class="dest">주요수출국: 러시아 / 몽골 / 중동 / 아프리카</span></div>
   <div class="band"><span class="tag">수출 or 수출폐차</span><p>60만km? 파손이 심한차량?<br>모두 제값을 받을 수 있습니다.</p></div>
 </section>
 
 <section class="svc">
-  <div class="photo lot"><img src="assets/cars_pdf.jpg?v=0925c" alt="전시된 국내 중고차들"></div>
+  <div class="photo lot"><img src="assets/cars_pdf.jpg?v=0926a" alt="전시된 국내 중고차들"></div>
   <div class="band b2"><span class="tag">국내 중고차 매매</span><p>자동차 진단평가사가<br>검증한 차량과 매매가격으로 안심할 수 있습니다.</p></div>
 </section>
 
@@ -455,7 +448,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   <span class="rpill">수출 / 폐차수출</span>
   <div class="big">설마,</div>
   <h3>내 차가 오래되고,<br>연식도 60만km라서?<br>너무 기스가 많고, 파손이 심한 문제차량이라서?<br><span class="hl-yb">판매가 될까 걱정되십니까?</span></h3>
-  <img class="car" src="assets/car_wrecked_hd.jpg?v=0925c" alt="파손이 심한 차량">
+  <img class="car" src="assets/car_wrecked_hd.jpg?v=0926a" alt="파손이 심한 차량">
 </section>
 <div class="doubt-band">
   걱정은 이제 그만!<br><span class="y">파손된 차량도, 그 어떤 차도 가능합니다!</span>
@@ -468,10 +461,10 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   <div class="big">설마,</div>
   <h3>상태가 좋은 차량임에도<br>제값 받지 못하고 판매할까봐?<br>또는 이런저런 이유로 <span class="hl-yb">구매를 망설이고 있다면?</span></h3>
   <div class="band">1) 차대차 교환 가능</div>
-  <div class="pair"><div class="col"><img class="suv" src="assets/suv_old.jpg?v=0925c" alt="2018년식 모하비"></div><span class="arrow"></span><div class="col"><img class="suv" src="assets/suv_new.jpg?v=0925c" alt="2022년식 모하비"></div></div>
+  <div class="pair"><div class="col"><img class="suv" src="assets/suv_old.jpg?v=0926a" alt="2018년식 모하비"></div><span class="arrow"></span><div class="col"><img class="suv" src="assets/suv_new.jpg?v=0926a" alt="2022년식 모하비"></div></div>
   <div class="caps"><p><span class="hl-b">예시)</span> 2018년식 모하비 교환+추가금</p><p><span class="hl-b">예시)</span> 2022년식 모하비로 교환</p></div>
   <div class="band">2) 저신용 무조건 할부</div>
-  <div class="pair icons"><div class="col"><img class="ic1" src="assets/icon_fraud.png?v=0925c" alt=""></div><span class="arrow"></span><div class="col"><img class="ic2" src="assets/icon_receipt.png?v=0925c" alt=""></div></div>
+  <div class="pair icons"><div class="col"><img class="ic1" src="assets/icon_fraud.png?v=0926a" alt=""></div><span class="arrow"></span><div class="col"><img class="ic2" src="assets/icon_receipt.png?v=0926a" alt=""></div></div>
   <div class="caps last"><p><span class="hl-b">예시)</span> 저신용자 대상 (파산은 불가능)</p><p><span class="hl-b">예시)</span> 상담 후 할부상담 가능</p></div>
 </section>
 
@@ -480,19 +473,19 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <section class="promises">
   <div class="qitem">
     <span class="pill">1.약속</span>
-    <img class="i1" src="assets/p_appraiser.png?v=0925c" alt="">
+    <img class="i1" src="assets/p_appraiser.png?v=0926a" alt="">
     <h3>전문가의 매매견적가로<br><span class="hl-y">제값 +@</span></h3>
     <p>국토교통부공인<br><span class="hl-b">[자동차진단평가사]</span>의 매매견적가로 안전하게!</p>
   </div>
   <div class="qitem">
     <span class="pill">2.약속</span>
-    <img class="i2" src="assets/p_bankbook.png?v=0925c" alt="">
+    <img class="i2" src="assets/p_bankbook.png?v=0926a" alt="">
     <h3><span class="hl-y">중간 수수료를 타파!</span><br>고객에게 더 많이</h3>
     <p>쓸데없는 중계료를 타파!<br><span class="hl-b">수수료를 없애고</span> 고객에게 드립니다</p>
   </div>
   <div class="qitem">
     <span class="pill">3.약속</span>
-    <img class="i3" src="assets/p_handshake.png?v=0925c" alt="">
+    <img class="i3" src="assets/p_handshake.png?v=0926a" alt="">
     <h3>투명한 과정공개!<br><span class="hl-y">약속과 동일한 금액</span></h3>
     <p>거래과정을 실시간으로 공개!<br><span class="hl-b">약속과 동일한 금액</span>이 아닐시 전액환불!</p>
   </div>
@@ -505,7 +498,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
   <div class="step">
     <span class="no">1</span>
-    <div class="fig"><img class="qr" src="assets/qr.png?v=0925c" alt="예약사이트 QR"><span class="qrlbl">예약사이트QR</span></div>
+    <div class="fig"><img class="qr" src="assets/qr.png?v=0926a" alt="예약사이트 QR"><span class="qrlbl">예약사이트QR</span></div>
     <div>
       <h3>블루존오토 사이트에서 차량정보 입력</h3>
       <div class="box"><span class="y">1.차종 / 2.연식<br>/ 3.차량 사진 / 4.연락처</span><br>정보만 기입해도<br>[견적가 안내] 가능!<div class="gap"></div>판매 결정 경우<br><span class="y">6.차량등록증 사진</span><br><span class="y">7.신원확인 진행</span></div>
@@ -514,7 +507,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
   <div class="step">
     <span class="no">2</span>
-    <div class="fig"><img src="assets/mechanic_pdf.png?v=0925c" alt=""></div>
+    <div class="fig"><img src="assets/mechanic_pdf.png?v=0926a" alt=""></div>
     <div>
       <h3>즉시입금 <span class="or">or</span><br>전문가 현장방문 견적<br><span class="or">or</span> 탁송견적 (무료)</h3>
       <div class="box"><span class="y">이후, 차량 상태에 따라</span><br>추가 확인 없이 즉시입금 가능<div class="gap"></div><span class="y">추가 확인 필요할 경우</span><br>방문견적(무료)<span class="y">or</span><br>탁송견적(무료) 진행</div>
@@ -523,7 +516,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
   <div class="step">
     <span class="no">3</span>
-    <div class="fig"><img src="assets/phone_pdf.png?v=0925c" alt=""></div>
+    <div class="fig"><img src="assets/phone_pdf.png?v=0926a" alt=""></div>
     <div>
       <h3>최종판매 결정</h3>
       <div class="box">추가 확인 이후<br>2단계에 결정 내린<br><span class="y">견적가와 1원 차이없이</span><br>판매결정 <span class="y">최종 승인시</span><br><span class="y">즉시 입금</span><br><span class="warn">단, 차량운행 불가시<br>가격 변동 발생</span></div>
@@ -692,14 +685,14 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   <div class="heads"><div class="l">기본 옵션 (최종견적가 그대로 판매)</div><div class="r">제휴 옵션 (블루존오토 X 차기스PRO)</div></div>
   <div class="cards">
     <div class="ocard">
-      <div class="lg"><img class="logo-img" src="assets/logo.png?v=0925c" alt="블루존오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
+      <div class="lg"><img class="logo-img" src="assets/logo.png?v=0926a" alt="블루존오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
       <div class="box dark">최종견적가 그대로<br>그대로 판매진행 옵션</div>
       <p class="ex">예시: 추가선택 없이<br>최종견적가<br><span class="hl-y">550만원에 판매</span> 결정</p>
     </div>
     <div class="ocard">
-      <div class="lg"><img class="logo-img s" src="assets/logo.png?v=0925c" alt="블루존오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
+      <div class="lg"><img class="logo-img s" src="assets/logo.png?v=0926a" alt="블루존오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
       <div class="x">X</div>
-      <div class="chagis"><img src="assets/chagis.webp?v=0925c" alt="차기스PRO"></div>
+      <div class="chagis"><img src="assets/chagis.webp?v=0926a" alt="차기스PRO"></div>
       <div class="box light">외장수리 전문매장<br>(제휴매장)<br><span class="hl-y">차기스 프로(PRO)</span>에서 수리 후<br>추가금 받고 판매</div>
       <p class="ex">예시: 15만원 외장 수리 후<br><span class="hl-y">600만원에 판매</span><br>(탁송으로 진행 및<br>전과정 알림 발송)</p>
     </div>
@@ -708,11 +701,14 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 마무리 배너 ================= -->
 <section class="outro" id="visit">
-  <img class="logo-img" src="assets/logo.png?v=0925c" alt="블루존오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문">
+  <div class="skytop"></div>
+  <div class="logo-wrap"><img class="logo-img" src="assets/logo.png?v=0926a" alt="블루존오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
   <div class="sea">
-    <p class="msg">이제는 제 값에, 안심하고 사고팔 수 있는<br>시대가 열렸습니다!</p>
-    <div class="card"><b>상담전화 :</b> <a href="tel:1588-4525">1588-4525</a><br><b>운영시간 :</b> <span style="white-space:nowrap">10:00 AM ~ 22:00 PM</span><br><b>오시는길 :</b> <span style="white-space:nowrap">대전광역시 유성구 유성대로 510, 238호</span></div>
+    <p class="band">이제는 제 값에, 안심하고 팔 수 있는<br>시대가 열렸습니다!</p>
+    <span class="qrlbl">예약사이트QR</span>
+    <img class="qr" src="assets/qr.png?v=0926a" alt="예약사이트 QR — https://dstrade.it.kr">
   </div>
+  <div class="infobar"><b>상담전화 :</b> <a href="tel:1588-4525">1588-4525</a><br><b>운영시간 :</b> <span style="white-space:nowrap">10:00 AM ~ 22:00 PM</span><br><b>오시는길 :</b> <span style="white-space:nowrap">대전광역시 유성구 유성대로 510, 238호</span></div>
 </section>
 <nav class="foot-nav"><a href="#privacy">개인정보 처리 방침</a><a href="#legal">허위접수 안내</a><a href="#apply">견적·판매·구매 신청으로 가기</a></nav>
 
