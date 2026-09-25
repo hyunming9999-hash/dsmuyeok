@@ -171,7 +171,51 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 .slot.extra .lb small{display:block;font-family:var(--thin);font-size:11px;line-height:1.3;margin-top:4px;color:var(--navy)}
 .slot.extra.has{background:var(--navy)}.slot.extra.has .lb,.slot.extra.has .lb small{color:#fff}
 .slot.extra[hidden]{display:none}
-.photos.off .slot:not(.nophoto){opacity:.3;pointer-events:none}
+/* 사진 올리는 방법 택1 (카드형 아코디언) */
+.modes{display:flex;flex-direction:column;gap:10px}
+.mode{border:1px solid #C9D1DD;background:#fff}
+.mode.on{border:2px solid var(--navy)}
+.mhead{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#F5F7FB;border:0;padding:12px 14px;cursor:pointer;font:inherit;color:inherit}
+.mode.on .mhead{background:#fff}
+.mrad{flex:0 0 auto;width:20px;height:20px;border-radius:50%;border:2px solid #9AA3B2;position:relative;background:#fff}
+.mode.on .mrad{border-color:var(--navy);background:var(--navy)}
+.mode.on .mrad::after{content:"";position:absolute;inset:5px;border-radius:50%;background:#fff}
+.mtxt b{display:block;font-family:var(--bold);font-weight:400;font-size:16px;color:var(--ink);line-height:1.3}
+.mtxt b em{font-style:normal;font-family:var(--bold);font-size:11px;background:var(--sun);color:var(--navy);padding:2px 7px;margin-left:6px;vertical-align:2px}
+.mtxt small{display:block;font-family:var(--thin);font-size:13px;color:#6B7280;line-height:1.45;margin-top:2px}
+.mbody{display:none;padding:14px 14px 16px;border-top:1px solid #E3E7EE}
+.mode.on .mbody{display:block}
+.bulkbox{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:2px dashed #7FB3E0;background:#EAF4FC;padding:22px 12px;cursor:pointer;text-align:center;position:relative}
+.bulkbox svg{width:34px;height:34px;color:var(--navy)}
+.bulkbox b{font-family:var(--bold);font-weight:400;font-size:18px;color:var(--navy)}
+.bulkbox small{font-family:var(--thin);font-size:13px;color:#3C4250}
+.bulkbox input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.bulkbox.has{padding:12px}
+.bulkthumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}
+.bulkthumbs div{position:relative;aspect-ratio:1;overflow:hidden;background:#F5F7FB;border:1px solid #E3E7EE}
+.bulkthumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.bulkthumbs i{position:absolute;left:4px;bottom:4px;font-style:normal;font-family:var(--bold);font-size:11px;color:#fff;background:rgba(11,38,71,.85);padding:1px 6px}
+.bulkthumbs button{position:absolute;right:4px;top:4px;width:20px;height:20px;border:0;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:13px;line-height:20px;padding:0;cursor:pointer}
+.bulkbar{display:flex;align-items:center;gap:8px;margin-top:10px;font-family:var(--bold);font-size:14px;color:var(--ink)}
+.bulkbar span{flex:1;min-width:0}.bulkbar span i{font-style:normal;font-family:var(--thin);color:#C62828;display:block;font-size:12px}
+.bulkbar button{white-space:nowrap;flex:0 0 auto;background:#fff;border:1px solid #C9D1DD;padding:7px 12px;font-family:var(--thin);font-size:13px;cursor:pointer;color:var(--ink)}
+.bulkbar button+button{margin-left:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chips span{font-family:var(--thin);font-size:12px;color:var(--navy);background:#fff;border:1px solid #C6DDF0;padding:3px 9px;border-radius:999px}
+.chips span.dmg{background:var(--sun);border-color:var(--sun)}
+.mode[hidden],.bulkbar[hidden],.bulkthumbs[hidden]{display:none}
+.bulk-note{margin-top:12px;font-size:13px;line-height:1.6;color:#3C4250}
+.bulk-note b{font-family:var(--bold);font-weight:400;color:var(--ink)}
+/* 사진 없음 카드: 견적 탭 = 하늘색, 판매 탭 = 남색 */
+.mode.sky,.mode.sky .mhead{background:var(--sky)}
+.mode.sky .mbody{border-top-color:#B8D8EE}.mode.sky .callout{background:#fff}
+.mode.navy,.mode.navy .mhead{background:var(--navy);border-color:var(--navy)}
+.mode.navy .mtxt b,.mode.navy .mtxt small,.mode.navy .mbody{color:#fff}
+.mode.navy .mtxt small{color:#D5EBFA}
+.mode.navy .mrad{border-color:#fff;background:transparent}
+.mode.navy.on{border-color:var(--sun)}
+.mode.navy.on .mrad{background:#fff;border-color:#fff}.mode.navy.on .mrad::after{background:var(--navy)}
+.mode.navy .mbody{border-top:1px solid rgba(255,255,255,.25);font-family:var(--thin);font-size:13px;line-height:1.6}
 .docs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .docs .slot{aspect-ratio:16/9}
 .checks{display:flex;flex-direction:column;gap:10px}
@@ -288,6 +332,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   .grid2,.docs{grid-template-columns:1fr}.photos{grid-template-columns:repeat(3,1fr)}
   .slot.nophoto{font-size:13px;padding:4px}.slot.nophoto small{font-size:10px}
   .slot.extra{padding:4px}.slot.extra .lb{font-size:13px}.slot.extra .lb small{font-size:10px}
+  .bulkthumbs{grid-template-columns:repeat(4,1fr)}.mtxt b{font-size:15px}.mtxt small{font-size:12px}
   .apply .cta{font-size:24px;height:64px}
   .apply .flow{padding:26px 22px 34px}.apply .flow h4{font-size:20px}.apply .flow p{font-size:16px}
   .options .heads div{font-size:12px}
@@ -448,19 +493,46 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
       </fieldset>
 
       <fieldset>
-        <legend><span class="st">02</span>차량 사진 7면 <span class="req" id="photoReq">* 7장 모두 필수</span></legend>
-        <div class="photos" id="photos">
-          <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">정면</span><input type="file" accept="image/*" name="ph_front" required></label>
-          <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">후면</span><input type="file" accept="image/*" name="ph_rear" required></label>
-          <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">측면 왼쪽</span><input type="file" accept="image/*" name="ph_left" required></label>
-          <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">측면 오른쪽</span><input type="file" accept="image/*" name="ph_right" required></label>
-          <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">지붕(윗면)</span><input type="file" accept="image/*" name="ph_roof" required></label>
-          <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 운전석/조수석</span><input type="file" accept="image/*" name="ph_in_front" required></label>
-          <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 승객석</span><input type="file" accept="image/*" name="ph_in_rear" required></label>
-          <button type="button" class="slot nophoto" id="noPhotoBtn">사진이 없어요<small>대략적인<br>차종견적만<br>알아볼래요[클릭]</small></button>
-          <label class="slot extra" id="extraSlot" hidden><span class="lb" id="extraLb">추가 파손사진<br>올리기<small>여러장 가능[클릭]</small></span><input type="file" accept="image/*" multiple name="ph_extra" id="extraInput"></label>
+        <legend><span class="st">02</span>차량 사진 <span class="req" id="photoReq">* 여러 장 한 번에</span></legend>
+        <div class="modes" id="modes">
+          <div class="mode on" data-mode="bulk">
+            <button type="button" class="mhead"><span class="mrad"></span><span class="mtxt"><b>사진 한 번에 올리기<em>추천</em></b><small>갤러리에서 여러 장을 한 번에 고르세요. 파손 부위 사진도 함께 넣어주시면 됩니다.</small></span></button>
+            <div class="mbody">
+              <label class="bulkbox" id="bulkBox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/><path d="M19 3v4M17 5h4"/></svg><b id="bulkTitle">사진 선택하기</b><small id="bulkSub">여러 장 한 번에 선택 가능 · 최대 20장</small><input type="file" accept="image/*" multiple id="bulkInput"></label>
+              <div class="bulkthumbs" id="bulkThumbs" hidden></div>
+              <div class="bulkbar" id="bulkBar" hidden><span id="bulkCount">0장 선택됨</span><button type="button" id="bulkAdd">더 추가</button><button type="button" id="bulkClear">전부 지우기</button></div>
+              <p class="hint-p bulk-note"><b>정면 / 후면 / 측면 왼쪽 / 측면 오른쪽 / 지붕(윗면) / 실내 운전석+조수석 / 실내 승객석 / 파손 부위(여러 장 가능)</b> 사진이 필요합니다. 사진이 전부 없을 시 있는 그대로만 올려주셔도 됩니다.</p>
+            </div>
+          </div>
+          <div class="mode" data-mode="guided">
+            <button type="button" class="mhead"><span class="mrad"></span><span class="mtxt"><b>안내에 따라 한 장씩 올리기</b><small>어떤 사진을 찍어야 할지 잘 모르겠다면 이쪽. 칸마다 안내가 나옵니다.</small></span></button>
+            <div class="mbody">
+              <div class="photos" id="photos">
+            <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">정면</span><input type="file" accept="image/*" name="ph_front"></label>
+            <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">후면</span><input type="file" accept="image/*" name="ph_rear"></label>
+            <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">측면 왼쪽</span><input type="file" accept="image/*" name="ph_left"></label>
+            <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">측면 오른쪽</span><input type="file" accept="image/*" name="ph_right"></label>
+            <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">지붕(윗면)</span><input type="file" accept="image/*" name="ph_roof"></label>
+            <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 운전석/조수석</span><input type="file" accept="image/*" name="ph_in_front"></label>
+            <label class="slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg><span class="lb">실내 승객석</span><input type="file" accept="image/*" name="ph_in_rear"></label>
+                <label class="slot extra" id="extraSlot"><span class="lb" id="extraLb">파손 부위<br>사진 올리기<small>여러장 가능[클릭]</small></span><input type="file" accept="image/*" multiple name="ph_extra" id="extraInput"></label>
+              </div>
+              <p class="hint-p" id="photoHint"><b style="font-family:var(--bold);font-weight:400;color:var(--ink)">7칸을 모두 채워주셔야 접수됩니다.</b> 파손 부위는 하늘색 버튼으로 여러 장을 한 번에 올릴 수 있습니다.</p>
+            </div>
+          </div>
+          <div class="mode navy" data-mode="none" id="modeNoneQuote">
+            <button type="button" class="mhead"><span class="mrad"></span><span class="mtxt"><b>사진이 없어요 · 대략 견적만</b><small>사진 업로드 없이 차종·연식 기준의 대략적인 금액만 먼저 안내드립니다.</small></span></button>
+            <div class="mbody">
+              <p>사진 없이 접수됩니다. 주행거리와 상태 메모를 자세히 적어주실수록 안내가 정확해지며, 최종 견적은 이후 사진 확인 또는 방문·탁송 확인 후 확정됩니다.</p>
+            </div>
+          </div>
+          <div class="mode navy" data-mode="none" id="modeNoneSell" hidden>
+            <button type="button" class="mhead"><span class="mrad"></span><span class="mtxt"><b>사진 없이 전화나 문자로 상담할래요</b><small>판매 진행 시 사진이 필요하여, 접수 이후 남겨주신 연락처를 통해 요청할 수 있습니다.</small></span></button>
+            <div class="mbody">
+              <p>판매 진행에는 차량 사진이 꼭 필요합니다. 접수 후 남겨주신 연락처로 사진을 요청드리며, 사진 확인 뒤 방문·탁송 등 진행 방법을 안내드립니다.</p>
+            </div>
+          </div>
         </div>
-        <p class="hint-p" id="photoHint"><b style="font-family:var(--bold);font-weight:400;color:var(--ink)">사진 7장을 모두 올려주시면 차량 상태를 반영한 정확한 견적을 받아보실 수 있습니다.</b> 휴대폰으로 찍은 사진 그대로 올려주시면 됩니다. 파손 부위는 가까이서 찍은 사진을 메모와 함께 추가해 주셔도 좋습니다.<br>지금 사진이 없으시면 노란 <b style="font-family:var(--bold);font-weight:400;color:var(--ink)">[사진이 없어요]</b> 버튼을 눌러 주세요. 사진 업로드 없이 차종·연식 기준의 대략적인 금액만 먼저 안내드립니다.</p>
       </fieldset>
 
       <fieldset>
@@ -590,22 +662,34 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 (function(){var h=document.querySelector('.hero'),c=document.querySelector('.hero-scale');function fit(){var w=h.clientWidth;if(w<680){var k=w/680;c.style.transform='scale('+k+')';h.style.height=(710*k)+'px';}else{c.style.transform='';h.style.height='';}}fit();addEventListener('resize',fit);})();
 // 연식 옵션
 (function(){var y=document.getElementById('year');var now=new Date().getFullYear();for(var i=now;i>=1990;i--){var o=document.createElement('option');o.textContent=i+'년';o.value=i;y.appendChild(o);}})();
-// 사진 없이 견적만 (견적만 알아보기 탭 전용)
-var noPhoto=false;
-var npBtn=document.getElementById('noPhotoBtn'),photosBox=document.getElementById('photos'),photoHint=document.getElementById('photoHint'),photoReq=document.getElementById('photoReq');
-var hintOrig=photoHint.innerHTML,btnOrig=npBtn.innerHTML;
-var hintSell='<b style="font-family:var(--bold);font-weight:400;color:var(--ink)">판매 진행은 사진 7장을 모두 올려주셔야 접수됩니다.</b> 휴대폰으로 찍은 사진 그대로 올려주시면 됩니다. 파손 부위가 있다면 하늘색 <b style="font-family:var(--bold);font-weight:400;color:var(--ink)">[추가 파손사진 올리기]</b> 버튼으로 가까이서 찍은 사진을 여러 장 함께 올려주세요.';
-var extraSlot=document.getElementById('extraSlot'),extraInput=document.getElementById('extraInput'),extraLb=document.getElementById('extraLb'),extraLbOrig=extraLb.innerHTML;
-extraInput.addEventListener('change',function(){var n=extraInput.files.length;extraSlot.classList.toggle('has',n>0);extraLb.innerHTML=n?'✓ 추가 사진<br>'+n+'장 선택됨<small>다시 누르면<br>다시 고르기</small>':extraLbOrig;});
-function setNoPhoto(v){
-  noPhoto=v;npBtn.classList.toggle('on',v);photosBox.classList.toggle('off',v);
-  npBtn.innerHTML=v?'✓ 사진 없이<br>대략 견적만<small>다시 누르면<br>사진 첨부로 [클릭]</small>':btnOrig;
-  photoReq.textContent=v?'사진 없이 진행':'* 7장 모두 필수';
-  photoHint.innerHTML=v?'<b style="font-family:var(--bold);font-weight:400;color:var(--ink)">사진 없이 접수됩니다. 차종·연식 기준의 대략적인 금액만 먼저 안내드립니다.</b> 주행거리와 상태 메모를 자세히 적어주실수록 안내가 정확해지며, 최종 견적은 이후 사진 확인 또는 방문·탁송 확인 후 확정됩니다. 사진을 올리시려면 버튼을 다시 눌러 주세요.':hintOrig;
+// 사진 올리는 방법 택1: bulk(한 번에) / guided(한 장씩) / none(사진 없음, 견적 탭 전용)
+var pmode='bulk',bulkFiles=[],BULK_MAX=20;
+var photoReq=document.getElementById('photoReq'),modeNoneQuote=document.getElementById('modeNoneQuote'),modeNoneSell=document.getElementById('modeNoneSell');
+var bulkBox=document.getElementById('bulkBox'),bulkInput=document.getElementById('bulkInput'),bulkThumbs=document.getElementById('bulkThumbs'),bulkBar=document.getElementById('bulkBar'),bulkCount=document.getElementById('bulkCount'),bulkTitle=document.getElementById('bulkTitle'),bulkSub=document.getElementById('bulkSub');
+function isSell(){return document.getElementById('tabSell').classList.contains('active');}
+function reqText(){var sell=isSell();return pmode==='none'?(sell?'사진 없이 접수 · 연락 요청':'사진 없이 진행'):pmode==='guided'?'* 7장 모두 필수':'* 여러 장 한 번에';}
+function setMode(m){
+  pmode=m;document.querySelectorAll('#modes .mode').forEach(function(c){c.classList.toggle('on',c.dataset.mode===m);});
+  photoReq.textContent=reqText();
 }
-npBtn.addEventListener('click',function(){setNoPhoto(!noPhoto);});
+document.querySelectorAll('#modes .mhead').forEach(function(h){h.addEventListener('click',function(){setMode(h.parentNode.dataset.mode);});});
+function renderBulk(){
+  var n=bulkFiles.length;bulkThumbs.innerHTML='';bulkThumbs.hidden=!n;bulkBar.hidden=!n;bulkBox.classList.toggle('has',n>0);
+  bulkTitle.textContent=n?'사진 더 고르기':'사진 선택하기';bulkSub.textContent=n?(n+'장 선택됨 · 최대 '+BULK_MAX+'장'):'여러 장 한 번에 선택 가능 · 최대 '+BULK_MAX+'장';
+  bulkCount.textContent=n+'장 선택됨';
+  bulkFiles.forEach(function(f,i){var d=document.createElement('div');var im=document.createElement('img');im.src=URL.createObjectURL(f);d.appendChild(im);var t=document.createElement('i');t.textContent=i+1;d.appendChild(t);var x=document.createElement('button');x.type='button';x.textContent='×';x.setAttribute('aria-label','삭제');x.addEventListener('click',function(){bulkFiles.splice(i,1);renderBulk();});d.appendChild(x);bulkThumbs.appendChild(d);});
+}
+bulkInput.addEventListener('change',function(){
+  var add=Array.prototype.slice.call(bulkInput.files);bulkInput.value='';
+  var room=BULK_MAX-bulkFiles.length;if(add.length>room){showMsg('err','사진은 한 번에 최대 '+BULK_MAX+'장까지 올릴 수 있습니다. 앞의 '+room+'장만 추가했습니다.');add=add.slice(0,room);}
+  bulkFiles=bulkFiles.concat(add);renderBulk();
+});
+document.getElementById('bulkAdd').addEventListener('click',function(){bulkInput.click();});
+document.getElementById('bulkClear').addEventListener('click',function(){bulkFiles=[];renderBulk();});
+var extraSlot=document.getElementById('extraSlot'),extraInput=document.getElementById('extraInput'),extraLb=document.getElementById('extraLb'),extraLbOrig=extraLb.innerHTML;
+extraInput.addEventListener('change',function(){var n=extraInput.files.length;extraSlot.classList.toggle('has',n>0);extraLb.innerHTML=n?'✓ 파손 사진<br>'+n+'장 선택됨<small>다시 누르면<br>다시 고르기</small>':extraLbOrig;});
 // 탭 전환
-document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});t.classList.add('active');var sell=t.dataset.mode==='sell';document.getElementById('sellOnly').hidden=!sell;if(sell){setNoPhoto(false);npBtn.hidden=true;extraSlot.hidden=false;photoHint.innerHTML=hintSell;}else{npBtn.hidden=false;extraSlot.hidden=true;photoHint.innerHTML=hintOrig;}});});
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});t.classList.add('active');var sell=t.dataset.mode==='sell';document.getElementById('sellOnly').hidden=!sell;modeNoneQuote.hidden=sell;modeNoneSell.hidden=!sell;photoReq.textContent=reqText();renderBulk();});});
 // 사진 미리보기
 document.querySelectorAll('.slot:not(.extra) input[type=file]').forEach(function(inp){inp.addEventListener('change',function(){var f=inp.files[0];if(!f)return;var img=document.createElement('img');img.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';img.src=URL.createObjectURL(f);inp.parentNode.appendChild(img);inp.parentNode.querySelector('.lb').style.cssText='position:relative;z-index:1;background:rgba(255,255,255,.9);padding:2px 6px';});});
 // 사진 압축(긴 변 1400px, JPEG 82%) → base64. 압축 불가 형식(HEIC 등)은 원본 그대로
@@ -623,10 +707,14 @@ var fmsg=document.getElementById('fmsg');
 function showMsg(type,html){fmsg.className='fmsg '+type;fmsg.innerHTML=html;fmsg.scrollIntoView({behavior:'smooth',block:'center'});}
 document.getElementById('applyForm').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
   if(!f.maker.value||!f.model.value||!f.year.value){showMsg('err','차량 정보(제조사·차종·연식)를 입력해 주세요.');return;}
-  var sell=document.getElementById('tabSell').classList.contains('active');
-  var skipPhoto=noPhoto&&!sell;
-  var ph=Array.prototype.slice.call(f.querySelectorAll('#photos .slot:not(.extra) input[type=file]')),miss=[];ph.forEach(function(i){if(!i.files.length)miss.push(i.parentNode.querySelector('.lb').textContent);});
-  if(!skipPhoto&&miss.length){showMsg('err','차량 사진 7장을 모두 올려주셔야 접수됩니다.\n빠진 사진: '+miss.join(', ')+(sell?'':'\n\n사진이 없으시면 노란 [사진이 없어요] 버튼을 눌러 주세요.'));return;}
+  var sell=isSell();var mode=pmode;
+  var ph=Array.prototype.slice.call(f.querySelectorAll('#photos .slot:not(.extra) input[type=file]'));
+  if(mode==='bulk'){
+    if(bulkFiles.length<1){showMsg('err','차량 사진을 1장 이상 올려주세요.\n지금 사진이 없으시면 아래 '+(sell?'[사진 없이 전화나 문자로 상담할래요]':'[사진이 없어요 · 대략 견적만]')+'을 선택해 주세요.');return;}
+  }else if(mode==='guided'){
+    var miss=[];ph.forEach(function(i){if(!i.files.length)miss.push(i.parentNode.querySelector('.lb').textContent);});
+    if(miss.length){showMsg('err','7칸을 모두 채워주셔야 접수됩니다.\n빠진 사진: '+miss.join(', ')+'\n\n한 번에 올리시려면 위의 [사진 한 번에 올리기]를 선택해 주세요.');return;}
+  }
   if(!f.name.value||!f.phone.value){showMsg('err','성함과 휴대폰 번호를 입력해 주세요.');return;}
   if(sell&&!f.doc_reg.files.length){showMsg('err','판매 진행 시 차량등록증 사진을 올려주세요.');return;}
   if(!f.agree_privacy.checked||!f.agree_truth.checked){showMsg('err','필수 동의 항목 2개를 모두 체크해 주세요.');return;}
@@ -639,10 +727,10 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
   var formData={
     timestamp:new Date().toLocaleString('ko-KR'),
     refNo:refNo,
-    formType:sell?'판매진행':(skipPhoto?'견적조회(사진없음·대략견적)':'견적조회'),
+    formType:(sell?'판매진행':'견적조회')+(mode==='bulk'?'(일괄업로드)':mode==='none'?(sell?'(사진없음·연락요청)':'(사진없음·대략견적)'):''),
     maker:f.maker.value, model:f.model.value, year:f.year.value,
     km:f.km.value||'', memo:f.memo.value||'',
-    photoCount:ph.filter(function(i){return i.files.length}).length+(sell?extraInput.files.length:0),
+    photoCount:mode==='bulk'?bulkFiles.length:mode==='guided'?(ph.filter(function(i){return i.files.length}).length+extraInput.files.length):0,
     name:f.name.value, phone:f.phone.value,
     reply:replyMethods.join(', '), calltime:f.calltime.value||'',
     idmode:f.idmode?f.idmode.value:'',
@@ -660,7 +748,7 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
       f.reset();
       f.querySelectorAll('.slot img').forEach(function(im){im.remove();});
       f.querySelectorAll('.slot .lb').forEach(function(l){l.style.cssText='';});
-      setNoPhoto(false);extraSlot.classList.remove('has');extraLb.innerHTML=extraLbOrig;
+      bulkFiles=[];renderBulk();setMode('bulk');extraSlot.classList.remove('has');extraLb.innerHTML=extraLbOrig;
     }catch(e2){console.warn(e2);}
     btn.disabled=false;btn.textContent='견적 요청 보내기';
   }
@@ -671,11 +759,15 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
     btn.disabled=false;btn.textContent='견적 요청 보내기';
   }
 
-  // 사진 목록 (7장 + 판매진행 시 차량등록증)
-  var jobs=[];ph.forEach(function(i,idx){if(!i.files.length)return;var lb=i.parentNode.querySelector('.lb').textContent.trim();jobs.push(shrinkPhoto(i.files[0]).then(function(r){return r?{name:(idx+1)+'_'+lb+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});
-  if(sell&&f.doc_reg.files.length){jobs.push(shrinkPhoto(f.doc_reg.files[0]).then(function(r){return r?{name:'0_차량등록증.'+r.ext,mime:r.mime,data:r.data}:null;}));}
-  if(sell&&extraInput.files.length){Array.prototype.forEach.call(extraInput.files,function(file,k){jobs.push(shrinkPhoto(file).then(function(r){return r?{name:'8_추가파손'+(k+1)+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});}
-  if(jobs.length)showMsg('wait','사진을 정리하고 있습니다. 잠시만 기다려 주세요.');
+  // 사진 목록: bulk → 사진01…, guided → 1_정면… + 8_파손N, 판매진행 시 0_차량등록증
+  var jobs=[],doneN=0;function tick(r){doneN++;showMsg('wait','사진을 정리하고 있습니다. '+doneN+'/'+jobs.length);return r;}
+  if(mode==='bulk'){bulkFiles.forEach(function(file,k){jobs.push(shrinkPhoto(file).then(tick).then(function(r){return r?{name:'사진'+String(k+1).padStart(2,'0')+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});}
+  if(mode==='guided'){
+    ph.forEach(function(i,idx){if(!i.files.length)return;var lb=i.parentNode.querySelector('.lb').textContent.trim();jobs.push(shrinkPhoto(i.files[0]).then(tick).then(function(r){return r?{name:(idx+1)+'_'+lb+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});
+    Array.prototype.forEach.call(extraInput.files,function(file,k){jobs.push(shrinkPhoto(file).then(tick).then(function(r){return r?{name:'8_파손'+(k+1)+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});
+  }
+  if(sell&&f.doc_reg.files.length){jobs.push(shrinkPhoto(f.doc_reg.files[0]).then(tick).then(function(r){return r?{name:'0_차량등록증.'+r.ext,mime:r.mime,data:r.data}:null;}));}
+  if(jobs.length)showMsg('wait','사진을 정리하고 있습니다. 0/'+jobs.length);
 
   Promise.all(jobs).then(function(photos){
     formData.photos=photos.filter(Boolean);
