@@ -61,6 +61,13 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero .wave .w3{animation:drift 8s linear infinite}
 @keyframes drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.hero .wave svg{animation:none}}
+/* 히어로 아래 물결 띠 (예전 3겹 물결 그대로, 바다 텍스처 위에) */
+.waveband{--u:min(1px,calc(100vw / 680));position:relative;height:calc(150*var(--u));background:url(assets/hero_seafill.jpg) center/cover;overflow:hidden}
+.waveband svg{position:absolute;left:0;bottom:0;width:200%;height:100%;display:block;will-change:transform}
+.waveband .w1{animation:drift 16s linear infinite}
+.waveband .w2{animation:drift 11s linear infinite reverse}
+.waveband .w3{animation:drift 8s linear infinite}
+@media (prefers-reduced-motion:reduce){.waveband svg{animation:none}}
 
 /* ---------- 문의 ---------- */
 .ask{padding:30px 24px 20px;text-align:center}
@@ -89,25 +96,24 @@ button,input,select,textarea{font:inherit;color:inherit}
 .pcard h3 .or-y{color:#E0A800}
 .pdesc{text-align:center;font-family:var(--thin);font-size:18px;line-height:1.55;padding:22px 0 26px;color:#fff}
 
-/* ---------- 해결 (카드 2번을 그대로: 1080px 카드 실측을 680px로 환산, --u로 비례 축소) ---------- */
-.solve2{--u:min(1px,calc(100vw / 680));background:var(--navy);color:#fff;position:relative}
-.solve2 .rowa{position:relative;height:calc(372*var(--u));overflow:hidden}
-.solve2 .rowa .ship{position:absolute;left:calc(198*var(--u));top:0;width:calc(482*var(--u));height:calc(343*var(--u));object-fit:cover;clip-path:polygon(0 0,100% 0,100% 100%,21.7% 100%)}
-.solve2 .rowa .txt{position:absolute;left:calc(26*var(--u));top:calc(52*var(--u));width:calc(300*var(--u))}
-.solve2 h2{font-family:var(--bold);font-size:calc(27*var(--u));line-height:1.35;color:#fff;margin:0;font-weight:400}
-.solve2 .tag{display:inline-block;background:var(--sky-hl);color:var(--navy);font-family:var(--bold);font-size:calc(19*var(--u));padding:calc(3*var(--u)) calc(8*var(--u));margin-top:calc(26*var(--u))}
-.solve2 .q{font-family:var(--thin);font-style:italic;font-size:calc(19*var(--u));line-height:1.5;color:#fff;margin-top:calc(14*var(--u))}
-.solve2 .dest{position:absolute;right:calc(20*var(--u));bottom:calc(10*var(--u));margin:0;font-family:var(--bold);font-size:calc(15*var(--u));color:#fff}
-.solve2 .rowb{position:relative;height:calc(309*var(--u));overflow:hidden}
-.solve2 .rowb .lot{position:absolute;left:0;top:0;width:calc(460*var(--u));height:calc(309*var(--u));object-fit:cover;clip-path:polygon(0 0,100% 0,67% 100%,0 100%)}
-.solve2 .rowb .txt{position:absolute;right:calc(20*var(--u));top:calc(70*var(--u));width:calc(230*var(--u));text-align:center}
-.solve2 .rowb .tag{margin-top:0;font-size:calc(21*var(--u));padding:calc(4*var(--u)) calc(12*var(--u))}
-.solve2 .rowb .q{margin-top:calc(30*var(--u));font-size:calc(18*var(--u))}
+/* ---------- 해결 ---------- */
+.solve{padding:56px 24px 8px;text-align:center}
+.solve h2{font-family:var(--bold);font-size:48px;line-height:1.1;color:var(--navy);margin:0}
+/* 수출 / 국내 중고차 매매 소개 블록 */
+.svc{padding:34px 24px 44px;text-align:center}
+.svc .tagpill{display:inline-block;background:var(--sky-hl);color:var(--navy);font-family:var(--bold);font-size:28px;line-height:1;padding:10px 26px}
+.svc .photo{margin:22px -24px 0}
+.svc .photo img{width:100%;height:380px;object-fit:cover;display:block}
+.svc .q{font-family:var(--thin);font-size:24px;line-height:1.45;color:var(--navy);margin-top:24px}
+.svc .q b{font-family:var(--bold);font-weight:400;font-size:28px;display:inline-block;margin-top:6px}
+.svc .dest{font-family:var(--thin);font-size:20px;color:var(--navy);margin-top:16px}
+.svc .dest b{font-family:var(--bold);font-weight:400;background:var(--sun);padding:2px 10px}
+.svc+.doubt{padding-top:calc(20*var(--u))}
 
 /* ---------- 약속 ---------- */
 /* 카드(794px) 실측값을 680px 기준으로 환산, 화면이 좁아지면 카드처럼 통째로 비례 축소 */
-.promises{--u:min(1px,calc(100vw / 680))}
-.promises{padding:calc(30*var(--u)) 24px calc(40*var(--u));text-align:center}
+.promises,.doubt{--u:min(1px,calc(100vw / 680))}
+.promises{padding:calc(40*var(--u)) 24px calc(40*var(--u));text-align:center;border-top:1px solid #E3E7EE}
 .pill{display:inline-block;background:var(--navy);color:#fff;font-family:var(--bold);font-size:26px;padding:6px 30px;border-radius:14px}
 .promises .pill{font-size:calc(38*var(--u));line-height:1.15;padding:calc(12*var(--u)) calc(38*var(--u));border-radius:calc(18*var(--u))}
 .qitem{padding:calc(24*var(--u)) 0 calc(36*var(--u));display:flex;flex-direction:column;align-items:center}
@@ -116,22 +122,31 @@ button,input,select,textarea{font:inherit;color:inherit}
 .qitem h3{font-family:var(--bold);font-size:calc(32*var(--u));line-height:1.45;color:var(--navy);margin:calc(24*var(--u)) 0 0}
 .qitem p{font-family:var(--thin);font-size:calc(24*var(--u));line-height:1.5;color:var(--ink);margin-top:calc(20*var(--u))}
 
-/* ---------- 국내 중고차 매매 (카드 3번 실측 → 680px 환산, --u 비례 축소) ---------- */
-.domestic{--u:min(1px,calc(100vw / 680));padding:calc(24*var(--u)) 0 calc(36*var(--u));text-align:center;background:#fff}
-.domestic .dpill{display:inline-block;background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(21*var(--u));line-height:1;padding:calc(11*var(--u)) calc(46*var(--u));border-radius:999px;box-shadow:0 4px 0 rgba(0,0,0,.15)}
-.domestic .big{font-family:var(--bold);font-size:calc(32*var(--u));color:var(--navy);line-height:1;margin-top:calc(22*var(--u))}
-.domestic h3{font-family:var(--bold);font-size:calc(19.5*var(--u));color:var(--navy);line-height:1.5;margin:calc(4*var(--u)) 0 0;white-space:nowrap}
-.domestic h3 .hl-yb{padding:calc(2*var(--u)) calc(6*var(--u))}
-.domestic .band{background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(19*var(--u));line-height:1;padding:calc(9*var(--u)) 0;margin-top:calc(16*var(--u))}
-.domestic .pair{display:flex;align-items:center;justify-content:center;gap:calc(14*var(--u));padding:calc(4*var(--u)) calc(28*var(--u)) 0}
-.domestic .gbox{flex:0 0 calc(268*var(--u));background:#EEEEEE;padding-bottom:calc(6*var(--u))}
-.domestic .gbox img{width:100%;height:calc(153*var(--u));object-fit:cover;display:block}
-.domestic .gbox p,.domestic .ibox p{font-family:var(--bold);font-size:calc(16*var(--u));color:var(--navy);margin:calc(6*var(--u)) 0 0;white-space:nowrap}
-.domestic .gbox p .hl-b,.domestic .ibox p .hl-b{padding:0 calc(4*var(--u))}
-.domestic .arrow{flex:0 0 calc(48*var(--u));height:calc(46*var(--u));background:var(--navy);clip-path:polygon(0 30%,55% 30%,55% 0,100% 50%,55% 100%,55% 70%,0 70%)}
-.domestic .pair.icons{padding-top:calc(22*var(--u));align-items:flex-start}
-.domestic .ibox{flex:0 0 calc(268*var(--u))}
-.domestic .ibox img{height:calc(96*var(--u));width:auto;margin:0 auto calc(20*var(--u))}
+/* ---------- 설마 (파손차) ---------- */
+.doubt{padding:calc(70*var(--u)) 24px 0;text-align:center}
+.doubt .big{font-family:var(--bold);font-size:calc(50*var(--u));color:var(--navy);line-height:1;margin-bottom:calc(10*var(--u))}
+.doubt h3{font-family:var(--bold);font-size:calc(31*var(--u));color:var(--navy);line-height:1.07;margin:0;white-space:nowrap}
+.doubt h3 .hl-yb{font-size:calc(27*var(--u));padding:calc(3*var(--u)) calc(8*var(--u));display:inline-block;margin-top:calc(5*var(--u))}
+.doubt img{width:calc(400*var(--u));margin:calc(33*var(--u)) auto 0}
+.doubt .ok{display:inline-block;background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(21*var(--u));line-height:1;padding:calc(6*var(--u)) calc(20*var(--u));border-radius:999px;margin-top:calc(19*var(--u));box-shadow:0 4px 0 rgba(0,0,0,.15)}
+.doubt-band{background:var(--navy);color:#fff;text-align:center;padding:40px 24px 44px;margin-top:22px;font-family:var(--thin);font-size:20px;line-height:1.45}
+.doubt-band .gap{height:22px}
+/* ---------- 국내 중고차 매매 (카드 3번, 사이트 크기에 맞춰 키움, --u 비례 축소) ---------- */
+.domestic{--u:min(1px,calc(100vw / 680));padding:calc(40*var(--u)) 0 calc(50*var(--u));text-align:center;background:#fff;border-top:1px solid #E3E7EE}
+.domestic .dpill{display:inline-block;background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(26*var(--u));line-height:1;padding:calc(12*var(--u)) calc(50*var(--u));border-radius:999px;box-shadow:0 4px 0 rgba(0,0,0,.15)}
+.domestic .big{font-family:var(--bold);font-size:calc(46*var(--u));color:var(--navy);line-height:1;margin-top:0}
+.domestic h3{font-family:var(--bold);font-size:calc(26*var(--u));color:var(--navy);line-height:1.5;margin:calc(8*var(--u)) 0 0;white-space:nowrap}
+.domestic h3 .hl-yb{padding:calc(2*var(--u)) calc(8*var(--u))}
+.domestic .band{background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(24*var(--u));line-height:1;padding:calc(13*var(--u)) 0;margin-top:calc(28*var(--u))}
+.domestic .pair{display:flex;align-items:center;justify-content:center;gap:calc(12*var(--u));padding:calc(18*var(--u)) calc(14*var(--u)) 0}
+.domestic .gbox{flex:0 0 calc(290*var(--u));background:#EEEEEE;padding-bottom:calc(10*var(--u))}
+.domestic .gbox img{width:100%;height:calc(176*var(--u));object-fit:cover;display:block}
+.domestic .gbox p,.domestic .ibox p{font-family:var(--bold);font-size:calc(19*var(--u));color:var(--navy);margin:calc(12*var(--u)) 0 0;white-space:nowrap}
+.domestic .gbox p .hl-b,.domestic .ibox p .hl-b{padding:0 calc(5*var(--u))}
+.domestic .arrow{flex:0 0 calc(50*var(--u));height:calc(50*var(--u));background:var(--navy);clip-path:polygon(0 30%,55% 30%,55% 0,100% 50%,55% 100%,55% 70%,0 70%)}
+.domestic .pair.icons{padding-top:calc(30*var(--u));align-items:flex-start}
+.domestic .ibox{flex:0 0 calc(290*var(--u))}
+.domestic .ibox img{height:calc(130*var(--u));width:auto;margin:0 auto calc(26*var(--u))}
 .domestic .ibox p{margin-top:0}
 
 /* ---------- 3단계 ---------- */
@@ -340,6 +355,8 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   .ask .btns{gap:10px}.ask .btn{width:46%;font-size:17px;height:50px}
   .ask .info{font-size:15px}
   .cars h2{font-size:40px}.cars h3{font-size:19px}
+  .solve{padding-top:40px}.solve h2{font-size:34px}
+  .svc .tagpill{font-size:21px;padding:8px 18px}.svc .photo img{height:230px}.svc .q{font-size:18px}.svc .q b{font-size:21px}.svc .dest{font-size:15px}
   .pcard img{height:180px}.pcard h3{font-size:22px}
   .steps .pill{font-size:24px;padding:8px 30px}
   .step{grid-template-columns:120px 1fr;gap:10px}.step .no{left:38px}
@@ -374,6 +391,11 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   <img class="top" src="assets/hero_v4.jpg" alt="블루존오토 — 아직도 중고차 그냥 파십니까? NO, 이제는 '제값' 지키며 사고파는 시대 ON. 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문. 60만km, 파손 심한 문제차량은 수출 or 폐차수출! 자동차 진단평가사가 검증한 국내중고차 매매! 상담전화 1588-4525, 운영시간 10:00 AM ~ 22:00 PM. 비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
  </div>
 </section>
+<div class="waveband" aria-hidden="true">
+  <svg class="w1" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,45 C170,5 170,85 340,45 C510,5 510,85 680,45 C850,5 850,85 1020,45 C1190,5 1190,85 1360,45 L1360,230 L0,230 Z" fill="#0B2647" opacity=".55"/></svg>
+  <svg class="w2" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,95 C170,50 170,140 340,95 C510,50 510,140 680,95 C850,50 850,140 1020,95 C1190,50 1190,140 1360,95 L1360,230 L0,230 Z" fill="#0B2647"/></svg>
+  <svg class="w3" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,165 C170,125 170,205 340,165 C510,125 510,205 680,165 C850,125 850,205 1020,165 C1190,125 1190,205 1360,165 L1360,230 L0,230 Z" fill="#ffffff"/></svg>
+</div>
 
 <!-- ================= 문의 ================= -->
 <section class="ask">
@@ -407,22 +429,53 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 </section>
 
 <!-- ================= 해결 ================= -->
-<section class="solve2" id="promise">
-  <div class="rowa">
-    <div class="txt">
-      <h2>이제는<br>블루존오토가<br>해결하겠습니다!</h2>
-      <span class="tag">수출 or 수출폐차</span>
-      <p class="q">60만km?<br>파손이 심한차량?<br>모두 제값을 받을 수 있습니다.</p>
-    </div>
-    <img class="ship" src="assets/ship_export.jpg" alt="컨테이너를 실은 수출 화물선">
-    <p class="dest">주요수출국: 러시아 / 몽골 / 중동 / 아프리카</p>
+<section class="solve" id="promise">
+  <h2>이제는 블루존오토가<br>해결하겠습니다!</h2>
+</section>
+
+<!-- ================= 수출 or 수출폐차 ================= -->
+<section class="svc">
+  <span class="tagpill">수출 or 수출폐차</span>
+  <div class="photo"><img src="assets/ship_export.jpg" alt="컨테이너를 실은 수출 화물선"></div>
+  <p class="q">60만km? 파손이 심한 차량?<br><b>모두 제값을 받을 수 있습니다.</b></p>
+  <p class="dest">주요수출국 : <b>러시아 / 몽골 / 중동 / 아프리카</b></p>
+</section>
+
+<!-- ================= 설마 (파손차) ================= -->
+<section class="doubt">
+  <div class="big">설마,</div>
+  <h3>내 차가 오래되고,<br>연식도 60만km라서?<br>너무 기스가 많고, 파손이 심한 문제차량이라서?<br><span class="hl-yb">판매가 될까 걱정되십니까?</span></h3>
+  <img src="assets/car_wrecked_hd.jpg" alt="">
+  <span class="ok">파손이 심한 차량도 OK</span>
+</section>
+<div class="doubt-band">
+  걱정은 이제 그만!<br><span class="y">이렇게 파손된 차량도,<br>그 어떤 차도 가능합니다!</span>
+  <div class="gap"></div>
+  <span class="y">수출 바이어는</span> 부품과 차대의 가치를,<br><span class="y">폐차는</span> 중량과 재활용의 가치를 봅니다.
+</div>
+
+<!-- ================= 국내 중고차 매매 ================= -->
+<section class="svc">
+  <span class="tagpill">국내 중고차 매매</span>
+  <div class="photo"><img src="assets/cars_lot.jpg" alt="전시된 국내 중고차들"></div>
+  <p class="q">자동차 진단평가사가 검증한<br>차량과 매매가격으로<br><b>이제는 안심할 수 있습니다.</b></p>
+</section>
+
+<!-- ================= 국내 중고차 매매 (카드 3번 그대로) ================= -->
+<section class="domestic">
+  <div class="big">설마,</div>
+  <h3>상태가 좋은 차량임에도<br>제값 받지 못하고 판매할까봐?<br>또는 이런저런 이유로 <span class="hl-yb">구매를 망설이고 있다면?</span></h3>
+  <div class="band">1) 차대차 교환(운행중인차 매입교환)</div>
+  <div class="pair">
+    <div class="gbox"><img src="assets/suv_old.jpg" alt="2018년식 모하비"><p><span class="hl-b">예시)</span> 2018년식 모하비 교환+추가금</p></div>
+    <span class="arrow"></span>
+    <div class="gbox"><img src="assets/suv_new.jpg" alt="2022년식 모하비"><p><span class="hl-b">예시)</span> 2022년식 모하비로 교환</p></div>
   </div>
-  <div class="rowb">
-    <img class="lot" src="assets/cars_lot.jpg" alt="전시된 국내 중고차들">
-    <div class="txt">
-      <span class="tag">국내 중고차 매매</span>
-      <p class="q">자동차 진단평가사가<br>검증한 차량과 매매가격으로<br>이제는 안심할 수 있습니다.</p>
-    </div>
+  <div class="band">2) 저신용 무조건 할부</div>
+  <div class="pair icons">
+    <div class="ibox"><img src="assets/icon_fraud.png" alt=""><p><span class="hl-b">예시)</span> 저신용자 대상 (파산은 불가능)</p></div>
+    <span class="arrow"></span>
+    <div class="ibox"><img src="assets/icon_receipt.png" alt=""><p><span class="hl-b">예시)</span> 상담 후 할부상담 가능</p></div>
   </div>
 </section>
 
@@ -445,25 +498,6 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     <img src="assets/handshake_promise.png" alt="">
     <h3>투명한 과정공개!<br><span class="hl-y">약속과 동일한 금액</span></h3>
     <p>거래과정을 실시간으로 공개!<br><span class="hl-b">약속과 동일한 금액</span>이 아닐시 전액환불!</p>
-  </div>
-</section>
-
-<!-- ================= 국내 중고차 매매 (카드 3번 그대로) ================= -->
-<section class="domestic">
-  <span class="dpill">국내 중고차 매매</span>
-  <div class="big">설마,</div>
-  <h3>상태가 좋은 차량임에도<br>제값 받지 못하고 판매할까봐?<br>또는 이런저런 이유로 <span class="hl-yb">구매를 망설이고 있다면?</span></h3>
-  <div class="band">1) 차대차 교환(운행중인차 매입교환)</div>
-  <div class="pair">
-    <div class="gbox"><img src="assets/suv_old.jpg" alt="2018년식 모하비"><p><span class="hl-b">예시)</span> 2018년식 모하비 교환+추가금</p></div>
-    <span class="arrow"></span>
-    <div class="gbox"><img src="assets/suv_new.jpg" alt="2022년식 모하비"><p><span class="hl-b">예시)</span> 2022년식 모하비로 교환</p></div>
-  </div>
-  <div class="band">2) 저신용 무조건 할부</div>
-  <div class="pair icons">
-    <div class="ibox"><img src="assets/icon_fraud.png" alt=""><p><span class="hl-b">예시)</span> 저신용자 대상 (파산은 불가능)</p></div>
-    <span class="arrow"></span>
-    <div class="ibox"><img src="assets/icon_receipt.png" alt=""><p><span class="hl-b">예시)</span> 상담 후 할부상담 가능</p></div>
   </div>
 </section>
 
