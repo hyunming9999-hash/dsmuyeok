@@ -62,9 +62,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 @keyframes drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.hero .wave svg{animation:none}}
 /* 히어로 아래 물결 띠 (예전 3겹 물결 그대로, 바다 텍스처 위에) */
-.waveband{--u:min(1px,calc(100vw / 680));position:relative;z-index:1;height:calc(150*var(--u));margin-top:calc(-101*var(--u));background:none;overflow:visible}
+.waveband{--u:min(1px,calc(100vw / 680));position:relative;z-index:1;height:calc(170*var(--u));margin-top:calc(-101*var(--u));background:none;overflow:visible}
 .waveband .badges{position:absolute;left:0;top:calc(-33*var(--u));width:100%;height:auto;display:block;filter:drop-shadow(0 4px 3px rgba(0,0,0,.35));z-index:2}
-.waveband svg{position:absolute;left:0;bottom:0;width:200%;height:100%;display:block;will-change:transform;z-index:1}
+.waveband svg{position:absolute;left:0;bottom:0;width:200%;height:calc(150*var(--u));display:block;will-change:transform;z-index:1}
 .waveband .w1{animation:drift 16s linear infinite}
 .waveband .w2{animation:drift 11s linear infinite reverse}
 .waveband .w3{animation:drift 8s linear infinite}
