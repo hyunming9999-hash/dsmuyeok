@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>디에스오토</title>
+<title>블루존오토</title>
 <style>
 @font-face{font-family:'검은 고딕';src:url(fonts/blackhan.ttf) format('truetype');font-weight:400;font-display:swap}
 @font-face{font-family:'마포당인리발전소';src:url(fonts/mapo.ttf) format('truetype');font-weight:400;font-display:swap}
@@ -50,9 +50,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .logo.sm .tag{font-size:12px}.logo.sm .name{font-size:44px}.logo.sm .pill{font-size:11px;padding:4px 16px}
 
 /* ---------- HERO (원본 이미지 그대로 + 움직이는 물결) ---------- */
-.hero{position:relative;height:710px;background:var(--navy);overflow:hidden}
+.hero{position:relative;height:680px;background:#fff;overflow:hidden}
 .hero-scale{position:absolute;inset:0}
-.hero .top{position:absolute;left:0;top:0;width:681px;height:711px;display:block;object-fit:cover}
+.hero .top{position:absolute;left:0;top:0;width:680px;height:680px;display:block;object-fit:cover}
 .hero .zone{position:absolute;left:0;top:500px;width:681px;height:210px}
 .hero .wave{position:absolute;left:0;right:0;bottom:-2px;height:210px}
 .hero .wave svg{position:absolute;left:0;bottom:0;width:200%;height:100%;display:block;will-change:transform}
@@ -65,10 +65,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ---------- 문의 ---------- */
 .ask{padding:30px 24px 20px;text-align:center}
 .ask h2{font-family:var(--bold);font-size:36px;color:var(--navy);margin:0}
-.ask .btns{display:flex;gap:26px;justify-content:center;margin-top:20px}
-.ask .btn{width:200px;height:56px;border:0;border-radius:14px;font-family:var(--thin);font-size:20px;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.18)}
+.ask .btns{display:flex;gap:16px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.ask .btn{width:196px;height:56px;border:0;border-radius:14px;font-family:var(--thin);font-size:20px;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.18)}
 .ask .btn.dark{background:var(--navy);color:#fff}
 .ask .btn.light{background:var(--sky-btn);color:var(--navy)}
+.ask .btn.sun{background:var(--sun);color:var(--navy)}
 .ask .info{margin-top:22px;font-family:var(--thin);font-size:16px;color:var(--navy);line-height:1.7}
 .ask .info b{font-family:var(--thin);font-weight:400;color:#1F3D7A}
 
@@ -77,26 +78,35 @@ button,input,select,textarea{font:inherit;color:inherit}
 .cars .one{margin:0 -24px;background:#F3F3F5}
 .cars .one img{width:100%;height:auto;display:block}
 .cars h2{font-family:var(--bold);font-size:52px;color:var(--navy);margin:14px 0 0;line-height:1.05}
-.cars h3{font-family:var(--bold);font-size:34px;color:var(--navy);margin:8px 0 0;line-height:1.2}
+.cars h3{font-family:var(--bold);font-size:29px;color:var(--navy);margin:8px 0 0;line-height:1.25}
 
 /* ---------- 문제점 ---------- */
 .problems{background:var(--navy);padding:26px 24px 22px;color:#fff}
 .pcard{background:#fff;border-radius:26px;padding:22px 20px 20px;position:relative;text-align:center}
 .pcard .lbl{position:absolute;left:18px;top:18px;background:var(--sun);color:var(--navy);font-family:var(--bold);font-size:20px;padding:2px 10px}
 .pcard img{height:220px;width:auto;margin:10px auto 0}
-.pcard h3{font-family:var(--bold);font-size:26px;color:var(--navy);margin:8px 0 0}
+.pcard h3{font-family:var(--bold);font-size:26px;color:var(--navy);margin:8px 0 0;line-height:1.3}
+.pcard h3 .or-y{color:#E0A800}
 .pdesc{text-align:center;font-family:var(--thin);font-size:18px;line-height:1.55;padding:22px 0 26px;color:#fff}
 
-/* ---------- 해결 ---------- */
-.solve{padding:44px 24px 0;text-align:center}
-.solve h2{font-family:var(--bold);font-size:48px;line-height:1.1;color:var(--navy);margin:0}
-.solve .dest{font-family:var(--thin);font-size:18px;color:var(--navy);margin-top:14px}
-.solve .cargo{position:relative;margin:26px -24px 0;height:420px;background:url(assets/cargo_pdf.jpg) center/cover}
-.solve .cargo .q{position:absolute;left:0;right:0;top:20px;text-align:center;color:#fff;font-family:var(--thin);font-size:20px;line-height:1.4;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+/* ---------- 해결 (카드 2번을 그대로: 1080px 카드 실측을 680px로 환산, --u로 비례 축소) ---------- */
+.solve2{--u:min(1px,calc(100vw / 680));background:var(--navy);color:#fff;position:relative}
+.solve2 .rowa{position:relative;height:calc(372*var(--u));overflow:hidden}
+.solve2 .rowa .ship{position:absolute;left:calc(198*var(--u));top:0;width:calc(482*var(--u));height:calc(343*var(--u));object-fit:cover;clip-path:polygon(0 0,100% 0,100% 100%,21.7% 100%)}
+.solve2 .rowa .txt{position:absolute;left:calc(26*var(--u));top:calc(52*var(--u));width:calc(300*var(--u))}
+.solve2 h2{font-family:var(--bold);font-size:calc(27*var(--u));line-height:1.35;color:#fff;margin:0;font-weight:400}
+.solve2 .tag{display:inline-block;background:var(--sky-hl);color:var(--navy);font-family:var(--bold);font-size:calc(19*var(--u));padding:calc(3*var(--u)) calc(8*var(--u));margin-top:calc(26*var(--u))}
+.solve2 .q{font-family:var(--thin);font-style:italic;font-size:calc(19*var(--u));line-height:1.5;color:#fff;margin-top:calc(14*var(--u))}
+.solve2 .dest{position:absolute;right:calc(20*var(--u));bottom:calc(10*var(--u));margin:0;font-family:var(--bold);font-size:calc(15*var(--u));color:#fff}
+.solve2 .rowb{position:relative;height:calc(309*var(--u));overflow:hidden}
+.solve2 .rowb .lot{position:absolute;left:0;top:0;width:calc(460*var(--u));height:calc(309*var(--u));object-fit:cover;clip-path:polygon(0 0,100% 0,67% 100%,0 100%)}
+.solve2 .rowb .txt{position:absolute;right:calc(20*var(--u));top:calc(70*var(--u));width:calc(230*var(--u));text-align:center}
+.solve2 .rowb .tag{margin-top:0;font-size:calc(21*var(--u));padding:calc(4*var(--u)) calc(12*var(--u))}
+.solve2 .rowb .q{margin-top:calc(30*var(--u));font-size:calc(18*var(--u))}
 
 /* ---------- 약속 ---------- */
 /* 카드(794px) 실측값을 680px 기준으로 환산, 화면이 좁아지면 카드처럼 통째로 비례 축소 */
-.promises,.doubt{--u:min(1px,calc(100vw / 680))}
+.promises{--u:min(1px,calc(100vw / 680))}
 .promises{padding:calc(30*var(--u)) 24px calc(40*var(--u));text-align:center}
 .pill{display:inline-block;background:var(--navy);color:#fff;font-family:var(--bold);font-size:26px;padding:6px 30px;border-radius:14px}
 .promises .pill{font-size:calc(38*var(--u));line-height:1.15;padding:calc(12*var(--u)) calc(38*var(--u));border-radius:calc(18*var(--u))}
@@ -106,15 +116,23 @@ button,input,select,textarea{font:inherit;color:inherit}
 .qitem h3{font-family:var(--bold);font-size:calc(32*var(--u));line-height:1.45;color:var(--navy);margin:calc(24*var(--u)) 0 0}
 .qitem p{font-family:var(--thin);font-size:calc(24*var(--u));line-height:1.5;color:var(--ink);margin-top:calc(20*var(--u))}
 
-/* ---------- 설마 ---------- */
-.doubt{padding:calc(70*var(--u)) 24px 0;text-align:center}
-.doubt .big{font-family:var(--bold);font-size:calc(50*var(--u));color:var(--navy);line-height:1;margin-bottom:calc(10*var(--u))}
-.doubt h3{font-family:var(--bold);font-size:calc(31*var(--u));color:var(--navy);line-height:1.07;margin:0;white-space:nowrap}
-.doubt h3 .hl-yb{font-size:calc(27*var(--u));padding:calc(3*var(--u)) calc(8*var(--u));display:inline-block;margin-top:calc(5*var(--u))}
-.doubt img{width:calc(400*var(--u));margin:calc(33*var(--u)) auto 0}
-.doubt .ok{display:inline-block;background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(21*var(--u));line-height:1;padding:calc(6*var(--u)) calc(20*var(--u));border-radius:999px;margin-top:calc(19*var(--u));box-shadow:0 4px 0 rgba(0,0,0,.15)}
-.doubt-band{background:var(--navy);color:#fff;text-align:center;padding:40px 24px 44px;margin-top:22px;font-family:var(--thin);font-size:20px;line-height:1.45}
-.doubt-band .gap{height:22px}
+/* ---------- 국내 중고차 매매 (카드 3번 실측 → 680px 환산, --u 비례 축소) ---------- */
+.domestic{--u:min(1px,calc(100vw / 680));padding:calc(24*var(--u)) 0 calc(36*var(--u));text-align:center;background:#fff}
+.domestic .dpill{display:inline-block;background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(21*var(--u));line-height:1;padding:calc(11*var(--u)) calc(46*var(--u));border-radius:999px;box-shadow:0 4px 0 rgba(0,0,0,.15)}
+.domestic .big{font-family:var(--bold);font-size:calc(32*var(--u));color:var(--navy);line-height:1;margin-top:calc(22*var(--u))}
+.domestic h3{font-family:var(--bold);font-size:calc(19.5*var(--u));color:var(--navy);line-height:1.5;margin:calc(4*var(--u)) 0 0;white-space:nowrap}
+.domestic h3 .hl-yb{padding:calc(2*var(--u)) calc(6*var(--u))}
+.domestic .band{background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(19*var(--u));line-height:1;padding:calc(9*var(--u)) 0;margin-top:calc(16*var(--u))}
+.domestic .pair{display:flex;align-items:center;justify-content:center;gap:calc(14*var(--u));padding:calc(4*var(--u)) calc(28*var(--u)) 0}
+.domestic .gbox{flex:0 0 calc(268*var(--u));background:#EEEEEE;padding-bottom:calc(6*var(--u))}
+.domestic .gbox img{width:100%;height:calc(153*var(--u));object-fit:cover;display:block}
+.domestic .gbox p,.domestic .ibox p{font-family:var(--bold);font-size:calc(16*var(--u));color:var(--navy);margin:calc(6*var(--u)) 0 0;white-space:nowrap}
+.domestic .gbox p .hl-b,.domestic .ibox p .hl-b{padding:0 calc(4*var(--u))}
+.domestic .arrow{flex:0 0 calc(48*var(--u));height:calc(46*var(--u));background:var(--navy);clip-path:polygon(0 30%,55% 30%,55% 0,100% 50%,55% 100%,55% 70%,0 70%)}
+.domestic .pair.icons{padding-top:calc(22*var(--u));align-items:flex-start}
+.domestic .ibox{flex:0 0 calc(268*var(--u))}
+.domestic .ibox img{height:calc(96*var(--u));width:auto;margin:0 auto calc(20*var(--u))}
+.domestic .ibox p{margin-top:0}
 
 /* ---------- 3단계 ---------- */
 .steps{padding:64px 24px 40px}
@@ -139,7 +157,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* 기존 폼 (v1 양식 그대로) */
 .form-card{background:#fff;border:1px solid #C6DDF0;text-align:left;margin-top:34px;border-radius:6px;overflow:hidden}
-.tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #E3E7EE}
+.tabs{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #E3E7EE}
 .tab{padding:16px 12px;text-align:center;background:#F5F7FB;border:0;border-bottom:3px solid transparent;cursor:pointer;color:#6B7280;font-family:var(--bold);font-size:16px}
 .tab small{display:block;font-family:var(--thin);font-size:12px;margin-top:2px}
 .tab.active{background:#fff;color:var(--navy);border-bottom-color:var(--blue)}
@@ -317,18 +335,18 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   :root{--col:100%}
   .page{box-shadow:none}
   /* 히어로: 680px 캔버스를 화면 폭에 맞춰 통째로 축소 (PDF 비율 유지) */
-  .hero-scale{position:absolute;left:0;top:0;width:680px;height:710px;transform-origin:top left}
+  .hero-scale{position:absolute;left:0;top:0;width:680px;height:680px;transform-origin:top left}
   .ask h2{font-size:28px}
-  .ask .btns{gap:12px}.ask .btn{width:46%;font-size:17px}
+  .ask .btns{gap:10px}.ask .btn{width:46%;font-size:17px;height:50px}
   .ask .info{font-size:15px}
-  .cars h2{font-size:40px}.cars h3{font-size:26px}
+  .cars h2{font-size:40px}.cars h3{font-size:19px}
   .pcard img{height:180px}.pcard h3{font-size:22px}
-  .solve h2{font-size:36px}.solve .cargo{height:300px}
   .steps .pill{font-size:24px;padding:8px 30px}
   .step{grid-template-columns:120px 1fr;gap:10px}.step .no{left:38px}
   .step .fig img{max-width:110px}.step .fig .qr{width:100px;height:100px}
   .step h3{font-size:19px}.step .box{font-size:15px;padding:16px 12px}
   .apply h2{font-size:34px}.apply .lead{font-size:16px}
+  .tab{font-size:13.5px;padding:14px 4px}.tab small{display:none}
   .grid2,.docs{grid-template-columns:1fr}.photos{grid-template-columns:repeat(3,1fr)}
   .slot.nophoto{font-size:13px;padding:4px}.slot.nophoto small{font-size:10px}
   .slot.extra{padding:4px}.slot.extra .lb{font-size:13px}.slot.extra .lb small{font-size:10px}
@@ -353,14 +371,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
  <div class="hero-scale">
-  <img class="top" src="assets/hero_full.jpg" alt="디에스오토 — 아직도 중고차 그냥 파십니까? NO, 이제는 수출·폐차 대항해시대 ON. 중고차 수출·폐차 수출 전문업체. 60만km, 파손 심한 문제차량도 모두 가능합니다. 견적상담 > 방문견적 or 탁송(무료) > 판매결정. 비전문가의 감가폭탄 OUT · 중간수수료 OUT · 약속한 금액 그대로">
-  <div class="zone">
-  <div class="wave">
-     <svg class="w1" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,45 C170,5 170,85 340,45 C510,5 510,85 680,45 C850,5 850,85 1020,45 C1190,5 1190,85 1360,45 L1360,230 L0,230 Z" fill="#0B2647" opacity=".55"/></svg>
-     <svg class="w2" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,95 C170,50 170,140 340,95 C510,50 510,140 680,95 C850,50 850,140 1020,95 C1190,50 1190,140 1360,95 L1360,230 L0,230 Z" fill="#0B2647"/></svg>
-     <svg class="w3" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,165 C170,125 170,205 340,165 C510,125 510,205 680,165 C850,125 850,205 1020,165 C1190,125 1190,205 1360,165 L1360,230 L0,230 Z" fill="#ffffff"/></svg>
-   </div>
-  </div>
+  <img class="top" src="assets/hero_v4.jpg" alt="블루존오토 — 아직도 중고차 그냥 파십니까? NO, 이제는 '제값' 지키며 사고파는 시대 ON. 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문. 60만km, 파손 심한 문제차량은 수출 or 폐차수출! 자동차 진단평가사가 검증한 국내중고차 매매! 상담전화 1588-4525, 운영시간 10:00 AM ~ 22:00 PM. 비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
  </div>
 </section>
 
@@ -370,6 +381,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   <div class="btns">
     <button class="btn dark" onclick="document.getElementById('tabQuote').click();location.href='#apply'">견적만 알아보기</button>
     <button class="btn light" onclick="document.getElementById('tabSell').click();location.href='#apply'">판매 진행하기</button>
+    <button class="btn sun" onclick="document.getElementById('tabBuy').click();location.href='#apply'">중고차 구매하기</button>
   </div>
   <div class="info">
     상담 : <b><a href="tel:1588-4525" style="color:inherit;text-decoration:none;cursor:pointer">1588-4525</a></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 운영 : <b>10:00 - 22:00</b><br>
@@ -381,13 +393,13 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <section class="cars">
   <div class="one"><img src="assets/cars_export.png" alt="일반 승용차와 폐차 3대를 실은 트럭"></div>
   <h2>중고차! 폐차!</h2>
-  <h3><span class="hl-y">아직도</span> 그냥 파십니까?</h3>
+  <h3><span class="hl-y">아직도</span> 그냥 사고팔거나 처리하고 계십니까?</h3>
 </section>
 
 <!-- ================= 문제점 ================= -->
 <section class="problems" id="problem">
-  <div class="pcard"><span class="lbl">1.문제점</span><img src="assets/p_dealer.png" alt=""><h3>비전문가의 감가폭탄</h3></div>
-  <p class="pdesc">비전문가인 딜러들의 이런저런 이유로<br><span class="hl-b">감가폭탄</span>을 당하는 경우!</p>
+  <div class="pcard"><span class="lbl">1.문제점</span><img src="assets/p_dealer.png" alt=""><h3>비전문가의<br>감가폭탄 <span class="or-y">or</span> 폭리</h3></div>
+  <p class="pdesc">비전문가인 딜러들의 이런저런 이유로<br><span class="hl-b">감가폭탄</span>과 <span class="hl-b">폭리</span>를 취하는 경우!</p>
   <div class="pcard"><span class="lbl">2.문제점</span><img src="assets/p_app.png" alt=""><h3>어플,경매를 통한 중간수수료 부담</h3></div>
   <p class="pdesc">어플을 통한 경매나 거래의 중간 수수료는<br>결국 <span class="hl-b">소비자의 몫</span>입니다.</p>
   <div class="pcard"><span class="lbl">3.문제점</span><img src="assets/p_dispute.png" alt=""><h3>불투명한 과정과<br>약속과는 다른 금액</h3></div>
@@ -395,10 +407,23 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 </section>
 
 <!-- ================= 해결 ================= -->
-<section class="solve" id="promise">
-  <h2>이제는 디에스오토가<br>해결하겠습니다!</h2>
-  <p class="dest">주요수출국: 러시아 / 몽골 / 중동 / 아프리카</p>
-  <div class="cargo"><p class="q">"국내 시장의 감가기준이 통하지 않는<br>곳으로 차를 보냅니다!"</p></div>
+<section class="solve2" id="promise">
+  <div class="rowa">
+    <div class="txt">
+      <h2>이제는<br>블루존오토가<br>해결하겠습니다!</h2>
+      <span class="tag">수출 or 수출폐차</span>
+      <p class="q">60만km?<br>파손이 심한차량?<br>모두 제값을 받을 수 있습니다.</p>
+    </div>
+    <img class="ship" src="assets/ship_export.jpg" alt="컨테이너를 실은 수출 화물선">
+    <p class="dest">주요수출국: 러시아 / 몽골 / 중동 / 아프리카</p>
+  </div>
+  <div class="rowb">
+    <img class="lot" src="assets/cars_lot.jpg" alt="전시된 국내 중고차들">
+    <div class="txt">
+      <span class="tag">국내 중고차 매매</span>
+      <p class="q">자동차 진단평가사가<br>검증한 차량과 매매가격으로<br>이제는 안심할 수 있습니다.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ================= 약속 ================= -->
@@ -406,35 +431,41 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   <div class="qitem">
     <span class="pill">1.약속</span>
     <img src="assets/q_appraiser.png" alt="">
-    <h3>전문가의 매입견적가로<br><span class="hl-y">제값 +@</span></h3>
-    <p>국토교통부공인 <span class="hl-b">[자동차진단평가사]</span>의<br>매입견적가로 안전하게!</p>
+    <h3>전문가의 매매견적가로<br><span class="hl-y">제값 +@</span></h3>
+    <p>국토교통부공인 <span class="hl-b">[자동차진단평가사]</span>의<br>매매견적가로 안전하게!</p>
   </div>
   <div class="qitem">
     <span class="pill">2.약속</span>
     <img src="assets/q_bankbook.png" alt="">
     <h3><span class="hl-y">중간 수수료</span>를 타파!<br>고객에게 더 많이</h3>
-    <p>바이어와의 직거래를 통해<br><span class="hl-b">수수료를 없애고</span> 고객에게 드립니다</p>
+    <p>쓸데없는 중계료를 타파!<br><span class="hl-b">수수료를 없애고</span><br>고객에게 드립니다.</p>
   </div>
   <div class="qitem" style="padding-bottom:10px">
     <span class="pill">3.약속</span>
     <img src="assets/handshake_promise.png" alt="">
     <h3>투명한 과정공개!<br><span class="hl-y">약속과 동일한 금액</span></h3>
-    <p>판매과정을 실시간으로 공개!<br><span class="hl-b">약속과 동일한 금액</span>이 아닐시 전액환불!</p>
+    <p>거래과정을 실시간으로 공개!<br><span class="hl-b">약속과 동일한 금액</span>이 아닐시 전액환불!</p>
   </div>
 </section>
 
-<!-- ================= 설마 ================= -->
-<section class="doubt">
+<!-- ================= 국내 중고차 매매 (카드 3번 그대로) ================= -->
+<section class="domestic">
+  <span class="dpill">국내 중고차 매매</span>
   <div class="big">설마,</div>
-  <h3>내 차가 오래되고,<br>연식도 60만km라서?<br>너무 기스가 많고, 파손이 심한 문제차량이라서?<br><span class="hl-yb">판매가 될까 걱정되십니까?</span></h3>
-  <img src="assets/car_wrecked_hd.jpg" alt="">
-  <span class="ok">파손이 심한 차량도 OK</span>
+  <h3>상태가 좋은 차량임에도<br>제값 받지 못하고 판매할까봐?<br>또는 이런저런 이유로 <span class="hl-yb">구매를 망설이고 있다면?</span></h3>
+  <div class="band">1) 차대차 교환(운행중인차 매입교환)</div>
+  <div class="pair">
+    <div class="gbox"><img src="assets/suv_old.jpg" alt="2018년식 모하비"><p><span class="hl-b">예시)</span> 2018년식 모하비 교환+추가금</p></div>
+    <span class="arrow"></span>
+    <div class="gbox"><img src="assets/suv_new.jpg" alt="2022년식 모하비"><p><span class="hl-b">예시)</span> 2022년식 모하비로 교환</p></div>
+  </div>
+  <div class="band">2) 저신용 무조건 할부</div>
+  <div class="pair icons">
+    <div class="ibox"><img src="assets/icon_fraud.png" alt=""><p><span class="hl-b">예시)</span> 저신용자 대상 (파산은 불가능)</p></div>
+    <span class="arrow"></span>
+    <div class="ibox"><img src="assets/icon_receipt.png" alt=""><p><span class="hl-b">예시)</span> 상담 후 할부상담 가능</p></div>
+  </div>
 </section>
-<div class="doubt-band">
-  걱정은 이제 그만!<br><span class="y">이렇게 파손된 차량도,<br>그 어떤 차도 가능합니다!</span>
-  <div class="gap"></div>
-  <span class="y">수출 바이어는</span> 부품과 차대의 가치를,<br><span class="y">폐차는</span> 중량과 재활용의 가치를 봅니다.
-</div>
 
 <!-- ================= 3단계 ================= -->
 <section class="steps" id="process">
@@ -444,7 +475,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     <span class="no">1</span>
     <div class="fig"><img class="qr" src="assets/qr.png" alt="예약사이트 QR"><span class="qrlbl">예약사이트QR</span></div>
     <div>
-      <h3>디에스오토 사이트에서 차량정보 입력</h3>
+      <h3>블루존오토 사이트에서 차량정보 입력</h3>
       <div class="box"><span class="y">1.차종 / 2.연식<br>/ 3.차량 사진 / 4.연락처</span><br>정보만 기입해도<br>[견적가 안내] 가능!<div class="gap"></div>판매 결정 경우<br><span class="y">6.차량등록증 사진</span><br><span class="y">7.신원확인 진행</span></div>
     </div>
   </div>
@@ -470,18 +501,43 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 신청 (기존 폼) ================= -->
 <section class="apply" id="apply">
-  <div class="eyebrow">견적 문의 • 판매 신청</div>
+  <div class="eyebrow">견적 문의 • 판매 신청 • 구매 문의</div>
   <h2>지금 차량정보를 남기세요</h2>
-  <p class="lead">견적만 먼저 확인 또는 바로 판매가 가능합니다.<br>어느쪽이든 회신은 문자 또는 전화 중 원하시는<br>방법으로 드립니다.</p>
+  <p class="lead">견적만 먼저 확인, 바로 판매, 중고차 구매 상담까지.<br>어느쪽이든 회신은 문자 또는 전화 중 원하시는<br>방법으로 드립니다.</p>
 
   <form class="form-card" id="applyForm" novalidate>
     <div class="tabs" role="tablist">
       <button type="button" class="tab active" id="tabQuote" role="tab" data-mode="quote">견적만 알아보기<small>4가지 정보로 견적가 안내</small></button>
       <button type="button" class="tab" id="tabSell" role="tab" data-mode="sell">판매 진행하기<small>등록증·신원확인 포함</small></button>
+      <button type="button" class="tab" id="tabBuy" role="tab" data-mode="buy">중고차 구매하기<small>구매·차대차·할부 상담</small></button>
     </div>
     <div class="form-body">
-      <fieldset>
-        <legend><span class="st">01</span>차량 정보 <span class="req">* 필수</span></legend>
+      <fieldset id="buyOnly" hidden>
+        <legend><span class="st">01</span>문의 종류 <span class="req">* 택1</span></legend>
+        <div class="modes" id="buyModes">
+          <div class="mode on" data-buy="contact">
+            <button type="button" class="mhead"><span class="mrad"></span><span class="mtxt"><b>차량 구매 문의<em>전화·문자 상담</em></b><small>블루존오토의 판매 차량은 SK엔카 / 당근마켓에서 판매 진행 중입니다. 원하시는 차량을 남겨주시면 연락드립니다.</small></span></button>
+            <div class="mbody">
+              <div class="f"><label for="buy_want">찾으시는 차량 <span class="hint" style="font-family:var(--thin)">(선택)</span></label><textarea id="buy_want" name="buy_want" placeholder="예: 그랜저 IG 2019년식 이후, 예산 1,500만 원 안팎, 흰색 선호"></textarea></div>
+            </div>
+          </div>
+          <div class="mode" data-buy="swap">
+            <button type="button" class="mhead"><span class="mrad"></span><span class="mtxt"><b>차대차 교환 문의</b><small>지금 타시는 차를 넘기고 다른 차로 바꾸실 때. 내 차 정보는 아래 차량 정보 칸에 적어주세요.</small></span></button>
+            <div class="mbody">
+              <div class="f"><label for="swap_want">교환 희망 차량 <span class="hint" style="font-family:var(--thin)">(선택)</span></label><input type="text" id="swap_want" name="swap_want" placeholder="예: 2022년식 모하비, 추가금 500만 원 이내"></div>
+            </div>
+          </div>
+          <div class="mode" data-buy="loan">
+            <button type="button" class="mhead"><span class="mrad"></span><span class="mtxt"><b>저신용 무조건 할부 문의</b><small>신용이 낮아도 상담 가능합니다. (파산은 불가) 상담 후 할부 진행 여부를 안내드립니다.</small></span></button>
+            <div class="mbody">
+              <div class="f"><label for="loan_memo">상담 내용 <i>*</i></label><textarea id="loan_memo" name="loan_memo" placeholder="희망 차량, 월 납입 가능 금액, 현재 상황 등 아는 만큼만 적어주세요"></textarea></div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset id="carFs">
+        <legend><span class="st">01</span><span id="carFsTitle">차량 정보</span> <span class="req">* 필수</span></legend>
         <div class="grid2">
           <div class="f"><label for="maker">제조사 <i>*</i></label>
             <select id="maker" name="maker" required><option value="">선택</option><option>현대</option><option>기아</option><option>제네시스</option><option>쌍용(KGM)</option><option>르노코리아</option><option>쉐보레(한국GM)</option><option>수입차</option><option>기타</option></select></div>
@@ -492,7 +548,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
         <div class="f" style="margin-top:12px"><label for="memo">차량 상태 메모</label><textarea id="memo" name="memo" placeholder="사고 이력, 시동 여부, 운행 가능 여부, 압류·저당 유무 등 아는 만큼만 적어주세요"></textarea></div>
       </fieldset>
 
-      <fieldset>
+      <fieldset id="photoFs">
         <legend><span class="st">02</span>차량 사진 <span class="req" id="photoReq">* 여러 장 한 번에</span></legend>
         <div class="modes" id="modes">
           <div class="mode on" data-mode="bulk">
@@ -535,7 +591,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset id="contactFs">
         <legend><span class="st">03</span>연락처와 회신 방법 <span class="req">* 필수</span></legend>
         <div class="grid2">
           <div class="f"><label for="name">성함 <i>*</i></label><input type="text" id="name" name="name" required></div>
@@ -546,7 +602,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
             <label class="ck"><input type="checkbox" name="reply" value="sms" checked>문자로 받기</label>
             <label class="ck"><input type="checkbox" name="reply" value="call">전화로 받기</label>
           </div>
-          <span class="hint">차량 상태 확인 후 즉시입금 · 현장방문 견적 · 탁송 견적 중 어떤 방식으로 진행되는지 메시지로 안내드립니다.</span>
+          <span class="hint" id="replyHint">차량 상태 확인 후 즉시입금 · 현장방문 견적 · 탁송 견적 중 어떤 방식으로 진행되는지 메시지로 안내드립니다.</span>
         </div>
         <div class="f" style="margin-top:12px"><label for="calltime">통화 가능 시간대</label><select id="calltime" name="calltime"><option>언제든 가능</option><option>오전 (10–12시)</option><option>오후 (12–18시)</option><option>저녁 (18–22시)</option></select></div>
       </fieldset>
@@ -565,7 +621,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
         <div class="callout" style="margin-top:12px"><b>차기스PRO 제휴 옵션</b> — 일부 차종에 한해 외장수리 후 추가금을 받고 판매하는 옵션이 있습니다. 대상 차량에만 개별 알림으로 별도 안내드리며, 여기서 선택하실 필요는 없습니다.</div>
       </fieldset>
 
-      <fieldset style="margin-bottom:0">
+      <fieldset style="margin-bottom:0" id="agreeFs">
         <legend><span class="st">05</span>동의 <span class="req">* 필수</span></legend>
         <div class="checks">
           <label class="ck"><input type="checkbox" name="agree_privacy" required><span><b>[필수]</b> 개인정보 수집·이용에 동의합니다. 수집 항목은 견적 회신과 매매 계약에 필요한 최소한으로 제한되며, 목적 달성 후 지체 없이 파기합니다. <a href="#privacy">전문 보기</a></span></label>
@@ -580,7 +636,13 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   <div class="fmsg" id="fmsg" role="alert"></div>
   <p class="tiny">전송 즉시 접수 번호가 발급되며,<br>운영시간 (10:00-22:00)내 순차 회신 드립니다.</p>
 
-  <div class="flow">
+  <div class="flow" id="flowBuy" hidden>
+    <h4>접수 후 진행과정은 이렇게 진행됩니다.</h4>
+    <p><span class="num">1)</span> 남겨주신 연락처로 상담 연락</p>
+    <p><span class="num">2)</span> 차량 확인 · 조건(교환 추가금, 할부 등) 안내</p>
+    <p style="margin-bottom:0"><span class="num">3)</span> 방문 확인 &gt; 계약 &gt; 인도</p>
+  </div>
+  <div class="flow" id="flowSell">
     <h4>접수 후 진행과정은 이렇게 진행됩니다.</h4>
     <p><span class="num">1)</span> 사진과 정보로 차량 상태 1차 검토</p>
     <p><span class="num">2-1)</span> 상태확인 이후 문제 없는 차량 즉시 입금 가능</p>
@@ -595,15 +657,15 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     <span class="pill">추가 판매옵션</span>
     <p class="note"><span class="hl-y">[제휴 옵션]을 선택 할 수 있는 차량은<br>제한되어 있습니다.</span><br><span class="hl-y">개별 알림 발송으로 안내드립니다,</span></p>
   </div>
-  <div class="heads"><div class="l">기본 옵션 (최종견적가 그대로 판매)</div><div class="r">제휴 옵션 (디에스오토 X 차기스PRO)</div></div>
+  <div class="heads"><div class="l">기본 옵션 (최종견적가 그대로 판매)</div><div class="r">제휴 옵션 (블루존오토 X 차기스PRO)</div></div>
   <div class="cards">
     <div class="ocard">
-      <div class="lg"><img class="logo-img" src="assets/logo.png" alt="디에스오토 — 중고차 수출 • 폐차 수출 전문업체"></div>
+      <div class="lg"><img class="logo-img" src="assets/logo.png" alt="블루존오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
       <div class="box dark">최종견적가 그대로<br>그대로 판매진행 옵션</div>
       <p class="ex">예시: 추가선택 없이<br>최종견적가<br><span class="hl-y">550만원에 판매</span> 결정</p>
     </div>
     <div class="ocard">
-      <div class="lg"><img class="logo-img s" src="assets/logo.png" alt="디에스오토 — 중고차 수출 • 폐차 수출 전문업체"></div>
+      <div class="lg"><img class="logo-img s" src="assets/logo.png" alt="블루존오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
       <div class="x">X</div>
       <div class="chagis"><img src="assets/chagis.webp" alt="차기스PRO"></div>
       <div class="box light">외장수리 전문매장<br>(제휴매장)<br><span class="hl-y">차기스 프로(PRO)</span>에서 수리 후<br>추가금 받고 판매</div>
@@ -615,22 +677,22 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 마무리 배너 ================= -->
 <section class="outro" id="visit">
-  <img class="logo-img" src="assets/logo.png" alt="디에스오토 — 중고차 수출 • 폐차 수출 전문업체">
+  <img class="logo-img" src="assets/logo.png" alt="블루존오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문">
   <div class="sea">
-    <p class="msg">이제는 제 값에, 안심하고 팔 수 있는<br>시대가 열렸습니다!</p>
+    <p class="msg">이제는 제 값에, 안심하고 사고팔 수 있는<br>시대가 열렸습니다!</p>
     <div class="card"><b>상담전화 :</b> <a href="tel:1588-4525">1588-4525</a><br><b>운영시간 :</b> <span style="white-space:nowrap">10:00 AM ~ 22:00 PM</span><br><b>오시는길 :</b> <span style="white-space:nowrap">대전광역시 유성구 유성대로 510, 238호</span></div>
   </div>
 </section>
-<nav class="foot-nav"><a href="#privacy">개인정보 처리 방침</a><a href="#legal">허위접수 안내</a><a href="#apply">견적,판매 신청으로 가기</a></nav>
+<nav class="foot-nav"><a href="#privacy">개인정보 처리 방침</a><a href="#legal">허위접수 안내</a><a href="#apply">견적·판매·구매 신청으로 가기</a></nav>
 
 <!-- ================= 기존 푸터 그대로 ================= -->
 <footer>
-  <div class="biz">상호 디에스오토 · 대표 최희찬<br>사업자등록번호 <span style="white-space:nowrap">468-68-00735</span><br>대전광역시 유성구 유성대로 510, 238호<br>개인정보보호책임자 최희찬 · 상담전화 <span style="white-space:nowrap"><a href="tel:1588-4525" style="color:inherit">1588-4525</a></span></div>
+  <div class="biz">상호 블루존오토 · 대표 최희찬<br>사업자등록번호 <span style="white-space:nowrap">468-68-00735</span><br>대전광역시 유성구 유성대로 510, 238호<br>개인정보보호책임자 최희찬 · 상담전화 <span style="white-space:nowrap"><a href="tel:1588-4525" style="color:inherit">1588-4525</a></span></div>
   <details id="privacy">
     <summary>개인정보처리방침 (요약)</summary>
     <div class="body">
       <h5>1. 수집 항목과 목적</h5>
-      <ul><li><b>견적 문의</b>: 성함, 휴대폰 번호, 차종·연식·주행거리, 차량 사진 — 견적 산정과 회신</li><li><b>판매 진행</b>: 위 항목 + 차량등록증 사진 — 차량 소유자 확인, 매매 계약 체결. 신분증(주민등록번호 전체)은 온라인으로 수집하지 않고 매장 방문 시 원본 제시 또는 별도 연락으로만 확인하며, 자동차관리법에 따른 이전·말소 등록에 필요한 범위에서만 처리하고 절차 완료 즉시 파기</li></ul>
+      <ul><li><b>견적 문의</b>: 성함, 휴대폰 번호, 차종·연식·주행거리, 차량 사진 — 견적 산정과 회신</li><li><b>구매 문의</b>: 성함, 휴대폰 번호, 문의 내용(희망 차량·상담 내용, 차대차 교환 시 내 차 정보) — 구매 상담과 회신</li><li><b>판매 진행</b>: 위 항목 + 차량등록증 사진 — 차량 소유자 확인, 매매 계약 체결. 신분증(주민등록번호 전체)은 온라인으로 수집하지 않고 매장 방문 시 원본 제시 또는 별도 연락으로만 확인하며, 자동차관리법에 따른 이전·말소 등록에 필요한 범위에서만 처리하고 절차 완료 즉시 파기</li></ul>
       <h5>2. 보유 기간</h5>
       <ul><li>견적 문의만 하신 경우: 회신 완료 후 <b>90일</b> 이내 파기</li><li>매매 계약이 체결된 경우: 관련 법령(전자상거래법·자동차관리법 등)이 정한 기간 동안 보관 후 파기</li><li>업로드된 사진 파일은 목적 달성 즉시 삭제하며, 별도 마케팅에 사용하지 않습니다</li></ul>
       <h5>3. 제3자 제공과 처리 위탁</h5>
@@ -652,21 +714,20 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     </ul>
     접수 시 IP 주소와 접수 일시가 기록되며, 반복적인 허위 접수는 수사기관에 증거 자료와 함께 제출됩니다.
   </div>
-  <p class="copy">© 2026 디에스오토. All rights reserved.</p>
+  <p class="copy">© 2026 블루존오토. All rights reserved.</p>
 </footer>
 
 </div>
 
 <script>
 // 모바일: 히어로(680px 캔버스)를 화면 폭에 맞춰 통째로 축소
-(function(){var h=document.querySelector('.hero'),c=document.querySelector('.hero-scale');function fit(){var w=h.clientWidth;if(w<680){var k=w/680;c.style.transform='scale('+k+')';h.style.height=(710*k)+'px';}else{c.style.transform='';h.style.height='';}}fit();addEventListener('resize',fit);})();
+(function(){var h=document.querySelector('.hero'),c=document.querySelector('.hero-scale');function fit(){var w=h.clientWidth;if(w<680){var k=w/680;c.style.transform='scale('+k+')';h.style.height=(680*k)+'px';}else{c.style.transform='';h.style.height='';}}fit();addEventListener('resize',fit);})();
 // 연식 옵션
 (function(){var y=document.getElementById('year');var now=new Date().getFullYear();for(var i=now;i>=1990;i--){var o=document.createElement('option');o.textContent=i+'년';o.value=i;y.appendChild(o);}})();
 // 사진 올리는 방법 택1: bulk(한 번에) / guided(한 장씩) / none(사진 없음, 견적 탭 전용)
 var pmode='bulk',bulkFiles=[],BULK_MAX=20;
 var photoReq=document.getElementById('photoReq'),modeNoneQuote=document.getElementById('modeNoneQuote'),modeNoneSell=document.getElementById('modeNoneSell');
 var bulkBox=document.getElementById('bulkBox'),bulkInput=document.getElementById('bulkInput'),bulkThumbs=document.getElementById('bulkThumbs'),bulkBar=document.getElementById('bulkBar'),bulkCount=document.getElementById('bulkCount'),bulkTitle=document.getElementById('bulkTitle'),bulkSub=document.getElementById('bulkSub');
-function isSell(){return document.getElementById('tabSell').classList.contains('active');}
 function reqText(){var sell=isSell();return pmode==='none'?(sell?'사진 없이 접수 · 연락 요청':'사진 없이 진행'):pmode==='guided'?'* 7장 모두 필수':'* 여러 장 한 번에';}
 function setMode(m){
   pmode=m;document.querySelectorAll('#modes .mode').forEach(function(c){c.classList.toggle('on',c.dataset.mode===m);});
@@ -688,8 +749,30 @@ document.getElementById('bulkAdd').addEventListener('click',function(){bulkInput
 document.getElementById('bulkClear').addEventListener('click',function(){bulkFiles=[];renderBulk();});
 var extraSlot=document.getElementById('extraSlot'),extraInput=document.getElementById('extraInput'),extraLb=document.getElementById('extraLb'),extraLbOrig=extraLb.innerHTML;
 extraInput.addEventListener('change',function(){var n=extraInput.files.length;extraSlot.classList.toggle('has',n>0);extraLb.innerHTML=n?'✓ 파손 사진<br>'+n+'장 선택됨<small>다시 누르면<br>다시 고르기</small>':extraLbOrig;});
+// 구매 탭: 문의 종류 택1
+var buyMode='contact';
+function setBuy(m){buyMode=m;document.querySelectorAll('#buyModes .mode').forEach(function(c){c.classList.toggle('on',c.dataset.buy===m);});applyLayout();}
+document.querySelectorAll('#buyModes .mhead').forEach(function(h){h.addEventListener('click',function(){setBuy(h.parentNode.dataset.buy);});});
+function curTab(){return document.querySelector('.tab.active').dataset.mode;}
+function isSell(){return curTab()==='sell';}
+function isBuy(){return curTab()==='buy';}
+// 탭·문의종류에 따라 보이는 구간 정리 + 번호 다시 매기기
+function applyLayout(){
+  var tab=curTab(),sell=tab==='sell',buy=tab==='buy';
+  document.getElementById('buyOnly').hidden=!buy;
+  document.getElementById('carFs').hidden=buy&&buyMode!=='swap';document.getElementById('carFsTitle').textContent=buy?'교환할 내 차 정보':'차량 정보';
+  document.getElementById('photoFs').hidden=buy;
+  document.getElementById('sellOnly').hidden=!sell;
+  modeNoneQuote.hidden=sell||buy;modeNoneSell.hidden=!sell;
+  document.getElementById('replyHint').textContent=buy?'남겨주신 방법으로 상담 연락드립니다. 통화가 어려우시면 문자로 먼저 안내드립니다.':'차량 상태 확인 후 즉시입금 · 현장방문 견적 · 탁송 견적 중 어떤 방식으로 진행되는지 메시지로 안내드립니다.';
+  document.getElementById('ctaBtn').textContent=buy?'문의 보내기':'견적 요청 보내기';
+  document.getElementById('flowBuy').hidden=!buy;document.getElementById('flowSell').hidden=buy;
+  var n=0;document.querySelectorAll('#applyForm fieldset').forEach(function(fs){if(fs.hidden)return;n++;var st=fs.querySelector('legend .st');if(st)st.textContent=(n<10?'0':'')+n;});
+  photoReq.textContent=reqText();
+}
 // 탭 전환
-document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});t.classList.add('active');var sell=t.dataset.mode==='sell';document.getElementById('sellOnly').hidden=!sell;modeNoneQuote.hidden=sell;modeNoneSell.hidden=!sell;photoReq.textContent=reqText();renderBulk();});});
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});t.classList.add('active');applyLayout();renderBulk();});});
+applyLayout();
 // 사진 미리보기
 document.querySelectorAll('.slot:not(.extra) input[type=file]').forEach(function(inp){inp.addEventListener('change',function(){var f=inp.files[0];if(!f)return;var img=document.createElement('img');img.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';img.src=URL.createObjectURL(f);inp.parentNode.appendChild(img);inp.parentNode.querySelector('.lb').style.cssText='position:relative;z-index:1;background:rgba(255,255,255,.9);padding:2px 6px';});});
 // 사진 압축(긴 변 1400px, JPEG 82%) → base64. 압축 불가 형식(HEIC 등)은 원본 그대로
@@ -706,31 +789,43 @@ function shrinkPhoto(file){return new Promise(function(res){
 var fmsg=document.getElementById('fmsg');
 function showMsg(type,html){fmsg.className='fmsg '+type;fmsg.innerHTML=html;fmsg.scrollIntoView({behavior:'smooth',block:'center'});}
 document.getElementById('applyForm').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
-  if(!f.maker.value||!f.model.value||!f.year.value){showMsg('err','차량 정보(제조사·차종·연식)를 입력해 주세요.');return;}
-  var sell=isSell();var mode=pmode;
+  var sell=isSell(),buy=isBuy();var mode=buy?'none':pmode;
+  var needCar=!buy||buyMode==='swap';
+  if(needCar&&(!f.maker.value||!f.model.value||!f.year.value)){showMsg('err',buy?'교환하실 내 차 정보(제조사·차종·연식)를 입력해 주세요.':'차량 정보(제조사·차종·연식)를 입력해 주세요.');return;}
+  if(buy&&buyMode==='loan'&&!f.loan_memo.value.trim()){showMsg('err','할부 상담 내용을 적어주세요. (희망 차량, 월 납입 가능 금액 등)');return;}
   var ph=Array.prototype.slice.call(f.querySelectorAll('#photos .slot:not(.extra) input[type=file]'));
-  if(mode==='bulk'){
+  if(buy){}else if(mode==='bulk'){
     if(bulkFiles.length<1){showMsg('err','차량 사진을 1장 이상 올려주세요.\n지금 사진이 없으시면 아래 '+(sell?'[사진 없이 전화나 문자로 상담할래요]':'[사진이 없어요 · 대략 견적만]')+'을 선택해 주세요.');return;}
   }else if(mode==='guided'){
     var miss=[];ph.forEach(function(i){if(!i.files.length)miss.push(i.parentNode.querySelector('.lb').textContent);});
     if(miss.length){showMsg('err','7칸을 모두 채워주셔야 접수됩니다.\n빠진 사진: '+miss.join(', ')+'\n\n한 번에 올리시려면 위의 [사진 한 번에 올리기]를 선택해 주세요.');return;}
   }
   if(!f.name.value||!f.phone.value){showMsg('err','성함과 휴대폰 번호를 입력해 주세요.');return;}
-  if(sell&&!f.doc_reg.files.length){showMsg('err','판매 진행 시 차량등록증 사진을 올려주세요.');return;}
+  if(sell&&!buy&&!f.doc_reg.files.length){showMsg('err','판매 진행 시 차량등록증 사진을 올려주세요.');return;}
   if(!f.agree_privacy.checked||!f.agree_truth.checked){showMsg('err','필수 동의 항목 2개를 모두 체크해 주세요.');return;}
 
+  var btnLabel=buy?'문의 보내기':'견적 요청 보내기';
   var btn=document.getElementById('ctaBtn');btn.disabled=true;btn.textContent='전송 중...';
   showMsg('wait','접수 정보를 전송하고 있습니다. 잠시만 기다려 주세요.');
 
   var replyMethods=[];document.querySelectorAll('input[name="reply"]:checked').forEach(function(c){replyMethods.push(c.value);});
   var refNo='DS-'+String(Date.now()).slice(-6);
+  var formType,memo=f.memo.value||'';
+  if(buy){
+    formType={contact:'구매문의(차량구매)',swap:'구매문의(차대차교환)',loan:'구매문의(저신용할부)'}[buyMode];
+    if(buyMode==='contact')memo=f.buy_want.value.trim()?'찾는 차량: '+f.buy_want.value.trim():'';
+    if(buyMode==='swap')memo=(f.swap_want.value.trim()?'교환 희망: '+f.swap_want.value.trim()+'\n':'')+memo;
+    if(buyMode==='loan')memo='상담내용: '+f.loan_memo.value.trim();
+  }else{
+    formType=(sell?'판매진행':'견적조회')+(mode==='bulk'?'(일괄업로드)':mode==='none'?(sell?'(사진없음·연락요청)':'(사진없음·대략견적)'):'');
+  }
   var formData={
     timestamp:new Date().toLocaleString('ko-KR'),
     refNo:refNo,
-    formType:(sell?'판매진행':'견적조회')+(mode==='bulk'?'(일괄업로드)':mode==='none'?(sell?'(사진없음·연락요청)':'(사진없음·대략견적)'):''),
-    maker:f.maker.value, model:f.model.value, year:f.year.value,
-    km:f.km.value||'', memo:f.memo.value||'',
-    photoCount:mode==='bulk'?bulkFiles.length:mode==='guided'?(ph.filter(function(i){return i.files.length}).length+extraInput.files.length):0,
+    formType:formType,
+    maker:needCar?f.maker.value:'', model:needCar?f.model.value:'', year:needCar?f.year.value:'',
+    km:needCar?(f.km.value||''):'', memo:memo,
+    photoCount:buy?0:mode==='bulk'?bulkFiles.length:mode==='guided'?(ph.filter(function(i){return i.files.length}).length+extraInput.files.length):0,
     name:f.name.value, phone:f.phone.value,
     reply:replyMethods.join(', '), calltime:f.calltime.value||'',
     idmode:f.idmode?f.idmode.value:'',
@@ -743,20 +838,20 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
   var finished=false;
   function done(){
     if(finished)return;finished=true;
-    showMsg('ok','<b>신청이 완료되었습니다.</b>\n접수번호 '+refNo+'\n운영시간(10:00–22:00) 내 순차 회신드립니다.');
+    showMsg('ok','<b>'+(buy?'문의가 접수되었습니다.':'신청이 완료되었습니다.')+'</b>\n접수번호 '+refNo+'\n운영시간(10:00–22:00) 내 순차 회신드립니다.');
     try{
       f.reset();
       f.querySelectorAll('.slot img').forEach(function(im){im.remove();});
       f.querySelectorAll('.slot .lb').forEach(function(l){l.style.cssText='';});
-      bulkFiles=[];renderBulk();setMode('bulk');extraSlot.classList.remove('has');extraLb.innerHTML=extraLbOrig;
+      bulkFiles=[];renderBulk();setMode('bulk');extraSlot.classList.remove('has');extraLb.innerHTML=extraLbOrig;applyLayout();
     }catch(e2){console.warn(e2);}
-    btn.disabled=false;btn.textContent='견적 요청 보내기';
+    btn.disabled=false;btn.textContent=btnLabel;
   }
   function fail(err){
     if(finished)return;finished=true;
     console.error(err);
     showMsg('err','전송 중 오류가 발생했습니다.\n다시 시도하시거나 1588-4525로 연락 주세요.');
-    btn.disabled=false;btn.textContent='견적 요청 보내기';
+    btn.disabled=false;btn.textContent=btnLabel;
   }
 
   // 사진 목록: bulk → 사진01…, guided → 1_정면… + 8_파손N, 판매진행 시 0_차량등록증
@@ -766,7 +861,7 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
     ph.forEach(function(i,idx){if(!i.files.length)return;var lb=i.parentNode.querySelector('.lb').textContent.trim();jobs.push(shrinkPhoto(i.files[0]).then(tick).then(function(r){return r?{name:(idx+1)+'_'+lb+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});
     Array.prototype.forEach.call(extraInput.files,function(file,k){jobs.push(shrinkPhoto(file).then(tick).then(function(r){return r?{name:'8_파손'+(k+1)+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});
   }
-  if(sell&&f.doc_reg.files.length){jobs.push(shrinkPhoto(f.doc_reg.files[0]).then(tick).then(function(r){return r?{name:'0_차량등록증.'+r.ext,mime:r.mime,data:r.data}:null;}));}
+  if(sell&&!buy&&f.doc_reg.files.length){jobs.push(shrinkPhoto(f.doc_reg.files[0]).then(tick).then(function(r){return r?{name:'0_차량등록증.'+r.ext,mime:r.mime,data:r.data}:null;}));}
   if(jobs.length)showMsg('wait','사진을 정리하고 있습니다. 0/'+jobs.length);
 
   Promise.all(jobs).then(function(photos){
