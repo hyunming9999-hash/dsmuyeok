@@ -145,6 +145,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .p5 .pair .arrow{flex:0 0 calc(52*var(--u));height:calc(50*var(--u));background:#12306B;clip-path:polygon(0 30%,52% 30%,52% 0,100% 50%,52% 100%,52% 70%,0 70%)}
 .p5 .pair .ic1{width:calc(214*var(--u))}
 .p5 .pair .ic2{width:calc(160*var(--u))}
+.p5 .pair.loan .flow{width:100%;height:auto;display:block}
 .p5 .caps{display:flex;justify-content:space-between;gap:calc(8*var(--u));margin:calc(15.5*var(--u)) calc(-18*var(--u)) 0;padding:0}
 .p5 .caps p{flex:1;margin:0;font-family:var(--thin);font-size:calc(17.8*1.118*var(--u));line-height:calc(23.6*1.118*var(--u));color:#012A64}
 
@@ -163,7 +164,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* 3단계 절차 */
 .p5 .proc{background:#fff;padding:calc(27.2*var(--u)) 0 calc(103.5*var(--u))}
-.p5 .toggles{display:flex;justify-content:center;gap:calc(15*var(--u))}
+.p5 .toggles{display:flex;justify-content:center;align-items:flex-start;gap:calc(15*var(--u))}
+.p5 .tgwrap{display:flex;flex-direction:column;align-items:center}
+.p5 .tghint{font-family:var(--thin);font-size:calc(18.36*var(--s)*var(--u));line-height:1.3;color:#012A64;margin-top:calc(8*var(--u))}
+.p5 .tghint.off{visibility:hidden}
 .p5 .tg{width:calc(314*var(--u));height:calc(48*var(--u));border:0;border-radius:calc(24*var(--u));font-family:var(--bold);font-size:calc(24.8*var(--u));cursor:pointer;padding:0;white-space:nowrap}
 .p5 .tg.dark{background:var(--navy);color:#fff}
 .p5 .tg.sun{background:#FFCD4A;color:#0B2647}
@@ -338,7 +342,7 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 .outro .logo-wrap{padding:calc(35*var(--u)) 0 calc(31*var(--u));background:#fff;line-height:0}
 .outro .logo-img{width:calc(298*var(--u));height:auto;margin:0 auto;display:block}
 .ocard .logo-img{width:183px;height:auto}.ocard .logo-img.s{width:146px}
-.outro .sea{position:relative;height:calc(476*var(--u));background:url(assets/ship_sea_footer.jpg?v=0926c) center top/cover}
+.outro .sea{position:relative;height:calc(476*var(--u));background:url(assets/ship_sea_footer.jpg?v=0926d) center top/cover}
 .outro .sea .band{position:absolute;left:0;top:0;width:100%;box-sizing:border-box;min-height:calc(59*var(--u));padding:calc(4*var(--u)) 12px calc(2*var(--u));background:rgba(11,38,71,.86);color:#fff;font-family:var(--bold);font-size:max(13px,calc(20.6*var(--u)));line-height:1.29;margin:0;text-align:center}
 .outro .sea .qr{position:absolute;right:calc(7.5*var(--u));bottom:calc(5*var(--u));width:max(80px,calc(121*var(--u)));height:auto;display:block;border-radius:calc(3*var(--u));background:#fff}
 .outro .sea .qrlbl{position:absolute;right:calc(max(80px,calc(121*var(--u))) + calc(13*var(--u)));bottom:calc(3*var(--u));background:#FCCC49;color:#25344F;font-family:var(--bold);font-size:max(11px,calc(18.5*var(--u)));line-height:1.48;padding:0 .75em;border-radius:.22em;white-space:nowrap}
@@ -406,11 +410,11 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
  <div class="hero-scale">
-  <img class="top" src="assets/hero_v6.jpg?v=0926c" alt="오션카오토 — 아직도 중고차 그냥 파십니까? NO, 이제는 '제값' 지키며 사고파는 시대 ON. 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문. 60만km, 파손 심한 문제차량은 수출 or 폐차수출! 자동차 진단평가사가 검증한 국내중고차 매매! 상담전화 1588-4525, 운영시간 10:00 AM ~ 22:00 PM. 비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
+  <img class="top" src="assets/hero_v6.jpg?v=0926d" alt="오션카오토 — 아직도 중고차 그냥 파십니까? NO, 이제는 '제값' 지키며 사고파는 시대 ON. 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문. 60만km, 파손 심한 문제차량은 수출 or 폐차수출! 자동차 진단평가사가 검증한 국내중고차 매매! 상담전화 1588-4525, 운영시간 10:00 AM ~ 22:00 PM. 비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
  </div>
 </section>
 <div class="waveband" aria-hidden="true">
-  <img class="badges" src="assets/badges.png?v=0926c" alt="비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
+  <img class="badges" src="assets/badges.png?v=0926d" alt="비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
   <svg class="w1" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,45 C170,5 170,85 340,45 C510,5 510,85 680,45 C850,5 850,85 1020,45 C1190,5 1190,85 1360,45 L1360,230 L0,230 Z" fill="#0B2647" opacity=".55"/></svg>
   <svg class="w2" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,95 C170,50 170,140 340,95 C510,50 510,140 680,95 C850,50 850,140 1020,95 C1190,50 1190,140 1360,95 L1360,230 L0,230 Z" fill="#0B2647"/></svg>
   <svg class="w3" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,165 C170,125 170,205 340,165 C510,125 510,205 680,165 C850,125 850,205 1020,165 C1190,125 1190,205 1360,165 L1360,230 L0,230 Z" fill="#ffffff"/></svg>
@@ -432,18 +436,18 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 중고차! 폐차! ================= -->
 <section class="cars">
-  <img src="assets/cars_two.jpg?v=0926c" alt="일반 중고차와 폐차를 실은 트럭">
+  <img src="assets/cars_two.jpg?v=0926d" alt="일반 중고차와 폐차를 실은 트럭">
   <h2>중고차! 폐차!</h2>
   <h3>아직도 그냥 팔거나 처리하십니까?</h3>
 </section>
 
 <!-- ================= 문제점 ================= -->
 <section class="probs" id="problem">
-  <div class="pc"><span class="lbl">1.문제점</span><img class="ill" style="height:calc(153*var(--u))" src="assets/p_dealer_t.png?v=0926c" alt=""><h3>비전문가의 감가폭탄 또는 폭리</h3></div>
+  <div class="pc"><span class="lbl">1.문제점</span><img class="ill" style="height:calc(153*var(--u))" src="assets/p_dealer_t.png?v=0926d" alt=""><h3>비전문가의 감가폭탄 또는 폭리</h3></div>
   <p class="pd">비전문가인 딜러들의<br><span class="hl-b">감가폭탄</span> 또는 <span class="hl-b">폭리</span></p>
-  <div class="pc"><span class="lbl">2.문제점</span><img class="ill" style="height:calc(162*var(--u))" src="assets/p_app_t.png?v=0926c" alt=""><h3>어플,경매를 통한 중간수수료 부담</h3></div>
+  <div class="pc"><span class="lbl">2.문제점</span><img class="ill" style="height:calc(162*var(--u))" src="assets/p_app_t.png?v=0926d" alt=""><h3>어플,경매를 통한 중간수수료 부담</h3></div>
   <p class="pd">어플을 통한 경매나 거래의 중간 수수료는<br>결국 <span class="hl-b">소비자의 몫</span>입니다.</p>
-  <div class="pc"><span class="lbl">3.문제점</span><img class="ill" style="height:calc(155*var(--u))" src="assets/p_dispute_t.png?v=0926c" alt=""><h3>불투명한 과정과 약속과는 다른 금액</h3></div>
+  <div class="pc"><span class="lbl">3.문제점</span><img class="ill" style="height:calc(155*var(--u))" src="assets/p_dispute_t.png?v=0926d" alt=""><h3>불투명한 과정과 약속과는 다른 금액</h3></div>
   <p class="pd">불투명한 거래 과정과 <span class="hl-b">약속과는 다른 금액</span></p>
 </section>
 
@@ -451,21 +455,21 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <section class="solve" id="promise"><h2>“이제는 오션카오토가<br>해결하겠습니다!”</h2></section>
 
 <!-- ================= 수출 / 폐차수출 ================= -->
-<div class="ph ship"><img src="assets/ship_pdf.jpg?v=0926c" alt="컨테이너를 실은 수출 화물선"><span class="dest">주요수출국: 러시아 / 몽골 / 중동 / 아프리카</span></div>
+<div class="ph ship"><img src="assets/ship_pdf.jpg?v=0926d" alt="컨테이너를 실은 수출 화물선"><span class="dest">주요수출국: 러시아 / 몽골 / 중동 / 아프리카</span></div>
 <div class="tband sky">수출 / 폐차수출</div>
 <section class="navyblk" id="expBlk">
   <p class="quote">"국내 시장의 감가기준이 통하지 않는 곳으로<br>차를 보냅니다!"</p>
   <div class="wcard">
     <p class="big">설마,</p>
     <h3>내 차가 오래되고,<br>연식도 60만km라서?<br>파손이 심한 문제차량이라서?<br><span class="hl-b">판매가 될까 걱정되십니까?</span></h3>
-    <img class="wreck" src="assets/car_wrecked_hd.jpg?v=0926c" alt="파손이 심한 차량">
+    <img class="wreck" src="assets/car_wrecked_hd.jpg?v=0926d" alt="파손이 심한 차량">
   </div>
   <p class="t1">걱정은 이제 그만!</p>
   <p class="t2">수출바이어는 부품과 차대의가치, 그리고<br>중량과 재활용의 가치를 보기 때문입니다.</p>
 </section>
 
 <!-- ================= 국내 중고차 매매 ================= -->
-<div class="ph lot"><img src="assets/cars_pdf.jpg?v=0926c" alt="전시된 국내 중고차들"></div>
+<div class="ph lot"><img src="assets/cars_pdf.jpg?v=0926d" alt="전시된 국내 중고차들"></div>
 <div class="tband yel">국내 중고차 매매</div>
 <section class="navyblk" id="domBlk">
   <p class="lead">자동차 진단평가사가<br>검증한 차량과 매매가격으로 안심할 수 있습니다.</p>
@@ -474,20 +478,16 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     <h3>상태가 좋은 차량임에도<br>제값 받지 못하고 판매할까봐?<br>또는 이런저런 이유로 <span class="hl-y">구매를 망설이고 있다면?</span></h3>
     <p class="sub"><span class="hl-y">1) 차대차 교환 가능</span></p>
     <div class="pair">
-      <img class="suv" src="assets/suv_a.jpg?v=0926c" alt="2018년식 모하비">
+      <img class="suv" src="assets/suv_a.jpg?v=0926d" alt="2018년식 모하비">
       <span class="arrow"></span>
-      <img class="suv" src="assets/suv_b.jpg?v=0926c" alt="2022년식 모하비">
+      <img class="suv" src="assets/suv_b.jpg?v=0926d" alt="2022년식 모하비">
     </div>
-    <div class="caps"><p><span class="hl-b">예시)</span> 2018년식 모하비 교환+추가금</p><p><span class="hl-b">예시)</span> 2022년식 모하비로 교환</p></div>
+    <div class="caps"><p>예시) 2018년식 모하비 교환+추가금</p><p>예시) 2022년식 모하비로 교환</p></div>
   </div>
   <div class="wcard">
     <p class="sub b2"><span class="hl-y">2) 저신용 무조건 할부</span></p>
-    <div class="pair">
-      <img class="ic1" src="assets/icon_fraud.png?v=0926c" alt="">
-      <span class="arrow"></span>
-      <img class="ic2" src="assets/icon_receipt.png?v=0926c" alt="">
-    </div>
-    <div class="caps"><p><span class="hl-b">예시)</span> 저신용자 대상 (파산은 불가능)</p><p><span class="hl-b">예시)</span> 상담 후 할부상담 가능</p></div>
+    <div class="pair loan"><img class="flow" src="assets/loan_flow.jpg?v=0926d" alt="카드 거절에서 상담 진행으로"></div>
+    <div class="caps"><p>예시) 저신용자 대상 (파산은 불가능)</p><p>예시) 상담 후 할부상담 가능</p></div>
   </div>
 </section>
 
@@ -496,19 +496,19 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <section class="qs">
   <div class="qitem">
     <span class="pill">1.약속</span>
-    <img style="width:calc(205.5*var(--u))" src="assets/p_appraiser.png?v=0926c" alt="">
+    <img style="width:calc(205.5*var(--u))" src="assets/p_appraiser.png?v=0926d" alt="">
     <h3>전문가의 매매견적가로<br><span class="hl-y">제값 +@</span></h3>
     <p>국토교통부공인<br>[자동차진단평가사] 의 매매견적가로 안전하게!</p>
   </div>
   <div class="qitem">
     <span class="pill">2.약속</span>
-    <img style="width:calc(253.5*var(--u))" src="assets/p_bankbook.png?v=0926c" alt="">
+    <img style="width:calc(253.5*var(--u))" src="assets/p_bankbook.png?v=0926d" alt="">
     <h3><span class="hl-y">중간 수수료를 타파!</span><br>고객에게 더 많이</h3>
     <p>불필요한 중계로를 타파하고<br>수수료를 없애고 고객에게 드립니다</p>
   </div>
   <div class="qitem">
     <span class="pill">3.약속</span>
-    <img style="width:calc(119.5*var(--u))" src="assets/p_handshake.png?v=0926c" alt="">
+    <img style="width:calc(119.5*var(--u))" src="assets/p_handshake.png?v=0926d" alt="">
     <h3>투명한 과정공개!<br><span class="hl-y">약속과 동일한 금액</span></h3>
     <p>판매과정을 실시간으로 공개!<br>약속과 동일한 금액이 아닐시 전액환불!</p>
   </div>
@@ -517,15 +517,15 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <!-- ================= 간편한 3단계 절차 ================= -->
 <section class="proc" id="process">
   <div class="toggles">
-    <button class="tg dark on" id="tgSell" aria-controls="procSell">간편한 3단계 판매 절차</button>
-    <button class="tg sun" id="tgBuy" aria-controls="procBuy">간편한 3단계 구매 절차</button>
+    <div class="tgwrap"><button class="tg dark on" id="tgSell" aria-controls="procSell">간편한 3단계 판매 절차</button></div>
+    <div class="tgwrap"><button class="tg sun" id="tgBuy" aria-controls="procBuy">간편한 3단계 구매 절차</button><span class="tghint" id="tgHint">클릭해서 펼쳐보기</span></div>
   </div>
 
   <div id="procSell">
     <div class="ptitle dark">간편한 3단계 판매 절차</div>
     <div class="step">
       <span class="no sky">1</span>
-      <div class="fig"><img class="qr" src="assets/qr.png?v=0926c" alt="예약사이트 QR"><span class="qrlbl">예약사이트QR</span></div>
+      <div class="fig"><img class="qr" src="assets/qr.png?v=0926d" alt="예약사이트 QR"><span class="qrlbl">예약사이트QR</span></div>
       <div class="rt">
         <h3>오션카오토 사이트에서 차량정보 입력</h3>
         <div class="box"><div>1.차종 / 2.연식 / 3.차량 사진 / 4.연락처<br>정보만 기입해도 [견적가 안내] 가능!<div class="gap"></div>판매 결정 경우<br><span class="hl-b">6.차량등록증 사진&nbsp; 7.신원확인&nbsp; 진행</span></div></div>
@@ -533,7 +533,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     </div>
     <div class="step">
       <span class="no sky">2</span>
-      <div class="fig"><img style="width:calc(174.5*var(--u))" src="assets/mechanic_pdf.png?v=0926c" alt=""></div>
+      <div class="fig"><img style="width:calc(174.5*var(--u))" src="assets/mechanic_pdf.png?v=0926d" alt=""></div>
       <div class="rt">
         <h3>즉시입금 <span class="y" style="color:#012A64">or</span> 전문가 현장방문 견적<br>or 탁송견적 (무료)</h3>
         <div class="box"><div>이후, 차량 상태에 따라<br>추가 확인 없이 즉시입금 가능<div class="gap"></div>추가 확인 필요할 경우<br>방문견적(무료)or견적(무료) 진행</div></div>
@@ -541,7 +541,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     </div>
     <div class="step">
       <span class="no sky">3</span>
-      <div class="fig"><img style="width:calc(147*var(--u))" src="assets/phone_pdf.png?v=0926c" alt=""></div>
+      <div class="fig"><img style="width:calc(147*var(--u))" src="assets/phone_pdf.png?v=0926d" alt=""></div>
       <div class="rt">
         <h3>최종판매 결정</h3>
         <div class="box"><div>추가 확인 이후 2단계에 결정내린<br>견적가와 1원 차이없이<br>판매결정&nbsp; 최종 승인시 즉시 입금<div class="gap"></div><span class="hl-b">단, 차량운행 불가시 가격 변동 발생</span></div></div>
@@ -553,7 +553,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     <div class="ptitle sun">간편한 3단계 구매 절차</div>
     <div class="step">
       <span class="no sun">1</span>
-      <div class="fig"><img class="qr" src="assets/qr.png?v=0926c" alt="예약사이트 QR"><span class="qrlbl">예약사이트QR</span></div>
+      <div class="fig"><img class="qr" src="assets/qr.png?v=0926d" alt="예약사이트 QR"><span class="qrlbl">예약사이트QR</span></div>
       <div class="rt">
         <h3>오션카오토 사이트에서 구매옵션 선택</h3>
         <div class="box"><div><span class="y">1.차량 구매 요청</span><br><span class="y">2.차대차 교환</span><br><span class="y">3.저신용 무조건 할부</span><br>중 선택</div></div>
@@ -561,7 +561,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     </div>
     <div class="step">
       <span class="no sun">2</span>
-      <div class="fig"><img style="width:calc(170*var(--u))" src="assets/buy_check.png?v=0926c" alt=""></div>
+      <div class="fig"><img style="width:calc(170*var(--u))" src="assets/buy_check.png?v=0926d" alt=""></div>
       <div class="rt">
         <h3>방문확인(권장) 〉 구매결정</h3>
         <div class="box"><div><span class="y">방문 확인 권장 or상담진행</span><br>자동차 진단평가사 차량상태 점검 진행<br><span class="hl-y">=&gt; 구매결정</span></div></div>
@@ -569,7 +569,7 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
     </div>
     <div class="step">
       <span class="no sun">3</span>
-      <div class="fig"><img style="width:calc(123*var(--u))" src="assets/buy_doc.png?v=0926c" alt=""></div>
+      <div class="fig"><img style="width:calc(178*var(--u))" src="assets/buy_car3.png?v=0926d" alt="차량 인계"></div>
       <div class="rt">
         <h3>최종결정 및 행정처리</h3>
         <div class="box"><div><span class="hl-y">최종인계 및 행정처리 서포트</span></div></div>
@@ -741,14 +741,14 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
   <div class="heads"><div class="l">기본 옵션 (최종견적가 그대로 판매)</div><div class="r">제휴 옵션 (오션카오토 X 차기스PRO)</div></div>
   <div class="cards">
     <div class="ocard">
-      <div class="lg"><img class="logo-img" src="assets/logo_oc.png?v=0926c" alt="오션카오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
+      <div class="lg"><img class="logo-img" src="assets/logo_oc.png?v=0926d" alt="오션카오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
       <div class="box dark">최종견적가 그대로<br>그대로 판매진행 옵션</div>
       <p class="ex">예시: 추가선택 없이<br>최종견적가<br><span class="hl-y">550만원에 판매</span> 결정</p>
     </div>
     <div class="ocard">
-      <div class="lg"><img class="logo-img s" src="assets/logo_oc.png?v=0926c" alt="오션카오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
+      <div class="lg"><img class="logo-img s" src="assets/logo_oc.png?v=0926d" alt="오션카오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
       <div class="x">X</div>
-      <div class="chagis"><img src="assets/chagis.webp?v=0926c" alt="차기스PRO"></div>
+      <div class="chagis"><img src="assets/chagis.webp?v=0926d" alt="차기스PRO"></div>
       <div class="box light">외장수리 전문매장<br>(제휴매장)<br><span class="hl-y">차기스 프로(PRO)</span>에서 수리 후<br>추가금 받고 판매</div>
       <p class="ex">예시: 15만원 외장 수리 후<br><span class="hl-y">600만원에 판매</span><br>(탁송으로 진행 및<br>전과정 알림 발송)</p>
     </div>
@@ -758,11 +758,11 @@ footer .copy{margin-top:22px;font-size:12px;color:#9AA3B2}
 <!-- ================= 마무리 배너 ================= -->
 <section class="outro" id="visit">
   <div class="skytop"></div>
-  <div class="logo-wrap"><img class="logo-img" src="assets/logo_oc.png?v=0926c" alt="오션카오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
+  <div class="logo-wrap"><img class="logo-img" src="assets/logo_oc.png?v=0926d" alt="오션카오토 — 중고차 수출 • 폐차 수출 / 국내 중고차 시장 전문"></div>
   <div class="sea">
     <p class="band">이제는 제 값에, 안심하고 팔 수 있는<br>시대가 열렸습니다!</p>
     <span class="qrlbl">예약사이트QR</span>
-    <img class="qr" src="assets/qr.png?v=0926c" alt="예약사이트 QR — https://dstrade.it.kr">
+    <img class="qr" src="assets/qr.png?v=0926d" alt="예약사이트 QR — https://dstrade.it.kr">
   </div>
   <div class="infobar"><b>상담전화 :</b> <a href="tel:1588-4525">1588-4525</a><br><b>운영시간 :</b> <span style="white-space:nowrap">10:00 AM ~ 22:00 PM</span><br><b>오시는길 :</b> <span style="white-space:nowrap">대전광역시 유성구 유성대로 510, 238호</span></div>
 </section>
@@ -971,6 +971,7 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
     var sell=which==='sell';
     ps.hidden=!sell; pb.hidden=sell;
     ts.classList.toggle('on',sell); tb.classList.toggle('on',!sell);
+    var h=document.getElementById('tgHint'); if(h) h.classList.toggle('off',!sell);
   }
   show('sell');
   ts.addEventListener('click',function(){show('sell');});
