@@ -103,7 +103,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .p5 .pc:nth-of-type(2) h3{margin-top:calc(7*var(--u))}
 .p5 .pc:nth-of-type(3) h3{margin-top:calc(10.5*var(--u))}
 /* 카드 설명글: 제목(31.2)보다 조금 작게, 3장 동일 */
-.p5 .pc p{font-family:var(--thin);font-size:calc(27*var(--u));line-height:calc(35*var(--u));margin:calc(14*var(--u)) 0 0;color:#012A64}
+.p5 .pc p{font-family:var(--thin);font-size:calc(24*var(--u));line-height:calc(31*var(--u));margin:calc(14*var(--u)) 0 0;color:#012A64}
 
 /* 이제는 …가 해결하겠습니다 */
 .p5 .solve{background:#fff;padding:calc(121*var(--u)) 0 calc(126*var(--u))}
@@ -135,8 +135,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .p5 .proc h2{font-family:var(--bold);font-size:calc(39.5*var(--u));line-height:calc(44*var(--u));margin:0;color:#fff}
 .p5 .pcard{background:#fff;border-radius:calc(70*var(--u));margin-top:calc(28*var(--u));padding:calc(50*var(--u)) calc(7*var(--u)) calc(44*var(--u)) 0}
 .p5 .step{display:grid;grid-template-columns:calc(203*var(--u)) 1fr;grid-template-areas:". t" "f b";align-items:center;text-align:center}
-.p5 .step+.step{margin-top:calc(76*var(--u))}
-.p5 .step.s3{margin-top:calc(99*var(--u))}
+.p5 .step+.step{margin-top:calc(104*var(--u))}
+.p5 .step.s3{margin-top:calc(120*var(--u))}
 .p5 .step .fig{grid-area:f;align-self:center;height:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .p5 .step .fig img{display:block;height:auto}
 .p5 .step .fig .qr{width:calc(150*var(--u))}
@@ -218,10 +218,10 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 
 /* ---------- 추가 판매옵션 ---------- */
 .options{background:var(--sky);padding:0}
-.options .top{padding:60px 24px 0;text-align:center}
+.options .top{background:#fff;padding:60px 24px 30px;text-align:center}
 .options .pill{display:inline-block;font-family:var(--thin);font-size:28px;padding:8px 46px;border-radius:22px;background:var(--navy);color:#fff}
 .options .note{margin-top:16px;font-family:var(--thin);font-size:18px;line-height:1.5}
-.options .heads{display:grid;grid-template-columns:1fr 1fr;margin-top:32px}
+.options .heads{display:grid;grid-template-columns:1fr 1fr;margin-top:0}
 .options .heads div{padding:8px 6px;text-align:center;font-family:var(--thin);font-size:15px}
 .options .heads .l{background:var(--navy);color:#fff}
 .options .heads .r{background:var(--sky-hl);color:var(--navy)}
@@ -393,7 +393,7 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
     <div class="step">
       <h3><span class="no">1</span>사이트에서 차량정보 입력</h3>
       <div class="fig"><img class="qr" src="assets/qr.png?v=0926f" alt="예약사이트 QR"><span class="qrlbl">예약사이트QR</span></div>
-      <div class="box"><div>1.차종 / 2.연식 / 3.차량 사진 / 4.연락처<br>정보만 기입해도 [견적가 안내] 가능!</div></div>
+      <div class="box"><div>1.차종 / 2.연식 / 3.차량 사진 / 4.연락처<br><span class="sky">정보만 기입해도 [견적가 안내] 가능!</span></div></div>
     </div>
     <div class="step s2">
       <h3><span class="no">2</span>즉시입금 or 전문가 현장방문 견적<br>or 탁송견적 (무료)</h3>
