@@ -123,7 +123,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* 수출/폐차수출 · 국내 중고차 판매 (새 디자인: 필 헤더 + 둥근 사진 + 설명) */
 .p5 .chan{padding:0 calc(35*var(--u))}
-.p5 .chan.first{margin-top:calc(72*var(--u))}
+.p5 .chan.first{margin-top:calc(62*var(--u))}
+.p5 .optbox{margin:calc(72*var(--u)) calc(18*var(--u)) 0;background:var(--navy);color:#fff;border-radius:calc(48*var(--u));padding:calc(46*var(--u)) calc(20*var(--u)) calc(64*var(--u));box-shadow:0 calc(6*var(--u)) calc(12*var(--u)) rgba(0,0,0,.4)}
+.p5 .optbox .q{font-family:var(--thin);font-size:calc(23*var(--u));line-height:calc(38*var(--u));margin:0;color:#fff}
+.p5 .optbox .big{font-family:var(--bold);font-size:calc(40*var(--u));line-height:calc(44*var(--u));margin:calc(52*var(--u)) 0 0;color:#fff}
 .p5 .chan+.chan{margin-top:calc(48*var(--u))}
 .p5 .chan .tag{display:block;background:var(--navy);color:#fff;font-family:var(--bold);font-size:calc(25*var(--u));line-height:calc(56*var(--u));height:calc(56*var(--u));border-radius:calc(8*var(--u));box-shadow:0 calc(3*var(--u)) calc(6*var(--u)) rgba(0,0,0,.28)}
 .p5 .chan img{width:100%;height:auto;display:block;margin-top:calc(11*var(--u));border-radius:calc(28*var(--u))}
@@ -355,21 +358,27 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
   <div class="qitem">
     <span class="pill">1.약속</span>
     <img style="width:calc(205.5*var(--u))" src="assets/p_appraiser.png?v=0926f" alt="">
-    <h3>전문가의 매매견적가로<br><span class="hl-y">제값 +@</span></h3>
+    <h3>전문가의 매매견적가로<br>제값 +@</h3>
     <p>국토교통부공인<br>[자동차진단평가사] 의 매매견적가로 안전하게!</p>
   </div>
   <div class="qitem">
     <span class="pill">2.약속</span>
     <img style="width:calc(253.5*var(--u))" src="assets/p_bankbook.png?v=0926f" alt="">
-    <h3><span class="hl-y">중간 수수료</span>를 타파!<br>고객에게 더 많이</h3>
+    <h3>중간 수수료를 타파!<br>고객에게 더 많이</h3>
     <p>불필요한 중계로를 타파하고<br>수수료를 없애고 고객에게 드립니다</p>
   </div>
   <div class="qitem">
     <span class="pill">3.약속</span>
     <img style="width:calc(119.5*var(--u))" src="assets/p_handshake.png?v=0926f" alt="">
-    <h3>투명한 과정공개!<br><span class="hl-y">약속과 동일한 금액</span></h3>
+    <h3>투명한 과정공개!<br>약속과 동일한 금액</h3>
     <p>판매과정을 실시간으로 공개!<br>약속과 동일한 금액이 아닐시 전액환불!</p>
   </div>
+</section>
+
+<!-- ================= 차량상태에 따른 판매옵션 ================= -->
+<section class="optbox">
+  <p class="q">"차량상태에 따라<br>선택할 수 있는 판매옵션"</p>
+  <p class="big">[수출] or [국내 중고차]</p>
 </section>
 
 <!-- ================= 수출 / 폐차수출 ================= -->
@@ -412,7 +421,7 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 신청 (견적만 알아보기) ================= -->
 <section class="apply" id="apply">
-  <div class="eyebrow">견적만 알아보기</div>
+  <div class="eyebrow">[견적만 알아보기]</div>
   <h2>지금 차량정보를 남기세요</h2>
   <p class="lead">수집된 정보는 견적회신 용도외에<br>사용되지 않습니다.</p>
 
@@ -474,7 +483,7 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
 <section class="options">
   <div class="top">
     <span class="pill">제휴판매옵션</span>
-    <p class="note"><span class="hl-y">[제휴 옵션]을 선택 할 수 있는 차량은<br>제한되어 있습니다.</span><br><span class="hl-y">개별 알림 발송으로 안내드립니다,</span></p>
+    <p class="note">[제휴 옵션]을 선택 할 수 있는 차량은<br>제한되어 있습니다.<br>개별 알림 발송으로 안내드립니다,</p>
   </div>
   <div class="heads"><div class="l">기본 옵션 (최종견적가 그대로 판매)</div><div class="r">제휴 옵션 (오션카오토 X 차기스PRO)</div></div>
   <div class="cards">
