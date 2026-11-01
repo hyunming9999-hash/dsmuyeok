@@ -261,8 +261,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .outro{--u:min(1px,calc(100vw / 680));background:#fff;text-align:center;padding:0;word-break:keep-all}
 .outro .skytop{height:calc(68*var(--u));background:var(--sky)} /* 카드 원본은 #B9E9FF, 위 옵션 구간 하늘색과 단차가 생겨 같은 색으로 */
 .outro .logo-wrap{padding:calc(35*var(--u) + 6px) 0 calc(31*var(--u) + 6px);background:#fff;line-height:0}
-.outro .logo-img{width:calc(298*var(--u));height:auto;margin:0 auto;display:block}
-.ocard .logo-img{width:183px;height:auto}.ocard .logo-img.s{width:146px}
+.outro .logo-img{width:calc(298*var(--u));height:auto;margin:0 auto;display:block;border-radius:calc(16*var(--u))}
+.ocard .logo-img{width:183px;height:auto;border-radius:10px}.ocard .logo-img.s{width:146px;border-radius:8px}
 .outro .sea{position:relative;height:calc(476*var(--u));background:url(assets/ship_sea_footer.jpg?v=0926f) center top/cover}
 .outro .sea .band{position:absolute;left:0;top:0;width:100%;box-sizing:border-box;min-height:calc(59*var(--u));padding:calc(4*var(--u)) 12px calc(2*var(--u));background:rgba(11,38,71,.86);color:#fff;font-family:var(--bold);font-size:max(13px,calc(20.6*var(--u)));line-height:1.29;margin:0;text-align:center}
 .outro .sea .qr{position:absolute;right:calc(7.5*var(--u));bottom:calc(5*var(--u));width:max(80px,calc(121*var(--u)));height:auto;display:block;border-radius:calc(3*var(--u));background:#fff}
@@ -303,7 +303,7 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
 @media print{.fab,.fab-toast{display:none}}
 
 @media (max-width:700px){
-  .ocard .logo-img{width:141px}.ocard .logo-img.s{width:113px}
+  .ocard .logo-img{width:141px;border-radius:8px}.ocard .logo-img.s{width:113px;border-radius:6px}
   :root{--col:100%;--A:15px}
   .page{box-shadow:none}
   /* 히어로: 680px 캔버스를 화면 폭에 맞춰 통째로 축소 (PDF 비율 유지) */
@@ -356,7 +356,7 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
 
 <!-- ================= 중고차! ================= -->
 <section class="cars">
-  <img src="assets/cars_v2.jpg?v=1018a" alt="일반 중고차와 차량을 실은 트럭">
+  <img src="assets/cars_v3.webp?v=1101a" alt="일반 중고차와 차량을 실은 트럭">
   <h2>중고차!</h2>
   <h3>아직도 그냥 팔거나 처리하십니까?</h3>
 </section>
@@ -381,7 +381,7 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
   </div>
   <div class="qitem">
     <span class="pill">2.약속</span>
-    <img style="width:calc(253.5*var(--u))" src="assets/p_bankbook.png?v=0926f" alt="">
+    <img style="width:calc(253.5*var(--u))" src="assets/p_bankbook_v2.png?v=1101a" alt="">
     <h3><span class="hl-b">중간 수수료를</span> 타파!<br>고객에게 더 많이</h3>
     <p>불필요한 중계로를 타파하고<br>수수료를 없애고 고객에게 드립니다</p>
   </div>
