@@ -153,72 +153,78 @@ button,input,select,textarea{font:inherit;color:inherit}
 .p5 .step .box .sky{color:#B8E9FF}
 
 /* ---------- 신청 ---------- */
-.apply{background:var(--sky);padding:76px 24px 34px;text-align:center}
+.apply{background:var(--sky);padding:58px 24px 46px;text-align:center}
 .apply .eyebrow{font-family:var(--bold);font-size:34px;color:var(--navy);line-height:1.2}
 .apply h2{font-family:var(--bold);font-size:51px;color:var(--navy);margin:11px 0 0;line-height:1.1}
 .apply .lead{font-family:var(--thin);font-size:20px;color:var(--navy);margin-top:6px;line-height:1.5}
 
-/* 접수 폼 (견적만) */
-.form-card{background:#fff;border:1px solid #C6DDF0;text-align:left;margin-top:40px;border-radius:6px;overflow:hidden}
-.form-body{padding:22px}
-fieldset{border:0;padding:0;margin:0 0 28px}
-legend{font-family:var(--bold);color:var(--ink);font-size:17px;margin-bottom:12px;padding:0;display:flex;align-items:center;gap:10px}
-legend .st{font-size:11px;letter-spacing:.1em;color:#fff;background:var(--navy);padding:3px 8px;font-family:var(--thin)}
-legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.f{display:flex;flex-direction:column;gap:6px}
-.f label{font-size:13px;font-family:var(--bold);color:var(--ink)}
-.f label i{font-style:normal;color:#C62828}
-.f input[type=text],.f input[type=tel],.f input[type=number],.f select,.f textarea{height:44px;border:1px solid #C9D1DD;border-radius:0;padding:0 12px;background:#fff;color:var(--ink);width:100%;font-size:15px}
-.f textarea{height:auto;min-height:84px;padding:10px 12px;resize:vertical}
-.f .hint{font-size:12px;color:#6B7280}
-/* 사진 올리는 방법 택1 (카드형 아코디언) */
-.modes{display:flex;flex-direction:column;gap:10px}
-.mode{border:1px solid #C9D1DD;background:#fff}
-.mode.on{border:2px solid var(--navy)}
-.mhead{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#F5F7FB;border:0;padding:12px 14px;cursor:pointer;font:inherit;color:inherit}
-.mode.on .mhead{background:#fff}
-.mrad{flex:0 0 auto;width:20px;height:20px;border-radius:50%;border:2px solid #9AA3B2;position:relative;background:#fff}
-.mode.on .mrad{border-color:var(--navy);background:var(--navy)}
-.mode.on .mrad::after{content:"";position:absolute;inset:5px;border-radius:50%;background:#fff}
-.mtxt b{display:block;font-family:var(--bold);font-weight:400;font-size:16px;color:var(--ink);line-height:1.3}
-.mtxt b em{font-style:normal;font-family:var(--bold);font-size:11px;background:var(--sun);color:var(--navy);padding:2px 7px;margin-left:6px;vertical-align:2px}
-.mtxt small{display:block;font-family:var(--thin);font-size:13px;color:#6B7280;line-height:1.45;margin-top:2px}
-.mbody{display:none;padding:14px 14px 16px;border-top:1px solid #E3E7EE}
-.mode.on .mbody{display:block}
-.bulkbox{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:2px dashed #7FB3E0;background:#EAF4FC;padding:22px 12px;cursor:pointer;text-align:center;position:relative}
-.bulkbox svg{width:34px;height:34px;color:var(--navy)}
-.bulkbox b{font-family:var(--bold);font-weight:400;font-size:18px;color:var(--navy)}
-.bulkbox small{font-family:var(--thin);font-size:13px;color:#3C4250}
+/* 접수 폼 카드 : 하늘색 불빛 테두리 (::before 가 바깥쪽 빛, opacity 만 천천히 숨쉬듯 변함) */
+.form-card{position:relative;isolation:isolate;background:#fff;border:2px solid #86D9FF;border-radius:22px;text-align:left;margin:30px 0 0;padding:22px 22px 20px;box-shadow:0 0 0 3px rgba(134,217,255,.38);word-break:keep-all}
+.form-card::before{content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:-1;pointer-events:none;box-shadow:0 0 16px 3px rgba(103,205,255,1),0 0 44px 12px rgba(61,170,255,.55),0 0 96px 30px rgba(28,105,212,.22);animation:glowPulse 3.2s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:.72}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.form-card::before{animation:none}}
+
+/* 단계 머리말 */
+.fs+.fs{margin-top:20px;padding-top:20px;border-top:1px solid #E4EEF7}
+.fh{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.fh .no{width:24px;height:24px;border-radius:50%;background:#B8E9FF;color:#102B56;font-family:var(--bold);font-size:14px;line-height:24px;text-align:center;flex:0 0 auto}
+.fh .ft{font-family:var(--bold);font-size:17px;color:var(--ink);line-height:1}
+.fh .req{font-family:var(--thin);font-size:12px;color:#C62828;background:#FFF0F0;border-radius:999px;padding:2px 9px;line-height:1.3}
+/* 입력칸 */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
+.f{display:flex;flex-direction:column;gap:5px;min-width:0}
+.f label{font-size:13px;font-family:var(--bold);color:#1F2F47}
+.f label small{font-family:var(--thin);font-size:12px;color:#6B7280;margin-left:4px}
+.f input[type=text],.f input[type=tel],.f input[type=number],.f select,.f textarea{height:44px;border:1px solid #CBD8E6;border-radius:10px;padding:0 12px;background:#F8FBFE;color:var(--ink);width:100%;font-size:15px;transition:border-color .15s,box-shadow .15s,background .15s}
+.f select{appearance:none;-webkit-appearance:none;padding-right:32px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%230B2647' stroke-width='1.8' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 12px center}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:#3DAAFF;background:#fff;box-shadow:0 0 0 3px rgba(61,170,255,.25)}
+.f input::placeholder,.f textarea::placeholder{color:#9AA7B8}
+.f textarea{height:auto;min-height:58px;padding:10px 12px;resize:vertical;line-height:1.45}
+.f.memo{margin-top:10px}
+/* 사진: 택1 세그먼트 버튼 */
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#EEF4FA;padding:4px;border-radius:12px}
+.seg .mhead{height:40px;border:0;border-radius:9px;background:transparent;color:#3C4A5E;font-family:var(--bold);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:background .15s,color .15s}
+.seg .mhead svg{width:18px;height:18px;flex:0 0 auto}
+.seg .mhead.on{background:var(--navy);color:#fff;box-shadow:0 2px 6px rgba(11,38,71,.28)}
+.seg .mhead em{font-style:normal;font-family:var(--thin);font-size:11px;background:var(--sun);color:var(--navy);padding:1px 7px;border-radius:999px;line-height:1.5}
+.mode{display:none;margin-top:10px}
+.mode.on{display:block}
+.bulkbox{display:flex;align-items:center;gap:12px;border:1.5px dashed #7FB3E0;background:#EEF6FD;border-radius:12px;padding:12px 14px;cursor:pointer;position:relative;text-align:left}
+.bulkbox svg{width:30px;height:30px;color:var(--navy);flex:0 0 auto}
+.bulkbox b{display:block;font-family:var(--bold);font-weight:400;font-size:16px;color:var(--navy);line-height:1.2}
+.bulkbox small{display:block;font-family:var(--thin);font-size:12.5px;color:#3C4250;margin-top:3px}
+.bulkbox .pick{margin-left:auto;flex:0 0 auto;font-family:var(--thin);font-size:13px;color:#fff;background:var(--navy);border-radius:999px;padding:6px 13px;white-space:nowrap}
 .bulkbox input{position:absolute;inset:0;opacity:0;cursor:pointer}
-.bulkbox.has{padding:12px}
-.bulkthumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}
-.bulkthumbs div{position:relative;aspect-ratio:1;overflow:hidden;background:#F5F7FB;border:1px solid #E3E7EE}
+.bulkthumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px}
+.bulkthumbs div{position:relative;aspect-ratio:1;overflow:hidden;background:#F5F7FB;border:1px solid #E3E7EE;border-radius:8px}
 .bulkthumbs img{width:100%;height:100%;object-fit:cover;display:block}
-.bulkthumbs i{position:absolute;left:4px;bottom:4px;font-style:normal;font-family:var(--bold);font-size:11px;color:#fff;background:rgba(11,38,71,.85);padding:1px 6px}
+.bulkthumbs i{position:absolute;left:4px;bottom:4px;font-style:normal;font-family:var(--bold);font-size:11px;color:#fff;background:rgba(11,38,71,.85);padding:1px 6px;border-radius:6px}
 .bulkthumbs button{position:absolute;right:4px;top:4px;width:20px;height:20px;border:0;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:13px;line-height:20px;padding:0;cursor:pointer}
 .bulkbar{display:flex;align-items:center;gap:8px;margin-top:10px;font-family:var(--bold);font-size:14px;color:var(--ink)}
 .bulkbar span{flex:1;min-width:0}
-.bulkbar button{white-space:nowrap;flex:0 0 auto;background:#fff;border:1px solid #C9D1DD;padding:7px 12px;font-family:var(--thin);font-size:13px;cursor:pointer;color:var(--ink)}
-.mode[hidden],.bulkbar[hidden],.bulkthumbs[hidden]{display:none}
-.bulk-note{margin-top:12px;font-size:13px;line-height:1.6;color:#3C4250}
+.bulkbar button{white-space:nowrap;flex:0 0 auto;background:#fff;border:1px solid #CBD8E6;border-radius:8px;padding:7px 12px;font-family:var(--thin);font-size:13px;cursor:pointer;color:var(--ink)}
+.bulkbar[hidden],.bulkthumbs[hidden]{display:none}
+.bulk-note{margin:10px 2px 0;font-family:var(--thin);font-size:12.5px;line-height:1.55;color:#3C4250}
 .bulk-note b{font-family:var(--bold);font-weight:400;color:var(--ink)}
-/* 사진 없음 카드 (남색) */
-.mode.navy,.mode.navy .mhead{background:var(--navy);border-color:var(--navy)}
-.mode.navy .mtxt b,.mode.navy .mtxt small,.mode.navy .mbody{color:#fff}
-.mode.navy .mtxt small{color:#D5EBFA}
-.mode.navy .mrad{border-color:#fff;background:transparent}
-.mode.navy.on{border-color:var(--sun)}
-.mode.navy.on .mrad{background:#fff;border-color:#fff}.mode.navy.on .mrad::after{background:var(--navy)}
-.mode.navy .mbody{border-top:1px solid rgba(255,255,255,.25);font-family:var(--thin);font-size:13px;line-height:1.6}
-.mode.navy .mbody b{font-family:var(--bold);font-weight:400;color:var(--sun)}
-.ck{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#3C4250;cursor:pointer;line-height:1.5}
-.ck input{width:18px;height:18px;margin-top:3px;accent-color:var(--blue);flex:0 0 auto}
-.radio-row{display:flex;flex-wrap:wrap;gap:16px}
-.hint-p{font-size:12px;color:#6B7280;margin-top:8px}
-
-.apply .cta{display:block;width:100%;margin-top:36px;background:var(--navy);color:#fff;border:0;border-radius:14px;height:76px;font-family:var(--bold);font-size:30px;cursor:pointer}
-.apply .tiny{font-family:var(--thin);font-size:15px;color:var(--navy);margin:18px 0 0}
+.mode.navy .note{background:var(--navy);color:#fff;border-radius:12px;padding:12px 14px;font-family:var(--thin);font-size:13px;line-height:1.6}
+.mode.navy .note b{font-family:var(--bold);font-weight:400;color:var(--sun)}
+/* 연락처 : 번호 + 회신방법 칩 한 줄 */
+.crow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end}
+.chips{display:flex;gap:6px}
+.chip{position:relative;cursor:pointer}
+.chip input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.chip span{display:flex;align-items:center;justify-content:center;gap:6px;height:44px;padding:0 14px;border:1px solid #CBD8E6;border-radius:10px;background:#F8FBFE;font-family:var(--bold);font-size:14px;color:#3C4A5E;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
+.chip span::before{content:"";width:8px;height:8px;border-radius:50%;background:#C5D2E0;flex:0 0 auto}
+.chip input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+.chip input:checked+span::before{background:var(--sun)}
+.chip input:focus-visible+span{box-shadow:0 0 0 3px rgba(61,170,255,.35)}
+/* 보내기 */
+.apply .cta{display:block;width:100%;margin-top:22px;background:var(--navy);color:#fff;border:0;border-radius:14px;height:62px;font-family:var(--bold);font-size:25px;cursor:pointer;box-shadow:0 6px 16px rgba(11,38,71,.28);transition:transform .1s,box-shadow .15s}
+.apply .cta:hover{box-shadow:0 8px 20px rgba(11,38,71,.36)}
+.apply .cta:active{transform:translateY(1px)}
+.apply .cta[disabled]{opacity:.7;cursor:default}
+.apply .tiny{font-family:var(--thin);font-size:13.5px;color:#4B5B73;margin:12px 0 0;text-align:center;line-height:1.5}
+.apply .tiny .mb{display:none}
 
 /* ---------- 추가 판매옵션 ---------- */
 .options{background:var(--sky);padding:0}
@@ -241,7 +247,7 @@ legend .req{font-size:12px;color:#C62828;font-family:var(--thin)}
 .ocard .ex{margin-top:22px;font-family:var(--thin);font-size:17px;line-height:1.5;color:var(--navy)}
 
 /* ---------- 폼 메시지 박스 ---------- */
-.fmsg{display:none;margin:14px auto 0;max-width:520px;padding:16px 18px;border-radius:14px;font-family:var(--thin);font-size:16px;line-height:1.6;text-align:center;white-space:pre-line}
+.fmsg{display:none;margin:18px auto 0;max-width:520px;word-break:keep-all;padding:16px 18px;border-radius:14px;font-family:var(--thin);font-size:16px;line-height:1.6;text-align:center;white-space:pre-line}
 .fmsg.err{display:block;background:#FFE9E9;color:#B3261E;border:1px solid #F5B5B5}
 .fmsg.ok{display:block;background:#E3F6E8;color:#1B5E20;border:1px solid #A5D6A7}
 .fmsg.wait{display:block;background:var(--sky);color:var(--navy)}
@@ -298,10 +304,17 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
   .page{box-shadow:none}
   /* 히어로: 680px 캔버스를 화면 폭에 맞춰 통째로 축소 (PDF 비율 유지) */
   .hero-scale{position:absolute;left:0;top:0;width:680px;height:748px;transform-origin:top left}
+  .apply{padding:46px 18px 38px}
   .apply .eyebrow{font-size:24px}.apply h2{font-size:32px}.apply .lead{font-size:16px}
-  .grid2{grid-template-columns:1fr}
-  .bulkthumbs{grid-template-columns:repeat(4,1fr)}.mtxt b{font-size:15px}.mtxt small{font-size:12px}
-  .apply .cta{font-size:24px;height:64px}
+  .form-card{margin-top:24px;padding:18px 15px 16px;border-radius:18px}
+  .grid2{gap:10px}
+  .f input[type=text],.f input[type=tel],.f input[type=number],.f select,.f textarea{font-size:14.5px}
+  .seg .mhead{font-size:14px}
+  .bulkbox{gap:10px;padding:11px 12px}.bulkbox b{font-size:15px}.bulkbox .pick{display:none}
+  .bulkthumbs{grid-template-columns:repeat(4,1fr)}
+  .chip span{padding:0 12px}
+  .apply .cta{font-size:22px;height:56px}
+  .apply .tiny .mb{display:inline}
   .options .heads div{font-size:12px}
   .options .cards{gap:10px;padding:16px 10px 0;background:var(--sky);position:relative;z-index:1}
   .ocard{padding:22px 8px 22px}.logo.sm .name{font-size:32px}.logo.sm .tag{font-size:9px}.logo.sm .pill{font-size:9px;padding:3px 10px}
@@ -427,57 +440,55 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
   <p class="lead">수집된 정보는 견적회신 용도외에<br>사용되지 않습니다.</p>
 
   <form class="form-card" id="applyForm" novalidate>
-    <div class="form-body">
-      <fieldset id="carFs">
-        <legend><span class="st">01</span>차량 정보 <span class="req">* 필수</span></legend>
-        <div class="grid2">
-          <div class="f"><label for="maker">제조사 <i>*</i></label>
-            <select id="maker" name="maker" required><option value="">선택</option><option>현대</option><option>기아</option><option>제네시스</option><option>쌍용(KGM)</option><option>르노코리아</option><option>쉐보레(한국GM)</option><option>수입차</option><option>기타</option></select></div>
-          <div class="f"><label for="model">차종(모델명) <i>*</i></label><input type="text" id="model" name="model" placeholder="예: 그랜저 HG, 쏘렌토 R" required></div>
-          <div class="f"><label for="year">연식 <i>*</i></label><select id="year" name="year" required><option value="">선택</option></select></div>
-          <div class="f"><label for="km">주행거리 (km) <i>*</i></label><input type="number" id="km" name="km" inputmode="numeric" placeholder="예: 187000" required></div>
-        </div>
-        <div class="f" style="margin-top:12px"><label for="memo">기타 메모 <span class="hint" style="font-family:var(--thin)">(건너뛰어도 됩니다)</span></label><textarea id="memo" name="memo" placeholder="사고 이력, 시동 여부, 운행 가능 여부, 압류·저당 유무 등 아는 만큼만 적어주세요"></textarea></div>
-      </fieldset>
-
-      <fieldset id="photoFs">
-        <legend><span class="st">02</span>차량 사진 <span class="req">* 택1</span></legend>
-        <div class="modes" id="modes">
-          <div class="mode on" data-mode="bulk">
-            <button type="button" class="mhead"><span class="mrad"></span><span class="mtxt"><b>사진 여러 장 올리기<em>추천</em></b><small>갤러리에서 여러 장을 한 번에 고르세요. 파손 부위 사진도 함께 넣어주시면 됩니다.</small></span></button>
-            <div class="mbody">
-              <label class="bulkbox" id="bulkBox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/><path d="M19 3v4M17 5h4"/></svg><b id="bulkTitle">사진 선택하기</b><small id="bulkSub">여러 장 한 번에 선택 가능 · 최대 20장</small><input type="file" accept="image/*" multiple id="bulkInput"></label>
-              <div class="bulkthumbs" id="bulkThumbs" hidden></div>
-              <div class="bulkbar" id="bulkBar" hidden><span id="bulkCount">0장 선택됨</span><button type="button" id="bulkAdd">더 추가</button><button type="button" id="bulkClear">전부 지우기</button></div>
-              <p class="hint-p bulk-note"><b>정면 / 후면 / 측면 왼쪽 / 측면 오른쪽 / 지붕(윗면) / 실내 운전석+조수석 / 실내 승객석 / 파손 부위(여러 장 가능)</b> 사진이 있으면 견적이 정확해집니다. 사진이 전부 없을 시 있는 그대로만 올려주셔도 됩니다.</p>
-            </div>
-          </div>
-          <div class="mode navy" data-mode="none" id="modeNone">
-            <button type="button" class="mhead"><span class="mrad"></span><span class="mtxt"><b>사진 없이 올린 정보로 견적만 받을래요</b><small>사진 업로드 없이 차종·연식·주행거리 기준의 대략적인 금액만 먼저 안내드립니다.</small></span></button>
-            <div class="mbody">
-              <p><b>사진이 없으면 견적가가 정확하지 않을 수 있습니다.</b> 주행거리와 기타 메모를 자세히 적어주실수록 안내가 정확해지며, 최종 견적은 이후 사진 확인 또는 방문·탁송 확인 후 확정됩니다.</p>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset style="margin-bottom:0" id="contactFs">
-        <legend><span class="st">03</span>연락처 <span class="req">* 필수</span></legend>
-        <div class="f"><label for="phone">휴대폰 번호 <i>*</i></label><input type="tel" id="phone" name="phone" placeholder="01012345678 또는 010-1234-5678" required></div>
-        <div class="f" style="margin-top:12px"><label>견적 회신 수단 <i>*</i></label>
-          <div class="radio-row">
-            <label class="ck"><input type="checkbox" name="reply" value="sms" checked>문자로 받기</label>
-            <label class="ck"><input type="checkbox" name="reply" value="call">전화로 받기</label>
-          </div>
-          <span class="hint">차량 상태 확인 후 즉시입금 · 현장방문 견적 · 탁송 견적 중 어떤 방식으로 진행되는지 안내드립니다.</span>
-        </div>
-      </fieldset>
+    <!-- 1 차량 정보 -->
+    <div class="fs" id="carFs">
+      <div class="fh"><span class="no">1</span><span class="ft">차량 정보</span><span class="req">필수</span></div>
+      <div class="grid2">
+        <div class="f"><label for="maker">제조사</label>
+          <select id="maker" name="maker" required><option value="">선택</option><option>현대</option><option>기아</option><option>제네시스</option><option>쌍용(KGM)</option><option>르노코리아</option><option>쉐보레(한국GM)</option><option>수입차</option><option>기타</option></select></div>
+        <div class="f"><label for="year">연식</label><select id="year" name="year" required><option value="">선택</option></select></div>
+        <div class="f"><label for="model">차종(모델명)</label><input type="text" id="model" name="model" placeholder="예: 그랜저 HG" required></div>
+        <div class="f"><label for="km">주행거리 (km)</label><input type="number" id="km" name="km" inputmode="numeric" placeholder="예: 187000" required></div>
+      </div>
+      <div class="f memo"><label for="memo">기타 메모<small>건너뛰어도 됩니다</small></label><textarea id="memo" name="memo" rows="2" placeholder="사고 이력 · 시동/운행 가능 여부 · 압류/저당 유무 등 아는 만큼만"></textarea></div>
     </div>
-  </form>
 
-  <button class="cta" type="submit" form="applyForm" id="ctaBtn">견적 요청 보내기</button>
-  <div class="fmsg" id="fmsg" role="alert"></div>
-  <p class="tiny">전송 즉시 접수 번호가 발급되며,<br>운영시간 (10:00-22:00)내 순차 회신 드립니다.</p>
+    <!-- 2 차량 사진 -->
+    <div class="fs" id="photoFs">
+      <div class="fh"><span class="no">2</span><span class="ft">차량 사진</span><span class="req">택1</span></div>
+      <div class="seg" id="modes" role="tablist">
+        <button type="button" class="mhead on" data-mode="bulk" role="tab" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg>사진 올리기<em>추천</em></button>
+        <button type="button" class="mhead" data-mode="none" role="tab" aria-selected="false">사진 없이 견적만</button>
+      </div>
+      <div class="mode on" data-mode="bulk">
+        <label class="bulkbox" id="bulkBox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/><path d="M19 3v4M17 5h4"/></svg><span><b id="bulkTitle">사진 선택하기</b><small id="bulkSub">여러 장 한 번에 선택 가능 · 최대 20장</small></span><span class="pick">갤러리 열기</span><input type="file" accept="image/*" multiple id="bulkInput"></label>
+        <div class="bulkthumbs" id="bulkThumbs" hidden></div>
+        <div class="bulkbar" id="bulkBar" hidden><span id="bulkCount">0장 선택됨</span><button type="button" id="bulkAdd">더 추가</button><button type="button" id="bulkClear">전부 지우기</button></div>
+        <p class="bulk-note"><b>정면 · 후면 · 측면(좌/우) · 지붕 · 실내(앞/뒤) · 파손 부위</b> 사진이 있으면 견적이 정확해집니다. 없는 사진은 있는 그대로만 올려주셔도 됩니다.</p>
+      </div>
+      <div class="mode navy" data-mode="none" id="modeNone">
+        <p class="note"><b>사진이 없으면 견적가가 정확하지 않을 수 있습니다.</b> 주행거리와 메모를 자세히 적어주실수록 안내가 정확해지며, 최종 견적은 이후 사진 확인 또는 방문·탁송 확인 후 확정됩니다.</p>
+      </div>
+    </div>
+
+    <!-- 3 연락처 -->
+    <div class="fs" id="contactFs">
+      <div class="fh"><span class="no">3</span><span class="ft">연락처</span><span class="req">필수</span></div>
+      <div class="crow">
+        <div class="f"><label for="phone">휴대폰 번호</label><input type="tel" id="phone" name="phone" placeholder="010-1234-5678" required></div>
+        <div class="f"><label>견적 회신 방법</label>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="reply" value="sms" checked><span>문자</span></label>
+            <label class="chip"><input type="checkbox" name="reply" value="call"><span>전화</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fmsg" id="fmsg" role="alert"></div>
+    <button class="cta" type="submit" id="ctaBtn">견적 요청 보내기</button>
+    <p class="tiny">전송 즉시 접수번호가 발급되며,<br class="mb"> 운영시간(10:00–22:00) 내 순차 회신 드립니다.</p>
+  </form>
 </section>
 
 <!-- ================= 추가 판매옵션 ================= -->
@@ -558,8 +569,8 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
 // 사진 올리는 방법 택1: bulk(여러 장) / none(사진 없음)
 var pmode='bulk',bulkFiles=[],BULK_MAX=20;
 var bulkBox=document.getElementById('bulkBox'),bulkInput=document.getElementById('bulkInput'),bulkThumbs=document.getElementById('bulkThumbs'),bulkBar=document.getElementById('bulkBar'),bulkCount=document.getElementById('bulkCount'),bulkTitle=document.getElementById('bulkTitle'),bulkSub=document.getElementById('bulkSub');
-function setMode(m){pmode=m;document.querySelectorAll('#modes .mode').forEach(function(c){c.classList.toggle('on',c.dataset.mode===m);});}
-document.querySelectorAll('#modes .mhead').forEach(function(h){h.addEventListener('click',function(){setMode(h.parentNode.dataset.mode);});});
+function setMode(m){pmode=m;document.querySelectorAll('#modes .mhead').forEach(function(b){var on=b.dataset.mode===m;b.classList.toggle('on',on);b.setAttribute('aria-selected',on?'true':'false');});document.querySelectorAll('#photoFs .mode').forEach(function(c){c.classList.toggle('on',c.dataset.mode===m);});}
+document.querySelectorAll('#modes .mhead').forEach(function(h){h.addEventListener('click',function(){setMode(h.dataset.mode);});});
 function renderBulk(){
   var n=bulkFiles.length;bulkThumbs.innerHTML='';bulkThumbs.hidden=!n;bulkBar.hidden=!n;bulkBox.classList.toggle('has',n>0);
   bulkTitle.textContent=n?'사진 더 고르기':'사진 선택하기';bulkSub.textContent=n?(n+'장 선택됨 · 최대 '+BULK_MAX+'장'):'여러 장 한 번에 선택 가능 · 최대 '+BULK_MAX+'장';
@@ -589,7 +600,7 @@ function showMsg(type,html){fmsg.className='fmsg '+type;fmsg.innerHTML=html;fmsg
 document.getElementById('applyForm').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
   if(!f.maker.value||!f.model.value.trim()||!f.year.value){showMsg('err','차량 정보(제조사·차종·연식)를 입력해 주세요.');return;}
   if(!f.km.value){showMsg('err','주행거리(km)를 입력해 주세요. 대략적인 숫자도 괜찮습니다.');return;}
-  if(pmode==='bulk'&&bulkFiles.length<1){showMsg('err','차량 사진을 1장 이상 올려주세요.\n지금 사진이 없으시면 아래 [사진 없이 올린 정보로 견적만 받을래요]를 선택해 주세요.');return;}
+  if(pmode==='bulk'&&bulkFiles.length<1){showMsg('err','차량 사진을 1장 이상 올려주세요.\n지금 사진이 없으시면 [사진 없이 견적만]을 선택해 주세요.');return;}
   if(!f.phone.value.trim()){showMsg('err','휴대폰 번호를 입력해 주세요.');return;}
   var replyMethods=[];document.querySelectorAll('input[name="reply"]:checked').forEach(function(c){replyMethods.push(c.value);});
   if(!replyMethods.length){showMsg('err','견적 회신 수단(문자 또는 전화)을 하나 이상 선택해 주세요.');return;}
