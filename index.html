@@ -1,489 +1,358 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="only light">
-<title>오션카오토</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>오션카오토 | 중고차 수출 · 국내 중고차 매입 전문 (대전)</title>
+<meta name="description" content="감가폭탄 ZERO. 국가공인 자동차진단평가사가 직접 진단하는 전문가 견적가로 수출차·국내 중고차를 매입합니다. 대전 유성구 오토월드 238호, 상담 1588-4525.">
+<meta name="theme-color" content="#050F26">
+<meta property="og:type" content="website">
+<meta property="og:title" content="오션카오토 — 중고차의 청정해역">
+<meta property="og:description" content="자동차진단평가사가 매입하는 전문가 견적가. 사진 몇 장으로 견적만 알아보세요.">
+<meta property="og:image" content="https://dstrade.it.kr/media/logo.png">
+<meta property="og:url" content="https://dstrade.it.kr/">
+<link rel="icon" href="media/logo.png">
+<link rel="apple-touch-icon" href="media/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
 <style>
-@font-face{font-family:'검은 고딕';src:url(fonts/blackhan.ttf) format('truetype');font-weight:400;font-display:swap}
-@font-face{font-family:'마포당인리발전소';src:url(fonts/mapo.ttf) format('truetype');font-weight:400;font-display:swap}
-
+/* 기존 사이트 글꼴: 검은 고딕(Black Han Sans)은 제목, 마포당인리발전소는 매입 안내 본문 */
+@font-face{font-family:'Mapo당인리발전소';src:url(media/mapo.woff2) format('woff2');font-weight:400;font-display:swap}
+/* Layout: one centered mobile column (560px max). Navy ground with neon cyan accents; white "paper" cards for the form, routes and promises; every line of copy centered. Single dark look by design. */
 :root{
-  color-scheme:only light; /* 브라우저 강제 다크모드(크롬 자동 다크 테마·웹뷰 알고리즘 다크닝) 거부 */
-  --navy:#0B2647; --navy-deep:#0A123C; --navy-mid:#0F2B57;
-  --blue:#1C69D4; --sky:#D5EBFA; --sky-hl:#B8E9FF; --sky-btn:#BFE6FF;
-  --sun:#FECC4A; --ink:#0B2647; --white:#fff;
-  --A:16px; /* A크기: '언제든 가볍게 문의하세요' 아래 '상담' 글자 크기. 휴대폰 15px */
-  --bold:'검은 고딕','Noto Sans KR',sans-serif;
-  --thin:'마포당인리발전소','Noto Sans KR',sans-serif;
-  --col:680px;
+  --sea-900:#050F26; --sea-800:#081A3F; --sea-700:#0C2556; --sea-600:#12336E;
+  --cyan:#39D2FF; --cyan-2:#1EA7E6; --ice:#CFEFFF; --fg:#F2F8FF; --muted:#8FB0D1;
+  --paper:#FFFFFF; --paper-2:#F3F8FD; --ink:#0B1E3F; --ink-2:#44587A; --navy:#0B2347; --sky:#1E88D6; --sky-hl:#C1E9FB; --edge:#CFE2F3;
+  --warn:#FFD54A; --warn-bg:#FFF6D6;
+  --line:rgba(57,210,255,.28); --line-2:rgba(57,210,255,.14);
+  --glow-s:0 0 10px rgba(57,210,255,.55);
+  --glow-m:0 0 18px rgba(57,210,255,.45),0 0 48px rgba(30,167,230,.25);
+  --font:'Noto Sans KR',system-ui,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --display:'Black Han Sans','Noto Sans KR',sans-serif;
+  --mapo:'Mapo당인리발전소','Noto Sans KR',sans-serif;
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
-h1,h2,h3,h4,h5,h6,b,strong,legend,summary{font-weight:400}
 html{scroll-behavior:smooth}
-body{margin:0;color-scheme:only light;background:var(--navy-deep);color:var(--ink);font-family:var(--thin);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;letter-spacing:-0.01em}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit;text-decoration:none}
-p{margin:0}
-button,input,select,textarea{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+body{margin:0;background:var(--sea-900);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere;text-align:center;
+  background-image:radial-gradient(70% 38% at 50% 0%,rgba(30,167,230,.28),transparent 70%),linear-gradient(180deg,#071B44 0%,#050F26 42%,#040C1F 100%)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:#FFFFFF}
+a{color:var(--cyan)}
+h1,h2,h3,h4{margin:0}
+.page{max-width:560px;margin:0 auto;position:relative;box-shadow:0 0 0 1px rgba(57,210,255,.06)}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sec{padding-block:50px 6px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--cyan);text-shadow:var(--glow-s);margin:0}
+.t{font-family:var(--display);font-size:clamp(24px,6.8vw,30px);line-height:1.34;font-weight:400;letter-spacing:.01em;margin:8px 0 0;text-wrap:balance}
+.sub{margin:8px 0 0;font-size:14px;color:var(--muted)}
+.neon{color:var(--cyan);text-shadow:0 0 8px rgba(57,210,255,.9),0 0 22px rgba(57,210,255,.6),0 0 48px rgba(30,167,230,.4);animation:flick 7s infinite}
+.hl-b{background:var(--sky-hl);color:var(--ink);padding:0 6px;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;font-weight:900}
+.hl-y{background:var(--warn);color:var(--ink);padding:0 6px;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;font-weight:700}
+.warn-text{color:var(--warn);font-weight:700}
+@keyframes flick{0%,84%,88%,100%{opacity:1}86%{opacity:.5}87%{opacity:.85}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.reveal{opacity:.35;transform:translateY(20px);transition:opacity 1.3s ease,transform 1.3s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:none}
+.rise{opacity:.12;transform:translateY(48px);transition:opacity 1.7s ease,transform 1.7s cubic-bezier(.22,.61,.36,1)}
+.rise.in{opacity:1;transform:none}
+.rise+.rise{transition-delay:.22s}
 
-.page{max-width:var(--col);margin:0 auto;background:#fff;box-shadow:0 0 60px rgba(0,0,0,.35);overflow:hidden}
-.b{font-family:var(--bold);font-weight:400;letter-spacing:0}
-.center{text-align:center}
-.hl-y{background:var(--sun);color:var(--ink);padding:0 6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.hl-b{background:var(--sky-hl);color:var(--ink);padding:0 6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.hl-yb{background:var(--sun);color:var(--navy);padding:2px 8px;font-family:var(--bold);box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.y{color:var(--sun)}
-.sky{color:var(--sky-hl)}
+/* ---------- 1. 히어로 (흰 바탕 · 로고 · 영상 등장씬처럼 한 번만 나타남) ---------- */
+.hero{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-block:22px 18px;background:#FFFFFF;color:var(--ink)}
+.hero-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:100%}
+.logo-wrap{display:block;margin:0 auto;width:min(68vw,340px);max-width:100%;position:relative}
+.logo-wrap .pill-glow{position:absolute;left:2.45%;width:95%;top:70.9%;height:22.9%;border-radius:999px;pointer-events:none;box-shadow:0 0 8px rgba(11,35,71,.5),0 0 20px rgba(20,60,130,.5),0 0 42px rgba(30,136,214,.4);animation:pillGlow 3.2s 1.4s ease-in-out infinite both;opacity:0}
+@keyframes pillGlow{0%{opacity:.65}50%{opacity:1}100%{opacity:.65}}
+.logo-wrap img{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 40%,transparent 47%,transparent 100%);mask-image:linear-gradient(90deg,#000 0%,#000 40%,transparent 47%,transparent 100%);-webkit-mask-size:250% 100%;mask-size:250% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;animation:logoReveal 1.15s .25s cubic-bezier(.3,.7,.2,1) both}
+@keyframes logoReveal{0%{-webkit-mask-position:100% 0;mask-position:100% 0;transform:scaleX(1.08) scale(1.04);filter:blur(1.5px)}70%{-webkit-mask-position:0 0;mask-position:0 0;filter:blur(0)}100%{-webkit-mask-position:0 0;mask-position:0 0;transform:none;filter:blur(0)}}
 
-/* ---------- 로고 ---------- */
-.logo{display:inline-flex;flex-direction:column;align-items:center;line-height:1}
-.logo .tag{font-family:var(--bold);font-size:16px;color:#141414;line-height:1.15;text-align:left}
-.logo .tag .no{color:#16246B;font-size:16px;margin-left:4px}
-.logo .tag .on{color:#FFCE4B;font-size:16px;margin-left:4px}
-.logo .name{font-family:var(--bold);font-size:68px;line-height:1;margin-top:2px;letter-spacing:-0.01em}
-.logo .name .ds{color:#16246B}
-.logo .name .my{color:#111}
-.logo .pill{margin-top:6px;background:#0D143E;color:#fff;font-family:var(--thin);font-size:14px;padding:5px 22px;border-radius:999px;white-space:nowrap}
-.logo.on-dark .tag,.logo.on-dark .name .my{color:#fff}
-.logo.on-dark .name .ds{color:#4DA3FF}
-.logo.on-dark .pill{background:#fff;color:var(--navy)}
-.logo.sm .tag{font-size:12px}.logo.sm .name{font-size:44px}.logo.sm .pill{font-size:11px;padding:4px 16px}
+/* ---------- 2. 상단 메뉴 ---------- */
+.topnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(5,15,38,.84);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.topnav a{display:flex;align-items:center;justify-content:center;height:50px;font-size:14px;font-weight:700;color:var(--ice);text-decoration:none;position:relative;white-space:nowrap}
+.topnav a+a::before{content:"";position:absolute;left:0;top:15px;bottom:15px;width:1px;background:var(--line)}
+.topnav a:hover,.topnav a:active{color:#fff;text-shadow:0 0 10px rgba(57,210,255,.9),0 0 22px rgba(57,210,255,.5)}
+.topnav a.on{color:#fff;text-shadow:var(--glow-s);animation:navGlow .9s ease-out}
+.topnav a.on::after{content:"";position:absolute;left:16%;right:16%;bottom:-1px;height:2px;background:var(--cyan);box-shadow:var(--glow-s);animation:navBar .5s ease-out}
+@keyframes navGlow{0%{text-shadow:0 0 0 rgba(57,210,255,0)}35%{text-shadow:0 0 14px rgba(57,210,255,1),0 0 30px rgba(57,210,255,.7)}100%{text-shadow:var(--glow-s)}}
+@keyframes navBar{from{left:50%;right:50%}to{left:16%;right:16%}}
 
-/* ---------- HERO (원본 이미지 그대로 + 움직이는 물결) ---------- */
-.hero{position:relative;height:748px;background:#0B2647;overflow:hidden}
-.hero-scale{position:absolute;inset:0}
-.hero .top{position:absolute;left:0;top:0;width:680px;height:748px;display:block;object-fit:cover}
-.hero .zone{position:absolute;left:0;top:500px;width:681px;height:210px}
-.hero .wave{position:absolute;left:0;right:0;bottom:-2px;height:210px}
-.hero .wave svg{position:absolute;left:0;bottom:0;width:200%;height:100%;display:block;will-change:transform}
-.hero .wave .w1{animation:drift 16s linear infinite}
-.hero .wave .w2{animation:drift 11s linear infinite reverse}
-.hero .wave .w3{animation:drift 8s linear infinite}
-@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.hero .wave svg{animation:none}}
-/* 히어로 아래 물결 띠 (예전 3겹 물결 그대로, 바다 텍스처 위에) */
-.waveband{--u:min(1px,calc(100vw / 680));position:relative;z-index:1;height:calc(170*var(--u));margin-top:calc(-101*var(--u));background:none;overflow:visible}
-.waveband .badges{position:absolute;left:0;top:calc(-33*var(--u));width:100%;height:auto;display:block;filter:drop-shadow(0 4px 3px rgba(0,0,0,.35));z-index:2}
-.waveband svg{position:absolute;left:0;bottom:0;width:200%;height:calc(150*var(--u));display:block;will-change:transform;z-index:1}
-.waveband .w1{animation:drift 16s linear infinite}
-.waveband .w2{animation:drift 11s linear infinite reverse}
-.waveband .w3{animation:drift 8s linear infinite}
-@media (prefers-reduced-motion:reduce){.waveband svg{animation:none}}
+/* ---------- 3. 영상 ---------- */
+.vwrap{padding-block:22px 6px}
+.vframe{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--glow-m);background:#000;aspect-ratio:16/9;max-width:100%}
+.vframe video{display:block;width:100%;height:100%;object-fit:cover}
+.vframe::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);pointer-events:none}
 
-/* ---------- 물결 아래 전체: 사용자 PDF(2026-10, 645pt=680px) 픽셀 실측 재현.
-   --u 로 화면 폭 비례. 설명글은 기존처럼 --s(=1.3)배 ---------- */
-.p5{--u:min(1px,calc(100vw / 680));--s:1.3;text-align:center;color:#012A64;word-break:keep-all;background:#fff}
-.p5 .hl-y{background:#FFCD4A;color:#012A64;padding:.08em .3em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.p5 .hl-b{background:#C1E9FB;color:#012A64;padding:.08em .3em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-
-/* 문의 */
-.p5 .ask{padding:calc(30*var(--u) + 8px) 0 0}
-.p5 .ask h2{font-family:var(--bold);font-size:calc(36.1*var(--u));line-height:calc(43*var(--u));margin:0;color:#012A64}
-.p5 .ask .btn1{display:block;width:calc(500*var(--u));height:calc(57*var(--u));margin:calc(9*var(--u)) auto 0;border:0;border-radius:calc(11*var(--u));background:var(--navy);color:#fff;font-family:var(--thin);font-size:calc(20.1*var(--u));line-height:1;cursor:pointer;box-shadow:0 calc(6*var(--u)) 0 rgba(11,38,71,.45);padding:0}
-.p5 .ask .info{font-family:var(--thin);font-size:calc(18.36*var(--s)*var(--u));line-height:calc(21.8*var(--s)*var(--u));margin:calc(28*var(--u)) 0 0;color:#012A64}
-.p5 .ask .info .sp{display:inline-block;width:calc(42*var(--u))}
-.p5 .ask .addr{font-family:var(--thin);font-size:calc(18.36*var(--s)*var(--u));line-height:calc(21.8*var(--s)*var(--u));margin:calc(5.6*var(--u)) 0 0}
-
-/* 중고차! */
-.p5 .cars{padding:calc(78*var(--u)) 0 calc(49*var(--u))}
-.p5 .cars img{width:calc(504*var(--u));height:auto;display:block;margin:0 auto}
-.p5 .cars h2{font-family:var(--bold);font-size:calc(60.5*var(--u));line-height:calc(62*var(--u));margin:calc(58*var(--u)) 0 0}
-.p5 .cars h3{font-family:var(--bold);font-size:calc(43.2*var(--u));line-height:calc(45*var(--u));margin:0}
-
-/* 문제점 (설명글을 카드 안으로) */
-.p5 .probs{background:var(--navy);padding:calc(16*var(--u)) 0 calc(24*var(--u))}
-.p5 .pc{background:#fff;border-radius:calc(40*var(--u));margin:0 calc(22*var(--u));position:relative;padding:calc(14.5*var(--u)) calc(20*var(--u)) calc(24*var(--u))}
-.p5 .pc+.pc{margin-top:calc(18*var(--u))}
-.p5 .pc .lbl{position:absolute;left:calc(18*var(--u));top:calc(14*var(--u));background:#FFCD4A;color:#012A64;font-family:var(--bold);font-size:calc(31.9*var(--u));line-height:1;padding:calc(6*var(--u)) calc(10*var(--u))}
-.p5 .pc .ill{display:block;margin:calc(39*var(--u)) auto 0;width:auto}
-.p5 .pc h3{font-family:var(--bold);font-size:calc(31.2*var(--u));line-height:calc(34*var(--u));margin:calc(19*var(--u)) 0 0}
-.p5 .pc:nth-of-type(2) h3{margin-top:calc(7*var(--u))}
-.p5 .pc:nth-of-type(3) h3{margin-top:calc(10.5*var(--u))}
-/* 카드 설명글: 제목(31.2)보다 조금 작게, 3장 동일 */
-.p5 .pc p{font-family:var(--thin);font-size:calc(24*var(--u));line-height:calc(31*var(--u));margin:calc(14*var(--u)) 0 0;color:#012A64}
-
-/* 이제는 …가 해결하겠습니다 */
-.p5 .solve{background:#fff;padding:calc(121*var(--u)) 0 calc(126*var(--u))}
-.p5 .solve h2{font-family:var(--bold);font-size:calc(56*var(--u));line-height:calc(59.5*var(--u));margin:0;color:#012A64}
-
-/* 세가지 약속 (대제목 없이 바로 1·2·3, 구분선 좌우 57) */
-.p5 .qs{background:#fff;padding:0 calc(57*var(--u))}
-.p5 .qitem{padding:calc(19*var(--u)) 0 calc(28*var(--u));border-bottom:1px solid #D7D7D7}
-.p5 .qitem:first-child{padding-top:0}
-.p5 .qitem .pill{display:inline-block;background:#0F2350;color:#fff;font-family:var(--bold);font-size:calc(29.1*var(--u));line-height:1;padding:calc(7*var(--u)) calc(22*var(--u));border-radius:calc(12*var(--u))}
-.p5 .qitem img{display:block;margin:calc(45.4*var(--u)) auto 0;height:auto}
-.p5 .qitem:nth-of-type(2) img{margin-top:calc(36.4*var(--u))}
-.p5 .qitem h3{font-family:var(--bold);font-size:calc(31.2*var(--u));line-height:calc(36*var(--u));margin:calc(23.3*var(--u)) 0 0}
-.p5 .qitem:nth-of-type(2) h3{margin-top:calc(28.3*var(--u))}
-.p5 .qitem:nth-of-type(3) h3{margin-top:calc(18.3*var(--u))}
-.p5 .qitem p{font-family:var(--thin);font-size:calc(18.55*var(--s)*var(--u));line-height:calc(24.5*var(--s)*var(--u));margin:calc(20.5*var(--u)) 0 0;color:#111}
-
-/* 수출 · 국내 중고차 판매 (새 디자인: 필 헤더 + 둥근 사진 + 설명) */
-.p5 .chan{padding:0 calc(35*var(--u))}
-.p5 .chan.first{margin-top:calc(62*var(--u))}
-.p5 .optbox{margin:calc(72*var(--u)) calc(18*var(--u)) 0;background:var(--navy);color:#fff;border-radius:calc(48*var(--u));padding:calc(46*var(--u)) calc(20*var(--u)) calc(64*var(--u));box-shadow:0 calc(6*var(--u)) calc(12*var(--u)) rgba(0,0,0,.4)}
-.p5 .optbox .q{font-family:var(--thin);font-size:calc(23*var(--u));line-height:calc(38*var(--u));margin:0;color:#fff}
-.p5 .optbox .big{font-family:var(--bold);font-size:calc(40*var(--u));line-height:calc(44*var(--u));margin:calc(52*var(--u)) 0 0;color:#fff}
-.p5 .optbox .big .or{color:#B8E9FF}
-.p5 .chan+.chan{margin-top:calc(48*var(--u))}
-.p5 .chan .tag{display:block;background:var(--navy);color:#fff;font-family:var(--bold);font-size:calc(25*var(--u));line-height:calc(56*var(--u));height:calc(56*var(--u));border-radius:calc(8*var(--u));box-shadow:0 calc(3*var(--u)) calc(6*var(--u)) rgba(0,0,0,.28)}
-.p5 .chan img{width:100%;height:auto;display:block;margin-top:calc(11*var(--u));border-radius:calc(28*var(--u))}
-.p5 .chan p{font-family:var(--bold);font-size:calc(32*var(--u));line-height:calc(37*var(--u));margin:calc(36*var(--u)) 0 0;color:#012A64}
-.p5 .chan p .hl-b{padding:.02em .2em}
-
-/* 간편한 3단계 판매 절차 (남색 바탕 + 흰 카드 하나) */
-.p5 .proc{background:var(--navy);margin-top:calc(113*var(--u));padding:calc(30*var(--u)) calc(22*var(--u)) calc(52*var(--u))}
-.p5 .proc h2{font-family:var(--bold);font-size:calc(39.5*var(--u));line-height:calc(44*var(--u));margin:0;color:#fff}
-.p5 .pcard{background:#fff;border-radius:calc(70*var(--u));margin-top:calc(28*var(--u));padding:calc(50*var(--u)) calc(7*var(--u)) calc(78*var(--u)) 0}
-.p5 .step{display:grid;grid-template-columns:calc(203*var(--u)) 1fr;grid-template-areas:". t" "f b";align-items:center;text-align:center}
-.p5 .step+.step{margin-top:calc(104*var(--u))}
-.p5 .step.s3{margin-top:calc(120*var(--u))}
-.p5 .step .fig{grid-area:f;align-self:center;height:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.p5 .step .fig img{display:block;height:auto}
-.p5 .step .fig .qr{width:calc(150*var(--u))}
-.p5 .step .fig .qrlbl{background:#0F2350;color:#fff;font-family:var(--thin);font-size:calc(15.45*var(--s)*var(--u));line-height:1.5;padding:calc(2*var(--u)) calc(10*var(--u));margin-top:calc(2*var(--u))}
-.p5 .step h3{grid-area:t;position:relative;font-family:var(--bold);font-size:calc(28.5*var(--u));line-height:calc(31*var(--u));margin:0 0 calc(14*var(--u));color:#012A64}
-.p5 .step .no{position:absolute;left:calc(28*var(--u));top:calc(-3*var(--u));width:calc(37*var(--u));height:calc(37*var(--u));border-radius:50%;background:#B8E9FF;color:#102B56;font-size:calc(22*var(--u));line-height:calc(37*var(--u))}
-.p5 .step .box{grid-area:b;background:var(--navy);color:#fff;border-radius:calc(14*var(--u));padding:calc(14*var(--u)) calc(14*var(--u));font-family:var(--thin);font-size:calc(18.55*var(--s)*var(--u));line-height:calc(24.5*var(--s)*var(--u));min-height:calc(169*var(--u));box-sizing:border-box;display:flex;align-items:center;justify-content:center}
-.p5 .step .box .gap{height:calc(18*var(--u))}
-.p5 .step.s2 h3{padding-left:calc(40*var(--u));font-size:calc(23.5*var(--u));line-height:calc(28*var(--u));white-space:nowrap}
-.p5 .step .box .sky{color:#B8E9FF}
-
-/* ---------- 신청 ---------- */
-.apply{background:var(--sky);padding:58px 24px 46px;text-align:center}
-.apply .eyebrow{font-family:var(--bold);font-size:34px;color:var(--navy);line-height:1.2}
-.apply h2{font-family:var(--bold);font-size:51px;color:var(--navy);margin:11px 0 0;line-height:1.1}
-.apply .lead{font-family:var(--thin);font-size:20px;color:var(--navy);margin-top:6px;line-height:1.5}
-
-/* 접수 폼 카드 : 하늘색 네온 테두리.
-   ::before = 바깥 빛(halo), ::after = 네온관 심지(흰 띠+안쪽 빛). 둘 다 opacity 만 애니메이션 → 모바일에서도 가벼움.
-   2.4초 주기로 강해졌다(100%) 약해졌다(halo 25%) 반복 */
-.form-card{position:relative;isolation:isolate;background:#fff;border:2px solid #3FC6FF;border-radius:22px;text-align:left;margin:30px 0 0;padding:22px 22px 20px;word-break:keep-all}
-.form-card::before{content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:-1;pointer-events:none;box-shadow:0 0 10px 4px rgba(56,196,255,1),0 0 34px 14px rgba(0,174,255,.8),0 0 80px 34px rgba(0,128,255,.45),0 0 150px 60px rgba(28,105,212,.28);animation:neonHalo 2.4s ease-in-out infinite}
-.form-card::after{content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:0;pointer-events:none;border:2px solid #A6EBFF;box-shadow:0 0 0 2px rgba(255,255,255,.95),0 0 0 4px rgba(63,198,255,.95),inset 0 0 16px rgba(63,198,255,.3);animation:neonTube 2.4s ease-in-out infinite}
-@keyframes neonHalo{0%,100%{opacity:.25}50%{opacity:1}}
-@keyframes neonTube{0%,100%{opacity:.35}50%{opacity:1}}
-@media (prefers-reduced-motion:reduce){.form-card::before,.form-card::after{animation:none}}
-
-/* 단계 머리말 */
-.fs+.fs{margin-top:20px;padding-top:20px;border-top:1px solid #E4EEF7}
-.fh{display:flex;align-items:center;gap:9px;margin-bottom:12px}
-.fh .no{width:24px;height:24px;border-radius:50%;background:#B8E9FF;color:#102B56;font-family:var(--bold);font-size:14px;line-height:24px;text-align:center;flex:0 0 auto}
-.fh .ft{font-family:var(--bold);font-size:17px;color:var(--ink);line-height:1}
-.fh .req{font-family:var(--thin);font-size:12px;color:#C62828;background:#FFF0F0;border-radius:999px;padding:2px 9px;line-height:1.3}
-/* 입력칸 */
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
-.f{display:flex;flex-direction:column;gap:5px;min-width:0}
-.f label{font-size:13px;font-family:var(--bold);color:#1F2F47}
-.f label small{font-family:var(--thin);font-size:12px;color:#6B7280;margin-left:4px}
-.f input[type=text],.f input[type=tel],.f input[type=number],.f select,.f textarea{height:44px;border:1px solid #CBD8E6;border-radius:10px;padding:0 12px;background:#F8FBFE;color:var(--ink);width:100%;font-size:15px;transition:border-color .15s,box-shadow .15s,background .15s}
-.f select{appearance:none;-webkit-appearance:none;padding-right:32px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%230B2647' stroke-width='1.8' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 12px center}
-.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:#3DAAFF;background:#fff;box-shadow:0 0 0 3px rgba(61,170,255,.25)}
-.f input::placeholder,.f textarea::placeholder{color:#9AA7B8}
-.f textarea{height:auto;min-height:58px;padding:10px 12px;resize:vertical;line-height:1.45}
-.f.memo{margin-top:10px}
-/* 사진: 택1 세그먼트 버튼 */
-.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#EEF4FA;padding:4px;border-radius:12px}
-.seg .mhead{height:40px;border:0;border-radius:9px;background:transparent;color:#3C4A5E;font-family:var(--bold);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:background .15s,color .15s}
-.seg .mhead svg{width:18px;height:18px;flex:0 0 auto}
-.seg .mhead.on{background:var(--navy);color:#fff;box-shadow:0 2px 6px rgba(11,38,71,.28)}
-.seg .mhead em{font-style:normal;font-family:var(--thin);font-size:11px;background:var(--sun);color:var(--navy);padding:1px 7px;border-radius:999px;line-height:1.5}
-.mode{display:none;margin-top:10px}
+/* ---------- 4. 견적만 알아보기 (흰 카드 + 하늘색 네온 테두리) ---------- */
+.form-card{position:relative;isolation:isolate;background:var(--paper);color:var(--ink);border:2px solid #3FC6FF;border-radius:22px;margin-top:26px;padding:22px 18px 20px}
+.form-card::before{content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:-1;pointer-events:none;box-shadow:0 0 8px 2px rgba(56,196,255,.55),0 0 22px 8px rgba(0,174,255,.35),0 0 48px 18px rgba(0,128,255,.18);animation:neonHalo 3s ease-in-out infinite}
+.form-card::after{content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:0;pointer-events:none;border:2px solid #A6EBFF;box-shadow:0 0 0 2px rgba(255,255,255,.7),0 0 0 3px rgba(63,198,255,.55),inset 0 0 10px rgba(63,198,255,.15);animation:neonTube 3s ease-in-out infinite}
+.form-card>*{position:relative;z-index:1}
+@keyframes neonHalo{0%,100%{opacity:.3}50%{opacity:.8}}
+@keyframes neonTube{0%,100%{opacity:.35}50%{opacity:.85}}
+.fs+.fs{margin-top:20px;padding-top:20px;border-top:1px solid var(--edge)}
+.fh{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:12px}
+.fh .no{width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-weight:900;font-size:13px;display:grid;place-items:center;flex:0 0 auto}
+.fh .ft{font-weight:900;font-size:17.5px;color:var(--ink)}
+.fh .req{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;border:1px solid rgba(194,65,12,.45);color:#C2410C}
+.fh .req.opt{border-color:var(--edge);color:var(--ink-2)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.f{min-width:0}
+.f label{display:block;font-size:14px;font-weight:900;color:var(--ink);margin-bottom:6px}
+.f label small{font-weight:700;color:#7F93AE;margin-left:6px;font-size:12px}
+.f input,.f select,.f textarea{width:100%;min-width:0;height:48px;padding:0 12px;border-radius:12px;border:1px solid #BFD4E8;background:var(--paper-2);color:var(--ink);font:inherit;font-size:16px;font-weight:700;text-align:center;color-scheme:light}
+.f textarea{height:auto;min-height:66px;padding:10px 12px;resize:vertical}
+.f select{appearance:none;-webkit-appearance:none;padding-right:34px;padding-left:34px;text-align-last:center}
+.f select option{color:var(--ink);background:#fff}
+.sel{position:relative}
+.sel::after{content:"";position:absolute;right:14px;top:50%;width:8px;height:8px;border-right:2px solid var(--sky);border-bottom:2px solid var(--sky);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.f input::placeholder,.f textarea::placeholder{color:#8AA0BA}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 3px rgba(30,136,214,.18)}
+.memo{margin-top:10px}
+.seg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:4px;border-radius:14px;background:#EAF1F8;border:1px solid var(--edge)}
+.mhead{height:46px;border:0;border-radius:11px;background:transparent;color:var(--ink-2);font:inherit;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer}
+.mhead svg{width:18px;height:18px}
+.mhead em{font-style:normal;font-size:10px;padding:2px 6px;border-radius:999px;background:var(--sky);color:#fff;font-weight:900}
+.mhead.on{background:var(--navy);color:#fff;box-shadow:0 4px 12px rgba(11,35,71,.25)}
+.mhead.on em{background:var(--cyan);color:var(--navy)}
+.mhead:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+.mode{display:none;margin-top:12px}
 .mode.on{display:block}
-.bulkbox{display:flex;align-items:center;gap:12px;border:1.5px dashed #7FB3E0;background:#EEF6FD;border-radius:12px;padding:12px 14px;cursor:pointer;position:relative;text-align:left}
-.bulkbox svg{width:30px;height:30px;color:var(--navy);flex:0 0 auto}
-.bulkbox b{display:block;font-family:var(--bold);font-weight:400;font-size:16px;color:var(--navy);line-height:1.2}
-.bulkbox small{display:block;font-family:var(--thin);font-size:12.5px;color:#3C4250;margin-top:3px}
-.bulkbox .pick{margin-left:auto;flex:0 0 auto;font-family:var(--thin);font-size:13px;color:#fff;background:var(--navy);border-radius:999px;padding:6px 13px;white-space:nowrap}
-.bulkbox input{position:absolute;inset:0;opacity:0;cursor:pointer}
-.bulkthumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px}
-.bulkthumbs div{position:relative;aspect-ratio:1;overflow:hidden;background:#F5F7FB;border:1px solid #E3E7EE;border-radius:8px}
+.bulkbox{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 14px;border:1.5px dashed #9CC3E6;border-radius:14px;background:var(--paper-2);cursor:pointer;text-align:center}
+.bulkbox.has{border-style:solid}
+.bulkbox svg{width:34px;height:34px;color:var(--sky);flex:0 0 auto}
+.bulkbox>span{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+.bulkbox b{font-size:16.5px;color:var(--ink)}
+.bulkbox small{font-size:13px;font-weight:700;color:var(--ink-2)}
+.bulkbox .pick{margin-top:4px;padding:9px 16px;border-radius:999px;border:1px solid #BFD4E8;background:#fff;font-size:13px;font-weight:900;color:var(--navy);white-space:nowrap;flex:0 0 auto}
+.bulkbox input{position:absolute;width:1px;height:1px;opacity:0}
+.bulkthumbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:10px}
+.bulkthumbs div{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;border:1px solid var(--edge)}
 .bulkthumbs img{width:100%;height:100%;object-fit:cover;display:block}
-.bulkthumbs i{position:absolute;left:4px;bottom:4px;font-style:normal;font-family:var(--bold);font-size:11px;color:#fff;background:rgba(11,38,71,.85);padding:1px 6px;border-radius:6px}
-.bulkthumbs button{position:absolute;right:4px;top:4px;width:20px;height:20px;border:0;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:13px;line-height:20px;padding:0;cursor:pointer}
-.bulkbar{display:flex;align-items:center;gap:8px;margin-top:10px;font-family:var(--bold);font-size:14px;color:var(--ink)}
-.bulkbar span{flex:1;min-width:0}
-.bulkbar button{white-space:nowrap;flex:0 0 auto;background:#fff;border:1px solid #CBD8E6;border-radius:8px;padding:7px 12px;font-family:var(--thin);font-size:13px;cursor:pointer;color:var(--ink)}
-.bulkbar[hidden],.bulkthumbs[hidden]{display:none}
-.bulk-note{margin:10px 2px 0;font-family:var(--thin);font-size:12.5px;line-height:1.55;color:#3C4250}
-.bulk-note b{font-family:var(--bold);font-weight:400;color:var(--ink)}
-.mode.navy .note{background:var(--navy);color:#fff;border-radius:12px;padding:12px 14px;font-family:var(--thin);font-size:13px;line-height:1.6}
-.mode.navy .note b{font-family:var(--bold);font-weight:400;color:var(--sun)}
-/* 연락처 : 번호 + 회신방법 칩 한 줄 */
-.crow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end}
-.chips{display:flex;gap:6px}
-.chip{position:relative;cursor:pointer}
-.chip input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
-.chip span{display:flex;align-items:center;justify-content:center;gap:6px;height:44px;padding:0 14px;border:1px solid #CBD8E6;border-radius:10px;background:#F8FBFE;font-family:var(--bold);font-size:14px;color:#3C4A5E;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
-.chip span::before{content:"";width:8px;height:8px;border-radius:50%;background:#C5D2E0;flex:0 0 auto}
-.chip input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
-.chip input:checked+span::before{background:var(--sun)}
-.chip input:focus-visible+span{box-shadow:0 0 0 3px rgba(61,170,255,.35)}
-/* 보내기 */
-.apply .cta{display:block;width:100%;margin-top:22px;background:var(--navy);color:#fff;border:0;border-radius:14px;height:62px;font-family:var(--bold);font-size:25px;cursor:pointer;box-shadow:0 6px 16px rgba(11,38,71,.28);transition:transform .1s,box-shadow .15s}
-.apply .cta:hover{box-shadow:0 8px 20px rgba(11,38,71,.36)}
-.apply .cta:active{transform:translateY(1px)}
-.apply .cta[disabled]{opacity:.7;cursor:default}
-.apply .tiny{font-family:var(--thin);font-size:13.5px;color:#4B5B73;margin:12px 0 0;text-align:center;line-height:1.5}
-.apply .tiny .mb{display:none}
+.bulkthumbs i{position:absolute;left:4px;top:4px;font-style:normal;font-size:10px;padding:1px 6px;border-radius:999px;background:rgba(11,35,71,.85);color:#fff}
+.bulkthumbs button{position:absolute;right:4px;top:4px;width:22px;height:22px;border-radius:50%;border:0;background:rgba(11,35,71,.85);color:#fff;font-size:15px;line-height:1;cursor:pointer}
+.bulkbar{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;font-size:12px;color:var(--ink-2)}
+.bulkbar button{background:#fff;border:1px solid #BFD4E8;color:var(--navy);border-radius:999px;padding:5px 10px;font:inherit;font-size:12px;cursor:pointer}
+.note{margin:12px 0 0;font-size:13.5px;line-height:1.7;font-weight:700;color:var(--ink-2)}
+.note b{color:var(--ink);font-weight:900}
+.note.caution{padding:10px 12px;border-radius:12px;background:var(--warn-bg);border:1px solid var(--warn);color:var(--ink)}
+.chips2{display:flex;gap:8px}
+.chip2{flex:1;position:relative;margin:0}
+.chip2 input{position:absolute;opacity:0;width:1px;height:1px}
+.chip2 span{display:flex;align-items:center;justify-content:center;height:48px;border-radius:12px;border:1px solid #BFD4E8;background:var(--paper-2);color:var(--ink-2);font-size:16px;font-weight:900;cursor:pointer}
+.chip2 input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+.chip2 input:focus-visible+span{outline:2px solid var(--sky);outline-offset:2px}
+.fmsg{display:none;margin:14px 0 0;padding:12px 14px;border-radius:12px;font-size:13.5px;line-height:1.6;white-space:pre-line}
+.fmsg.err{display:block;background:var(--warn-bg);border:1px solid var(--warn);color:var(--ink)}
+.fmsg.wait{display:block;background:#EAF4FD;border:1px solid #9CC3E6;color:var(--ink)}
+.fmsg.ok{display:block;background:#E6F8EE;border:1px solid #7ED8A5;color:#0B3D22}
+.cta{width:100%;margin-top:16px;height:56px;border:0;border-radius:14px;background:linear-gradient(180deg,#1A4A96,#0B2347);color:#fff;font:inherit;font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 8px 22px rgba(11,35,71,.35),0 0 18px rgba(57,210,255,.35)}
+.cta:disabled{opacity:.6;cursor:default}
+.cta:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+.tiny{margin:10px 0 0;font-size:12px;color:var(--ink-2);line-height:1.6}
 
-/* ---------- 추가 판매옵션 ---------- */
-.options{background:var(--sky);padding:0}
-.options .top{background:#fff;padding:60px 24px 30px;text-align:center}
-.options .pill{display:inline-block;font-family:var(--thin);font-size:28px;padding:8px 46px;border-radius:22px;background:var(--navy);color:#fff}
-.options .note{margin-top:16px;font-family:var(--thin);font-size:18px;line-height:1.5}
-.options .heads{display:grid;grid-template-columns:1fr 1fr;margin-top:0}
-.options .heads div{padding:8px 6px;text-align:center;font-family:var(--thin);font-size:15px}
-.options .heads .l{background:var(--navy);color:#fff}
-.options .heads .r{background:var(--sky-hl);color:var(--navy)}
-.options .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px 24px 24px;background:var(--navy)}
-.ocard{background:#fff;border-radius:22px;padding:26px 14px 24px;text-align:center;position:relative;display:flex;flex-direction:column;justify-content:center}
-.ocard .lg{display:flex;justify-content:center;padding:6px 0}
-.ocard .x{font-family:var(--bold);color:var(--navy);font-size:22px;margin:4px 0}
-.ocard .chagis{display:inline-block;align-self:center;background:var(--navy);border-radius:10px;padding:12px 22px;box-shadow:0 5px 0 rgba(0,0,0,.18)}
-.ocard .chagis img{height:64px;width:auto}
-.ocard .box{margin-top:26px;border-radius:14px;padding:14px 10px;font-family:var(--thin);font-size:17px;line-height:1.4;box-shadow:0 5px 0 rgba(0,0,0,.18)}
-.ocard .box.dark{background:var(--navy);color:#fff}
-.ocard .box.light{background:var(--sky-hl);color:var(--navy)}
-.ocard .ex{margin-top:22px;font-family:var(--thin);font-size:17px;line-height:1.5;color:var(--navy)}
+/* ---------- 5. 감가폭탄 ZERO (흰 카드 + 사진) ---------- */
+.routes{display:grid;gap:36px;margin-top:22px}
+.route{position:relative;border-radius:20px;overflow:hidden;background:var(--paper);color:var(--ink);border:2px solid var(--edge);box-shadow:0 10px 30px rgba(0,0,0,.35);cursor:pointer;transition:border-color .35s,box-shadow .35s,transform .18s ease-out;transform-style:preserve-3d;-webkit-tap-highlight-color:transparent}
+.route.lit,.route.hov{border-color:#7FDDFF;box-shadow:0 10px 30px rgba(0,0,0,.35),0 0 0 1px rgba(57,210,255,.45),0 0 14px rgba(57,210,255,.45),0 0 36px rgba(57,210,255,.22)}
+.route img{display:block;width:100%;height:auto}
+.route .pic{position:relative}
+.route .pic::after{content:"";position:absolute;left:0;right:0;bottom:0;height:24%;background:linear-gradient(0deg,#FFFFFF 0%,rgba(255,255,255,.6) 40%,rgba(255,255,255,0) 100%);pointer-events:none}
+.route .rb{position:relative;padding:30px 18px 22px;font-family:var(--mapo);font-size:15.5px;line-height:1.8}
+.route .tag{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);padding:7px 18px;border-radius:999px;background:var(--navy);color:#fff;font-family:var(--font);font-size:13px;font-weight:900;white-space:nowrap;box-shadow:0 4px 14px rgba(11,35,71,.35)}
+.route .cond{margin:0;color:var(--sky)}
+.route p.body{margin:0;color:var(--ink)}
+.route .countries{margin:12px 0 0;padding-top:10px;border-top:1px solid var(--edge);font-family:var(--font);font-size:12.5px;line-height:1.6;font-weight:700;color:var(--ink-2)}
 
-/* ---------- 폼 메시지 박스 ---------- */
-.fmsg{display:none;margin:18px auto 0;max-width:520px;word-break:keep-all;padding:16px 18px;border-radius:14px;font-family:var(--thin);font-size:16px;line-height:1.6;text-align:center;white-space:pre-line}
-.fmsg.err{display:block;background:#FFE9E9;color:#B3261E;border:1px solid #F5B5B5}
-.fmsg.ok{display:block;background:#E3F6E8;color:#1B5E20;border:1px solid #A5D6A7}
-.fmsg.wait{display:block;background:var(--sky);color:var(--navy)}
-.fmsg b{font-family:var(--bold);font-weight:400}
+/* ---------- 6. 세가지 약속 (흰 카드) ---------- */
+.pgrid{display:grid;gap:14px;margin-top:22px}
+.pcard{position:relative;border-radius:22px;padding:26px 20px 24px;border:1px solid var(--edge);background:var(--paper);color:var(--ink);overflow:hidden;transform-style:preserve-3d;transition:transform .18s ease-out,box-shadow .25s;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.pcard::before{content:"";position:absolute;inset:0;background:radial-gradient(200px 160px at var(--mx,50%) var(--my,10%),rgba(57,210,255,.28),transparent 70%);pointer-events:none;opacity:0;transition:opacity .35s}
+.pcard.hov::before,.pcard:hover::before{opacity:1}
+.pcard.hov{box-shadow:0 10px 30px rgba(0,0,0,.3),var(--glow-m)}
+.pcard>*{position:relative}
+.pcard .num{display:block;margin:0 0 10px;font-size:12px;font-weight:900;letter-spacing:.16em;color:var(--sky)}
+.orb{position:relative;width:92px;height:92px;margin:0 auto;border-radius:50%;display:grid;place-items:center;isolation:isolate}
+.orb::before{content:"";position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(from 0deg,rgba(30,136,214,.15) 0 28%,var(--cyan) 50%,rgba(30,136,214,.15) 72% 100%);animation:spin 7s linear infinite;z-index:-1;filter:drop-shadow(0 0 6px rgba(57,210,255,.7))}
+.orb::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--navy);z-index:-1}
+.orb svg{width:40px;height:40px;color:#FFFFFF}
+.pcard h3{margin:18px 0 0;font-size:20px;line-height:1.45;font-weight:900;color:var(--ink)}
+.pcard p{margin:8px 0 0;font-size:14.5px;line-height:1.7;font-weight:700;color:var(--ink)}
 
-/* ---------- 마무리 배너 (사용자 카드 이미지 3440×4212 실측, 680px 기준 비례) ---------- */
-.outro{--u:min(1px,calc(100vw / 680));background:#fff;text-align:center;padding:0;word-break:keep-all}
-.outro .skytop{height:calc(68*var(--u));background:var(--sky)} /* 카드 원본은 #B9E9FF, 위 옵션 구간 하늘색과 단차가 생겨 같은 색으로 */
-.outro .logo-wrap{padding:calc(35*var(--u) + 6px) 0 calc(31*var(--u) + 6px);background:#fff;line-height:0}
-.outro .logo-img{width:calc(298*var(--u));height:auto;margin:0 auto;display:block;border-radius:calc(16*var(--u))}
-.ocard .logo-img{width:183px;height:auto;border-radius:10px}.ocard .logo-img.s{width:146px;border-radius:8px}
-.outro .sea{position:relative;height:calc(476*var(--u));background:url(assets/ship_sea_footer.jpg?v=0926f) center top/cover}
-.outro .sea .band{position:absolute;left:0;top:0;width:100%;box-sizing:border-box;min-height:calc(59*var(--u));padding:calc(4*var(--u)) 12px calc(2*var(--u));background:rgba(11,38,71,.86);color:#fff;font-family:var(--bold);font-size:max(13px,calc(20.6*var(--u)));line-height:1.29;margin:0;text-align:center}
-.outro .sea .qr{position:absolute;right:calc(7.5*var(--u));bottom:calc(5*var(--u));width:max(80px,calc(121*var(--u)));height:auto;display:block;border-radius:calc(3*var(--u));background:#fff}
-.outro .sea .qrlbl{position:absolute;right:calc(max(80px,calc(121*var(--u))) + calc(13*var(--u)));bottom:calc(3*var(--u));background:#FCCC49;color:#25344F;font-family:var(--bold);font-size:max(11px,calc(18.5*var(--u)));line-height:1.48;padding:0 .75em;border-radius:.22em;white-space:nowrap}
-.outro .infobar{background:#0A113B;color:#fff;text-align:left;padding:calc(7*var(--u)) 16px calc(7*var(--u)) calc(18*var(--u));font-family:var(--thin);font-size:max(11.5px,calc(14.4*var(--u)));line-height:1.32;min-height:calc(72*var(--u));box-sizing:border-box}
-.outro .infobar b{font-family:var(--bold);font-weight:400;color:#B2D3EF}
-.outro .infobar a{color:inherit;text-decoration:none;cursor:pointer}
-.outro .infobar a:hover{text-decoration:underline}
-.foot-nav{background:var(--navy-deep);color:#fff;text-align:center;padding:30px 16px;font-family:var(--thin);font-size:19px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
+/* ---------- 7. 간편한 3단계 판매 절차 (중앙 게이지) ---------- */
+.ind{position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px);z-index:5;display:flex;align-items:center;gap:10px;padding:10px 14px;margin-top:20px;border-radius:999px;background:rgba(5,15,38,.88);border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ind .lbl{font-size:12px;font-weight:700;color:var(--ice);white-space:nowrap}
+.ind .segs{flex:1;display:flex;gap:4px;min-width:0}
+.ind .segs i{flex:1;height:6px;border-radius:999px;background:rgba(255,255,255,.09);transition:background .3s,box-shadow .3s}
+.ind .segs i.on{background:var(--cyan);box-shadow:var(--glow-s)}
+.ind .pct{font-size:12px;font-weight:900;color:var(--cyan);font-variant-numeric:tabular-nums;min-width:30px;text-align:right}
+.timeline{position:relative;margin-top:26px}
+.rail{position:absolute;left:50%;margin-left:-2px;top:24px;bottom:60px;width:4px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;z-index:0}
+.rail .fill{position:absolute;left:0;top:0;width:100%;height:0%;background:linear-gradient(180deg,#B9EEFF,var(--cyan));box-shadow:0 0 12px rgba(57,210,255,.8);transition:height .12s linear}
+.timeline ol{list-style:none;margin:0;padding:0;position:relative;z-index:1}
+.step{position:relative;padding:0 0 30px}
+.step .node{position:relative;margin:0 auto;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--sea-900);border:2px solid rgba(255,255,255,.14);color:var(--muted);font-weight:900;font-size:18px;transition:border-color 1.1s ease,color 1.1s ease,box-shadow 1.1s ease,background 1.1s ease}
+.step.on .node{border-color:var(--cyan);color:#fff;box-shadow:var(--glow-m);background:var(--sea-700)}
+.step .node::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--cyan);opacity:0;pointer-events:none}
+.step.on .node::after{animation:burst 1.6s .25s ease-out both}
+@keyframes burst{0%{transform:scale(.7);opacity:1;box-shadow:0 0 0 0 rgba(57,210,255,.9)}100%{transform:scale(2.6);opacity:0;box-shadow:0 0 30px 12px rgba(57,210,255,0)}}
+.step.on .sbox{animation:boxflash 2.2s ease-in-out;border-color:var(--cyan);box-shadow:0 0 0 1px rgba(57,210,255,.5),0 0 12px rgba(57,210,255,.55),0 0 28px rgba(57,210,255,.28),inset 0 0 12px rgba(57,210,255,.14)}
+@keyframes boxflash{0%{box-shadow:0 0 0 0 rgba(57,210,255,0)}20%{box-shadow:0 0 0 0 rgba(57,210,255,0)}55%{box-shadow:0 0 30px 10px rgba(57,210,255,.85),inset 0 0 22px rgba(57,210,255,.45)}100%{box-shadow:0 0 0 1px rgba(57,210,255,.5),0 0 12px rgba(57,210,255,.55),0 0 28px rgba(57,210,255,.28),inset 0 0 12px rgba(57,210,255,.14)}}
+.step h3{margin:12px 0 0;font-size:18px;line-height:1.4;font-weight:900;color:var(--muted);transition:color 1.1s ease;position:relative;display:inline-block;padding:0 8px;background:var(--sea-900)}
+.step.on h3{color:#fff}
+.sbox{position:relative;margin:10px auto 0;max-width:430px;padding:14px 16px;border-radius:14px;border:1px solid var(--line-2);background:#0A1F4A;font-size:14.5px;line-height:1.8;font-weight:700;color:var(--muted);transition:border-color 1.2s ease,color 1.2s ease,box-shadow 1.2s ease}
+.step.on .sbox{border-color:var(--line);color:var(--fg)}
+.sbox b{color:var(--cyan);font-weight:900}
+.sbox .warn{display:inline-block;margin-top:6px;padding:2px 10px;border-radius:6px;background:var(--warn);color:var(--ink);font-weight:700}
 
-/* ---------- 기존 푸터(법적 고지) ---------- */
-footer{background:var(--navy-deep);color:#B9C4DA;font-size:13px;padding:0 24px 40px;font-family:var(--thin);line-height:1.7}
-footer a{color:var(--sky-hl);text-decoration:none;cursor:pointer}
-footer a:hover{text-decoration:underline}
-footer .biz{padding-top:14px;border-top:1px solid rgba(255,255,255,.12);line-height:1.9;text-align:center}
-footer details{margin-top:18px;border:1px solid rgba(255,255,255,.14)}
-footer summary{cursor:pointer;padding:12px 16px;color:#fff;font-family:var(--bold);list-style:none;display:flex;justify-content:space-between}
-footer summary::after{content:'+'}
-footer details[open] summary::after{content:'−'}
-footer details .body{padding:4px 16px 16px}
-footer details h5{color:#fff;margin:14px 0 4px;font-size:13px;font-family:var(--bold);font-weight:400}
-footer details ol,footer details ul{margin:4px 0;padding-left:18px}
-footer .warn{margin-top:24px;border-left:3px solid var(--sun);padding:12px 16px;background:rgba(255,255,255,.04)}
-footer .warn b{color:#fff;font-family:var(--bold);font-weight:400}
-footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
+/* ---------- 8. 차량 판매 현황 (왼쪽으로 계속 흐름) ---------- */
+.marquee{margin-top:20px;overflow:hidden;--cw:calc((min(100vw,560px) - 32px) * .47);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.track{display:flex;gap:12px;width:max-content;animation:slide 40s linear infinite}
+.marquee.paused .track,.marquee:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(calc(-50% - 6px))}}
+.rcard{flex:0 0 var(--cw);width:var(--cw);border-radius:18px;border:2.5px solid #A9C4DE;background:var(--paper);color:var(--ink);overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.rcard .ph{aspect-ratio:4/3;background:var(--paper-2);display:grid;place-items:center;border-bottom:2px solid #C9DAEA;overflow:hidden}
+.rcard .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.rcard .empty{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--ink-2);font-size:12px;font-weight:700}
+.rcard .empty svg{width:30px;height:30px;color:var(--sky)}
+.rcard dl{margin:0;padding:12px 12px 14px;display:grid;gap:6px;font-size:13.5px;text-align:left}
+.rcard dl div{display:flex;justify-content:flex-start;gap:6px;min-width:0}
+.rcard dt{color:var(--ink-2);flex:0 0 auto}
+.rcard dd{margin:0;color:var(--ink);font-weight:900;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rcard dd:empty::after{content:"—";color:#B8C6D8;font-weight:400}
 
-/* ---------- 오른쪽 따라다니는 버튼 (전화 · 카카오톡) ---------- */
-.fab{position:fixed;right:max(14px,calc(50% - 340px - 78px));bottom:22px;z-index:50;display:flex;flex-direction:column;gap:10px}
-.fab a{width:60px;height:60px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;box-shadow:0 6px 16px rgba(0,0,0,.28);font-family:var(--bold);font-size:11px;line-height:1;transition:transform .15s}
+/* ---------- 9. 전문가 (회사소개) ---------- */
+.ecard{margin-top:20px;position:relative;border-radius:24px;padding:32px 22px 30px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(18,51,110,.6),rgba(6,20,48,.72));overflow:hidden}
+.ecard::before{content:"";position:absolute;inset:auto -40px -120px;height:220px;background:radial-gradient(50% 60% at 50% 100%,rgba(30,167,230,.35),transparent 70%);pointer-events:none}
+.ecard>*{position:relative}
+.ebadge{position:relative;width:156px;height:156px;margin:0 auto;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;isolation:isolate}
+.ebadge::before{content:"";position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 30%,var(--cyan) 50%,transparent 70% 100%);animation:spin 8s linear infinite;z-index:-1;filter:drop-shadow(0 0 10px rgba(57,210,255,.8))}
+.ebadge::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--sea-900);border:1px solid var(--line);z-index:-1}
+.ebadge .t0{font-size:10.5px;letter-spacing:.2em;color:var(--cyan);font-weight:700}
+.ebadge .t1{font-size:17px;font-weight:900;color:#fff;text-shadow:var(--glow-s);line-height:1.2}
+.ebadge .t2{font-size:10.5px;color:var(--ice);font-weight:700}
+.edef{margin:20px auto 0;max-width:420px;font-size:13.5px;line-height:1.8;color:var(--ice)}
+.edef small{display:block;margin-top:4px;font-size:11px;color:var(--muted)}
+.equote{margin:18px auto 0;max-width:420px;padding-top:18px;border-top:1px solid var(--line-2);font-size:16.5px;line-height:1.8;font-weight:500;color:var(--fg)}
+
+/* ---------- 10. 오시는길 ---------- */
+.map{display:block;margin-top:18px;border-radius:20px;overflow:hidden;border:1px solid var(--line);height:300px;position:relative;background:#E9EEF2;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.map img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.map .mtag{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);padding:7px 14px;border-radius:999px;background:rgba(11,35,71,.9);color:#fff;font-size:12px;font-weight:700;white-space:nowrap}
+.vaddr{margin:18px 0 0;font-size:16px;font-weight:700;line-height:1.6}
+.vmeta{margin:6px 0 0;font-size:13px;color:var(--muted)}
+.vbtns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+.vbtns a,.vbtns button{height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-weight:700;font-size:14px;text-decoration:none;border:1px solid var(--line);color:var(--ice);background:rgba(255,255,255,.04);cursor:pointer}
+.vbtns .primary{background:var(--cyan);color:var(--sea-900);border-color:transparent;box-shadow:var(--glow-s)}
+.vbtns svg{width:18px;height:18px}
+
+/* ---------- 11. 푸터 ---------- */
+.foot{margin-top:44px;border-top:1px solid var(--line-2);padding-block:26px 130px;background:rgba(0,0,0,.28)}
+.fnav{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 0}
+.fnav a{font-size:13px;font-weight:700;color:var(--ice);text-decoration:none;padding:4px 12px;position:relative;white-space:nowrap}
+.fnav a+a::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--line)}
+.biz{margin:16px 0 0;font-size:12px;line-height:1.8;color:var(--muted)}
+.biz a{color:inherit;text-decoration:none}
+details.legal{margin-top:12px;border:1px solid var(--line-2);border-radius:12px;background:rgba(255,255,255,.03)}
+details.legal summary{cursor:pointer;list-style:none;padding:12px 14px;font-size:13px;font-weight:700;color:var(--ice);display:flex;justify-content:center;align-items:center;gap:8px}
+details.legal summary::-webkit-details-marker{display:none}
+details.legal summary::after{content:"+";font-size:16px;color:var(--cyan)}
+details.legal[open] summary::after{content:"−"}
+details.legal.caution summary{color:var(--warn)}
+details.legal.caution summary::after{color:var(--warn)}
+details.legal .body{padding:0 14px 14px;font-size:12px;line-height:1.75;color:var(--muted)}
+.body h5{margin:10px 0 4px;font-size:12.5px;color:#fff}
+.body ul{margin:0;padding:0;list-style:none}
+.body li{margin-top:4px}
+.body b{color:var(--ice)}
+details.caution .body b{color:var(--warn)}
+.copy{margin:18px 0 0;font-size:11px;color:var(--muted)}
+
+/* ---------- 12. 플로팅 전화·카톡 ---------- */
+.fab{position:fixed;right:max(14px,calc(50% - 280px - 76px),env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;flex-direction:column;gap:10px}
+.fab a{width:64px;height:64px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;font-size:10.5px;font-weight:900;line-height:1;box-shadow:0 8px 20px rgba(0,0,0,.45);transition:transform .15s}
 .fab a:active{transform:scale(.94)}
-.fab a svg{width:22px;height:22px;display:block}
-.fab .call{background:var(--navy);color:#fff}
-.fab .kakao{background:#FEE500;color:#191919}
-.fab .kakao svg{width:24px;height:24px}
-@media (max-width:700px){.fab{right:12px;bottom:16px}.fab a{width:56px;height:56px;font-size:10.5px}}
-.fab-toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);z-index:51;background:var(--navy);color:#fff;font-family:var(--thin);font-size:14px;line-height:1.5;text-align:center;padding:12px 18px;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.3);white-space:nowrap}
-.fab-toast a{color:var(--sun)}.fab-toast[hidden]{display:none}
-@media print{.fab,.fab-toast{display:none}}
+.fab a svg{width:24px;height:24px;fill:currentColor}
+.fab .call{background:linear-gradient(180deg,#6FE0FF,#1EA7E6);color:#04122E;box-shadow:0 8px 20px rgba(0,0,0,.45),var(--glow-s)}
+.fab .kakao{background:#FEE500;color:#191600}
 
-@media (max-width:700px){
-  .ocard .logo-img{width:141px;border-radius:8px}.ocard .logo-img.s{width:113px;border-radius:6px}
-  :root{--col:100%;--A:15px}
-  .page{box-shadow:none}
-  /* 히어로: 680px 캔버스를 화면 폭에 맞춰 통째로 축소 (PDF 비율 유지) */
-  .hero-scale{position:absolute;left:0;top:0;width:680px;height:748px;transform-origin:top left}
-  .apply{padding:46px 18px 38px}
-  .apply .eyebrow{font-size:24px}.apply h2{font-size:32px}.apply .lead{font-size:16px}
-  .form-card{margin-top:24px;padding:18px 15px 16px;border-radius:18px}
-  .grid2{gap:10px}
-  .f input[type=text],.f input[type=tel],.f input[type=number],.f select,.f textarea{font-size:14.5px}
-  .seg .mhead{font-size:14px}
-  .bulkbox{gap:10px;padding:11px 12px}.bulkbox b{font-size:15px}.bulkbox .pick{display:none}
-  .bulkthumbs{grid-template-columns:repeat(4,1fr)}
-  .chip span{padding:0 12px}
-  .apply .cta{font-size:22px;height:56px}
-  .apply .tiny .mb{display:inline}
-  .options .heads div{font-size:12px}
-  .options .cards{gap:10px;padding:16px 10px 0;background:var(--sky);position:relative;z-index:1}
-  .ocard{padding:22px 8px 22px}.logo.sm .name{font-size:32px}.logo.sm .tag{font-size:9px}.logo.sm .pill{font-size:9px;padding:3px 10px}
-  .ocard .box{font-size:14px}.ocard .ex{font-size:14px}
-  .foot-nav{font-size:14px;gap:12px}
-  footer .biz{font-size:11px;line-height:1.6}
+@media (prefers-reduced-motion:reduce){
+  .form-card::before,.form-card::after,.orb::before,.ebadge::before,.neon,.track,.step.on .node::after,.step.on .sbox{animation:none}
+  .rise{opacity:1;transform:none;transition:none}
+  .logo-wrap img{animation:none;-webkit-mask-image:none;mask-image:none}
+  .logo-wrap .pill-glow{animation:none;opacity:.8}
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
 <div class="page">
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="top">
- <div class="hero-scale">
-  <img class="top" src="assets/hero_v13.jpg?v=1026c" alt="오션카오토 — 중고차 청정해역 Ocean Car Auto. 중고차 수출 / 국내 중고차 전문. 60만km, 파손 심한 문제차량은 수출로! 자동차 진단평가사가 검증한 국내중고차 매매! 상담전화 1588-4525, 운영시간 10:00 AM ~ 22:00 PM. 비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
- </div>
-</section>
-<div class="waveband" aria-hidden="true">
-  <img class="badges" src="assets/badges.png?v=0926f" alt="비전문가의 감가폭탄 OUT · 중간수수료 OUT · 투명한 과정과 약속">
-  <svg class="w1" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,45 C170,5 170,85 340,45 C510,5 510,85 680,45 C850,5 850,85 1020,45 C1190,5 1190,85 1360,45 L1360,230 L0,230 Z" fill="#0B2647" opacity=".55"/></svg>
-  <svg class="w2" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,95 C170,50 170,140 340,95 C510,50 510,140 680,95 C850,50 850,140 1020,95 C1190,50 1190,140 1360,95 L1360,230 L0,230 Z" fill="#0B2647"/></svg>
-  <svg class="w3" viewBox="0 0 1360 230" preserveAspectRatio="none"><path d="M0,165 C170,125 170,205 340,165 C510,125 510,205 680,165 C850,125 850,205 1020,165 C1190,125 1190,205 1360,165 L1360,230 L0,230 Z" fill="#ffffff"/></svg>
-</div>
-
-<div class="p5">
-
-<!-- ================= 문의 ================= -->
-<section class="ask">
-  <h2>언제든 가볍게 문의하세요</h2>
-  <button class="btn1" type="button" onclick="location.href='#apply'">견적만 문의 바로가기[버튼클릭]</button>
-  <p class="info">상담 : <a href="tel:1588-4525" style="color:inherit;text-decoration:none">1588-4525</a><span class="sp"></span>운영 : 10:00 - 22:00</p>
-  <p class="addr"><span class="hl-b">오시는 길 : 대전광역시 유성구 유성대로 510, 238호</span></p>
-</section>
-
-<!-- ================= 중고차! ================= -->
-<section class="cars">
-  <img src="assets/cars_v3.webp?v=1101a" alt="일반 중고차와 차량을 실은 트럭">
-  <h2>중고차!</h2>
-  <h3>아직도 그냥 팔거나 처리하십니까?</h3>
-</section>
-
-<!-- ================= 문제점 ================= -->
-<section class="probs" id="problem">
-  <div class="pc"><span class="lbl">1.문제점</span><img class="ill" style="height:calc(153*var(--u))" src="assets/p_dealer_t.png?v=0926f" alt=""><h3>비전문가의 감가폭탄 또는 폭리</h3><p>비전문가인 딜러들의<br><span class="hl-b">감가폭탄</span> 또는 <span class="hl-b">폭리</span></p></div>
-  <div class="pc"><span class="lbl">2.문제점</span><img class="ill" style="height:calc(162*var(--u))" src="assets/p_app_t.png?v=0926f" alt=""><h3>경매를 통한 중간수수료 부담</h3><p>경매등의 중간 수수료는<br>결국 <span class="hl-b">소비자의 몫</span>입니다.</p></div>
-  <div class="pc"><span class="lbl">3.문제점</span><img class="ill" style="height:calc(155*var(--u))" src="assets/p_dispute_t.png?v=0926f" alt=""><h3>불투명한 과정과 약속과는 다른 금액</h3><p>견적가와 실견적가가 <span class="hl-b">완전히 다른 사기수법</span></p></div>
-</section>
-
-<!-- ================= 이제는 …가 해결하겠습니다 ================= -->
-<section class="solve" id="promise"><h2>“이제는 오션카오토가<br>해결하겠습니다!”</h2></section>
-
-<!-- ================= 세가지 약속 ================= -->
-<section class="qs">
-  <div class="qitem">
-    <span class="pill">1.약속</span>
-    <img style="width:calc(205.5*var(--u))" src="assets/p_appraiser.png?v=0926f" alt="">
-    <h3>전문가의 매매견적가로<br><span class="hl-b">제값+@</span></h3>
-    <p>국토교통부공인<br>[자동차진단평가사] 의 매매견적가로 안전하게!</p>
+<!-- ================= 1. 히어로 ================= -->
+<header class="hero wrap" id="top">
+  <div class="hero-in">
+    <h1 class="logo-wrap"><img src="media/logo.png" alt="중고차 청정해역 Ocean car Auto 오션카오토 — 중고차 수출 / 국내 중고차 전문" fetchpriority="high"><span class="pill-glow" aria-hidden="true"></span></h1>
   </div>
-  <div class="qitem">
-    <span class="pill">2.약속</span>
-    <img style="width:calc(253.5*var(--u))" src="assets/p_bankbook_v2.png?v=1101a" alt="">
-    <h3><span class="hl-b">중간 수수료를</span> 타파!<br>고객에게 더 많이</h3>
-    <p>불필요한 중계로를 타파하고<br>수수료를 없애고 고객에게 드립니다</p>
+</header>
+
+<!-- ================= 2. 메뉴 ================= -->
+<nav class="topnav" id="topnav" aria-label="바로가기">
+  <a href="#about" data-sec="about">회사소개</a>
+  <a href="#apply" data-sec="apply">견적가 알아보기</a>
+  <a href="#visit" data-sec="visit">찾아오시는길</a>
+</nav>
+
+<!-- ================= 3. 영상 ================= -->
+<section class="vwrap wrap">
+  <div class="vframe"><video autoplay muted loop playsinline preload="metadata" poster="media/poster.jpg" aria-label="오션카오토 소개 영상 (무음)"><source src="media/intro.mp4" type="video/mp4"></video></div>
+</section>
+
+<!-- ================= 4. 견적만 알아보기 ================= -->
+<section class="apply sec wrap" id="apply">
+  <div class="head">
+    <p class="eyebrow">[견적만 알아보기]</p>
+    <h2 class="t">지금 차량정보를 남기세요</h2>
+    <p class="sub">수집된 정보는 견적회신 용도외에<br>사용되지 않습니다.</p>
   </div>
-  <div class="qitem">
-    <span class="pill">3.약속</span>
-    <img style="width:calc(119.5*var(--u))" src="assets/p_handshake.png?v=0926f" alt="">
-    <h3>투명한 과정공개!<br><span class="hl-b">약속과 동일한 금액</span></h3>
-    <p>판매과정을 실시간으로 공개!<br>약속과 동일한 금액이 아닐시 전액환불!</p>
-  </div>
-</section>
-
-<!-- ================= 차량상태에 따른 판매옵션 ================= -->
-<section class="optbox">
-  <p class="q">"차량상태에 따라<br>선택할 수 있는 판매옵션"</p>
-  <p class="big">[수출] <span class="or">or</span> [국내 중고차]</p>
-</section>
-
-<!-- ================= 수출 ================= -->
-<section class="chan first" id="export">
-  <span class="tag">수출</span>
-  <img src="assets/ship_v2.jpg?v=1018a" alt="컨테이너를 실은 수출 화물선 — 주요수출국: 러시아 / 몽골 / 중동 / 아프리카 / 남미">
-  <p>20만km 이상인 차량<br>폐차급 차량이라면<br><span class="hl-b">수출이 정답입니다!</span></p>
-</section>
-
-<!-- ================= 국내 중고차 판매 ================= -->
-<section class="chan" id="domestic">
-  <span class="tag">국내 중고차 판매</span>
-  <img src="assets/k8_v2.jpg?v=1018a" alt="국내 중고차 판매 — 기아 K8">
-  <p>15만 km 이하인 차량,<br>현대/기아 차량일 경우<br><br>또는 국산 승합차량<br>포터, 덤프등등이라면<br><br><span class="hl-b">국내 중고차 판매가 정답입니다!</span></p>
-</section>
-
-<!-- ================= 간편한 3단계 판매 절차 ================= -->
-<section class="proc" id="process">
-  <h2>[간편한 3단계 판매 절차]</h2>
-  <div class="pcard">
-    <div class="step">
-      <h3><span class="no">1</span>사이트에서 차량정보 입력</h3>
-      <div class="fig"><img class="qr" src="assets/qr.png?v=0926f" alt="예약사이트 QR"><span class="qrlbl">예약사이트QR</span></div>
-      <div class="box"><div>1.차종 / 2.연식 / 3.차량 사진 / 4.연락처<br><span class="sky">정보만 기입해도 [견적가 안내] 가능!</span></div></div>
-    </div>
-    <div class="step s2">
-      <h3><span class="no">2</span>즉시입금 or 전문가 현장방문 견적<br>or 탁송견적 (무료)</h3>
-      <div class="fig"><img style="width:calc(210*var(--u))" src="assets/mechanic_pdf.png?v=0926f" alt=""></div>
-      <div class="box"><div>이후, 차량 상태에 따라<br>추가 확인 없이 즉시입금 가능<div class="gap"></div>추가 확인 필요할 경우<br><span class="sky">방문견적(무료)or견적(무료) 진행</span></div></div>
-    </div>
-    <div class="step s3">
-      <h3><span class="no">3</span>최종판매 결정</h3>
-      <div class="fig"><img style="width:calc(190*var(--u))" src="assets/phone_pdf.png?v=0926f" alt="차량 인계"></div>
-      <div class="box"><div>추가 확인 이후 2단계에 결정내린<br><span class="sky">견적가와 1원 차이없이</span><br>판매결정&nbsp; 최종 승인시 즉시 입금<div class="gap"></div><span class="hl-y">단, 차량운행 불가시 가격 변동 발생</span></div></div>
-    </div>
-  </div>
-</section>
-
-</div>
-
-<!-- ================= 신청 (견적만 알아보기) ================= -->
-<section class="apply" id="apply">
-  <div class="eyebrow">[견적만 알아보기]</div>
-  <h2>지금 차량정보를 남기세요</h2>
-  <p class="lead">수집된 정보는 견적회신 용도외에<br>사용되지 않습니다.</p>
 
   <form class="form-card" id="applyForm" novalidate>
-    <!-- 1 차량 정보 -->
     <div class="fs" id="carFs">
       <div class="fh"><span class="no">1</span><span class="ft">차량 정보</span><span class="req">필수</span></div>
       <div class="grid2">
-        <div class="f"><label for="maker">제조사</label>
-          <select id="maker" name="maker" required><option value="">선택</option><option>현대</option><option>기아</option><option>제네시스</option><option>쌍용(KGM)</option><option>르노코리아</option><option>쉐보레(한국GM)</option><option>수입차</option><option>기타</option></select></div>
-        <div class="f"><label for="year">연식</label><select id="year" name="year" required><option value="">선택</option></select></div>
+        <div class="f"><label for="maker">제조사</label><div class="sel"><select id="maker" name="maker" required><option value="">선택</option><option>현대</option><option>기아</option><option>제네시스</option><option>쌍용(KGM)</option><option>르노코리아</option><option>쉐보레(한국GM)</option><option>수입차</option><option>기타</option></select></div></div>
+        <div class="f"><label for="year">연식</label><div class="sel"><select id="year" name="year" required><option value="">선택</option></select></div></div>
         <div class="f"><label for="model">차종(모델명)</label><input type="text" id="model" name="model" placeholder="예: 그랜저 HG" required></div>
         <div class="f"><label for="km">주행거리 (km)</label><input type="number" id="km" name="km" inputmode="numeric" placeholder="예: 187000" required></div>
       </div>
       <div class="f memo"><label for="memo">기타 메모<small>건너뛰어도 됩니다</small></label><textarea id="memo" name="memo" rows="2" placeholder="사고 이력 · 시동/운행 가능 여부 · 압류/저당 유무 등 아는 만큼만"></textarea></div>
     </div>
 
-    <!-- 2 차량 사진 -->
     <div class="fs" id="photoFs">
-      <div class="fh"><span class="no">2</span><span class="ft">차량 사진</span><span class="req">택1</span></div>
+      <div class="fh"><span class="no">2</span><span class="ft">차량 사진</span><span class="req opt">택1</span></div>
       <div class="seg" id="modes" role="tablist">
-        <button type="button" class="mhead on" data-mode="bulk" role="tab" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg>사진 올리기<em>추천</em></button>
+        <button type="button" class="mhead on" data-mode="bulk" role="tab" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg>사진 올리기<em>추천</em></button>
         <button type="button" class="mhead" data-mode="none" role="tab" aria-selected="false">사진 없이 견적만</button>
       </div>
       <div class="mode on" data-mode="bulk">
-        <label class="bulkbox" id="bulkBox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/><path d="M19 3v4M17 5h4"/></svg><span><b id="bulkTitle">사진 선택하기</b><small id="bulkSub">여러 장 한 번에 선택 가능 · 최대 20장</small></span><span class="pick">갤러리 열기</span><input type="file" accept="image/*" multiple id="bulkInput"></label>
+        <label class="bulkbox" id="bulkBox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/><path d="M19 3v4M17 5h4"/></svg><span><b id="bulkTitle">사진 선택하기</b><small id="bulkSub">여러 장 한 번에 선택 가능 · 최대 20장</small></span><span class="pick">갤러리 열기</span><input type="file" accept="image/*" multiple id="bulkInput"></label>
         <div class="bulkthumbs" id="bulkThumbs" hidden></div>
         <div class="bulkbar" id="bulkBar" hidden><span id="bulkCount">0장 선택됨</span><button type="button" id="bulkAdd">더 추가</button><button type="button" id="bulkClear">전부 지우기</button></div>
-        <p class="bulk-note"><b>정면 · 후면 · 측면(좌/우) · 지붕 · 실내(앞/뒤) · 파손 부위</b> 사진이 있으면 견적이 정확해집니다. 없는 사진은 있는 그대로만 올려주셔도 됩니다.</p>
+        <p class="note"><b>정면 · 후면 · 측면(좌/우) · 지붕 · 실내(앞/뒤) · 파손 부위</b> 사진이 있으면 견적이 정확해집니다. 없는 사진은 있는 그대로만 올려주셔도 됩니다.</p>
       </div>
-      <div class="mode navy" data-mode="none" id="modeNone">
-        <p class="note"><b>사진이 없으면 견적가가 정확하지 않을 수 있습니다.</b> 주행거리와 메모를 자세히 적어주실수록 안내가 정확해지며, 최종 견적은 이후 사진 확인 또는 방문·탁송 확인 후 확정됩니다.</p>
+      <div class="mode" data-mode="none" id="modeNone">
+        <p class="note caution"><span class="hl-y">사진이 없으면 견적가가 정확하지 않을 수 있습니다.</span> 주행거리와 메모를 자세히 적어주실수록 안내가 정확해지며, 최종 견적은 이후 사진 확인 또는 방문·탁송 확인 후 확정됩니다.</p>
       </div>
     </div>
 
-    <!-- 3 연락처 -->
     <div class="fs" id="contactFs">
       <div class="fh"><span class="no">3</span><span class="ft">연락처</span><span class="req">필수</span></div>
-      <div class="crow">
+      <div class="grid2">
         <div class="f"><label for="phone">휴대폰 번호</label><input type="tel" id="phone" name="phone" placeholder="010-1234-5678" required></div>
-        <div class="f"><label>견적 회신 방법</label>
-          <div class="chips">
-            <label class="chip"><input type="checkbox" name="reply" value="sms" checked><span>문자</span></label>
-            <label class="chip"><input type="checkbox" name="reply" value="call"><span>전화</span></label>
+        <div class="f"><label id="replyLbl">견적 회신 방법</label>
+          <div class="chips2" role="group" aria-labelledby="replyLbl">
+            <label class="chip2"><input type="checkbox" name="reply" value="sms" id="replySms" checked><span>문자</span></label>
+            <label class="chip2"><input type="checkbox" name="reply" value="call" id="replyCall"><span>전화</span></label>
           </div>
         </div>
       </div>
@@ -491,50 +360,140 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
 
     <div class="fmsg" id="fmsg" role="alert"></div>
     <button class="cta" type="submit" id="ctaBtn">견적 요청 보내기</button>
-    <p class="tiny">전송 즉시 접수번호가 발급되며,<br class="mb"> 운영시간(10:00–22:00) 내 순차 회신 드립니다.</p>
+    <p class="tiny">전송 즉시 접수번호가 발급되며,<br>운영시간(10:00–22:00) 내 순차 회신 드립니다.</p>
   </form>
 </section>
 
-<!-- ================= 추가 판매옵션 ================= -->
-<section class="options">
-  <div class="top">
-    <span class="pill">제휴판매옵션</span>
-    <p class="note">[제휴 옵션]을 선택 할 수 있는 차량은<br>제한되어 있습니다.<br>개별 알림 발송으로 안내드립니다,</p>
+<!-- ================= 5. 감가폭탄 ZERO ================= -->
+<section class="zero sec wrap" id="zero">
+  <div class="head reveal">
+    <p class="eyebrow">전문가 매입</p>
+    <h2 class="t">감가폭탄 <span class="neon">ZERO</span>,<br>이제는 자동차진단평가사가 매입하는<br>전문가 견적가로 매입</h2>
   </div>
-  <div class="heads"><div class="l">기본 옵션 (최종견적가 그대로 판매)</div><div class="r">제휴 옵션 (오션카오토 X 차기스PRO)</div></div>
-  <div class="cards">
-    <div class="ocard">
-      <div class="lg"><img class="logo-img" src="assets/oceancar-logo-v4.png?v=1026a" alt="오션카오토 — 중고차 수출 / 국내 중고차 전문"></div>
-      <div class="box dark">최종견적가 그대로<br>그대로 판매진행 옵션</div>
-      <p class="ex">예시: 추가선택 없이<br>최종견적가<br><span class="hl-y">550만원에 판매</span> 결정</p>
-    </div>
-    <div class="ocard">
-      <div class="lg"><img class="logo-img s" src="assets/oceancar-logo-v4.png?v=1026a" alt="오션카오토 — 중고차 수출 / 국내 중고차 전문"></div>
-      <div class="x">X</div>
-      <div class="chagis"><img src="assets/chagis.webp?v=0926f" alt="차기스PRO"></div>
-      <div class="box light">외장수리 전문매장<br>(제휴매장)<br><span class="hl-y">차기스 프로(PRO)</span>에서 수리 후<br>추가금 받고 판매</div>
-      <p class="ex">예시: 15만원 외장 수리 후<br><span class="hl-y">600만원에 판매</span><br>(탁송으로 진행 및<br>전과정 알림 발송)</p>
-    </div>
+  <div class="routes">
+    <article class="route rise" data-lit data-tilt data-glow tabindex="0">
+      <div class="pic"><img src="media/ship.jpg" alt="컨테이너를 실은 수출 화물선 — 주요수출국: 러시아 / 몽골 / 중동 / 아프리카 / 남미"></div>
+      <div class="rb">
+        <span class="tag">수출차</span>
+        <p class="cond">수출차로 판매</p>
+        <p class="body">20만km 이상인 차량<br>폐차급 차량이라면<br><span class="hl-b">수출이 정답입니다!</span></p>
+        <p class="countries">주요수출국 · 러시아 / 몽골 / 중동 / 아프리카 / 남미</p>
+      </div>
+    </article>
+    <article class="route rise" data-lit data-tilt data-glow tabindex="0">
+      <div class="pic"><img src="media/k8.jpg" alt="국내 중고차 판매 — 기아 K8"></div>
+      <div class="rb">
+        <span class="tag">국내 중고차</span>
+        <p class="cond">국내 중고차로 판매</p>
+        <p class="body">15만 km 이하인 차량,<br>현대/기아 차량일 경우<br>또는 국산 승합차량,<br>포터, 덤프라면<br><span class="hl-b">국내 중고차 판매가 정답입니다!</span></p>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- ================= 마무리 배너 ================= -->
-<section class="outro" id="visit">
-  <div class="skytop"></div>
-  <div class="logo-wrap"><img class="logo-img" src="assets/oceancar-logo-v4.png?v=1026a" alt="오션카오토 — 중고차 수출 / 국내 중고차 전문"></div>
-  <div class="sea">
-    <p class="band">이제는 제값에, 안심하고 팔 수 있는<br>시대가 열렸습니다!</p>
-    <span class="qrlbl">예약사이트QR</span>
-    <img class="qr" src="assets/qr.png?v=0926f" alt="예약사이트 QR — https://dstrade.it.kr">
+<!-- ================= 6. 세가지 약속 ================= -->
+<section class="promise sec wrap" id="promise">
+  <div class="head reveal">
+    <p class="eyebrow">3가지 약속</p>
+    <h2 class="t">“오션카오토는 고객들과<br>세가지 약속을 지키겠습니다.”</h2>
   </div>
-  <div class="infobar"><b>상담전화 :</b> <a href="tel:1588-4525">1588-4525</a><br><b>운영시간 :</b> <span style="white-space:nowrap">10:00 AM ~ 22:00 PM</span><br><b>오시는길 :</b> <span style="white-space:nowrap">대전광역시 유성구 유성대로 510, 238호</span></div>
+  <div class="pgrid">
+    <article class="pcard reveal" data-tilt data-glow>
+      <span class="num">약속 01</span>
+      <div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.6-7 10-4-1.4-7-5.4-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>전문가의 매매견적가로<br><span class="hl-b">제값+@</span></h3>
+      <p>국토교통부공인<br>[자동차진단평가사] 의 매매견적가로 안전하게!</p>
+    </article>
+    <article class="pcard reveal" data-tilt data-glow>
+      <span class="num">약속 02</span>
+      <div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 8l2 8 2-6 2 6 2-8"/><path d="M7.5 11.5h9M7.5 14h9"/><path d="M4.5 19.5l15-15"/></svg></div>
+      <h3><span class="hl-b">중간 수수료를</span> 타파!<br>고객에게 더 많이</h3>
+      <p>불필요한 중계로를 타파하고<br>수수료를 없애고 고객에게 드립니다</p>
+    </article>
+    <article class="pcard reveal" data-tilt data-glow>
+      <span class="num">약속 03</span>
+      <div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="3"/><path d="M12 2.5v2M12 19.5v2"/></svg></div>
+      <h3>투명한 과정공개!<br><span class="hl-b">약속과 동일한 금액</span></h3>
+      <p>판매과정을 실시간으로 공개!<br>약속과 동일한 금액이 아닐시 전액환불!</p>
+    </article>
+  </div>
 </section>
-<nav class="foot-nav"><a href="#privacy">개인정보 처리 방침</a><a href="#legal">허위접수 안내</a><a href="#apply">견적 신청으로 가기</a></nav>
 
-<!-- ================= 기존 푸터 그대로 ================= -->
-<footer>
-  <div class="biz">상호 오션카오토 · 대표 최희찬<br>사업자등록번호 <span style="white-space:nowrap">468-68-00735</span><br>대전광역시 유성구 유성대로 510, 238호<br>개인정보보호책임자 최희찬 · 상담전화 <span style="white-space:nowrap"><a href="tel:1588-4525" style="color:inherit">1588-4525</a></span></div>
-  <details id="privacy">
+<!-- ================= 7. 간편한 3단계 판매 절차 ================= -->
+<section class="steps sec wrap" id="process">
+  <div class="head reveal">
+    <p class="eyebrow">판매 절차</p>
+    <h2 class="t">[간편한 3단계 판매 절차]</h2>
+  </div>
+  <div class="ind" id="stepInd" aria-live="polite"><span class="lbl">진행</span><span class="segs"><i></i><i></i><i></i></span><span class="pct" id="stepPct">0/3</span></div>
+  <div class="timeline" id="timeline">
+    <div class="rail"><div class="fill" id="railFill"></div></div>
+    <ol>
+      <li class="step" data-step="1">
+        <div class="node">1</div>
+        <h3>사이트에서 차량정보 입력</h3>
+        <div class="sbox">1.차종 / 2.연식 / 3.차량 사진 / 4.연락처<br><b>정보만 기입해도 [견적가 안내] 가능!</b></div>
+      </li>
+      <li class="step" data-step="2">
+        <div class="node">2</div>
+        <h3>즉시입금 or 전문가 현장방문 견적<br>or 탁송견적 (무료)</h3>
+        <div class="sbox">이후, 차량 상태에 따라<br>추가 확인 없이 즉시입금 가능<br><br>추가 확인 필요할 경우<br><b>방문견적(무료) or 탁송견적(무료) 진행</b></div>
+      </li>
+      <li class="step" data-step="3">
+        <div class="node">3</div>
+        <h3>최종판매 결정</h3>
+        <div class="sbox">추가 확인 이후 2단계에 결정내린<br><b>견적가와 1원 차이없이</b><br>판매결정 최종 승인시 즉시 입금<br><span class="warn">단, 차량운행 불가시 가격 변동 발생</span></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= 8. 차량 판매 현황 ================= -->
+<section class="reviews sec" id="reviews">
+  <div class="wrap head reveal">
+    <p class="eyebrow">판매후기</p>
+    <h2 class="t">차량 판매 현황</h2>
+    <p class="sub">사진과 차종 · 연식 · 견적가</p>
+  </div>
+  <div class="wrap"><div class="marquee" id="reviewMarquee"><div class="track" id="reviewTrack"></div></div></div>
+</section>
+
+<!-- ================= 9. 전문가 / 회사소개 ================= -->
+<section class="expert sec wrap" id="about">
+  <div class="head reveal">
+    <p class="eyebrow">회사소개 · 전문가</p>
+    <h2 class="t">자동차 진단평가사가<br>직접 진단하고 매입합니다</h2>
+  </div>
+  <div class="ecard reveal">
+    <div class="ebadge"><span class="t0">국가공인</span><span class="t1">자동차<br>진단평가사</span><span class="t2">AUTO APPRAISER</span></div>
+    <p class="edef">중고자동차의 성능과 상태를 점검하고<br>이를 금전적 가치로 평가하는 국가공인 자격자<small>국토교통부 공인 · (사)한국자동차진단보증협회 발급</small></p>
+    <p class="equote">비전문적인 감가폭탄을 막고,<br>올바른 진단과 합리적인 가격으로<br>고객들의 신뢰를 우선시 하겠습니다.</p>
+  </div>
+</section>
+
+<!-- ================= 10. 오시는길 ================= -->
+<section class="visit sec wrap" id="visit">
+  <div class="head reveal">
+    <p class="eyebrow">찾아오시는길</p>
+    <h2 class="t">오시는길</h2>
+  </div>
+  <a class="map reveal" href="https://naver.me/xVRcUeQe" target="_blank" rel="noopener" aria-label="네이버 지도에서 오션카오토 위치 열기">
+    <img src="media/map.jpg" alt="오션카오토 위치 지도 — 대전 유성구 유성대로 510 오토월드, 경부고속도로 옆">
+    <span class="mtag">오션카오토 · 오토월드 238호 (눌러서 네이버 지도 열기)</span>
+  </a>
+  <p class="vaddr" id="addrText">대전광역시 유성구 유성대로 510, 238호 (오토월드)</p>
+  <p class="vmeta">상담전화 1588-4525 · 운영시간 10:00 – 22:00</p>
+  <div class="vbtns">
+    <a class="primary" href="https://naver.me/xVRcUeQe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>네이버 지도 열기</a>
+    <button type="button" id="copyAddr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>주소 복사</button>
+  </div>
+</section>
+
+<!-- ================= 11. 푸터 ================= -->
+<footer class="foot wrap">
+  <nav class="fnav" aria-label="안내"><a href="#privacy">개인정보 처리방침</a><a href="#legal">허위접수 안내</a><a href="#apply">견적신청으로 가기</a></nav>
+  <div class="biz">상호 오션카오토 · 대표 최희찬<br>사업자등록번호 468-68-00735<br>대전광역시 유성구 유성대로 510, 238호<br>개인정보보호책임자 최희찬 · 상담전화 <a href="tel:1588-4525">1588-4525</a></div>
+  <details class="legal" id="privacy">
     <summary>개인정보처리방침 (요약)</summary>
     <div class="body">
       <h5>1. 수집 항목과 목적</h5>
@@ -549,28 +508,120 @@ footer .copy{margin-top:28px;font-size:12px;color:#9AA3B2}
       <ul><li>수집된 정보는 접근 권한을 담당자로 제한하고, 전송 구간은 암호화합니다.</li></ul>
     </div>
   </details>
-  <div class="warn" id="legal">
-    <b>허위·장난 접수 안내</b><br>
-    본 사이트의 견적·판매 신청은 실제 상담 인력이 순차적으로 검토합니다. 존재하지 않는 차량, 타인 소유 차량, 허위 연락처로 반복 접수하거나 상담 진행을 고의로 방해하는 행위는 다음 법령에 따라 민·형사상 책임을 물을 수 있습니다.<br>
-    <ul>
-      <li><b>형법 제314조(업무방해)</b> — 허위 사실 유포 또는 위계·위력으로 업무를 방해한 자: 5년 이하 징역 또는 1,500만 원 이하 벌금</li>
-      <li><b>형법 제231조·제234조(사문서위조·위조사문서행사)</b> — 차량등록증·신분증 등을 위조·변조하여 제출한 경우</li>
-      <li><b>주민등록법 제37조</b> — 타인의 주민등록증(번호)을 부정 사용한 경우: 3년 이하 징역 또는 3,000만 원 이하 벌금</li>
-      <li><b>민법 제750조(불법행위)</b> — 허위 접수로 발생한 방문·탁송 비용 등 손해에 대한 배상 청구</li>
-    </ul>
-    접수 시 IP 주소와 접수 일시가 기록되며, 반복적인 허위 접수는 수사기관에 증거 자료와 함께 제출됩니다.
-  </div>
+  <details class="legal caution" id="legal">
+    <summary>⚠ 허위·장난 접수 안내</summary>
+    <div class="body">
+      본 사이트의 견적·판매 신청은 실제 상담 인력이 순차적으로 검토합니다. 존재하지 않는 차량, 타인 소유 차량, 허위 연락처로 반복 접수하거나 상담 진행을 고의로 방해하는 행위는 다음 법령에 따라 민·형사상 책임을 물을 수 있습니다.
+      <ul>
+        <li><b>형법 제314조(업무방해)</b> — 허위 사실 유포 또는 위계·위력으로 업무를 방해한 자: 5년 이하 징역 또는 1,500만 원 이하 벌금</li>
+        <li><b>형법 제231조·제234조(사문서위조·위조사문서행사)</b> — 차량등록증·신분증 등을 위조·변조하여 제출한 경우</li>
+        <li><b>주민등록법 제37조</b> — 타인의 주민등록증(번호)을 부정 사용한 경우: 3년 이하 징역 또는 3,000만 원 이하 벌금</li>
+        <li><b>민법 제750조(불법행위)</b> — 허위 접수로 발생한 방문·탁송 비용 등 손해에 대한 배상 청구</li>
+      </ul>
+      <span class="warn-text">접수 시 IP 주소와 접수 일시가 기록되며, 반복적인 허위 접수는 수사기관에 증거 자료와 함께 제출됩니다.</span>
+    </div>
+  </details>
   <p class="copy">© 2026 오션카오토. All rights reserved.</p>
 </footer>
 
 </div>
 
+<!-- ================= 12. 플로팅 상담 버튼 ================= -->
+<div class="fab">
+  <a class="call" href="tel:1588-4525" aria-label="전화상담 1588-4525"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>전화상담</a>
+  <a class="kakao" href="https://pf.kakao.com/_zexcaX/chat" target="_blank" rel="noopener" aria-label="카카오톡 상담"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.2 4.6 6.6L5.5 21.5c-.1.3.3.6.6.4l4.3-2.8c.5.1 1 .1 1.6.1 5.5 0 10-3.6 10-8.2S17.5 3 12 3z"/></svg>카톡상담</a>
+</div>
+
 <script>
-// 모바일: 히어로(680px 캔버스)를 화면 폭에 맞춰 통째로 축소
-(function(){var h=document.querySelector('.hero'),c=document.querySelector('.hero-scale');function fit(){var w=h.clientWidth;if(w<680){var k=w/680;c.style.transform='scale('+k+')';h.style.height=(748*k)+'px';}else{c.style.transform='';h.style.height='';}}fit();addEventListener('resize',fit);})();
-// 연식 옵션
+/* =========================================================
+   차량 판매 현황 데이터 — 여기만 고치면 됩니다.
+   img: 사진 파일 경로 (예: 'reviews/01.jpg'), 비우면 '사진' 자리로 표시
+   ========================================================= */
+var REVIEWS = [
+  { img: '', model: '', year: '', price: '' },
+  { img: '', model: '', year: '', price: '' },
+  { img: '', model: '', year: '', price: '' },
+  { img: '', model: '', year: '', price: '' },
+  { img: '', model: '', year: '', price: '' },
+  { img: '', model: '', year: '', price: '' }
+];
+
+var REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- 1. 수출차·국내 중고차 카드: 누르면 테두리에 은은한 빛 ---------- */
+(function(){
+  [].slice.call(document.querySelectorAll('[data-lit]')).forEach(function(card){
+    card.addEventListener('click',function(){card.classList.toggle('lit');});
+    card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();card.classList.toggle('lit');}});
+  });
+})();
+
+/* ---------- 2. 메뉴 현재 위치 표시 ---------- */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#topnav a'));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('data-sec'));});
+  function upd(){var y=window.scrollY+window.innerHeight*0.38,cur=-1;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i;});links.forEach(function(a,i){a.classList.toggle('on',i===cur);});}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+})();
+
+/* ---------- 3. 스크롤 등장 + 카드 빛/틸트 ---------- */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal,.rise'));
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -12% 0px'});els.forEach(function(el){io.observe(el);});}
+  else els.forEach(function(el){el.classList.add('in');});
+  [].slice.call(document.querySelectorAll('[data-glow]')).forEach(function(card){
+    card.addEventListener('pointermove',function(e){var r=card.getBoundingClientRect();var mx=(e.clientX-r.left)/r.width*100,my=(e.clientY-r.top)/r.height*100;card.style.setProperty('--mx',mx+'%');card.style.setProperty('--my',my+'%');card.classList.add('hov');
+      if(card.hasAttribute('data-tilt')&&!REDUCE&&e.pointerType==='mouse'){var dx=mx/100-0.5,dy=my/100-0.5;card.style.transform='perspective(900px) rotateX('+(-dy*6)+'deg) rotateY('+(dx*7)+'deg)';}});
+    card.addEventListener('pointerleave',function(){card.classList.remove('hov');card.style.transform='';});
+    card.addEventListener('pointerdown',function(){card.classList.add('hov');});
+  });
+})();
+
+/* ---------- 4. 3단계 게이지 ---------- */
+(function(){
+  var tl=document.getElementById('timeline'),fill=document.getElementById('railFill'),pct=document.getElementById('stepPct');
+  if(!tl) return;
+  var steps=[].slice.call(tl.querySelectorAll('.step')),segs=[].slice.call(document.querySelectorAll('#stepInd .segs i')),maxP=0;
+  /* 한 번 켜진 단계는 다시 꺼지지 않고, 게이지도 내려가지 않습니다 */
+  function upd(){var r=tl.getBoundingClientRect(),focus=window.innerHeight*0.56,p=(focus-r.top)/r.height;p=Math.max(0,Math.min(1,p));maxP=Math.max(maxP,p);fill.style.height=(maxP*100)+'%';
+    var done=0;steps.forEach(function(s){var n=s.querySelector('.node').getBoundingClientRect();if(n.top+n.height/2<=focus)s.classList.add('on');if(s.classList.contains('on'))done++;});
+    segs.forEach(function(el,i){el.classList.toggle('on',i<done);});pct.textContent=done+'/3';}
+  window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+})();
+
+/* ---------- 5. 차량 판매 현황 카드 ---------- */
+(function(){
+  var track=document.getElementById('reviewTrack'),mq=document.getElementById('reviewMarquee');if(!track)return;
+  var cam='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg>';
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function card(r,i){return '<article class="rcard" aria-label="판매 차량 '+(i+1)+'"><div class="ph">'+(r.img?'<img src="'+esc(r.img)+'" alt="판매 차량 사진 '+(i+1)+'" loading="lazy">':'<div class="empty">'+cam+'<span>사진 '+(i+1)+'</span></div>')+'</div><dl><div><dt>차종:</dt><dd>'+esc(r.model)+'</dd></div><div><dt>연식:</dt><dd>'+esc(r.year)+'</dd></div><div><dt>견적가:</dt><dd>'+esc(r.price)+'</dd></div></dl></article>';}
+  var html=REVIEWS.map(card).join('');track.innerHTML=html+html;
+  mq.addEventListener('pointerdown',function(){mq.classList.add('paused');});
+  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){mq.addEventListener(ev,function(){mq.classList.remove('paused');});});
+})();
+
+/* ---------- 6. 오시는길: 주소 복사 ---------- */
+(function(){
+  var btn=document.getElementById('copyAddr');
+  if(btn){var orig=btn.innerHTML;btn.addEventListener('click',function(){var t=document.getElementById('addrText').textContent.trim();function done(){btn.textContent='복사됨';setTimeout(function(){btn.innerHTML=orig;},1600);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(function(){window.getSelection().selectAllChildren(document.getElementById('addrText'));});}else{window.getSelection().selectAllChildren(document.getElementById('addrText'));}});}
+})();
+
+/* ---------- 6-1. 휴대폰 번호: 숫자만 쳐도 하이픈 자동 입력 ---------- */
+(function(){
+  var ph=document.getElementById('phone');if(!ph)return;
+  function fmt(v){var d=String(v).replace(/\D/g,'').slice(0,11);
+    if(d.length<4)return d;
+    if(d.slice(0,2)==='02'){ if(d.length<=5)return d.slice(0,2)+'-'+d.slice(2); if(d.length<=9)return d.slice(0,2)+'-'+d.slice(2,5)+'-'+d.slice(5); return d.slice(0,2)+'-'+d.slice(2,6)+'-'+d.slice(6,10); }
+    if(d.length<=7)return d.slice(0,3)+'-'+d.slice(3);
+    if(d.length<=10)return d.slice(0,3)+'-'+d.slice(3,6)+'-'+d.slice(6);
+    return d.slice(0,3)+'-'+d.slice(3,7)+'-'+d.slice(7,11);}
+  ph.addEventListener('input',function(){var f=fmt(ph.value);if(f!==ph.value){ph.value=f;}});
+  ph.addEventListener('blur',function(){ph.value=fmt(ph.value);});
+})();
+
+/* ---------- 7. 견적 폼 (기존 사이트 로직 그대로) ---------- */
 (function(){var y=document.getElementById('year');var now=new Date().getFullYear();for(var i=now;i>=1990;i--){var o=document.createElement('option');o.textContent=i+'년';o.value=i;y.appendChild(o);}})();
-// 사진 올리는 방법 택1: bulk(여러 장) / none(사진 없음)
 var pmode='bulk',bulkFiles=[],BULK_MAX=20;
 var bulkBox=document.getElementById('bulkBox'),bulkInput=document.getElementById('bulkInput'),bulkThumbs=document.getElementById('bulkThumbs'),bulkBar=document.getElementById('bulkBar'),bulkCount=document.getElementById('bulkCount'),bulkTitle=document.getElementById('bulkTitle'),bulkSub=document.getElementById('bulkSub');
 function setMode(m){pmode=m;document.querySelectorAll('#modes .mhead').forEach(function(b){var on=b.dataset.mode===m;b.classList.toggle('on',on);b.setAttribute('aria-selected',on?'true':'false');});document.querySelectorAll('#photoFs .mode').forEach(function(c){c.classList.toggle('on',c.dataset.mode===m);});}
@@ -579,7 +630,7 @@ function renderBulk(){
   var n=bulkFiles.length;bulkThumbs.innerHTML='';bulkThumbs.hidden=!n;bulkBar.hidden=!n;bulkBox.classList.toggle('has',n>0);
   bulkTitle.textContent=n?'사진 더 고르기':'사진 선택하기';bulkSub.textContent=n?(n+'장 선택됨 · 최대 '+BULK_MAX+'장'):'여러 장 한 번에 선택 가능 · 최대 '+BULK_MAX+'장';
   bulkCount.textContent=n+'장 선택됨';
-  bulkFiles.forEach(function(f,i){var d=document.createElement('div');var im=document.createElement('img');im.src=URL.createObjectURL(f);d.appendChild(im);var t=document.createElement('i');t.textContent=i+1;d.appendChild(t);var x=document.createElement('button');x.type='button';x.textContent='×';x.setAttribute('aria-label','삭제');x.addEventListener('click',function(){bulkFiles.splice(i,1);renderBulk();});d.appendChild(x);bulkThumbs.appendChild(d);});
+  bulkFiles.forEach(function(f,i){var d=document.createElement('div');var im=document.createElement('img');im.src=URL.createObjectURL(f);im.alt='';d.appendChild(im);var t=document.createElement('i');t.textContent=i+1;d.appendChild(t);var x=document.createElement('button');x.type='button';x.textContent='×';x.setAttribute('aria-label','삭제');x.addEventListener('click',function(){bulkFiles.splice(i,1);renderBulk();});d.appendChild(x);bulkThumbs.appendChild(d);});
 }
 bulkInput.addEventListener('change',function(){
   var add=Array.prototype.slice.call(bulkInput.files);bulkInput.value='';
@@ -588,19 +639,16 @@ bulkInput.addEventListener('change',function(){
 });
 document.getElementById('bulkAdd').addEventListener('click',function(){bulkInput.click();});
 document.getElementById('bulkClear').addEventListener('click',function(){bulkFiles=[];renderBulk();});
-// 사진 압축(긴 변 1400px, JPEG 82%) → base64. 압축 불가 형식(HEIC 등)은 원본 그대로
 function shrinkPhoto(file){return new Promise(function(res){
   var raw=function(){var r=new FileReader();r.onload=function(){res({data:String(r.result).split(',')[1],mime:file.type||'image/jpeg',ext:(file.name.split('.').pop()||'jpg')});};r.onerror=function(){res(null);};r.readAsDataURL(file);};
-  try{
-    var img=new Image();var u=URL.createObjectURL(file);
+  try{var img=new Image();var u=URL.createObjectURL(file);
     img.onload=function(){try{var max=1400,w=img.width,h=img.height,k=Math.min(1,max/Math.max(w,h));var c=document.createElement('canvas');c.width=Math.round(w*k);c.height=Math.round(h*k);c.getContext('2d').drawImage(img,0,0,c.width,c.height);var d=c.toDataURL('image/jpeg',0.82);URL.revokeObjectURL(u);res({data:d.split(',')[1],mime:'image/jpeg',ext:'jpg'});}catch(e){raw();}};
-    img.onerror=function(){URL.revokeObjectURL(u);raw();};
-    img.src=u;
+    img.onerror=function(){URL.revokeObjectURL(u);raw();};img.src=u;
   }catch(e){raw();}
 });}
-// 제출 검증 및 Google Sheets 전송 (페이지 내 메시지)
 var fmsg=document.getElementById('fmsg');
 function showMsg(type,html){fmsg.className='fmsg '+type;fmsg.innerHTML=html;fmsg.scrollIntoView({behavior:'smooth',block:'center'});}
+var IS_LIVE=/dstrade\.it\.kr$|github\.io$|localhost|127\.0\.0\.1/.test(location.hostname);
 document.getElementById('applyForm').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
   if(!f.maker.value||!f.model.value.trim()||!f.year.value){showMsg('err','차량 정보(제조사·차종·연식)를 입력해 주세요.');return;}
   if(!f.km.value){showMsg('err','주행거리(km)를 입력해 주세요. 대략적인 숫자도 괜찮습니다.');return;}
@@ -608,67 +656,26 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
   if(!f.phone.value.trim()){showMsg('err','휴대폰 번호를 입력해 주세요.');return;}
   var replyMethods=[];document.querySelectorAll('input[name="reply"]:checked').forEach(function(c){replyMethods.push(c.value);});
   if(!replyMethods.length){showMsg('err','견적 회신 수단(문자 또는 전화)을 하나 이상 선택해 주세요.');return;}
-
+  if(!IS_LIVE){showMsg('wait','디자인 미리보기에서는 접수가 전송되지 않습니다.\n실제 사이트(dstrade.it.kr)에 올리면 기존과 동일하게 구글 시트로 접수됩니다.');return;}
   var btn=document.getElementById('ctaBtn');btn.disabled=true;btn.textContent='전송 중...';
   showMsg('wait','접수 정보를 전송하고 있습니다. 잠시만 기다려 주세요.');
-
   var refNo='DS-'+String(Date.now()).slice(-6);
-  // 시트 열 구조는 그대로 유지: 없어진 항목(성함·통화시간·신분확인·동의)은 빈칸으로 보냄
-  var formData={
-    timestamp:new Date().toLocaleString('ko-KR'),
-    refNo:refNo,
-    formType:'견적조회'+(pmode==='bulk'?'(사진'+bulkFiles.length+'장)':'(사진없음·대략견적)'),
-    maker:f.maker.value, model:f.model.value.trim(), year:f.year.value,
-    km:f.km.value||'', memo:f.memo.value||'',
-    photoCount:pmode==='bulk'?bulkFiles.length:0,
-    name:'', phone:f.phone.value.trim(),
-    reply:replyMethods.join(', '), calltime:'',
-    idmode:'',
-    agree_privacy:'', agree_truth:'', agree_marketing:''
-  };
-
+  var formData={timestamp:new Date().toLocaleString('ko-KR'),refNo:refNo,formType:'견적조회'+(pmode==='bulk'?'(사진'+bulkFiles.length+'장)':'(사진없음·대략견적)'),maker:f.maker.value,model:f.model.value.trim(),year:f.year.value,km:f.km.value||'',memo:f.memo.value||'',photoCount:pmode==='bulk'?bulkFiles.length:0,name:'',phone:f.phone.value.trim(),reply:replyMethods.join(', '),calltime:'',idmode:'',agree_privacy:'',agree_truth:'',agree_marketing:''};
   var URL_='https://script.google.com/macros/s/AKfycbx9OaG4sZ06ZsTMFTDNvYBdx-6YpHRvOpTwBXuaUnVNSe-VoQc00nhCUp0ghzd5yUg-Jw/exec';
   var finished=false;
-  function done(){
-    if(finished)return;finished=true;
-    showMsg('ok','<b>신청이 완료되었습니다.</b>\n접수번호 '+refNo+'\n운영시간(10:00–22:00) 내 순차 회신드립니다.');
-    try{f.reset();bulkFiles=[];renderBulk();setMode('bulk');}catch(e2){console.warn(e2);}
-    btn.disabled=false;btn.textContent='견적 요청 보내기';
-  }
-  function fail(err){
-    if(finished)return;finished=true;
-    console.error(err);
-    showMsg('err','전송 중 오류가 발생했습니다.\n다시 시도하시거나 1588-4525로 연락 주세요.');
-    btn.disabled=false;btn.textContent='견적 요청 보내기';
-  }
-
+  function done(){if(finished)return;finished=true;showMsg('ok','<b>신청이 완료되었습니다.</b>\n접수번호 '+refNo+'\n운영시간(10:00–22:00) 내 순차 회신드립니다.');try{f.reset();bulkFiles=[];renderBulk();setMode('bulk');}catch(e2){console.warn(e2);}btn.disabled=false;btn.textContent='견적 요청 보내기';}
+  function fail(err){if(finished)return;finished=true;console.error(err);showMsg('err','전송 중 오류가 발생했습니다.\n다시 시도하시거나 1588-4525로 연락 주세요.');btn.disabled=false;btn.textContent='견적 요청 보내기';}
   var jobs=[],doneN=0;function tick(r){doneN++;showMsg('wait','사진을 정리하고 있습니다. '+doneN+'/'+jobs.length);return r;}
   if(pmode==='bulk'){bulkFiles.forEach(function(file,k){jobs.push(shrinkPhoto(file).then(tick).then(function(r){return r?{name:'사진'+String(k+1).padStart(2,'0')+'.'+r.ext,mime:r.mime,data:r.data}:null;}));});}
   if(jobs.length)showMsg('wait','사진을 정리하고 있습니다. 0/'+jobs.length);
-
   Promise.all(jobs).then(function(photos){
-    formData.photos=photos.filter(Boolean);
-    var payload=JSON.stringify(formData);
+    formData.photos=photos.filter(Boolean);var payload=JSON.stringify(formData);
     showMsg('wait',formData.photos.length?'접수 정보를 전송하고 있습니다. 사진이 포함되어 10~20초 걸릴 수 있습니다.':'접수 정보를 전송하고 있습니다. 잠시만 기다려 주세요.');
     var opt1={method:'POST',mode:'cors',redirect:'manual',headers:{'Content-Type':'text/plain;charset=utf-8'},body:payload};
     var opt2={method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:payload};
-    return fetch(URL_,opt1).then(function(r){
-      if(r.type==='opaqueredirect'||r.ok||r.status===0){done();}else{throw new Error('status '+r.status);}
-    }).catch(function(e1){
-      console.warn('1차 실패, 2차 시도:',e1);
-      return fetch(URL_,opt2).then(function(){done();});
-    });
+    return fetch(URL_,opt1).then(function(r){if(r.type==='opaqueredirect'||r.ok||r.status===0){done();}else{throw new Error('status '+r.status);}}).catch(function(e1){console.warn('1차 실패, 2차 시도:',e1);return fetch(URL_,opt2).then(function(){done();});});
   }).catch(fail);
 });
-</script>
-<div class="fab" aria-label="빠른 문의">
-  <a class="call" href="tel:010-8250-1154" aria-label="전화 걸기 010-8250-1154"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>전화문의</a>
-  <a class="kakao" href="https://pf.kakao.com/_zexcaX/chat" target="_blank" rel="noopener" aria-label="카카오톡 문의"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.83 1.84 5.31 4.6 6.72-.2.74-.73 2.7-.84 3.12-.13.52.19.51.4.37.17-.11 2.64-1.8 3.7-2.53.69.1 1.4.16 2.14.16 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>카톡문의</a>
-</div>
-<div class="fab-toast" id="fabToast" hidden>카카오톡 상담은 준비 중입니다.<br>전화 <a href="tel:1588-4525">1588-4525</a>로 문의해 주세요.</div>
-<script>
-// 카카오톡 채널 링크가 아직 없을 때: 안내만 띄움 (링크 넣으면 자동으로 정상 동작)
-(function(){var k=document.querySelector('.fab .kakao'),t=document.getElementById('fabToast'),tm;k.addEventListener('click',function(e){if(k.getAttribute('href').indexOf('KAKAO_URL')<0)return;e.preventDefault();t.hidden=false;clearTimeout(tm);tm=setTimeout(function(){t.hidden=true;},4000);});})();
 </script>
 </body>
 </html>
