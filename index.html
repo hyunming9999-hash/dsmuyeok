@@ -207,7 +207,7 @@ h1,h2,h3,h4{margin:0}
 .sbox .warn{display:inline-block;margin-top:6px;padding:2px 10px;border-radius:6px;background:var(--warn);color:var(--ink);font-weight:700}
 
 /* ---------- 8. 차량 판매 현황 (왼쪽으로 계속 흐름) ---------- */
-.marquee{margin-top:20px;overflow-x:auto;overflow-y:hidden;--cw:calc((min(100vw,560px) - 32px) * .47);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain;padding-bottom:2px}
+.marquee{margin-top:20px;overflow-x:auto;overflow-y:hidden;--cw:clamp(200px,calc((min(100vw,560px) - 32px) * .62),252px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain;padding-bottom:2px}
 .marquee::-webkit-scrollbar{display:none}
 .marquee.grabbing{cursor:grabbing}
 .marquee.grabbing .rcard{pointer-events:none}
@@ -270,11 +270,20 @@ h1,h2,h3,h4{margin:0}
 .vbtns svg{width:18px;height:18px}
 
 /* ---------- 11. 푸터 ---------- */
-.foot{margin-top:44px;border-top:1px solid var(--line-2);padding-block:26px 130px;background:rgba(0,0,0,.28)}
+/* 푸터: 위쪽 네온 수평선 + 바닥에서 은은하게 올라오는 바다빛 */
+.foot{position:relative;margin-top:44px;border-top:none;padding-block:30px 150px;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.1) 55%,rgba(0,0,0,0))}
+.foot::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(57,210,255,.75),transparent)}
+.foot::after{content:"";position:absolute;left:-80px;right:-80px;bottom:-30px;height:300px;background:radial-gradient(58% 58% at 50% 50%,rgba(57,210,255,.46),rgba(30,167,230,.2) 44%,transparent 72%);pointer-events:none;animation:footglow 7s ease-in-out infinite alternate}
+@keyframes footglow{from{opacity:.38;transform:scale(.92)}to{opacity:1;transform:scale(1.08)}}
+.foot>*{position:relative;z-index:1}
+.fbrand{text-align:center;margin-bottom:26px}
+.fbrand .t0{font-size:10.5px;font-weight:700;letter-spacing:.22em;color:var(--cyan);text-shadow:0 0 10px rgba(57,210,255,.55)}
+.fbrand .t1{font-family:var(--display);font-size:25px;line-height:1.1;color:#fff;margin-top:5px;text-shadow:0 0 18px rgba(57,210,255,.45)}
+.fbrand .t2{margin-top:7px;display:inline-block;padding:3px 13px;border-radius:999px;border:1px solid var(--line-2);background:rgba(57,210,255,.07);font-size:11px;font-weight:700;color:var(--ice)}
 .fnav{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 0}
 .fnav a{font-size:13px;font-weight:700;color:var(--ice);text-decoration:none;padding:4px 12px;position:relative;white-space:nowrap}
 .fnav a+a::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--line)}
-.biz{margin:16px 0 0;font-size:12px;line-height:1.8;color:var(--muted)}
+.biz{margin:16px 0 0;padding:13px 14px;border-radius:12px;border:1px solid var(--line-2);background:rgba(255,255,255,.025);font-size:12px;line-height:1.8;color:var(--muted)}
 .biz a{color:inherit;text-decoration:none}
 details.legal{margin-top:12px;border:1px solid var(--line-2);border-radius:12px;background:rgba(255,255,255,.03)}
 details.legal summary{cursor:pointer;list-style:none;padding:12px 14px;font-size:13px;font-weight:700;color:var(--ice);display:flex;justify-content:center;align-items:center;gap:8px}
@@ -300,7 +309,7 @@ details.caution .body b{color:var(--warn)}
 .fab .kakao{background:#FEE500;color:#191600}
 
 @media (prefers-reduced-motion:reduce){
-  .form-card::before,.form-card::after,.orb::before,.ebadge::before,.neon,.track,.step.on .node::after,.step.on .sbox{animation:none}
+  .form-card::before,.form-card::after,.orb::before,.ebadge::before,.neon,.track,.foot::after,.step.on .node::after,.step.on .sbox{animation:none}
   .rise{opacity:1;transform:none;transition:none}
   .logo-wrap img{animation:none;-webkit-mask-image:none;mask-image:none}
   .logo-wrap .pill-glow{animation:none;opacity:.8}
@@ -516,6 +525,11 @@ details.caution .body b{color:var(--warn)}
 
 <!-- ================= 11. 푸터 ================= -->
 <footer class="foot wrap">
+  <div class="fbrand">
+    <div class="t0">중고차의 청정해역</div>
+    <div class="t1">오션카오토</div>
+    <div class="t2">수출차 매입 · 국내 중고차 매입</div>
+  </div>
   <nav class="fnav" aria-label="안내"><a href="#privacy">개인정보 처리방침</a><a href="#legal">허위접수 안내</a><a href="#apply">견적신청으로 가기</a></nav>
   <div class="biz">상호 오션카오토 · 대표 최희찬<br>사업자등록번호 468-68-00735<br>대전광역시 유성구 유성대로 510, 238호<br>개인정보보호책임자 최희찬 · 상담전화 <a href="tel:1588-4525">1588-4525</a></div>
   <details class="legal" id="privacy">
@@ -632,20 +646,28 @@ var REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: re
   var html=REVIEWS.map(card).join('');track.innerHTML=html+html;
 
   /* 무한 루프: 절반 지점을 넘어가면 스크롤 위치를 조용히 되돌립니다 */
+  var expect=-1,idle=0,dragging=false;
   function half(){return track.scrollWidth/2;}
-  function wrap(){var h=half();if(!h)return;if(mq.scrollLeft>=h){mq.scrollLeft-=h;}else if(mq.scrollLeft<=0){mq.scrollLeft+=h;}}
-  mq.addEventListener('scroll',wrap,{passive:true});
-  requestAnimationFrame(function(){mq.scrollLeft=1;});
-
-  /* 손을 떼고 1.2초가 지나면 다시 천천히 흐릅니다 */
-  var idle=0,dragging=false;
+  function wrap(){var h=half();if(!h)return;if(mq.scrollLeft>=h){mq.scrollLeft-=h;}else if(mq.scrollLeft<=0){mq.scrollLeft+=h;}expect=mq.scrollLeft;}
   function touch(){idle=Date.now();}
-  ['pointerdown','wheel','touchstart'].forEach(function(ev){mq.addEventListener(ev,touch,{passive:true});});
-  mq.addEventListener('scroll',touch,{passive:true});
-  (function tick(){
-    if(!REDUCE&&!dragging&&Date.now()-idle>1200){mq.scrollLeft+=0.45;wrap();}
+  /* 내가 움직인 스크롤인지, 사람이 민 스크롤인지 위치로 구분합니다 */
+  mq.addEventListener('scroll',function(){
+    if(expect<0||Math.abs(mq.scrollLeft-expect)>2)touch();
+    wrap();
+  },{passive:true});
+  ['pointerdown','wheel','touchstart','touchmove'].forEach(function(ev){mq.addEventListener(ev,touch,{passive:true});});
+  requestAnimationFrame(function(){mq.scrollLeft=1;expect=mq.scrollLeft;});
+
+  /* 손을 떼고 1.2초가 지나면 초당 48px로 다시 흐릅니다 (주사율이 달라도 속도 동일) */
+  var SPEED=48,prev=0,acc=0;
+  (function tick(t){
+    var dt=prev?Math.min((t-prev)/1000,0.1):0;prev=t;
+    if(!REDUCE&&!dragging&&Date.now()-idle>1200){
+      acc+=SPEED*dt;var px=Math.floor(acc);
+      if(px){acc-=px;mq.scrollLeft+=px;expect=mq.scrollLeft;wrap();}
+    }else{acc=0;}
     requestAnimationFrame(tick);
-  })();
+  })(0);
 
   /* 만지는 카드만 테두리에 하늘색 네온 */
   function unlit(){[].slice.call(track.querySelectorAll('.rcard.lit')).forEach(function(c){c.classList.remove('lit');});}
