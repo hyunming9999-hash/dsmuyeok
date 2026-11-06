@@ -206,7 +206,7 @@ h1,h2,h3,h4{margin:0}
 .sbox b{color:var(--cyan);font-weight:900}
 .sbox .warn{display:inline-block;margin-top:6px;padding:2px 10px;border-radius:6px;background:var(--warn);color:var(--ink);font-weight:700}
 
-/* ---------- 8. 차량 판매 현황 (왼쪽으로 계속 흐름) ---------- */
+/* ---------- 8. 차량 매입 현황 (왼쪽으로 계속 흐름) ---------- */
 .marquee{margin-top:20px;overflow-x:auto;overflow-y:hidden;--cw:clamp(200px,calc((min(100vw,560px) - 32px) * .62),252px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain;padding-bottom:2px}
 .marquee::-webkit-scrollbar{display:none}
 .marquee.grabbing{cursor:grabbing}
@@ -218,8 +218,8 @@ h1,h2,h3,h4{margin:0}
 .rcard.lit,.rcard:hover{border-color:rgba(57,210,255,.95);box-shadow:0 12px 28px rgba(0,0,0,.5),0 0 10px rgba(57,210,255,.55),0 0 28px rgba(57,210,255,.4),inset 0 0 22px rgba(57,210,255,.14)}
 .rcard .hd{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 10px;background:rgba(57,210,255,.12);border-bottom:2px solid rgba(57,210,255,.3)}
 .rcard .hd .id{font-size:9.5px;font-weight:900;letter-spacing:.16em;color:var(--cyan)}
-.rcard .hd .ok{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;font-weight:900;color:var(--buy-n)}
-.rcard .hd .ok::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--buy-n);box-shadow:0 0 6px var(--buy-n)}
+.rcard .hd .ok{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;font-weight:900;color:var(--cyan)}
+.rcard .hd .ok::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
 .rcard .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:#071634;margin:9px 9px 0;border-radius:3px;border:1.5px solid rgba(57,210,255,.22);display:grid;place-items:center}
 .rcard .ph img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
 .rcard .ph .br{position:absolute;width:13px;height:13px;border:2px solid var(--cyan);opacity:.9}
@@ -234,15 +234,15 @@ h1,h2,h3,h4{margin:0}
 .rcard dt{color:var(--muted);font-weight:700;letter-spacing:.06em;font-size:10px;flex:0 0 auto}
 .rcard dd{margin:0;font-weight:900;color:#fff;text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rcard dd:empty::after{content:"—";color:var(--muted);font-weight:400}
-.rcard .pr{display:block;margin:10px;padding:9px 8px 10px;text-align:center;border-radius:5px;border-bottom:none;background:linear-gradient(180deg,rgba(53,232,140,.12),rgba(53,232,140,.04));border:2px solid rgba(53,232,140,.5);box-shadow:0 0 12px rgba(53,232,140,.26)}
-.rcard .pr dt{display:block;font-size:9.5px;font-weight:900;letter-spacing:.16em;color:var(--buy-n)}
+.rcard .pr{display:block;margin:10px;padding:9px 8px 10px;text-align:center;border-radius:5px;border-bottom:none;background:linear-gradient(180deg,rgba(57,210,255,.13),rgba(57,210,255,.04));border:2px solid rgba(57,210,255,.55);box-shadow:0 0 12px rgba(57,210,255,.28)}
+.rcard .pr dt{display:block;font-size:9.5px;font-weight:900;letter-spacing:.16em;color:var(--cyan)}
 .rcard .pr dd{display:flex;align-items:baseline;justify-content:center;gap:5px;margin-top:3px;white-space:normal;flex-wrap:wrap;overflow:visible}
 .rcard .pr s{font-size:11.5px;font-weight:500;color:#7D96B5}
-.rcard .pr .ar{font-style:normal;font-size:13px;font-weight:900;color:var(--buy-n)}
-.rcard .pr b{font-size:18px;font-weight:900;color:var(--buy-n);text-shadow:0 0 12px rgba(53,232,140,.6)}
+.rcard .pr .ar{font-style:normal;font-size:13px;font-weight:900;color:var(--cyan)}
+.rcard .pr b{font-size:18px;font-weight:900;color:var(--cyan);text-shadow:0 0 12px rgba(57,210,255,.65)}
 .rcard .bar{margin-top:7px;height:4px;border-radius:999px;background:rgba(143,176,209,.22);overflow:hidden}
-.rcard .bar i{display:block;height:100%;width:100%;border-radius:999px;background:var(--buy-n);box-shadow:0 0 8px var(--buy-n)}
-.rcard .up{display:block;margin-top:6px;font-size:10px;font-weight:900;color:var(--buy-n);letter-spacing:.03em}
+.rcard .bar i{display:block;height:100%;width:100%;border-radius:999px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.rcard .up{display:block;margin-top:6px;font-size:10px;font-weight:900;color:var(--cyan);letter-spacing:.03em}
 
 /* ---------- 9. 전문가 (회사소개) ---------- */
 .ecard{margin-top:20px;position:relative;border-radius:24px;padding:32px 22px 30px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(18,51,110,.6),rgba(6,20,48,.72));overflow:hidden}
@@ -483,11 +483,11 @@ details.caution .body b{color:var(--warn)}
   </div>
 </section>
 
-<!-- ================= 8. 차량 판매 현황 ================= -->
+<!-- ================= 8. 차량 매입 현황 ================= -->
 <section class="reviews sec" id="reviews">
   <div class="wrap head reveal">
-    <p class="eyebrow">판매후기</p>
-    <h2 class="t">차량 판매 현황</h2>
+    <p class="eyebrow">매입후기</p>
+    <h2 class="t">차량 매입 현황</h2>
     <p class="sub">사진과 차종 · 연식 · 견적가</p>
   </div>
   <div class="wrap"><div class="marquee" id="reviewMarquee"><div class="track" id="reviewTrack"></div></div></div>
@@ -574,7 +574,7 @@ details.caution .body b{color:var(--warn)}
 
 <script>
 /* =========================================================
-   차량 판매 현황 데이터 — 여기만 고치면 됩니다.
+   차량 매입 현황 데이터 — 여기만 고치면 됩니다.
    img: 사진 파일 경로 (예: 'reviews/01.jpg'), 비우면 '사진' 자리로 표시
    ========================================================= */
 var REVIEWS = [
@@ -628,7 +628,7 @@ var REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: re
   window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
 })();
 
-/* ---------- 5. 차량 판매 현황 카드 ---------- */
+/* ---------- 5. 차량 매입 현황 카드 ---------- */
 (function(){
   var track=document.getElementById('reviewTrack'),mq=document.getElementById('reviewMarquee');if(!track)return;
   var cam='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg>';
@@ -637,9 +637,9 @@ var REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: re
   function price(r){var p=esc(r.price);if(!r.was)return '<b>'+p+'</b>';return '<s>'+esc(r.was)+'</s><i class="ar">\u203A</i><b>'+p+'</b>';}
   function up(r){var a=num(r.was),b=num(r.price);if(a===null||b===null||b<=a)return '';return '<span class="up">\u2191 '+(b-a).toLocaleString()+'\uB9CC\uC6D0 \uB354 \uC9C0\uAE09</span>';}
   function card(r,i){var n=('0'+(i+1)).slice(-2);
-    return '<article class="rcard" aria-label="판매 차량 '+(i+1)+'">'
+    return '<article class="rcard" aria-label="매입 차량 '+(i+1)+'">'
       +'<div class="hd"><span class="id">NO.'+n+'</span><span class="ok">매입완료</span></div>'
-      +'<div class="ph">'+(r.img?'<img src="'+esc(r.img)+'" alt="판매 차량 사진 '+(i+1)+'" loading="lazy">':'<div class="empty">'+cam+'<span>사진 '+(i+1)+'</span></div>')
+      +'<div class="ph">'+(r.img?'<img src="'+esc(r.img)+'" alt="매입 차량 사진 '+(i+1)+'" loading="lazy">':'<div class="empty">'+cam+'<span>사진 '+(i+1)+'</span></div>')
       +'<span class="br"></span><span class="br"></span><span class="br"></span><span class="br"></span></div>'
       +'<dl><div><dt>차종</dt><dd>'+esc(r.model)+'</dd></div><div><dt>연식</dt><dd>'+esc(r.year)+'</dd></div></dl>'
       +'<div class="pr"><dt>견적가</dt><dd>'+price(r)+'</dd><div class="bar"><i></i></div>'+up(r)+'</div>'
