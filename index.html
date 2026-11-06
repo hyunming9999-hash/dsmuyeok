@@ -24,6 +24,7 @@
   --sea-900:#050F26; --sea-800:#081A3F; --sea-700:#0C2556; --sea-600:#12336E;
   --cyan:#39D2FF; --cyan-2:#1EA7E6; --ice:#CFEFFF; --fg:#F2F8FF; --muted:#8FB0D1;
   --paper:#FFFFFF; --paper-2:#F3F8FD; --ink:#0B1E3F; --ink-2:#44587A; --navy:#0B2347; --sky:#1E88D6; --sky-hl:#C1E9FB; --edge:#CFE2F3;
+  --buy:#0E9F56; --buy-n:#35E88C;
   --warn:#FFD54A; --warn-bg:#FFF6D6;
   --line:rgba(57,210,255,.28); --line-2:rgba(57,210,255,.14);
   --glow-s:0 0 10px rgba(57,210,255,.55);
@@ -206,20 +207,42 @@ h1,h2,h3,h4{margin:0}
 .sbox .warn{display:inline-block;margin-top:6px;padding:2px 10px;border-radius:6px;background:var(--warn);color:var(--ink);font-weight:700}
 
 /* ---------- 8. 차량 판매 현황 (왼쪽으로 계속 흐름) ---------- */
-.marquee{margin-top:20px;overflow:hidden;--cw:calc((min(100vw,560px) - 32px) * .47);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
-.track{display:flex;gap:12px;width:max-content;animation:slide 40s linear infinite}
-.marquee.paused .track,.marquee:hover .track{animation-play-state:paused}
-@keyframes slide{to{transform:translateX(calc(-50% - 6px))}}
-.rcard{flex:0 0 var(--cw);width:var(--cw);border-radius:18px;border:2.5px solid #A9C4DE;background:var(--paper);color:var(--ink);overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.rcard .ph{aspect-ratio:4/3;background:var(--paper-2);display:grid;place-items:center;border-bottom:2px solid #C9DAEA;overflow:hidden}
-.rcard .ph img{width:100%;height:100%;object-fit:cover;display:block}
-.rcard .empty{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--ink-2);font-size:12px;font-weight:700}
-.rcard .empty svg{width:30px;height:30px;color:var(--sky)}
-.rcard dl{margin:0;padding:12px 12px 14px;display:grid;gap:6px;font-size:13.5px;text-align:left}
-.rcard dl div{display:flex;justify-content:flex-start;gap:6px;min-width:0}
-.rcard dt{color:var(--ink-2);flex:0 0 auto}
-.rcard dd{margin:0;color:var(--ink);font-weight:900;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rcard dd:empty::after{content:"—";color:#B8C6D8;font-weight:400}
+.marquee{margin-top:20px;overflow-x:auto;overflow-y:hidden;--cw:calc((min(100vw,560px) - 32px) * .47);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain;padding-bottom:2px}
+.marquee::-webkit-scrollbar{display:none}
+.marquee.grabbing{cursor:grabbing}
+.marquee.grabbing .rcard{pointer-events:none}
+.marquee.grabbing .rcard.lit{pointer-events:auto}
+.track{display:flex;gap:12px;width:max-content}
+.rcard{position:relative;flex:0 0 var(--cw);width:var(--cw);border-radius:6px;background:rgba(6,20,48,.94);border:2.5px solid rgba(57,210,255,.42);box-shadow:0 12px 28px rgba(0,0,0,.5),0 0 18px rgba(57,210,255,.18);overflow:hidden;transition:border-color .45s ease,box-shadow .45s ease}
+/* 만지는 동안 테두리에서 하늘색 네온이 은은하게 번집니다 */
+.rcard.lit,.rcard:hover{border-color:rgba(57,210,255,.95);box-shadow:0 12px 28px rgba(0,0,0,.5),0 0 10px rgba(57,210,255,.55),0 0 28px rgba(57,210,255,.4),inset 0 0 22px rgba(57,210,255,.14)}
+.rcard .hd{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 10px;background:rgba(57,210,255,.12);border-bottom:2px solid rgba(57,210,255,.3)}
+.rcard .hd .id{font-size:9.5px;font-weight:900;letter-spacing:.16em;color:var(--cyan)}
+.rcard .hd .ok{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;font-weight:900;color:var(--buy-n)}
+.rcard .hd .ok::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--buy-n);box-shadow:0 0 6px var(--buy-n)}
+.rcard .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:#071634;margin:9px 9px 0;border-radius:3px;border:1.5px solid rgba(57,210,255,.22);display:grid;place-items:center}
+.rcard .ph img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.rcard .ph .br{position:absolute;width:13px;height:13px;border:2px solid var(--cyan);opacity:.9}
+.rcard .ph .br:nth-of-type(1){top:5px;left:5px;border-right:0;border-bottom:0}
+.rcard .ph .br:nth-of-type(2){top:5px;right:5px;border-left:0;border-bottom:0}
+.rcard .ph .br:nth-of-type(3){bottom:5px;left:5px;border-right:0;border-top:0}
+.rcard .ph .br:nth-of-type(4){bottom:5px;right:5px;border-left:0;border-top:0}
+.rcard .empty{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:12px;font-weight:700}
+.rcard .empty svg{width:30px;height:30px;color:var(--cyan)}
+.rcard dl{margin:10px 10px 0;display:grid;gap:5px;font-size:12px;text-align:left}
+.rcard dl div{display:flex;justify-content:space-between;align-items:baseline;gap:7px;min-width:0;padding-bottom:5px;border-bottom:1px dotted rgba(143,176,209,.32)}
+.rcard dt{color:var(--muted);font-weight:700;letter-spacing:.06em;font-size:10px;flex:0 0 auto}
+.rcard dd{margin:0;font-weight:900;color:#fff;text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rcard dd:empty::after{content:"—";color:var(--muted);font-weight:400}
+.rcard .pr{display:block;margin:10px;padding:9px 8px 10px;text-align:center;border-radius:5px;border-bottom:none;background:linear-gradient(180deg,rgba(53,232,140,.12),rgba(53,232,140,.04));border:2px solid rgba(53,232,140,.5);box-shadow:0 0 12px rgba(53,232,140,.26)}
+.rcard .pr dt{display:block;font-size:9.5px;font-weight:900;letter-spacing:.16em;color:var(--buy-n)}
+.rcard .pr dd{display:flex;align-items:baseline;justify-content:center;gap:5px;margin-top:3px;white-space:normal;flex-wrap:wrap;overflow:visible}
+.rcard .pr s{font-size:11.5px;font-weight:500;color:#7D96B5}
+.rcard .pr .ar{font-style:normal;font-size:13px;font-weight:900;color:var(--buy-n)}
+.rcard .pr b{font-size:18px;font-weight:900;color:var(--buy-n);text-shadow:0 0 12px rgba(53,232,140,.6)}
+.rcard .bar{margin-top:7px;height:4px;border-radius:999px;background:rgba(143,176,209,.22);overflow:hidden}
+.rcard .bar i{display:block;height:100%;width:100%;border-radius:999px;background:var(--buy-n);box-shadow:0 0 8px var(--buy-n)}
+.rcard .up{display:block;margin-top:6px;font-size:10px;font-weight:900;color:var(--buy-n);letter-spacing:.03em}
 
 /* ---------- 9. 전문가 (회사소개) ---------- */
 .ecard{margin-top:20px;position:relative;border-radius:24px;padding:32px 22px 30px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(18,51,110,.6),rgba(6,20,48,.72));overflow:hidden}
@@ -287,6 +310,8 @@ details.caution .body b{color:var(--warn)}
 </style>
 </head>
 <body>
+
+
 <div class="page">
 
 <!-- ================= 1. 히어로 ================= -->
@@ -538,12 +563,11 @@ details.caution .body b{color:var(--warn)}
    img: 사진 파일 경로 (예: 'reviews/01.jpg'), 비우면 '사진' 자리로 표시
    ========================================================= */
 var REVIEWS = [
-  { img: '', model: '', year: '', price: '' },
-  { img: '', model: '', year: '', price: '' },
-  { img: '', model: '', year: '', price: '' },
-  { img: '', model: '', year: '', price: '' },
-  { img: '', model: '', year: '', price: '' },
-  { img: '', model: '', year: '', price: '' }
+  { img: 'media/reviews/05.jpg', model: '코나',           year: '2023년식', was: '2,000만원', price: '2,150만원' },
+  { img: 'media/reviews/01.jpg', model: '싼타페 TM',      year: '2021년식', was: '1,700만원', price: '1,820만원' },
+  { img: 'media/reviews/04.jpg', model: '그랜드 스타렉스', year: '2013년식', was: '600만원',   price: '740만원' },
+  { img: 'media/reviews/03.jpg', model: '그랜저 HG',      year: '2013년식', was: '530만원',   price: '630만원' },
+  { img: 'media/reviews/02.jpg', model: '크루즈',         year: '2013년식', was: '130만원',   price: '280만원' }
 ];
 
 var REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -594,10 +618,53 @@ var REDUCE = window.matchMedia && window.matchMedia('(prefers-reduced-motion: re
   var track=document.getElementById('reviewTrack'),mq=document.getElementById('reviewMarquee');if(!track)return;
   var cam='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3"/></svg>';
   function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  function card(r,i){return '<article class="rcard" aria-label="판매 차량 '+(i+1)+'"><div class="ph">'+(r.img?'<img src="'+esc(r.img)+'" alt="판매 차량 사진 '+(i+1)+'" loading="lazy">':'<div class="empty">'+cam+'<span>사진 '+(i+1)+'</span></div>')+'</div><dl><div><dt>차종:</dt><dd>'+esc(r.model)+'</dd></div><div><dt>연식:</dt><dd>'+esc(r.year)+'</dd></div><div><dt>견적가:</dt><dd>'+esc(r.price)+'</dd></div></dl></article>';}
+  function num(v){var m=String(v||'').replace(/[^0-9]/g,'');return m?parseInt(m,10):null;}
+  function price(r){var p=esc(r.price);if(!r.was)return '<b>'+p+'</b>';return '<s>'+esc(r.was)+'</s><i class="ar">\u203A</i><b>'+p+'</b>';}
+  function up(r){var a=num(r.was),b=num(r.price);if(a===null||b===null||b<=a)return '';return '<span class="up">\u2191 '+(b-a).toLocaleString()+'\uB9CC\uC6D0 \uB354 \uC9C0\uAE09</span>';}
+  function card(r,i){var n=('0'+(i+1)).slice(-2);
+    return '<article class="rcard" aria-label="판매 차량 '+(i+1)+'">'
+      +'<div class="hd"><span class="id">NO.'+n+'</span><span class="ok">매입완료</span></div>'
+      +'<div class="ph">'+(r.img?'<img src="'+esc(r.img)+'" alt="판매 차량 사진 '+(i+1)+'" loading="lazy">':'<div class="empty">'+cam+'<span>사진 '+(i+1)+'</span></div>')
+      +'<span class="br"></span><span class="br"></span><span class="br"></span><span class="br"></span></div>'
+      +'<dl><div><dt>차종</dt><dd>'+esc(r.model)+'</dd></div><div><dt>연식</dt><dd>'+esc(r.year)+'</dd></div></dl>'
+      +'<div class="pr"><dt>견적가</dt><dd>'+price(r)+'</dd><div class="bar"><i></i></div>'+up(r)+'</div>'
+      +'</article>';}
   var html=REVIEWS.map(card).join('');track.innerHTML=html+html;
-  mq.addEventListener('pointerdown',function(){mq.classList.add('paused');});
-  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){mq.addEventListener(ev,function(){mq.classList.remove('paused');});});
+
+  /* 무한 루프: 절반 지점을 넘어가면 스크롤 위치를 조용히 되돌립니다 */
+  function half(){return track.scrollWidth/2;}
+  function wrap(){var h=half();if(!h)return;if(mq.scrollLeft>=h){mq.scrollLeft-=h;}else if(mq.scrollLeft<=0){mq.scrollLeft+=h;}}
+  mq.addEventListener('scroll',wrap,{passive:true});
+  requestAnimationFrame(function(){mq.scrollLeft=1;});
+
+  /* 손을 떼고 1.2초가 지나면 다시 천천히 흐릅니다 */
+  var idle=0,dragging=false;
+  function touch(){idle=Date.now();}
+  ['pointerdown','wheel','touchstart'].forEach(function(ev){mq.addEventListener(ev,touch,{passive:true});});
+  mq.addEventListener('scroll',touch,{passive:true});
+  (function tick(){
+    if(!REDUCE&&!dragging&&Date.now()-idle>1200){mq.scrollLeft+=0.45;wrap();}
+    requestAnimationFrame(tick);
+  })();
+
+  /* 만지는 카드만 테두리에 하늘색 네온 */
+  function unlit(){[].slice.call(track.querySelectorAll('.rcard.lit')).forEach(function(c){c.classList.remove('lit');});}
+  mq.addEventListener('pointerdown',function(e){var c=e.target.closest&&e.target.closest('.rcard');unlit();if(c)c.classList.add('lit');});
+  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){mq.addEventListener(ev,function(){setTimeout(unlit,420);});});
+
+  /* 마우스로도 잡아끌 수 있게 (터치는 브라우저 기본 관성 스크롤을 그대로 씁니다) */
+  var sx=0,sl=0;
+  mq.addEventListener('pointerdown',function(e){
+    if(e.pointerType==='touch')return;
+    dragging=true;sx=e.clientX;sl=mq.scrollLeft;mq.classList.add('grabbing');
+    try{mq.setPointerCapture(e.pointerId);}catch(_){}
+  });
+  mq.addEventListener('pointermove',function(e){
+    if(!dragging)return;e.preventDefault();mq.scrollLeft=sl-(e.clientX-sx);
+  });
+  ['pointerup','pointercancel'].forEach(function(ev){mq.addEventListener(ev,function(){
+    if(!dragging)return;dragging=false;idle=Date.now();mq.classList.remove('grabbing');
+  });});
 })();
 
 /* ---------- 6. 오시는길: 주소 복사 ---------- */
@@ -677,5 +744,6 @@ document.getElementById('applyForm').addEventListener('submit',function(e){e.pre
   }).catch(fail);
 });
 </script>
+
 </body>
 </html>
